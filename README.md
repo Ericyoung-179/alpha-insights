@@ -66,11 +66,16 @@ MECE | Issue Tree | Hypothesis-Driven | Pyramid Principle | Triangulation | Pre-
 
 ### Install
 
-```bash
-# Clone the repo
-git clone https://github.com/Ericyoung-183/alpha-insights.git
+**Option A — via AntCC Skill installer (recommended for Ant internal users)**:
 
-# Copy to Claude Code Skills directory
+```bash
+tnpx @antskill/agentic-installer @antskill/alpha-insights
+```
+
+**Option B — via Git**:
+
+```bash
+git clone https://github.com/Ericyoung-183/alpha-insights.git
 cp -r alpha-insights ~/.claude/Skills/
 ```
 
