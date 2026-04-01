@@ -21,11 +21,22 @@ Alpha Insights is a professional business analysis AI assistant for [Claude Code
 | No source tracing | **Evidence chain** — every conclusion tagged with source & confidence |
 | Single data source | **Multi-track parallel** search with triangulation |
 | One-shot output | **Interactive iteration** — progressively deeper insights |
+| Skips steps silently | **Harness-enforced** — script-based gates, not just prompt instructions |
 
 **Core Value**:
 - **L1 Efficiency Replace**: Save 60%+ desk research time
 - **L2 Capability Surpass**: Methodology-driven output on par with senior analysts
 - **L3 Experience Compound**: Every research compounds into knowledge assets
+
+### V2: Harness Engineering
+
+Prompt instructions are probabilistic — AI tends to skip steps as context fills up. V2 invests in the **execution environment** instead of just prompts:
+
+- **State machine** — tracks research stage, tier, loaded frameworks, interview status
+- **6-stage gate validators** — auto-check deliverables before advancing (PASS/FAIL/WARN)
+- **Hook automation** — HTML write guard, context budget alerts, auto gate checks
+- **Context budget** — monitors token usage, auto-compresses completed stages when needed
+- **Quality dashboard** — one-screen overview of all quality metrics before report generation
 
 ---
 
@@ -126,27 +137,38 @@ The SKILL files (`resources/research_engine.md`, `resources/data_sources.md`) co
 
 ```
 alpha-insights/
-├── SKILL.md              # Main file (workflow orchestration)
+├── SKILL.md              # Main file (workflow orchestration, V2.0)
+├── CHANGELOG.md          # Version history
 ├── README.md             # This file
 ├── frameworks/           # 19 analysis frameworks
+│   ├── _index.md         # Framework routing table
 │   ├── 3a_8steps_strategy.md
 │   ├── porters_five_forces.md
-│   ├── swot.md
 │   └── ...
 ├── methodology/          # 9 methodologies
 │   ├── mece.md
 │   ├── hypothesis_driven.md
-│   ├── triangulation.md
 │   └── ...
-├── resources/            # Data sources, research engine, judgment rules
+├── resources/            # Execution resources (Stage 3-5 input)
 │   ├── data_sources.md
 │   ├── research_engine.md
 │   ├── judgment_rules.md
+│   ├── quality_review.md # Independent Quality Review (IQR)
 │   └── anti_patterns.md
-├── references/           # Report standards & templates
+├── references/           # Report standards (Stage 6-7 output)
 │   ├── report_standards.md
 │   └── report_template.html
-└── scripts/              # Data source scripts
+└── scripts/
+    ├── report_helper.py  # ReportBuilder for HTML generation
+    ├── harness/          # V2 Harness Engineering
+    │   ├── state_manager.py
+    │   ├── stage_gate.py
+    │   ├── context_budget.py
+    │   ├── compress_stage.py
+    │   ├── dashboard.py
+    │   ├── resume_check.py
+    │   ├── validators/   # 6-stage gate validators
+    │   └── hooks/        # 4 automation hooks
     └── xhs/              # Xiaohongshu (RedNote) scripts
 ```
 

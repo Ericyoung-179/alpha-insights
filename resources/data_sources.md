@@ -46,9 +46,53 @@
 - 必须区分「团队选择做 X」（💡 观点）和「X 的市场规模是 Y」（📊 事实）
 - 示例：语雀文档写「只做平台模式」→ 标注为 💡 内部观点，需分析：为什么选平台模式？有无替代路径？风险是什么？
 
+### ⛔ 禁止行为
+
+❌ 仅依赖 Google 搜索的泛结果，不追溯原始来源
+❌ 使用单一来源的核心数据而不标注验证程度
+❌ 将企业自述数据（官网/公关稿）当作事实在报告中呈现
+❌ 使用 D 级数据支撑关键结论
+❌ 数据矛盾时不解释、不处理
+
 ---
 
-## 核心数据源清单
+## ⚡ 数据路由表（Stage 4 快速决策用）
+
+> **用法**：Stage 4 开始时，按研究需求逐行匹配，确定该用哪个工具、查什么、查不到怎么办。
+> 这张表是决策树，不是百科全书——命中即停，不需要全部扫描。
+
+| 数据需求 | 首选工具 | 查询模板 | 回退方案 |
+|---------|---------|---------|---------|
+| **宏观经济数据**（GDP/CPI/人口/投资） | GoogleSearch | `{指标} {年份} site:stats.gov.cn` | `{指标} 国家统计局 {年份}` → Wind 万得 |
+| **行业市场规模** | GoogleSearch | `{行业} 市场规模 {年份} 亿元` + 限定可信域名 | 慧博搜券商研报 → Statista |
+| **竞品公司数据**（财报/融资/产品） | searchJumps | 直接抓取 cninfo.com.cn / SEC EDGAR 站内搜索页 | GoogleSearch `{公司名} 年报 {年份}` → 企查查/天眼查 |
+| **用户行为/App 数据** | GoogleSearch | `{App名} MAU DAU QuestMobile {年份}` | 七麦数据 → SimilarWeb |
+| **政策法规** | GoogleSearch | `{关键词} site:gov.cn` | 北大法宝 → LegalSearch MCP |
+| **消费者洞察/用户原声** | 小红书脚本 | `scripts/xhs/check_topics.js --keywords "{关键词}"` | GoogleSearch `{产品} 评测 小红书` |
+| **内部数据/业务文档** | 语雀搜索 | `skylark_search(q="{关键词}")` | 直接询问用户 |
+| **结构化业务数据** | ODPS SQL | `search_tables("{关键词}")` → `execute_sql(...)` | 降级为公开数据估算 |
+| **专家观点/深度信息** | 访谈（Track C） | Stage 3.5 生成提纲 → 用户执行 | 行业 KOL 公开发言 → 券商电话会纪要 |
+| **国际市场数据** | GoogleSearch | `{industry} market size {year} report` | Statista → World Bank → OECD |
+| **⚠️ 数据不存在** | — | 上述路径均无结果时 | Bottom-up 估算（拆分变量逐项推导）→ 标注为 C 级 + 注明估算方法 |
+
+### 工具可用性判断
+
+```
+如果 MCP 工具可用:
+  GoogleSearch → mcp__InternetSearch__GoogleSearch
+  网页抓取   → mcp__InternetSearch__searchJumps (优先，带缓存)
+             → mcp__InternetFetch__fetch (备用)
+  语雀搜索   → mcp__Yuque__skylark_search
+  ODPS       → mcp__DataAnalyzer__execute_sql
+  小红书     → 本地 scripts/xhs/ 脚本
+
+如果工具不可用:
+  告知用户具体缺失 → 建议用户手动获取 → 降级标注为 C/D 级
+```
+
+---
+
+## 外部公开数据源
 
 ### 一、中国政府官方数据（P0 级）
 
@@ -68,7 +112,7 @@
 | 数据源 | 网址 | 特色领域 | 使用场景 |
 |--------|------|---------|---------|
 | **艾瑞咨询** | https://report.iresearch.cn/ | 互联网、新经济、消费 | 互联网行业、新商业模式 |
-| **易观分析** | https://www.analysys.cn/ | 数字用户分析、产业数字化 | 用户画像、数字化转型 |
+| **易观分析（含易观千帆）** | https://www.analysys.cn/ | 数字用户分析、产业数字化、App 活跃用户/使用时长 | 用户画像、数字化转型、竞品分析 |
 | **头豹研究院** | https://www.leadleo.com/ | 新兴行业、细分赛道 | 新兴行业快速扫描 |
 | **CIC 灼识咨询** | https://www.cninsights.com/ | 消费、医疗、TMT | 消费行业、医疗健康 |
 | **IDC 中国** | https://www.idc.com/ | IT、云服务、数字化转型 | 企业软件、云计算、AI |
@@ -76,15 +120,19 @@
 
 ---
 
-### 三、券商研究报告平台（P1 级）
+### 三、券商研报、企业披露与工商数据平台（P1/P2/P3 级）
 
 | 数据源 | 网址 | 特点 | 使用场景 |
 |--------|------|------|---------|
 | **慧博投研资讯** | https://www.hibor.com.cn/ | 免费研报聚合平台 | 快速检索各行业深度报告 |
-| **洞见研报** | https://www.djyanbao.com/ | 研报下载、关键词检索 | 竞争分析、公司研究 |
-| **三个皮匠报告** | http://www.sgpjbg.com/ | 全行业研究报告分享 | 补充数据来源 |
+| **洞见研报** | https://www.djyanbao.com/ | 研报下载、关键词检索（⚠️ 非官方渠道，存在合规风险，仅作线索检索用） | 竞争分析线索、公司研究（引用需追溯原始研报来源） |
 | **东方财富 Choice** | https://data.eastmoney.com/ | 金融数据终端 | 上市公司财务数据、行业数据 |
 | **Wind 金融终端** | https://www.wind.com.cn/ | 权威金融数据（需订阅） | 深度金融分析（如有权限） |
+| **巨潮资讯网** | https://www.cninfo.com.cn/ | A 股上市公司公告/财报原文 | 公司研究、财务分析（P3 级企业披露） |
+| **SEC EDGAR** | https://www.sec.gov/cgi-bin/browse-edgar | 美股上市公司 Filing 原文 | 中概股/美股公司研究（P3 级企业披露） |
+| **企查查** | https://www.qcc.com/ | 企业工商信息、股权结构、融资历史、司法风险 | 竞品背景调查、股权穿透、风险排查（P2 级） |
+| **天眼查** | https://www.tianyancha.com/ | 企业工商信息、关联图谱、经营风险 | 竞品尽调、供应商/合作方背调（P2 级） |
+| **IT桔子** | https://www.itjuzi.com/ | 创投数据库、融资事件、并购记录 | 新兴赛道投融资分析、竞品融资轮次追踪（P2 级） |
 
 ---
 
@@ -95,20 +143,19 @@
 | **QuestMobile** | https://www.questmobile.com.cn/ | App 用户行为、DAU/MAU、使用时长 | 互联网产品分析、用户行为 |
 | **极光大数据** | https://www.jiguang.cn/ | 移动开发者数据、用户画像 | App 用户分析、行业趋势 |
 | **TalkingData** | https://www.talkingdata.com/ | 移动数据监测、用户洞察 | 用户行为分析、营销效果 |
-| **易观千帆** | https://www.analysys.cn/ | App 活跃用户、使用时长 | 竞品分析、用户粘性 |
 
 ---
 
-### 五、国际权威数据源（P1 级，用于全球视角）
+### 五、国际权威数据源（P1/P2 级，用于全球视角）
 
 | 数据源 | 网址 | 覆盖范围 | 使用场景 |
 |--------|------|---------|---------|
-| **Statista** | https://www.statista.com/ | 全球统计数据、市场预测 | 国际对标、全球市场 |
-| **IBISWorld** | https://www.ibisworld.com/ | 全球行业报告、市场研究 | 行业进入评估、国际对标 |
-| **Euromonitor** | https://www.euromonitor.com/ | 消费市场、零售数据 | 消费品、零售行业 |
-| **McKinsey Insights** | https://www.mckinsey.com/featured-insights | 全球商业洞察 | 战略趋势、行业前瞻 |
-| **BCG Insights** | https://www.bcg.com/publications | 战略咨询洞察 | 战略方向、创新模式 |
-| **Bain Insights** | https://www.bain.com/insights/ | 私募、并购、战略 | 并购整合、战略转型 |
+| **Statista** | https://www.statista.com/ | 全球统计数据、市场预测 | 国际对标、全球市场（P1 📊） |
+| **IBISWorld** | https://www.ibisworld.com/ | 全球行业报告、市场研究 | 行业进入评估、国际对标（P1 📊） |
+| **Euromonitor** | https://www.euromonitor.com/ | 消费市场、零售数据 | 消费品、零售行业（P1 📊） |
+| **McKinsey Insights** | https://www.mckinsey.com/featured-insights | 思想领导力文章，非结构化数据 | 战略视角参考、趋势定性判断（P2 💡，禁止作为定量数据源） |
+| **BCG Insights** | https://www.bcg.com/publications | 思想领导力文章，非结构化数据 | 战略框架参考、创新模式启发（P2 💡，禁止作为定量数据源） |
+| **Bain Insights** | https://www.bain.com/insights/ | 思想领导力文章，非结构化数据 | 并购/战略视角参考（P2 💡，禁止作为定量数据源） |
 
 ---
 
@@ -117,9 +164,7 @@
 | 数据源 | 网址 | 特色领域 | 使用场景 |
 |--------|------|---------|---------|
 | **阿里研究院** | https://www.aliresearch.com/ | 电商、数字经济、中小企业 | 电商、平台经济、产业带 |
-| **腾讯研究院** | https://www.tencent.com/zh-cn/insights.html | 互联网 +、AI、数字内容 | 数字内容、AI 应用 |
-| **百度研究院** | https://research.baidu.com/ | AI 技术、自动驾驶 | AI 技术趋势、自动驾驶 |
-| **华为研究院** | https://www.huawei.com/cn/research | 通信技术、ICT | 5G、通信、ICT 基础设施 |
+| **腾讯研究院** | https://tisi.org/ | 互联网 +、AI、数字内容 | 数字内容、AI 应用 |
 
 ---
 
@@ -129,6 +174,7 @@
 |--------|------|---------|
 | **中国银行业协会** | 银行业 | 银行业数据、行业规范 |
 | **中国保险行业协会** | 保险业 | 保险业统计、产品数据 |
+| **国家金融监督管理总局** | 金融监管 | 银行/保险/非银监管数据（原银保监会，2023 年重组） |
 | **中国支付清算协会** | 支付行业 | 支付交易数据、行业报告 |
 | **中国互联网协会** | 互联网行业 | 行业发展报告、自律规范 |
 | **中国连锁经营协会** | 零售业 | 连锁零售数据、消费趋势 |
@@ -157,7 +203,7 @@
 必选组合：
 1. 国家统计局（社零数据、消费宏观）
 2. CIC 灼识咨询（消费行业报告）
-3. 券商消费行业研报（慧博/洞见检索）
+3. 券商消费行业研报（慧博检索）
 
 可选补充：
 - Euromonitor（国际对标）
@@ -170,7 +216,7 @@
 必选组合：
 1. 中国人民银行（官方金融数据）
 2. 中国支付清算协会（支付数据）
-3. 银保监会/银行业协会（银行业数据）
+3. 国家金融监管总局/银行业协会（银行业数据）
 4. 券商金融行业研报
 
 可选补充：
@@ -187,7 +233,7 @@
 3. 券商 TMT 行业研报
 
 可选补充：
-- 百度/腾讯/阿里研究院（AI/云数据）
+- 腾讯/阿里研究院（AI/云数据）
 - Statista（全球对标）
 ```
 
@@ -206,15 +252,7 @@
 
 ---
 
-## 禁止行为
-
-❌ 仅依赖 Google 搜索的泛结果，不追溯原始来源
-❌ 使用单一来源的核心数据而不标注验证程度
-❌ 将企业自述数据（官网/公关稿）当作事实在报告中呈现
-❌ 使用 D 级数据支撑关键结论
-❌ 数据矛盾时不解释、不处理
-
----
+## 内部特色数据源
 
 ### 八、语雀知识库搜索（特色数据源 ★）
 

@@ -11,9 +11,10 @@ const { callTikHubAPI } = require('./tikhub_client');
  * 标准化笔记数据
  *
  * 兼容多种 API 响应格式：
- * - app_v2/search_notes: { model_type, note: { id, title, liked_count, ... } }
- * - app/get_note_info:   data.data[0].note_list[0] → { id, title, liked_count, ... }
- * - app/get_user_notes:  data.data.notes[i] → { note_card: {...}, ... } 或扁平结构
+ * - web/search_notes_v3: { model_type, note: { id, title, liked_count, ... } }
+ * - web/search_notes:    { model_type, note: { id, title, liked_count, ... } }
+ * - web_v2/fetch_search_notes: { model_type, note: { id, title, liked_count, ... } }
+ * 注：app_v2/app 系列端点已被小红书反爬封禁（2026-04），不再使用
  */
 function normalizeNote(item) {
   // 搜索结果: item.note 包装；笔记详情/用户笔记: item.note_card 或直接扁平
@@ -29,7 +30,9 @@ function normalizeNote(item) {
   const shareCount = parseInt(note.shared_count ?? interact.share_count ?? 0) || 0;
 
   // 时间：优先 timestamp / time（秒级 unix），fallback last_update_time
-  const ts = note.timestamp || note.time || note.last_update_time || 0;
+  // 时间安全转换：web 端点可能返回字符串，Number() 兜底防 toISOString crash
+  const tsRaw = note.timestamp || note.time || note.last_update_time || 0;
+  const ts = Number(tsRaw) || 0;
 
   return {
     noteId,
@@ -47,24 +50,20 @@ function normalizeNote(item) {
   };
 }
 
-// 搜索端点优先级：app_v2 > app > web_v2
-// 注意：部分"可选"参数实际必传，否则返回 400
+// 搜索端点优先级：web_v3 > web > web_v2（app_v2/app 系列已被小红书反爬封禁，2026-04）
 const SEARCH_ENDPOINTS = [
   {
-    endpoint: '/api/v1/xiaohongshu/app_v2/search_notes',
+    endpoint: '/api/v1/xiaohongshu/web/search_notes_v3',
     buildParams: (kw, sort, page = 1) => ({
       keyword: kw, page: page,
-      sort_type: sort || 'general',
-      note_type: '不限', time_filter: '不限',
-      source: 'explore_feed', ai_mode: 0,
+      sort: sort || 'general',
     }),
   },
   {
-    endpoint: '/api/v1/xiaohongshu/app/search_notes',
+    endpoint: '/api/v1/xiaohongshu/web/search_notes',
     buildParams: (kw, sort, page = 1) => ({
       keyword: kw, page: page,
-      sort_type: sort || 'general',
-      filter_note_type: '不限', filter_note_time: '不限',
+      sort: sort || 'general',
     }),
   },
   {

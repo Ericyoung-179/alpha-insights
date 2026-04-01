@@ -29,6 +29,7 @@ function extractNoteId(url) {
 /**
  * 通过分享链接解析 note_id
  */
+// 端点优先级：web > app（app 系列已被小红书反爬封禁，2026-04，仅作兜底）
 const RESOLVE_ENDPOINTS = [
   { endpoint: '/api/v1/xiaohongshu/web/get_note_id_and_xsec_token', paramKey: 'share_text' },
   { endpoint: '/api/v1/xiaohongshu/app/extract_share_info', paramKey: 'share_text' },
@@ -48,10 +49,11 @@ async function resolveNoteId(shareUrl, apiKey) {
   return null;
 }
 
+// 端点优先级：web > app_v2 > app（app_v2/app 系列已被小红书反爬封禁，2026-04，仅作兜底）
 const NOTE_DETAIL_ENDPOINTS = [
-  '/api/v1/xiaohongshu/app/get_note_info',
-  '/api/v1/xiaohongshu/app_v2/get_mixed_note_detail',
   '/api/v1/xiaohongshu/web/get_note_info_v7',
+  '/api/v1/xiaohongshu/app_v2/get_mixed_note_detail',
+  '/api/v1/xiaohongshu/app/get_note_info',
 ];
 
 async function getNoteDetail(noteId, apiKey) {
@@ -96,7 +98,9 @@ async function getNoteDetail(noteId, apiKey) {
 
   const user = noteData.user || topUser;
   const interact = noteData.interact_info || {};
-  const ts = noteData.timestamp || noteData.time || noteData.last_update_time || 0;
+  // 时间安全转换：web 端点可能返回字符串，Number() 兜底防 toISOString crash
+  const tsRaw = noteData.timestamp || noteData.time || noteData.last_update_time || 0;
+  const ts = Number(tsRaw) || 0;
 
   return {
     noteId,

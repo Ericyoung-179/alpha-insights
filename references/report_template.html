@@ -834,5 +834,19 @@
     <button class="print-btn" onclick="window.print()">打印 / 导出 PDF</button>
   </div>
 
+  <!-- 图表渲染 Fallback：检测空白图表并显示提示 -->
+  <script>
+    window.addEventListener('load', function() {
+      document.querySelectorAll('.chart-container [id^="chart"]').forEach(function(el) {
+        var instance = echarts.getInstanceByDom(el);
+        if (!instance) {
+          el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;min-height:200px;color:#94a3b8;font-size:14px;border:2px dashed #e2e8f0;border-radius:8px;padding:20px;text-align:center;">'
+            + '<div>⚠️ 图表未能渲染<br><span style="font-size:12px;color:#cbd5e1;">可能原因：数据加载异常。请检查报告生成日志或联系研究员。</span></div>'
+            + '</div>';
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

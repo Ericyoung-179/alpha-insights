@@ -44,7 +44,7 @@ async function scanByKeywords(keywords, sinceTs, apiKey) {
   for (let i = 0; i < keywords.length; i++) {
     const keyword = keywords[i];
     try {
-      const results = await searchNotes(keyword, 'time_descending', apiKey);
+      const results = await searchNotes(keyword, 'time_descending', 1, apiKey);
       for (const note of results) {
         if (seenIds.has(note.noteId)) continue;
         seenIds.add(note.noteId);

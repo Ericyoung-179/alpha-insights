@@ -62,14 +62,31 @@
 ```
 第 X 章：[章节标题]
 
-X.1 核心发现（1 段）
-X.2 数据支撑（图表 + 数据）
-X.3 So What 分析（含义解读）
-X.4 与我们的关系（上下文锚定）
+X.1 核心发现（1 段结论先行）
+X.2 数据支撑（图表 + 核心指标）
+X.3 维度拆解（向下展开 ≥1 层子维度）
+X.4 对比锚定（≥1 组参照系）
+X.5 So What 分析（含义解读，≥2 层推导）
+X.6 与我们的关系（上下文锚定）
 ```
+
+**X.3 维度拆解（防止"只给总数不展开"）**:
+- 市场规模 → 按细分市场/区域/客群拆解
+- 竞争格局 → 按玩家/市场层级/商业模式拆解
+- 用户行为 → 按场景/频次/付费意愿拆解
+- **档位要求**: Tier 1 可省略 | Tier 2 ≥1 个维度 | Tier 3 ≥2 个维度
+
+**X.4 对比锚定（防止"只有绝对数字没有参照"）**:
+- 时间对比：同比/环比/CAGR
+- 竞品对比：与主要竞争对手的指标对比
+- 行业对比：与行业均值/标杆企业对比
+- 跨市场对比：成熟市场 vs 新兴市场，国际 vs 国内
+- **档位要求**: Tier 1 可省略 | Tier 2 ≥1 组对比 | Tier 3 ≥2 组对比
 
 **写作标准**:
 - 每章聚焦一个子问题
+- 每章都有维度拆解（不只给一个总数）
+- 每章都有对比锚定（不只给绝对值）
 - 每章都有明确的 So What
 - 每章都回答"与我们的关系"
 
@@ -156,14 +173,16 @@ X.4 与我们的关系（上下文锚定）
 
 ---
 
-## 章节自检 5 项
+## 章节自检 7 项
 
 每章生成后必须自检：
 
 - [ ] **相关性**：是否直接支撑核心研究问题？
 - [ ] **证据**：是否有数据/证据支撑？
-- [ ] **So What**：是否有清晰的含义解读？
-- [ ] **反模式**：是否避免了反模式（见 anti_patterns.md）？
+- [ ] **维度拆解**：是否向下展开了至少 1 层子维度？（不能只给总数就停）
+- [ ] **对比锚定**：是否有至少 1 组参照系？（同比/竞品/行业均值/跨市场）
+- [ ] **So What**：是否有清晰的含义解读？（≥2 层推导，不能只说"市场在增长"）
+- [ ] **反模式扫描**：逐段检查是否命中 `anti_patterns.md` 的 10 种反模式——命中则立即重写该段
 - [ ] **上下文锚定**：是否回答了"与我们的关系"？
 
 ---
@@ -262,33 +281,52 @@ X.4 与我们的关系（上下文锚定）
 | 产业链/流向 | 桑基图 | `sankey` |
 | 趋势+对比 | 双轴图（bar+line） | `bar` + `line` |
 
-**⚠️ 生成方法（强制使用 Python）**：
+**⚠️ 生成方法（强制使用 Python + 分步生成）**：
 
-报告 HTML 必须通过 **Python 脚本** 写入文件。ECharts 配置中的 `data` 键通过变量拼接生成，避免模型输出过滤：
+报告 HTML 必须通过 **Python 脚本** 写入文件。**推荐使用 `ReportBuilder` 分步生成**：
 
 ```python
-# Python f-string 模式（唯一正确方式）
-dk = "dat" + "a"
+# ━━━ 推荐方式：ReportBuilder 分步生成 ━━━
+# 每步一个 Bash 调用，每步只添加 1-2 章
+import sys, os; sys.path.insert(0, 'scripts')
+from report_helper import ReportBuilder
 
-echarts_js = f'''
-var c1 = echarts.init(document.getElementById('chart1'));
-c1.setOption({{
-  tooltip: {{ trigger: 'axis' }},
-  legend: {{ {dk}: ['系列A', '系列B'], bottom: 0 }},
-  xAxis: {{ type: 'category', {dk}: ['2023', '2024', '2025E'] }},
-  yAxis: {{ type: 'value', name: '亿元' }},
-  series: [
-    {{ name: '系列A', type: 'bar', {dk}: [100, 200, 300], itemStyle: {{ color: '#2563eb' }} }}
-  ]
-}});
-'''
+# Step 1: 初始化（确定 workspace 绝对路径）
+ws = os.path.join(os.getcwd(), 'workspace', '{project}')
+os.makedirs(ws, exist_ok=True)
+b = ReportBuilder("报告标题", "副标题")
+b.set_toc_conclusion("核心结论")
+b.save_state("/tmp/rpt.json")
 
-# 组装完整 HTML 后写入
-with open('report.html', 'w', encoding='utf-8') as f:
-    f.write(full_html)
+# Step 2-N: 逐章添加（每步一个 Bash 调用）
+b = ReportBuilder.load_state("/tmp/rpt.json")
+b.add_chapter(1, "Executive Summary", "<h2>核心结论</h2><p>...</p>")
+b.add_chart("chart1", {
+    "xAxis": {"type": "category", "values": ["2023", "2024", "2025E"]},
+    "series": [{"type": "bar", "values": [100, 200, 300]}]
+})
+b.save_state("/tmp/rpt.json")
+
+# 最后一步: 组装（使用绝对路径）
+ws = os.path.join(os.getcwd(), 'workspace', '{project}')
+b = ReportBuilder.load_state("/tmp/rpt.json")
+b.build(os.path.join(ws, 'report.html'))
 ```
 
-> **为什么不能用 Write 工具？** (1) 大 HTML 文件在上下文紧张时 content 参数会丢失；(2) 模型输出层会过滤 `data:` + 数组的模式（误判为 data URI），导致 ECharts 图表空白。
+> **关键**：图表配置中所有 ECharts 需要的 `data` 键，在 Python dict 中写为 `"values"`。脚本的 `_to_js()` 在序列化为 JS 时自动映射 `"values"` → `"data"`，从代码层面杜绝过滤问题。
+> **ReportBuilder 自动生成**：封面/目录/章节头/尾页/ECharts JS 初始化。模型只需输出章节内容 HTML + 图表 option。
+
+**备选方式**（ReportBuilder 不可用时回退到原始 `build_report()`）：
+
+```python
+import sys, os; sys.path.insert(0, 'scripts')
+from report_helper import build_report
+ws = os.path.join(os.getcwd(), 'workspace', '{project}')
+body = '<div class="page cover-page">...</div>'
+build_report(body=body, charts=[...], title="标题", output=os.path.join(ws, 'report.html'))
+```
+
+> **为什么不能用 Write 工具？** (1) 大 HTML 文件在上下文紧张时 content 参数会丢失；(2) 模型输出层会过滤 `` + 数组的模式（误判为 data URI），导致 ECharts 图表空白；(3) 一次性生成 Tier 3 报告需 15-25K tokens，极易超时。
 
 **设计规范**：
 - 配色统一：主色 `#2563eb`，辅助色 `#f59e0b` `#10b981` `#ef4444`
@@ -299,6 +337,37 @@ with open('report.html', 'w', encoding='utf-8') as f:
 **与 CSS 布局组件的分工**：
 - **ECharts**：所有数据可视化（趋势、对比、分布、定位、雷达等）
 - **CSS 组件**：布局元素（数据卡片网格、高亮框、策略卡片、洞察卡片、表格）
+
+### 🚨 图表生成后自检（Python 脚本内执行）
+
+报告 HTML 写入文件后，**必须在同一个 Python 脚本中**执行以下自检：
+
+```python
+import re
+
+with open('report.html', 'r', encoding='utf-8') as f:
+    html = f.read()
+
+# 检查 1: ECharts 初始化数量
+init_count = len(re.findall(r'echarts\.init', html))
+
+# 检查 2: data 关键字数量（每个 echarts.init 至少对应 1 个 data）
+data_count = len(re.findall(r'\bdata\s*:', html))
+
+# 检查 3: 空数组检测（data: [] 说明数据没填入）
+empty_data = len(re.findall(r'\bdata\s*:\s*\[\s*\]', html))
+
+print(f"[图表自检] ECharts 实例: {init_count}, data 键: {data_count}, 空数组: {empty_data}")
+
+if data_count < init_count:
+    print(f"⚠️ 警告: data 键数量({data_count}) < ECharts 实例数({init_count})，可能有图表数据被过滤！")
+if empty_data > 0:
+    print(f"⚠️ 警告: 发现 {empty_data} 个空数组，图表将无数据渲染！")
+if data_count >= init_count and empty_data == 0:
+    print("✅ 图表数据完整性检查通过")
+```
+
+> 如果自检报 ⚠️，**必须停下来修复后再交付**。不要忽略警告继续。
 
 ---
 

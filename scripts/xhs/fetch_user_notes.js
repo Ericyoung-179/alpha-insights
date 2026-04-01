@@ -8,10 +8,11 @@ const { parseArgs } = require('node:util');
 const { callTikHubAPI, sleep, DEFAULT_REQUEST_INTERVAL_MS } = require('./tikhub_client');
 const { normalizeNote } = require('./search_notes');
 
+// 端点优先级：web > app_v2 > app（app_v2/app 系列已被小红书反爬封禁，2026-04，仅作兜底）
 const USER_NOTES_ENDPOINTS = [
-  '/api/v1/xiaohongshu/app/get_user_notes',
-  '/api/v1/xiaohongshu/app_v2/get_user_posted_notes',
   '/api/v1/xiaohongshu/web/get_user_notes_v2',
+  '/api/v1/xiaohongshu/app_v2/get_user_posted_notes',
+  '/api/v1/xiaohongshu/app/get_user_notes',
 ];
 
 async function fetchUserNotes(userId, count, apiKey) {
@@ -20,7 +21,7 @@ async function fetchUserNotes(userId, count, apiKey) {
     try {
       const data = await callTikHubAPI(endpoint, { user_id: userId }, apiKey);
       if (data.detail?.code && data.detail.code >= 400) continue;
-      // 响应结构：data.data.notes (app) 或 data.data.data.notes 或 data.data.items (app_v2)
+      // 响应结构：data.data.notes (web/app) 或 data.data.data.notes 或 data.data.items (app_v2)
       const inner = data.data?.data || data.data || {};
       const items = inner.notes || inner.items || data.data?.notes || data.data?.items || [];
       return items.slice(0, count).map(item => {
