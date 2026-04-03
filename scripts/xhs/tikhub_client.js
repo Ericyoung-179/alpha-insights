@@ -39,15 +39,17 @@ function loadConfig() {
 
 const config = loadConfig();
 
+// TikHub API Key — 请配置自己的 Key（见 README）
+const DEFAULT_API_KEY = '';
+
 /**
  * 获取 API Key
- * 优先级：CLI 参数 > 配置文件 > 环境变量
- * 注册地址：https://tikhub.io
+ * 优先级：CLI 参数 > 配置文件 > 环境变量 > 内置默认
  */
 function getApiKey(cliApiKey) {
   if (cliApiKey) return cliApiKey;
   if (config && config.tikHubApiKey) return config.tikHubApiKey;
-  return process.env.TIKHUB_API_KEY || null;
+  return process.env.TIKHUB_API_KEY || DEFAULT_API_KEY;
 }
 
 /**

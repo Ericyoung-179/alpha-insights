@@ -59,35 +59,39 @@
 ## ⚡ 数据路由表（Stage 4 快速决策用）
 
 > **用法**：Stage 4 开始时，按研究需求逐行匹配，确定该用哪个工具、查什么、查不到怎么办。
-> 这张表是决策树，不是百科全书——命中即停，不需要全部扫描。
+> **多源覆盖原则**：对同一数据需求，不要查到一个来源就停——按下方「按议题的数据源组合策略」尽可能覆盖多个独立来源，交叉验证后再确定采信。回退方案不是"备胎"，而是"第二视角"。
 
-| 数据需求 | 首选工具 | 查询模板 | 回退方案 |
+| 数据需求 | 首选能力 | 查询模板 | 回退方案 |
 |---------|---------|---------|---------|
-| **宏观经济数据**（GDP/CPI/人口/投资） | GoogleSearch | `{指标} {年份} site:stats.gov.cn` | `{指标} 国家统计局 {年份}` → Wind 万得 |
-| **行业市场规模** | GoogleSearch | `{行业} 市场规模 {年份} 亿元` + 限定可信域名 | 慧博搜券商研报 → Statista |
-| **竞品公司数据**（财报/融资/产品） | searchJumps | 直接抓取 cninfo.com.cn / SEC EDGAR 站内搜索页 | GoogleSearch `{公司名} 年报 {年份}` → 企查查/天眼查 |
-| **用户行为/App 数据** | GoogleSearch | `{App名} MAU DAU QuestMobile {年份}` | 七麦数据 → SimilarWeb |
-| **政策法规** | GoogleSearch | `{关键词} site:gov.cn` | 北大法宝 → LegalSearch MCP |
-| **消费者洞察/用户原声** | 小红书脚本 | `scripts/xhs/check_topics.js --keywords "{关键词}"` | GoogleSearch `{产品} 评测 小红书` |
-| **内部数据/业务文档** | 语雀搜索 | `skylark_search(q="{关键词}")` | 直接询问用户 |
-| **结构化业务数据** | ODPS SQL | `search_tables("{关键词}")` → `execute_sql(...)` | 降级为公开数据估算 |
+| **宏观经济数据**（GDP/CPI/人口/投资） | 搜索引擎 | `{指标} {年份} site:stats.gov.cn` | `{指标} 国家统计局 {年份}` → Wind 万得 |
+| **行业市场规模** | 搜索引擎 | `{行业} 市场规模 {年份} 亿元` + 限定可信域名 | 慧博搜券商研报 → Statista |
+| **竞品公司数据**（财报/融资/产品） | 网页抓取 | 直接抓取 cninfo.com.cn / SEC EDGAR 站内搜索页 | 搜索引擎 `{公司名} 年报 {年份}` → 企查查/天眼查 |
+| **用户行为/App 数据** | 搜索引擎 | `{App名} MAU DAU QuestMobile {年份}` | 七麦数据 → SimilarWeb |
+| **政策法规** | 搜索引擎 | `{关键词} site:gov.cn` | 北大法宝 → LegalSearch MCP |
+| **消费者洞察/用户原声** | 小红书脚本 | `scripts/xhs/check_topics.js --keywords "{关键词}"` | 搜索引擎 `{产品} 评测 小红书` |
+| **内部数据/业务文档** | 知识库搜索 | 按用户配置的知识库 MCP 搜索 | 直接询问用户 |
+| **结构化业务数据** | 数据库查询 | 按用户配置的数据库 MCP 查询 | 降级为公开数据估算 |
 | **专家观点/深度信息** | 访谈（Track C） | Stage 3.5 生成提纲 → 用户执行 | 行业 KOL 公开发言 → 券商电话会纪要 |
-| **国际市场数据** | GoogleSearch | `{industry} market size {year} report` | Statista → World Bank → OECD |
+| **国际市场数据** | 搜索引擎 | `{industry} market size {year} report` | Statista → World Bank → OECD |
 | **⚠️ 数据不存在** | — | 上述路径均无结果时 | Bottom-up 估算（拆分变量逐项推导）→ 标注为 C 级 + 注明估算方法 |
 
 ### 工具可用性判断
 
-```
-如果 MCP 工具可用:
-  GoogleSearch → mcp__InternetSearch__GoogleSearch
-  网页抓取   → mcp__InternetSearch__searchJumps (优先，带缓存)
-             → mcp__InternetFetch__fetch (备用)
-  语雀搜索   → mcp__Yuque__skylark_search
-  ODPS       → mcp__DataAnalyzer__execute_sql
-  小红书     → 本地 scripts/xhs/ 脚本
+> AI 应根据当前环境自动检测可用工具。下表列出每种能力的**常见工具名**（仅作示例，实际名称因环境而异）。
 
-如果工具不可用:
-  告知用户具体缺失 → 建议用户手动获取 → 降级标注为 C/D 级
+| 能力 | 常见工具示例 | 说明 |
+|------|------------|------|
+| **搜索引擎** | WebSearch、GoogleSearch MCP、Tavily MCP 等 | 优先使用环境中可用的搜索工具 |
+| **网页抓取** | WebFetch、网页抓取 MCP（带缓存优先）| 获取搜索结果页或指定 URL 内容 |
+| **知识库搜索** | 语雀 MCP、Notion MCP、Confluence MCP 等 | 按用户配置的知识库工具搜索 |
+| **数据库查询** | ODPS MCP、BigQuery MCP、Snowflake MCP 等 | 按用户配置的数据库工具查询 |
+| **小红书** | 本地 `scripts/xhs/` 脚本 | TikHub API，开箱即用 |
+
+```
+判断逻辑：
+1. 检测当前环境中可用的工具列表
+2. 按上表匹配能力 → 使用对应工具执行
+3. 如果某能力无可用工具 → 告知用户具体缺失 → 建议用户手动获取 → 降级标注为 C/D 级
 ```
 
 ---
