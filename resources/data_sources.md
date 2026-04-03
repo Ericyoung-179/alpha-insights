@@ -258,16 +258,19 @@
 
 ## 内部特色数据源
 
-### 八、语雀知识库搜索（特色数据源 ★）
+### 八、知识库搜索（特色数据源 ★）
 
-> **定位**：搜索用户语雀文档库中的历史研究报告、行业笔记、方法论沉淀
+> **定位**：搜索用户知识库（语雀、Notion、Confluence 等）中的历史研究报告、行业笔记、方法论沉淀
+>
+> **前提**：需要用户配置了知识库 MCP 工具
 
-| 工具 | 功能 | 使用场景 |
+**所需能力**（AI 根据环境自动匹配可用工具）：
+
+| 能力 | 说明 | 使用场景 |
 |------|------|---------|
-| **skylark_search** | 关键词搜索语雀文档 | 快速检索历史研究、行业笔记 |
-| **skylark_user_doc_detail** | 获取文档正文内容 | 深入阅读特定文档 |
-| **skylark_user_book_list** | 获取知识库列表 | 浏览可用知识库 |
-| **skylark_user_doc_list** | 获取知识库下的文档列表 | 按知识库浏览文档 |
+| **关键词搜索** | 在知识库中搜索文档 | 快速检索历史研究、行业笔记 |
+| **文档详情** | 获取文档正文内容 | 深入阅读特定文档 |
+| **知识库浏览** | 列出知识库或文档列表 | 按知识库浏览文档 |
 
 **使用时机**：
 - Stage 3 预扫描：快速了解是否有相关历史研究
@@ -276,34 +279,34 @@
 
 **使用规则**：
 1. 优先搜索用户个人知识库，再搜索团队知识库
-2. 找到相关文档后，使用 `skylark_user_doc_detail` 获取完整内容
-3. 引用语雀内容时，标注来源：`📄 来源：语雀文档 - [文档标题]`
-4. 语雀内容作为内部视角，需与公开数据交叉验证
+2. 找到相关文档后，使用文档详情工具获取完整内容
+3. 引用知识库内容时，标注来源：`📄 来源：知识库文档 - [文档标题]`
+4. 知识库内容作为内部视角，需与公开数据交叉验证
 
 **搜索策略**：
 ```
-Step 1: 使用 skylark_search 搜索关键词
+Step 1: 使用知识库搜索工具搜索关键词
 Step 2: 根据搜索结果选择最相关文档
-Step 3: 使用 skylark_user_doc_detail 获取正文
+Step 3: 使用文档详情工具获取正文
 Step 4: 提取有用信息，标注来源
 ```
 
 ---
 
-### 九、ODPS 内部数据（特色数据源 ★）
+### 九、内部数据库（特色数据源 ★）
 
 > **定位**：公司内部业务数据、用户行为数据、交易记录等核心数据资产
 >
-> **权限要求**：需要有 ODPS 项目访问权限
+> **前提**：需要用户配置了数据库 MCP 工具（如 ODPS、BigQuery、Snowflake 等）并有相应访问权限
 
-| 工具 | 功能 | 使用场景 |
+**所需能力**（AI 根据环境自动匹配可用工具）：
+
+| 能力 | 说明 | 使用场景 |
 |------|------|---------|
-| **search_tables** | 根据自然语言描述搜索相关表 | 找到目标数据表 |
-| **get_table_detail** | 获取表详情（字段、描述、大小） | 了解表结构和数据内容 |
-| **execute_sql** | 执行 ODPS SQL 查询 | 提取具体数据 |
-| **column_search** | 搜索字段名 | 找到包含特定字段的表 |
-| **query_lineage** | 获取表的上游/下游血缘 | 了解数据来源和去向 |
-| **get_table_code** | 获取表的建表/插入代码 | 理解数据加工逻辑 |
+| **表搜索** | 根据自然语言描述搜索相关表 | 找到目标数据表 |
+| **表详情** | 获取表详情（字段、描述、大小） | 了解表结构和数据内容 |
+| **SQL 查询** | 执行 SQL 查询 | 提取具体数据 |
+| **字段搜索** | 搜索字段名 | 找到包含特定字段的表 |
 
 **使用时机**：
 - Stage 3 预扫描：快速了解是否有相关内部数据
@@ -313,21 +316,21 @@ Step 4: 提取有用信息，标注来源
 **执行流程**：
 ```
 Step 1: 表发现
-   - 使用 search_tables 搜索关键词（如"用户交易"、"商品明细"）
-   - 或使用 column_search 搜索字段名（如"user_id"、"gmv"）
+   - 使用表搜索工具搜索关键词（如"用户交易"、"商品明细"）
+   - 或使用字段搜索工具搜索字段名（如"user_id"、"gmv"）
 
 Step 2: 表理解
-   - 使用 get_table_detail 获取表详情
+   - 使用表详情工具获取表详情
    - 查看字段定义、表描述、数据量级
 
 Step 3: 数据提取
    - 编写 SQL 查询语句
-   - 使用 execute_sql 执行查询
+   - 使用 SQL 查询工具执行
    - 注意：只允许执行 SELECT 语句
 
 Step 4: 结果处理
-   - 解析返回的 CSV 格式数据
-   - 标注数据来源：📄 来源：ODPS - [表名] - [查询时间]
+   - 解析返回数据
+   - 标注数据来源：📄 来源：{数据库} - [表名] - [查询时间]
 ```
 
 **SQL 编写规范**：
@@ -337,7 +340,7 @@ SELECT
     user_id,
     SUM(gmv) AS total_gmv,
     COUNT(*) AS order_count
-FROM project_name.table_name
+FROM {project}.{table_name}
 WHERE dt = '2024-01-01'
     AND user_type = 'active'
 GROUP BY user_id
@@ -456,78 +459,81 @@ Step 3: 详情获取（如需深入）
 
 ---
 
-### 十一、用户原声数据（特色数据源 ★）
+### 十一、用户反馈数据（特色数据源 ★）
 
 > **定位**：用户真实反馈、体验问题、投诉痛点、满意度洞察
 >
-> **数据来源**：ODPS 表（通过 MCP execute_sql 查询）
+> **前提**：需要用户配置了数据库 MCP 工具，且有用户反馈/客服工单类数据表
 
-**核心数据表**：
+**所需能力**（AI 根据环境自动匹配可用工具）：
 
-| 项目 | 说明 |
-|------|------|
-| **表名** | `antcc.adm_crm_digital_life_wanqiu_all_detail_gov_di` |
-| **项目名** | `antcc_dev` |
-| **数据粒度** | 单条用户问题 |
-| **分区字段** | `dt`（格式 YYYYMMDD） |
-
-**核心字段**：
-
-| 字段 | 说明 | 分析价值 |
+| 能力 | 说明 | 使用场景 |
 |------|------|---------|
-| `first_level_name` | 一级类目（如"支付"、"会员服务"） | 问题大类分布 |
-| `second_level_name` | 二级类目（如"余额"、"扣款/自动扣款"） | 细分问题领域 |
-| `third_level_name` | 三级类目 | 具体问题场景 |
-| `forth_level_name` | 四级类目 | 最细粒度问题点 |
-| `question_name` | 问题全文（含用户问题 + 解决方案 + 用户态度） | 痛点挖掘、情感分析 |
-| `question_desc` | 问题描述 | 问题详情 |
-| `product` | 体验产品（如"支付"、"账户"） | 产品维度分析 |
-| `sub_product` | 体验子产品（如"余额"、"手机管理"） | 子产品维度分析 |
+| **表搜索** | 搜索用户反馈/客服相关数据表 | 找到目标表 |
+| **表详情** | 获取表结构和字段定义 | 理解数据口径 |
+| **SQL 查询** | 执行聚合/明细查询 | 提取反馈数据 |
+
+**典型表结构**（实际字段以用户环境为准）：
+
+| 字段类型 | 典型字段名 | 分析价值 |
+|---------|-----------|---------|
+| 问题分类（多级） | `category_l1`, `category_l2`, `category_l3` 等 | 问题分布、痛点聚类 |
+| 问题内容 | `question_text`, `feedback_content` 等 | 痛点挖掘、情感分析 |
+| 产品维度 | `product`, `sub_product` 等 | 产品维度分析 |
+| 时间分区 | `dt`, `create_date` 等 | 趋势变化分析 |
 
 **典型分析维度**：
 
 | 分析类型 | SQL 思路 | 产出 |
 |---------|---------|------|
-| **问题分布** | GROUP BY 一级/二级类目 + COUNT | 哪些品类问题最多 |
-| **痛点聚类** | GROUP BY 四级类目 + COUNT + ORDER BY DESC | TOP N 高频痛点 |
+| **问题分布** | GROUP BY 一级/二级分类 + COUNT | 哪些品类问题最多 |
+| **痛点聚类** | GROUP BY 最细分类 + COUNT + ORDER BY DESC | TOP N 高频痛点 |
 | **产品体验** | WHERE product = 'X' + GROUP BY sub_product | 特定产品的体验短板 |
-| **趋势变化** | GROUP BY dt + COUNT | 问题量随时间变化 |
-| **深度挖掘** | WHERE 类目条件 + question_name | 具体用户原话和态度 |
+| **趋势变化** | GROUP BY 日期 + COUNT | 问题量随时间变化 |
+| **深度挖掘** | WHERE 分类条件 + 问题内容字段 | 具体用户原话和态度 |
 
-**示例 SQL**：
+**示例 SQL**（字段名需替换为实际表字段）：
 
 ```sql
--- 问题分布：各一级类目问题量
-SELECT first_level_name AS 一级类目, COUNT(*) AS 问题数量
-FROM antcc.adm_crm_digital_life_wanqiu_all_detail_gov_di
-WHERE dt >= '20260101'
-GROUP BY first_level_name
-ORDER BY 问题数量 DESC
+-- 问题分布：各一级分类问题量
+SELECT category_l1, COUNT(*) AS cnt
+FROM {project}.{feedback_table}
+WHERE dt >= '{start_date}'
+GROUP BY category_l1
+ORDER BY cnt DESC
 LIMIT 20;
 
--- 痛点聚类：某类目下 TOP 高频问题
-SELECT forth_level_name AS 四级类目, COUNT(*) AS 问题数量
-FROM antcc.adm_crm_digital_life_wanqiu_all_detail_gov_di
-WHERE first_level_name = '(新) 支付'
-  AND dt >= '20260101'
-  AND forth_level_name IS NOT NULL
-GROUP BY forth_level_name
-ORDER BY 问题数量 DESC
+-- 痛点聚类：某分类下 TOP 高频问题
+SELECT category_l3, COUNT(*) AS cnt
+FROM {project}.{feedback_table}
+WHERE category_l1 = '{目标分类}'
+  AND dt >= '{start_date}'
+  AND category_l3 IS NOT NULL
+GROUP BY category_l3
+ORDER BY cnt DESC
 LIMIT 30;
 
 -- 用户原话：获取具体问题详情
-SELECT first_level_name, second_level_name, question_name, dt
-FROM antcc.adm_crm_digital_life_wanqiu_all_detail_gov_di
-WHERE first_level_name IN ('(新) 支付', '(新) 售后')
-  AND dt >= '20260101'
+SELECT category_l1, category_l2, feedback_content, dt
+FROM {project}.{feedback_table}
+WHERE category_l1 IN ('{分类1}', '{分类2}')
+  AND dt >= '{start_date}'
 LIMIT 100;
 ```
 
+**执行流程**：
+```
+Step 1: 使用表搜索工具搜索"用户反馈"、"客服工单"、"用户投诉"等关键词
+Step 2: 使用表详情工具查看字段定义，理解分类体系和数据口径
+Step 3: 根据实际字段编写 SQL，注意分区过滤和 LIMIT
+Step 4: 解析结果，标注来源
+```
+
 **注意事项**：
-1. **分区过滤必须**：dt 字段必须加条件，避免全表扫描
+1. **分区过滤必须**：日期分区字段必须加条件，避免全表扫描
 2. **LIMIT 必须**：默认 LIMIT 1000，深度分析可适当放大
-3. **类目前缀**：一级类目带"(新) "前缀，查询时注意匹配
-4. **question_name 结构**：包含【用户问题】+【解决方案】+【用户态度】三部分
+3. **字段适配**：不同公司的分类体系不同，先查表结构再写 SQL
+4. **内容字段**：用户反馈内容字段可能包含多部分结构（问题+方案+态度），注意解析
 
 **数据验证等级**：
 
@@ -551,11 +557,14 @@ LIMIT 100;
 
 ## 数据源接入状态
 
-> 所有特色数据源接入状态：
-> - [x] 语雀文档库搜索（已接入）
-> - [x] 公司内部 ODPS 数据源（已接入）
-> - [x] 小红书数据源（已接入）
-> - [x] 用户原声数据（已接入）
+> 特色数据源需用户自行配置对应 MCP 工具。AI 在 Stage 4 开始时自动检测可用工具，未配置的数据源自动跳过并告知用户。
+>
+> | 数据源 | 所需配置 | 状态 |
+> |--------|---------|------|
+> | 知识库搜索 | 语雀/Notion/Confluence MCP | 按环境检测 |
+> | 内部数据库 | ODPS/BigQuery/Snowflake MCP | 按环境检测 |
+> | 小红书数据 | 内置脚本（开箱即用） | ✅ 已内置 |
+> | 用户反馈数据 | 数据库 MCP + 反馈类数据表 | 按环境检测 |
 
 ---
 

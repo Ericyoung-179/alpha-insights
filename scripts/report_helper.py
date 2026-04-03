@@ -68,7 +68,7 @@ def _to_js(obj, indent=0):
         return str(obj)
     elif isinstance(obj, str):
         # 转义字符串中的特殊字符
-        escaped = obj.replace("\\", "\\\\").replace("'", "\\'").replace("\n", "\\n")
+        escaped = obj.replace("\\", "\\\\").replace("'", "\\'").replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t")
         return f"'{escaped}'"
     elif isinstance(obj, list):
         if not obj:

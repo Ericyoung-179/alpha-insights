@@ -16,7 +16,7 @@ import os
 # 让 validators 包可被导入
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from validators import stage1, stage2, stage3, stage4, stage5, stage6
+from validators import stage1, stage2, stage3, stage4, stage5, stage6, stage7
 
 
 VALIDATORS = {
@@ -26,6 +26,7 @@ VALIDATORS = {
     4: stage4.validate,
     5: stage5.validate,
     6: stage6.validate,
+    7: stage7.validate,
 }
 
 

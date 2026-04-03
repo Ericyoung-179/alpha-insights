@@ -22,8 +22,11 @@ def _load_state(workspace):
     path = os.path.join(workspace, "_state.json")
     if not os.path.exists(path):
         return None
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError):
+        return None
 
 
 def _read_file(workspace, filename):
@@ -149,9 +152,9 @@ def assess_stage5(workspace):
         secondary = [s for s in score_values if 16 <= s < 18]
         details.append(f"洞察 {len(score_values)} 个")
         if core:
-            details.append(f"核心洞察 {len(core)} 个（18-20 分）")
+            details.append(f"核心洞察 A 类 {len(core)} 个（18-20 分）")
         if secondary:
-            details.append(f"次要洞察 {len(secondary)} 个（16-17 分）")
+            details.append(f"核心洞察 B 类 {len(secondary)} 个（16-17 分）")
     else:
         details.append("⚠️ 未检测到评分")
 

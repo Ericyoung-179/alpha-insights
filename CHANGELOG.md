@@ -1,5 +1,38 @@
 # Changelog
 
+## V2.0.5 (2026-04-03)
+
+> **五层深度审计 + 全量修复**：对 75 文件执行 L-A 术语一致性 / L-B 框架结构一致性 / L-C 执行流模拟 / L-D 脚本健壮性 / L-E 缺失内容审计，共识别 42 项问题（8 HIGH + 27 MEDIUM + 7 LOW），全部修复。
+
+### 修复：执行可靠性
+
+- `state_manager.py` / `dashboard.py` — `_load_state()` 增加 `json.JSONDecodeError` 容错，损坏的 `_state.json` 不再导致流程崩溃
+- `report_helper.py` — `_to_js()` 字符串转义补充 `\r` / `\t`，修复含特殊字符的图表标签渲染异常
+- ReportBuilder 状态文件路径从 `/tmp/rpt_{project}.json` 改为 `{ws}/_rpt_state.json`，解决跨平台 + 重启后状态丢失
+
+### 修复：执行一致性
+
+- SKILL.md Stage 6 自检项数 5→7，与 `report_standards.md` 对齐
+- Track A+B 并行写入保护：Subagent 结果统一返回主 Session 写入 `evidence_base.md`
+- Agent/Subagent 不可用时的降级路径：主 Session 串行执行
+- 红蓝队 Subagent 增加 Agent 工具不可用时的 fallback 说明
+
+### 新增：交付物模板 & 边缘情况
+
+- SKILL.md 补充 `user_brief.md` / `research_definition.md` 结构模板，Stage 1-2 交付物格式可追溯
+- 边缘情况表新增 5 条：用户否决全部洞察、中途换议题、`_state.json` 损坏恢复、Agent 不可用降级、Bash 不可用降级
+- `judgment_rules.md` 四维评分表补 3 分锚点（具体性/独特性/可执行性/影响力）
+- `judgment_rules.md` Step 2 用户否决洞察回退机制
+- `research_engine.md` 空结果处理规则（扩展关键词重试 → 标注证据缺口）
+
+### 修复：内容补全
+
+- `methodology/mece.md` 补「输出格式」章节，与其他方法论文件结构对齐
+- `report_standards.md` 补洞察分级说明（A 类 18-20 分 / B 类 16-17 分），与 Stage 5 `insights.md` 对齐
+- `research_engine.md` 修复「知识库搜索搜索」重复词 typo
+
+---
+
 ## V2.0 (2026-04-01)
 
 > **核心升级理念**：Harness Engineering — 不过度投资 prompt，投资执行环境。通过脚本验证 + 状态机 + Hook 自动化 + 上下文压缩，从外部约束执行质量，把"AI 应该做"变成"系统保证做"。

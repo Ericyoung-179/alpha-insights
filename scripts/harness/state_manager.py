@@ -53,8 +53,12 @@ def _load_state(workspace):
     path = _state_path(workspace)
     if not os.path.exists(path):
         return None
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError) as e:
+        print(json.dumps({"warning": f"_state.json 读取失败: {e}，视为不存在"}, ensure_ascii=False), file=sys.stderr)
+        return None
 
 
 def _save_state(workspace, state):

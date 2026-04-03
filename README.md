@@ -132,9 +132,9 @@ Alpha Insights will automatically:
 
 > Unconfigured data sources are automatically skipped — core functionality is not affected.
 
-#### ODPS / Internal Data Setup
+#### Internal Data Setup
 
-The SKILL files (`resources/research_engine.md`, `resources/data_sources.md`) contain ODPS table names and SQL examples from a specific deployment. **You need to replace them with your own table names and fields.** Search for `odps.` or `antcc.` to locate all references.
+SQL examples in SKILL files use `{project}.{table_name}` placeholders. Once you configure a database MCP tool, the AI will automatically discover available tables via the table search capability — no manual replacement needed.
 
 ---
 
