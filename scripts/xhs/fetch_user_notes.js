@@ -8,7 +8,7 @@ const { parseArgs } = require('node:util');
 const { callTikHubAPI, sleep, DEFAULT_REQUEST_INTERVAL_MS } = require('./tikhub_client');
 const { normalizeNote } = require('./search_notes');
 
-// 端点优先级：web > app_v2 > app（app_v2/app 系列已被小红书反爬封禁，2026-04，仅作兜底）
+// 端点 fallback 列表（可用性随时变化，保持完整）
 const USER_NOTES_ENDPOINTS = [
   '/api/v1/xiaohongshu/web/get_user_notes_v2',
   '/api/v1/xiaohongshu/app_v2/get_user_posted_notes',

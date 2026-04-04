@@ -29,7 +29,7 @@ function extractNoteId(url) {
 /**
  * 通过分享链接解析 note_id
  */
-// 端点优先级：web > app（app 系列已被小红书反爬封禁，2026-04，仅作兜底）
+// 端点 fallback 列表（可用性随时变化，保持完整）
 const RESOLVE_ENDPOINTS = [
   { endpoint: '/api/v1/xiaohongshu/web/get_note_id_and_xsec_token', paramKey: 'share_text' },
   { endpoint: '/api/v1/xiaohongshu/app/extract_share_info', paramKey: 'share_text' },
@@ -49,7 +49,7 @@ async function resolveNoteId(shareUrl, apiKey) {
   return null;
 }
 
-// 端点优先级：web > app_v2 > app（app_v2/app 系列已被小红书反爬封禁，2026-04，仅作兜底）
+// 端点 fallback 列表（可用性随时变化，保持完整）
 const NOTE_DETAIL_ENDPOINTS = [
   '/api/v1/xiaohongshu/web/get_note_info_v7',
   '/api/v1/xiaohongshu/app_v2/get_mixed_note_detail',

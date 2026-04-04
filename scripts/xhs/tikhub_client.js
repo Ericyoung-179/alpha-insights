@@ -39,7 +39,7 @@ function loadConfig() {
 
 const config = loadConfig();
 
-// 部门公共 API Key（TikHub），用户无需单独申请
+// TikHub API Key — 用户需自行配置（环境变量 TIKHUB_API_KEY 或配置文件）
 const DEFAULT_API_KEY = null;
 
 /**

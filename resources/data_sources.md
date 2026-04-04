@@ -370,7 +370,7 @@ SELECT * FROM huge_table;
 
 > **定位**：消费者舆情、产品反馈、趋势洞察、品牌口碑
 >
-> **数据来源**：TikHub API（需配置 API Key，详见 `~/.alpha_insights.json`）
+> **数据来源**：TikHub API（需配置 API Key，详见环境变量 `TIKHUB_API_KEY`）
 
 **脚本位置**：`scripts/xhs/`
 

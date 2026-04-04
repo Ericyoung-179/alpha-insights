@@ -10,11 +10,12 @@ const { callTikHubAPI } = require('./tikhub_client');
 /**
  * 标准化笔记数据
  *
- * 兼容多种 API 响应格式：
+ * 兼容多种 API 响应格式（web/app 系列端点均支持）：
  * - web/search_notes_v3: { model_type, note: { id, title, liked_count, ... } }
  * - web/search_notes:    { model_type, note: { id, title, liked_count, ... } }
  * - web_v2/fetch_search_notes: { model_type, note: { id, title, liked_count, ... } }
- * 注：app_v2/app 系列端点已被小红书反爬封禁（2026-04），不再使用
+ * - app/search_notes:    { model_type, note: { id, desc, collected_count, ... } }
+ * 注：端点可用性随 TikHub/小红书反爬策略变化，fallback 列表应保持完整
  */
 function normalizeNote(item) {
   // 搜索结果: item.note 包装；笔记详情/用户笔记: item.note_card 或直接扁平
@@ -50,7 +51,7 @@ function normalizeNote(item) {
   };
 }
 
-// 搜索端点优先级：web_v3 > web > web_v2（app_v2/app 系列已被小红书反爬封禁，2026-04）
+// 搜索端点 fallback 列表（端点可用性随时变化，保持完整列表让代码自动 fallback）
 const SEARCH_ENDPOINTS = [
   {
     endpoint: '/api/v1/xiaohongshu/web/search_notes_v3',
@@ -72,6 +73,13 @@ const SEARCH_ENDPOINTS = [
       keywords: kw, page: page,
       sort_type: sort || 'general',
       note_type: '0',
+    }),
+  },
+  {
+    endpoint: '/api/v1/xiaohongshu/app/search_notes',
+    buildParams: (kw, sort, page = 1) => ({
+      keyword: kw, page: page,
+      sort: sort || 'general',
     }),
   },
 ];

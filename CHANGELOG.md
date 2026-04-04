@@ -1,5 +1,16 @@
 # Changelog
 
+## V2.0.11 (2026-04-05)
+
+> **XHS 端点 fallback 修复** — 小红书搜索恢复可用。
+
+### XHS 脚本端点修复
+- `search_notes.js`：补全 `app/search_notes` 端点到 fallback 列表，修复搜索返回空值
+- 全部 4 个 XHS 脚本：删除"已被封禁"时效性注释，端点可用性随时变化，保持完整 fallback 列表自动适应
+- 根因：上次修复错误判断"app 被反爬封禁"并移除 app 端点，实际是 web 端点失效、app 端点可用
+
+---
+
 ## V2.0.10 (2026-04-04)
 
 > **Stage 1 澄清提问优化** — 禁止在 Briefing 阶段询问研究维度，研究维度由 Stage 2 框架驱动自动生成。
@@ -41,7 +52,7 @@
 
 ### git-publish 裁剪规则首次全量执行（8 条）
 - A1-A4：API Key 移除、使用记录删除、知识库引用清理、内部安装段删除
-- B5-B8：知识库 MCP 泛化、知识库搜索删除、知识库→共享文档/通知→通知、知识库泛化
+- B5-B8：知识库 MCP 泛化、知识库搜索删除、知识库→共享文档/通知泛化、知识库引用统一
 
 ---
 
@@ -61,7 +72,7 @@
 - `ReportBuilder`：新增 `author` 参数（默认 "Alpha Insights Research"），替代硬编码
 
 ### GitHub 裁剪规则扩展（2 → 8 条）
-- 新增：CHANGELOG 知识库引用 / README 内部安装段 / interview.md 知识库/通知泛化 / data_sources 知识库泛化 / SKILL.md 知识库搜索
+- 新增：CHANGELOG 知识库引用 / README 内部安装段 / interview.md 泛化 / data_sources 知识库 / SKILL.md 知识库搜索
 
 ---
 
