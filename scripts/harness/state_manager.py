@@ -25,6 +25,7 @@ STAGE_NAMES = {
     1: "Briefing",
     2: "Framing",
     3: "Planning",
+    3.5: "Interview",
     4: "Research",
     5: "Insights",
     6: "Report",
@@ -242,7 +243,9 @@ def main():
         stage = None
         for i, arg in enumerate(sys.argv):
             if arg == "--stage" and i + 1 < len(sys.argv):
-                stage = int(sys.argv[i + 1])
+                stage = float(sys.argv[i + 1])
+                if stage == int(stage):
+                    stage = int(stage)  # 保持整数阶段为 int（1, 2, ...）
         if stage is None:
             print("错误: advance 需要 --stage N 参数")
             sys.exit(1)

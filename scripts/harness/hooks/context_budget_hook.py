@@ -52,6 +52,7 @@ def main():
         compress_stages = result.get("compress_stages", [])
         stages_str = ", ".join(str(s) for s in compress_stages)
         json.dump({
+            "decision": "allow",
             "message": (
                 f"⚠️ Context 预算已用 {pct}%，建议尽快压缩 Stage {stages_str} 的产物。\n"
                 f"当前总 token 估算: {result.get('estimated_tokens', 0):,} / "

@@ -1,5 +1,26 @@
 # Changelog
 
+## V2.0.8 (2026-04-04)
+
+> **协议合规 & 状态机修复** — 第六轮 10 项质量检查，修复 Hook 协议、状态机 Stage 3.5、版本号、文档同步。
+
+### Hook 协议合规
+- `context_budget_hook.py`、`stage_gate_hook.py`：输出补 `"decision": "allow"` 字段，符合 Claude Code Hook 规范
+
+### 状态机 Stage 3.5 支持
+- `state_manager.py`：STAGE_NAMES 补 `3.5: "Interview"`，`advance --stage` 解析从 `int()` 改为 `float()`，支持 Stage 3→3.5→4 完整路径
+
+### 版本号 & 文档同步
+- SKILL.md 版本号从 V2.0.6 修正为 V2.0.8
+- README_zh.md 目录树重写，补全 V2 Harness 子系统（harness/、report_helper、validators/、hooks/）
+- B 级证据置信度标签统一为 ⚠️ 中等置信度（对齐 triangulation.md 权威定义）
+
+### git-publish 裁剪规则首次全量执行（8 条）
+- A1-A4：API Key 移除、使用记录删除、语雀引用清理、AntCC 安装段删除
+- B5-B8：Yuque MCP 泛化、语雀搜索删除、语雀→共享文档/钉钉→通知、语雀→知识库
+
+---
+
 ## V2.0.7 (2026-04-04)
 
 > **终极审计** — 6 轮 41 项检查，深入正则逻辑、状态机边界、报告管线集成、公开仓库信息安全。
@@ -16,7 +37,7 @@
 - `ReportBuilder`：新增 `author` 参数（默认 "Alpha Insights Research"），替代硬编码
 
 ### GitHub 裁剪规则扩展（2 → 8 条）
-- 新增：CHANGELOG 内部引用 / README 内部安装段 / interview.md 内部工具 / data_sources 内部引用 / SKILL.md 内部搜索
+- 新增：内部工具引用泛化、敏感信息移除等裁剪规则
 
 ---
 
@@ -146,6 +167,7 @@ SKILL.md frontmatter 声明 4 个 Hook，平台自动执行：
 
 - `resources/research_engine.md` — Track 标签统一修正（A→G），执行顺序明确
 - XHS 脚本端点迁移（`check_topics.js`、`search_notes.js`、`get_note.js`）
+- 知识库搜索集成（支持 Yuque / Notion / Confluence MCP）
 
 ### 改进：洞察质量
 

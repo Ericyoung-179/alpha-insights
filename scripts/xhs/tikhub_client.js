@@ -39,8 +39,8 @@ function loadConfig() {
 
 const config = loadConfig();
 
-// 部门公共 API Key（TikHub），用户无需单独申请
-const DEFAULT_API_KEY = null; // Set your own TikHub API key via --api-key, ~/.alpha_insights.json, or TIKHUB_API_KEY env var;
+// 请配置自己的 TikHub API Key（见 README 说明）
+const DEFAULT_API_KEY = null;
 
 /**
  * 获取 API Key

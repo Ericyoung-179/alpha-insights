@@ -85,7 +85,7 @@ def main():
         for w in warnings:
             lines.append(f"  ⚠️ {w}")
 
-    json.dump({"message": "\n".join(lines)}, sys.stdout, ensure_ascii=False)
+    json.dump({"decision": "allow", "message": "\n".join(lines)}, sys.stdout, ensure_ascii=False)
 
 
 if __name__ == "__main__":
@@ -95,6 +95,7 @@ if __name__ == "__main__":
         # Fail open + transparent: don't block, but warn that gate didn't run
         try:
             json.dump({
+                "decision": "allow",
                 "message": f"⚠️ Stage 门控脚本异常（{type(e).__name__}: {e}），本次门控未执行。请手动检查门控条件表。"
             }, sys.stdout, ensure_ascii=False)
         except Exception:
