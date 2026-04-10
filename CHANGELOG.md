@@ -1,5 +1,35 @@
 # Changelog
 
+## V3.0.0 (2026-04-10)
+
+> **V3 架构升级 — 单源构建 + 质量保障体系重整 + Context 管理简化**
+
+### 单源架构 (V3-01)
+- 新增 `build.sh` 单源构建脚本，9 条裁剪规则全自动化（A1-A4 敏感移除 + B5-B8 内部泛化）
+- 一次构建产出 GitHub / tnpm / Skill Center 三个目标
+- README API Key 描述裁剪（中英文，A1b 规则）
+
+### 质量保障体系通盘重整 (V2-23)
+- 新增「质量保障体系」段落：设计原则 + 7 审查角色工具箱 + 各 Stage 风险驱动质量配置表 + 失败处理 + 冲突处理原则
+- 新增 Stage 3 假设自检（4 条标准：可证伪/有锐度/覆盖完整/可验证）
+- 门控条件表补全 IQR BLOCK 条件（2→3, 4→5, 6→7）+ 访谈决策条件（3→4）
+- judgment_rules.md: AskUserQuestion 降级方案 + 红蓝队上下文传递说明 + 红队硬性要求重写
+- anti_patterns.md: 加载时机明确化（Stage 5 背景约束 + Stage 6 自检清单）
+- quality_review.md: IQR 降级方案（Agent 不可用时主 Session 自检）
+- 三个质量文件头部新增「在质量体系中的角色」定位行
+- dashboard.py: "门控"措辞修正为"交付物缺失"
+- Harness 段重写为自动/手动模式分离
+- Dashboard 新增 Bash 不可用时降级方案
+- Stage 5 精简：删除冗余八条规则列表 + 深度门控段（已在 judgment_rules.md 完整定义）
+- Stage 2 精简：删除冗余 IQR Subagent 调用规范块（已在 quality_review.md 覆盖）
+
+### Context 管理简化 (V2-21)
+- 移除 `context_budget.py` + `compress_stage.py`（不解决真问题）
+- 移除 `context_budget_hook`（PreToolUse hook，4→3 个 hook）
+- 保留转场 Read + 增量落盘 + 按需补读策略
+
+---
+
 ## V2.0.12 (2026-04-05)
 
 > **访谈状态链路修复 + Validator/Dashboard 精度提升**
@@ -14,7 +44,6 @@
 - `dashboard.py`：评分提取前剥离 Markdown 粗体标记（`**`），修复 `= **19 分**` 格式无法匹配的问题
 
 ---
-
 
 ## V2.0.11 (2026-04-05)
 
@@ -44,7 +73,6 @@
 
 ### Hook 路径修复（阻断性 Bug）
 - Frontmatter hooks 中 `${CLAUDE_SKILL_DIR}` → `${CLAUDE_PLUGIN_ROOT}`
-- 原因：`${CLAUDE_SKILL_DIR}` 仅在 SKILL.md 正文做字符串替换，frontmatter hook command 中不展开（已知限制）
 - `${CLAUDE_PLUGIN_ROOT}` 在 hook command 中既做字符串替换又设为环境变量，指向 hook 所属 skill 目录
 - 影响：4 个 hook 全部修复（html_write_guard、context_budget_hook、stage_gate_hook、progress_logger）
 - 正文 `!` 内联命令保持 `${CLAUDE_SKILL_DIR}`（该上下文可正常展开）
@@ -67,8 +95,6 @@
 - B 级证据置信度标签统一为 ⚠️ 中等置信度（对齐 triangulation.md 权威定义）
 
 ### git-publish 裁剪规则首次全量执行（8 条）
-- A1-A4：API Key 移除、使用记录删除、知识库引用清理、内部安装段删除
-- B5-B8：知识库 MCP 泛化、知识库搜索删除、知识库→共享文档/通知泛化、知识库引用统一
 
 ---
 
@@ -88,7 +114,6 @@
 - `ReportBuilder`：新增 `author` 参数（默认 "Alpha Insights Research"），替代硬编码
 
 ### GitHub 裁剪规则扩展（2 → 8 条）
-- 新增：CHANGELOG 知识库引用 / README 内部安装段 / interview.md 泛化 / data_sources 知识库 / SKILL.md 知识库搜索
 
 ---
 
@@ -213,13 +238,11 @@ SKILL.md frontmatter 声明 4 个 Hook，平台自动执行：
 
 **Stage 7B 收尾**
 - 精简收尾模板：议题 + 档位 + 报告路径 + 核心发现 + Star/Issue 链接
-- 使用记录自动追加（知识库 MCP），静默执行不打扰用户
 
 ### 改进：数据源与搜索
 
 - `resources/research_engine.md` — Track 标签统一修正（A→G），执行顺序明确
 - XHS 脚本端点迁移（`check_topics.js`、`search_notes.js`、`get_note.js`）
-- 知识库 Track D 搜索集成
 
 ### 改进：洞察质量
 

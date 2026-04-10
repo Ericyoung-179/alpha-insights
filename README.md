@@ -39,8 +39,7 @@ Prompt instructions are probabilistic — AI tends to skip steps as context fill
 
 - **State machine** — tracks research stage, tier, loaded frameworks, interview status
 - **6-stage gate validators** — auto-check deliverables before advancing (PASS/FAIL/WARN)
-- **Hook automation** — HTML write guard, context budget alerts, auto gate checks
-- **Context budget** — monitors token usage, auto-compresses completed stages when needed
+- **Hook automation** — HTML write guard, auto gate checks, incremental file persistence
 - **Quality dashboard** — one-screen overview of all quality metrics before report generation
 
 ---
@@ -84,6 +83,8 @@ MECE | Issue Tree | Hypothesis-Driven | Pyramid Principle | Triangulation | Pre-
 
 ### Install
 
+**Option B — via Git**:
+
 ```bash
 git clone https://github.com/Ericyoung-183/alpha-insights.git
 cp -r alpha-insights ~/.claude/Skills/
@@ -113,13 +114,13 @@ Alpha Insights will automatically:
 |--------|------------|-----|
 | **Public channels** | Industry reports, analyst research, filings, news, policy docs | Search engine + web scraping |
 | **Expert interviews** | Custom interview guides, recording templates, analysis guidance | Built-in methodology |
-| **Xiaohongshu (RedNote)** | Consumer sentiment, product feedback, trend signals | Built-in scripts + public API key. To use your own key, create `~/.alpha_insights.json` with `{"tikHubApiKey": "YOUR_KEY"}` |
+| **Xiaohongshu (RedNote)** | Consumer sentiment, product feedback, trend signals | Built-in scripts (API key required — see tikhub_client.js) |
 
 ### 🟡 Optional Extensions
 
 | Source | Description | Required Setup |
 |--------|------------|----------------|
-| **Knowledge base** | Historical reports, industry notes | Notion MCP / Knowledge Base MCP |
+| **Knowledge base** | Historical reports, industry notes | Knowledge Base MCP / Notion MCP |
 | **Internal data** | Business metrics, user behavior | ODPS MCP / Database MCP |
 
 > Unconfigured data sources are automatically skipped — core functionality is not affected.
@@ -160,12 +161,10 @@ alpha-insights/
     ├── harness/          # V2 Harness Engineering
     │   ├── state_manager.py
     │   ├── stage_gate.py
-    │   ├── context_budget.py
-    │   ├── compress_stage.py
     │   ├── dashboard.py
     │   ├── resume_check.py
     │   ├── validators/   # 6-stage gate validators
-    │   └── hooks/        # 4 automation hooks
+    │   └── hooks/        # automation hooks
     └── xhs/              # Xiaohongshu (RedNote) scripts
 ```
 

@@ -100,13 +100,13 @@ Alpha Insights 会自动：
 |--------|------|---------|
 | **公开渠道** | 行业报告、券商研报、财报、新闻、政策文件 | 搜索引擎 + 网页抓取（自动适配环境中可用的搜索工具） |
 | **专家访谈** | 定制提纲、记录模板、分析指引 | 方法论指导 |
-| **小红书数据** | 消费者舆情、产品反馈、趋势洞察 | 内置脚本，需配置 API Key：设置环境变量 `TIKHUB_API_KEY` 或创建 `~/.alpha_insights.json` 并写入 `{"tikHubApiKey": "你的Key"}` |
+| **小红书数据** | 消费者舆情、产品反馈、趋势洞察 | 内置脚本（需配置 API Key，详见 tikhub_client.js） |
 
 ### 🟡 可选扩展（需要配置）
 
 | 数据源 | 说明 | 所需配置 |
 |--------|------|---------|
-| **知识库** | 历史研究报告、行业笔记 | Notion MCP / Knowledge Base MCP |
+| **知识库** | 历史研究报告、行业笔记 | Knowledge Base MCP / Notion MCP |
 | **内部数据** | 业务数据、用户行为 | ODPS MCP / 数据库 MCP |
 
 > 未配置的数据源会自动跳过，不影响核心功能使用。
@@ -148,12 +148,10 @@ alpha-insights/
     ├── harness/          # V2 Harness 执行引擎
     │   ├── state_manager.py
     │   ├── stage_gate.py
-    │   ├── context_budget.py
-    │   ├── compress_stage.py
     │   ├── dashboard.py
     │   ├── resume_check.py
     │   ├── validators/   # 6 阶段门控验证器
-    │   └── hooks/        # 4 个自动化 Hook
+    │   └── hooks/        # 自动化 Hook
     └── xhs/              # 小红书数据脚本
 ```
 

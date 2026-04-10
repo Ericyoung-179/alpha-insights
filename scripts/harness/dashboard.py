@@ -190,7 +190,7 @@ def overall_assessment(stages):
                 warnings.append(f"{name}: {d}")
 
     if failed:
-        return f"❌ {len(failed)} 个阶段未通过门控（{', '.join(failed)}），需修复后再进入 Stage 6"
+        return f"❌ {len(failed)} 个阶段交付物缺失（{', '.join(failed)}），建议回退修复后再进入 Stage 6"
     elif warnings:
         return f"⚠️ 整体通过，{len(warnings)} 项警告建议关注"
     else:

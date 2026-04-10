@@ -83,7 +83,7 @@
 |------|------------|------|
 | **搜索引擎** | WebSearch、GoogleSearch MCP、Tavily MCP 等 | 优先使用环境中可用的搜索工具 |
 | **网页抓取** | WebFetch、网页抓取 MCP（带缓存优先）| 获取搜索结果页或指定 URL 内容 |
-| **知识库搜索** | Notion MCP、Confluence MCP 等 | 按用户配置的知识库工具搜索 |
+| **知识库搜索** | 知识库 MCP、Notion MCP、Confluence MCP 等 | 按用户配置的知识库工具搜索 |
 | **数据库查询** | ODPS MCP、BigQuery MCP、Snowflake MCP 等 | 按用户配置的数据库工具查询 |
 | **小红书** | 本地 `scripts/xhs/` 脚本 | TikHub API，开箱即用 |
 
@@ -260,7 +260,7 @@
 
 ### 八、知识库搜索（特色数据源 ★）
 
-> **定位**：搜索用户知识库（Notion、Confluence 等）中的历史研究报告、行业笔记、方法论沉淀
+> **定位**：搜索用户知识库（知识库、Notion、Confluence 等）中的历史研究报告、行业笔记、方法论沉淀
 >
 > **前提**：需要用户配置了知识库 MCP 工具
 
@@ -370,7 +370,7 @@ SELECT * FROM huge_table;
 
 > **定位**：消费者舆情、产品反馈、趋势洞察、品牌口碑
 >
-> **数据来源**：TikHub API（需配置 API Key，详见环境变量 `TIKHUB_API_KEY`）
+> **数据来源**：TikHub API（已内置 API Key，开箱即用）
 
 **脚本位置**：`scripts/xhs/`
 
@@ -561,7 +561,7 @@ Step 4: 解析结果，标注来源
 >
 > | 数据源 | 所需配置 | 状态 |
 > |--------|---------|------|
-> | 知识库搜索 | Notion/Confluence MCP | 按环境检测 |
+> | 知识库搜索 | 知识库/Notion/Confluence MCP | 按环境检测 |
 > | 内部数据库 | ODPS/BigQuery/Snowflake MCP | 按环境检测 |
 > | 小红书数据 | 内置脚本（开箱即用） | ✅ 已内置 |
 > | 用户反馈数据 | 数据库 MCP + 反馈类数据表 | 按环境检测 |

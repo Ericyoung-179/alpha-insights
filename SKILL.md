@@ -12,11 +12,6 @@ hooks:
         - type: command
           command: "python3 ${CLAUDE_PLUGIN_ROOT}/scripts/harness/hooks/html_write_guard.py"
           timeout: 3
-    - matcher: "Read|Bash|Grep|Glob|Edit"
-      hooks:
-        - type: command
-          command: "python3 ${CLAUDE_PLUGIN_ROOT}/scripts/harness/hooks/context_budget_hook.py"
-          timeout: 10
   PostToolUse:
     - matcher: "Write"
       hooks:
@@ -33,10 +28,10 @@ hooks:
 
 # Alpha Insights-BizAdvisor — Skill 主文件
 
-> 版本：V2.0.11 | 最后更新：2026-04-05
+> 版本：V3.0.0 | 最后更新：2026-04-10
 > 定位：代替资深商业分析师，产出有深度、有决策价值的研究报告
 > 本文件是纯编排层，详细执行指令在各 Stage 加载的文件中
-> **Harness Engineering**：通过脚本验证 + 状态机 + 上下文压缩，从外部约束执行质量
+> **Harness Engineering**：通过脚本验证 + 状态机 + 增量落盘，从外部约束执行质量
 
 ---
 
@@ -119,7 +114,7 @@ Alpha Insights 的所有能力必须由自身文件和内置脚本完成，**禁
 每个 Stage **开始时**，必须执行：
 
 1. **Workspace 路径恢复**（Stage 2 起生效）：读取 `_state.json` 获取 workspace 绝对路径（`workspace` 字段）。后续所有文件读写使用该路径。若 Bash 可用，用 `python3 -c "import json; print(json.load(open('{ws}/_state.json'))['workspace'])"` 获取。
-2. **Context 恢复**（Stage 2 起生效）：Read 上一 Stage 的 deliverable 文件，确保前序决策和结论在当前 context 中。长对话中平台会自动压缩早期内容，deliverable 文件是恢复结构化信息的锚点。
+2. **Context 恢复**（Stage 2 起生效）：Read 各 Stage 加载清单中标注的 deliverable 文件（按需补读前序关键产出，具体见各 Stage「加载文件」行）。长对话中平台会自动压缩早期内容，deliverable 文件是恢复结构化信息的锚点。
 3. **位置播报**：输出当前位置锚定：
 ```
 🎯 当前位置: Stage N / 7 — {阶段名称}
@@ -137,28 +132,76 @@ Alpha Insights 的所有能力必须由自身文件和内置脚本完成，**禁
 ➡️ 下一步：Stage Y {名称}
 ```
 
-### ⛔ 全阶段门控条件
+### 质量保障体系
+
+#### 设计原则
+
+质量检查按风险配置。每个 Stage 风险不同，配置不同的检查组合。质量手段分两类：
+- **生成嵌入**：在产出过程中实时约束质量（规则 1-7）
+- **事后审查**：产出完成后独立检查（IQR、红蓝队、反模式、结构验证）
+
+#### 工具箱
+
+| 审查角色 | 做什么 | 实现方式 | 执行手册 |
+|---------|--------|---------|---------|
+| 规则执行者 | 生成过程嵌入 7 条判断标准 | 自检（生成嵌入） | `judgment_rules.md` Rules 1-7 |
+| 对抗挑战者 | 4 角色主动攻击结论 | Subagent | `judgment_rules.md` Rule 8a |
+| 盲区扫描者 | 系统性检查遗漏维度 | Subagent | `judgment_rules.md` Rule 8b |
+| 独立评审者 | 多维度评分，旁观者视角 | Subagent | `quality_review.md` |
+| 错误模式检测者 | 已知反模式筛查 | 自检 | `anti_patterns.md` |
+| 结构验证者 | 交付物存在、格式完整 | 自动脚本(hook) | `validators/stage*.py` |
+| 用户 | 意图对齐、人类判断 | 交互 | — |
+
+#### 各 Stage 质量配置
+
+| Stage | 核心风险 | 为什么这样配 | 质量检查（按执行顺序） | Tier 1 差异 |
+|-------|---------|-------------|----------------------|------------|
+| 1 用户简报 | 误解用户意图 | 用户在场，直接确认最有效 | 结构验证 → 用户确认 | 无 |
+| 2 研究定义 | 框架偏差 | 自己看不见自己的盲区，需外部视角 | 结构验证 → 用户确认 → 独立评审(IQR) | 跳过 IQR |
+| 3 研究计划 | 假设薄弱 | 结构可能对但内容弱，需自查+用户把关 | 结构验证 → 假设自检 → 用户确认 | 无 |
+| 4 证据收集 | 证据偏倚 | 覆盖度和质量需独立评估 | 结构验证 → 独立评审(IQR) | 跳过 IQR |
+| 5 洞察生成 | 洞察浅/不鲁棒 | 核心价值环节，需全套保障 | **生成嵌入**(规则1-7) → 用户确认 → 对抗挑战(红队) → 盲区扫描(蓝队) → 反模式(背景) → 结构验证 | 无 |
+| 6 报告生成 | 好洞察烂报告 | 表达质量需自查+独立评估 | 结构验证 → 反模式自检 → 独立评审(IQR) | 跳过 IQR |
+| 7 迭代交付 | 用户不满意 | 用户是最终裁判 | 用户反馈 | 无 |
+
+> **Stage 5 特殊说明**：规则 1-7 是生成嵌入型质量控制——不是"写完再查"，而是"在生成过程中逐条执行质量标准"。执行流程严格按 `judgment_rules.md` 顶部指令。
+> Dashboard（质量总览）在 Stage 5→6 转场前运行，属于信息展示，不是门控。
+
+#### 失败处理
+
+| 检查类型 | 失败处理 |
+|---------|---------|
+| 结构验证 BLOCKED | 按检查项修复，禁止转场 |
+| 独立评审 BLOCK | 修复后重跑 IQR（REVISE 只需修改，不重跑） |
+| 对抗审查：核心洞察无实质挑战 | 回退 Rule 1 重新深挖，硬性要求 |
+| 反模式自检发现违反 | 修正后继续 |
+| 用户否决 | 讨论分歧 → 回退对应 Stage |
+
+> **冲突处理原则**：各项检查覆盖不同方面，彼此独立生效。结构验证通过不能豁免 IQR 失败；IQR 通过不能豁免对抗审查失败。任何一项未通过，都必须按上表处理后才能继续。
+
+#### 结构验证详细规则（门控条件）
 
 | 转场 | 门控条件（FAIL 则阻断） | WARN 条件 |
 |------|------------------------|----------|
 | 1→2 | `user_brief.md` 存在且含议题 + 档位 | 背景描述 < 3 行 |
-| 2→3 | `research_definition.md` 存在且含假设或子问题 | 框架数 < 2 |
-| 3→4 | `research_plan.md` 存在 | Track 数 < 3 |
-| 4→5 | `evidence_base.md` 存在且行数达标（Tier 1 ≥ 10 行 / Tier 2 ≥ 20 行 / Tier 3 ≥ 40 行）；核心数据至少 1 条 ≥B 级 | B 级以上证据占比 < 50% |
+| 2→3 | `research_definition.md` 存在且含假设或子问题；**Tier ≥ 2 时 IQR ≠ BLOCK** | 框架数 < 2 |
+| 3→4 | `research_plan.md` 存在；含访谈决策记录 | Track 数 < 3 |
+| 4→5 | `evidence_base.md` 存在且行数达标（Tier 1 ≥ 10 行 / Tier 2 ≥ 20 行 / Tier 3 ≥ 40 行）；核心数据至少 1 条 ≥B 级；**Tier ≥ 2 时 IQR ≠ BLOCK** | B 级以上证据占比 < 50% |
 | 5→6 | `insights.md` 存在且含评分 + 红蓝队审查记录 | 洞察数 < 3 |
-| 6→7 | `report.html` 存在且 ≥ 5KB + 封面/目录/尾页齐全 | ECharts 引用/初始化缺失 |
+| 6→7 | `report.html` 存在且 ≥ 5KB + 封面/目录/尾页齐全；**Tier ≥ 2 时 IQR ≠ BLOCK** | ECharts 引用/初始化缺失 |
 
-**规则**：FAIL 条件不满足时，**禁止进入下一 Stage**，必须修复或回退。WARN 条件不满足时，告知用户后可继续。IQR 复核返回 BLOCK 等同于 FAIL，必须修复后重跑 IQR。
+FAIL → **禁止转场**，修复或回退。WARN → 告知用户后可继续。
 
-### Harness 脚本验证（可选增强）
+#### Harness 自动化
 
-每个 Stage 完成、执行转场前，**若 Bash 工具可用**，运行以下验证：
-```bash
-python3 scripts/harness/stage_gate.py validate {stage_num} {ws}
-```
-- 返回 `PASS ✅`：继续转场
-- 返回 `BLOCKED ❌`：按返回的具体检查项修复后重试
-- 若 Bash 不可用（如 Openclaw 环境）：按上方门控条件表人工核对，不阻断工作流
+**自动模式（默认）**：PostToolUse:Write hook 自动运行 `stage_gate_hook.py`，每次交付物写入后即刻返回验证结果。**无需手动重复运行**。
+
+**手动模式（补充）**：仅在以下情况使用 `python3 scripts/harness/stage_gate.py validate {stage_num} {ws}`：
+1. 交付物由 Bash/Python 脚本生成（如 `report.html`），未触发 Write hook
+2. 需要运行 `validate-all` 全阶段检查
+3. 需要在非 Write 场景下主动确认门控状态
+
+**Bash 不可用时**：按上方门控条件表人工核对，不阻断工作流。
 
 **状态记录**（若 Bash 可用）：
 ```bash
@@ -307,22 +350,16 @@ Tier {X} — {档位名称}
 
 **🔍 IQR 复核**：用户确认后、进入 Stage 3 前，加载 `resources/quality_review.md` 的 Stage 2 IQR 模板，启动独立 Subagent 评估研究定义质量。结果按 PASS/REVISE/BLOCK 处理。
 
-**IQR Subagent 调用规范**（适用于所有 IQR 检查点）：
-- **调用方式**：使用 Agent 工具，prompt 包含 `quality_review.md` 对应 Stage 的 IQR 模板 + 被评估文件的完整内容
-- **结果处理**：PASS → 继续 | REVISE → 按建议修正后继续 | BLOCK → 修复后重跑 IQR
-- **状态记录**（Bash 可用时）：`python3 scripts/harness/state_manager.py log {ws} --type iqr_result --detail "PASS/REVISE/BLOCK"`
-- **降级**：Agent 工具不可用时，在主 Session 中按 IQR 模板逐项自检，结论等效
-
 ---
 
 ### Stage 3: 假设与计划（Research Plan & Hypotheses）
 
 > 🎯 Stage 3 / 7 — Planning | 📋 加载: `hypothesis_driven.md`, `issue_tree.md`, `data_sources.md` | 🔧 方法论: 假设驱动, Issue Tree
-> **门控出口**: `research_plan.md` 存在
+> **门控出口**: `research_plan.md` 存在且含访谈决策记录
 
-**加载文件**: `methodology/hypothesis_driven.md`, `methodology/issue_tree.md`, `resources/data_sources.md`
+**加载文件**: `{ws}/research_definition.md`（上下文恢复）, `methodology/hypothesis_driven.md`, `methodology/issue_tree.md`, `resources/data_sources.md`
 
-**执行**: 预扫描 → 假设生成 → 数据源规划 → 访谈建议
+**执行**: 预扫描（）→ 假设生成 → 数据源规划 → 访谈建议
 
 **Q→H 映射规则**：每个假设必须标注对应的 Stage 2 子问题编号（如 H1→Q2）。无假设的子问题需注明原因（如"事实梳理型，不设假设"）。输出格式见 `hypothesis_driven.md`。
 
@@ -350,6 +387,12 @@ Tier {X} — {档位名称}
 - 计划数据源: [列表]
 - 预期置信度分布: [A/B 级占比目标]
 ```
+
+**⛔ 假设自检（写入前）**：每个假设必须通过以下 4 项检查，不通过则当场修正：
+1. **可证伪**：能被数据推翻，不是永远正确的废话
+2. **有锐度**：有明确立场/预判，不是"可能上升也可能下降"
+3. **覆盖完整**：每个 Stage 2 子问题都有对应假设（或注明"事实梳理型，不设假设"）
+4. **可验证**：Track 规划中有明确数据源可支撑验证
 
 **☑️ 用户确认**（使用 AskUserQuestion，一次完成两件事）。确认前先输出引导语：
 「以下是研究的假设和计划。⚠️ 假设确认后，后续所有搜索和分析都围绕它展开——如果你对方向、侧重点有想法，现在提最好。」
@@ -407,7 +450,7 @@ python3 scripts/harness/state_manager.py log {ws} --type interview_declined --de
 > 🎯 Stage 4 / 7 — Research | 📋 加载: `research_engine.md` | 🔧 方法论: 三角验证, 多轨道并行
 > **门控出口**: `evidence_base.md` 存在且行数达标（Tier 1 ≥ 10 / Tier 2 ≥ 20 / Tier 3 ≥ 40）；核心数据至少 1 条 ≥B 级
 
-**加载文件**: `resources/research_engine.md`（含完整多轨道并行执行规则）
+**加载文件**: `{ws}/research_plan.md`（上下文恢复）, `{ws}/research_definition.md`（框架与边界恢复）, `resources/research_engine.md`（含完整多轨道并行执行规则）
 
 **三层推进**：
 - **Layer 1 概要扫描**（主 Session）：将假设转为搜索任务，分发到各 Track，快速获取概要数据
@@ -471,19 +514,13 @@ python3 scripts/harness/state_manager.py log {ws} --type interview_checkpoint_do
 > 🎯 Stage 5 / 7 — Insights | 📋 加载: `judgment_rules.md`, `anti_patterns.md` | 🔧 方法论: So What 链, 红蓝队审查
 > **门控出口**: `insights.md` 存在且含评分 + 红蓝队审查记录（⛔ Stage 6 门控文件）
 
-**加载文件**: `resources/judgment_rules.md`（含完整执行流程、红蓝队 Subagent 模板、insights.md 产出模板）, `resources/anti_patterns.md`
+**加载文件**: `{ws}/evidence_base.md`（上下文恢复）, `{ws}/user_brief.md`（用户上下文恢复）, `resources/judgment_rules.md`（含完整执行流程、红蓝队 Subagent 模板、insights.md 产出模板）, `resources/anti_patterns.md`（作为 8 条规则的背景约束，非独立步骤；Stage 6 使用其自检清单）
 
 ⛔ **本 Stage 的执行流程严格按 `judgment_rules.md` 顶部的「Stage 5 执行指令」执行，不可跳过。**
-
-**八条规则**: So What 链 → 洞察过滤 → 关键变量 → 反直觉测试 → 可执行性 → Pre-mortem → 优先级排序 → 红蓝队双重审查
 
 **档位控制**: 所有档位执行全部 8 条规则，不因 Tier 降低分析深度
 
 ⛔ **逐规则播报（不可跳过）**：每条规则执行完后，向用户播报一行进度摘要（格式见 `judgment_rules.md`「规则执行播报格式」）。禁止将规则 1-7 合并为一步黑箱执行。
-
-🚨 **深度门控（不可跳过）**:
-1. **So What 链 ≥3 层**：每条核心洞察的 So What 链必须达到 3 层（现象→含义→策略→行动）。如果只有"市场在增长→建议进入"两层，必须追问"为什么现在进入？进入后的关键动作是什么？成功标准是什么？"直到达到 3 层。
-2. **Red-Team 必须执行**：Rule 8a 红队审查不可省略。4 个对抗角色至少产出 **1 个 Substantive 级别挑战**（削弱但不推翻结论的有效质疑）。如果 4 个角色全部只产出 Weak/Addressable 级别，说明洞察太安全、太显而易见——回退 Rule 1 重新深挖。
 
 **☑️ 用户确认（规则 7 完成后、红蓝队前）**: A 类核心洞察（18-20 分）逐一讨论 | B 类核心洞察（16-17 分）批量确认。⛔ 用户确认洞察方向后再启动红蓝队审查，避免审查用户不认可的洞察。
 
@@ -499,6 +536,17 @@ python3 scripts/harness/dashboard.py {ws}
 ```
 将输出的质量总览**原文展示给用户**，让用户在报告生成前了解整体研究质量。若有 ❌ 或 ⚠️，与用户讨论是否需要回退修复。
 
+> ⚠️ **Bash 不可用时的降级方案**：手动检查 S2-S5 交付物（是否存在、关键内容标记），按以下格式输出简化版质量总览：
+> ```
+> ━━━ 研究质量总览（手动核查） ━━━
+> 📋 研究定义 (S2)  ✅/❌ | {子问题数、框架}
+> 📋 研究计划 (S3)  ✅/❌ | {Track 数、假设}
+> 📋 证据基础 (S4)  ✅/❌ | {行数、高质量证据占比}
+> 📋 洞察生成 (S5)  ✅/❌ | {洞察数、红蓝队状态}
+> ⚡ 总体评估: {判断}
+> ━━━━━━━━━━━━━━━━━━━
+> ```
+
 ---
 
 ### Stage 6: 报告生成（Report Generation）
@@ -508,11 +556,11 @@ python3 scripts/harness/dashboard.py {ws}
 
 ⛔ **第一步必须读取 `insights.md`，文件不存在则返回 Stage 5**
 
-**加载文件**: `references/report_standards.md`, `references/report_template.html`, `resources/anti_patterns.md`
+**加载文件**: `{ws}/evidence_base.md`（图表数据恢复）, `{ws}/user_brief.md`（叙事锚点恢复）, `references/report_standards.md`, `references/report_template.html`, `resources/anti_patterns.md`
 
 **档位控制**: Tier 1 仅 Executive Summary | Tier 2 六段式精简版（≥3 ECharts） | Tier 3 完整六段式（≥6 ECharts）
 
-**执行**: 叙事弧线设计 → 逐章生成（每章自检 7 项，见 `report_standards.md`）→ 整合输出 → **🔍 IQR 复核**（加载 `resources/quality_review.md` Stage 6 IQR 模板，启动独立 Subagent 评估报告质量，按建议修正后再交付） → 交付包整理
+**执行**: 叙事弧线设计 → 逐章生成（每章自检 7 项，见 `report_standards.md`）→ 整合输出 → **⛔ 反模式自检**（按 `anti_patterns.md`「报告自检清单」逐项核对，不通过则修正后再继续）→ **🔍 IQR 复核**（加载 `resources/quality_review.md` Stage 6 IQR 模板，启动独立 Subagent 评估报告质量，按建议修正后再交付） → 交付包整理
 
 🚨 **HTML 生成方法（强制，不可覆盖）**:
 
@@ -638,6 +686,7 @@ dk = "dat" + "a"
 - Stage 3.5 激活 + **已收到纪要**：`5. **更多访谈** —— 如果还有后续访谈，随时把新纪要给我，我会有机融合进来`
 - Stage 3.5 **未激活**：不显示
 
+
 ---
 
 ### Stage 7: 迭代精炼与收尾
@@ -687,7 +736,7 @@ dk = "dat" + "a"
 | 数据不足 | 扩大搜索 → 降级标注 → 建议访谈 |
 | 数据矛盾 | 标注矛盾 → 分析原因 → 概率判断 |
 | 范围过大 | 聚焦核心 → 分阶段 → 明确优先级 |
-| 上下文紧张 | Hook 自动监控：≤70% 静默放行 / >70% 注入警告 / >90% 阻断工具并要求压缩。压缩方式：运行 `python3 scripts/harness/compress_stage.py {ws} --stage N`（若 Bash 可用），或手动外置中间产物 → 保留摘要 → 拆分课题 |
+| 上下文紧张 | 平台会自动压缩早期对话。所有关键数据已通过增量落盘写入文件，转场时 Read 文件即可恢复。如仍不足，拆分课题分次研究 |
 | 假设全被证伪 | 回到 Stage 3 → 基于证伪证据重构假设 |
 | 档位中途升级 | 更新 `_state.json` 的 tier 值 → 从当前 Stage 继续，补充升级所需内容：**1→2**: 补 Layer 2 研究 + ≥3 ECharts；**1→3 或 2→3**: 补全部 Layer + ≥6 ECharts + 完整六段式。已完成 Stage 的交付物不重做，仅在后续 Stage 体现升级 |
 | 用户部分接受洞察 | 接受的洞察进入报告，拒绝的标注"用户不采纳"并从核心结论中移除，保留在附录供参考 |
@@ -709,4 +758,3 @@ dk = "dat" + "a"
 | 4 | 三角验证 · 数据标注正确 · 核心数据≥B 级 · 轨道跳过有告知 · **访谈催收已执行**（如 Stage 3.5 激活） · 框架分析结论独立产出 · **IQR 复核** |
 | 5 | So What≥3 层 · 洞察≥16 分 · 关键变量识别 · 反直觉测试 · SMART 测试 · Pre-mortem · 优先级排序 · 红蓝队审查 · insights.md 已生成 |
 | 6 | 读取 insights.md · Review Dashboard · Python 脚本生成 HTML · ECharts 用 dk 变量拼接 · 结论先行 · 证据可追溯 · 反模式自检 · 章节自检（按 report_standards.md 清单）· ECharts 图表（Tier 2 ≥3 / Tier 3 ≥6） · **IQR 复核** |
-| 7 | 最小重做范围 · 增量标注清晰 · 收尾模板完整输出 |

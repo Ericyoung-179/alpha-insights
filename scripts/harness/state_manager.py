@@ -87,7 +87,6 @@ def cmd_init(workspace, tier=3):
         "files_loaded": [],
         "disclosure_log": [],
         "validation_results": [],
-        "stage_summaries": {},
         "interview_activated": False,
         "interview_checkpoint_done": False,
         "interview_checkpoint_result": None,
