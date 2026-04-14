@@ -1,243 +1,243 @@
-# 假设驱动法
+# Hypothesis-driven Method
 
-> 来源：McKinsey & Company
-> 核心价值：提高分析效率，避免漫无目的
-
----
-
-## 定义
-
-假设驱动法是一种工作方式：
-
-1. 先提出**可验证的假设**
-2. 再设计**验证假设的研究计划**
-3. 用数据**证明或推翻假设**
-4. 根据结果**迭代或得出结论**
-
-与"先收集信息再找结论"相反，假设驱动法是"先有假设再验证"。
+> Source: McKinsey & Company
+> Core value: Improve analysis efficiency, avoid aimless exploration
 
 ---
 
-## 使用时机
+## Definition
 
-**典型应用场景**：
-- 时间受限的快速分析
-- 数据丰富需要聚焦
-- 验证性研究
-- 战略决策支持
+Hypothesis-driven is a working method:
 
-**使用原则**：
-- 基于经验和初步洞察形成假设
-- 用数据验证或证伪假设
-- 避免确认偏误，主动寻找反面证据
+1. First propose **testable hypotheses**
+2. Then design **a research plan to validate hypotheses**
+3. Use data to **prove or disprove hypotheses**
+4. Based on results, **iterate or draw conclusions**
 
-**使用流程**：
-1. 初步假设（基于经验/直觉）
-2. 设计验证（需要什么数据）
-3. 收集数据（针对性搜索）
-4. 验证/修正（更新假设）
-
----## 为什么重要
-
-| 方式 | 过程 | 效率 | 风险 |
-|------|------|------|------|
-| 信息驱动 | 先广泛收集信息 → 再提炼结论 | 低，容易"分析瘫痪" | 信息过载，找不到重点 |
-| 假设驱动 | 先提出假设 → 针对性验证 | 高，聚焦关键问题 | 可能遗漏，需用 MECE 补充 |
+Opposite of "collect information first, then find conclusions," hypothesis-driven means "hypothesis first, then validate."
 
 ---
 
-## 操作步骤
+## When to Use
 
-### Step 1：提出初始假设
+**Typical application scenarios**:
+- Time-constrained rapid analysis
+- Data-rich environments requiring focus
+- Validation-oriented research
+- Strategic decision support
 
-基于已有信息和直觉，提出**可验证的假设**。
+**Usage principles**:
+- Form hypotheses based on experience and initial insights
+- Validate or falsify hypotheses with data
+- Avoid confirmation bias, actively seek opposing evidence
 
-好的假设标准：
-- **具体**：不是"竞对很强"，而是"竞对 A 的用户增速是我们的 2 倍"
-- **可验证**：能找到数据证明或推翻
-- **有分歧**：存在不确定性，值得验证
+**Usage flow**:
+1. Initial hypothesis (based on experience/intuition)
+2. Design validation (what data is needed)
+3. Collect data (targeted search)
+4. Validate/revise (update hypotheses)
 
-❌ "竞对做得不错" — 不可验证
-✅ "竞对 A 的增长主要来自补贴策略" — 可验证
+---## Why It Matters
 
-### Step 2：拆解假设
-
-将假设拆解为**验证条件**：如果假设成立，应该观察到什么？
-
-```
-假设：竞对 A 的增长主要来自补贴策略
-
-验证条件：
-1. 竞对 A 的补贴力度 > 行业平均
-2. 竞对 A 的补贴用户增速 > 非补贴用户
-3. 竞对 A 停止补贴后，用户增速下降
-```
-
-### Step 3：设计验证计划
-
-针对每个验证条件，设计：
-- 需要什么数据？
-- 从哪里获取？
-- 如何分析？
-
-### Step 4：执行验证
-
-收集数据，验证或推翻假设。
-
-**关键：主动寻找反例（证伪思维）**
-
-不要只找支持假设的证据，要主动问：
-- 什么情况下假设会不成立？
-- 有没有反例？
-
-### Step 5：迭代或结论
-
-- **假设被验证**：可以得出结论
-- **假设被推翻**：提出新假设，重新验证
-- **部分验证**：修正假设，继续验证
+| Approach | Process | Efficiency | Risk |
+|----------|---------|------------|------|
+| Information-driven | Broadly collect information first → Then distill conclusions | Low, prone to "analysis paralysis" | Information overload, can't find the key point |
+| Hypothesis-driven | Propose hypothesis first → Targeted validation | High, focused on key questions | May miss things, supplement with MECE |
 
 ---
 
-## 内嵌元素
+## Operating Steps
 
-### 证伪思维
+### Step 1: Propose Initial Hypotheses
 
-**核心原则**：主动寻找能证明假设错误的证据。
+Based on available information and intuition, propose **testable hypotheses**.
 
-操作方法：
-- 每个假设列出"如果成立应该观察到什么"后，加一条"如果不成立应该观察到什么"
-- 搜索关键词时，同时搜索正向和反向关键词
-- 遇到反面证据时，认真对待而非忽略
+Good hypothesis criteria:
+- **Specific**: Not "the competitor is strong," but "Competitor A's user growth rate is 2x ours"
+- **Testable**: Data can be found to prove or disprove it
+- **Debatable**: Uncertainty exists, worth validating
 
-例子：
+❌ "The competitor is doing well" — Not testable
+✅ "Competitor A's growth is primarily driven by subsidy strategy" — Testable
+
+### Step 2: Decompose Hypotheses
+
+Break down hypotheses into **validation conditions**: If the hypothesis is true, what should we observe?
+
 ```
-假设：竞对增长来自补贴
+Hypothesis: Competitor A's growth is primarily driven by subsidy strategy
 
-支持证据：
-- 竞对补贴力度大
-- 补贴用户增速快
-
-反面证据（需主动寻找）：
-- 竞对非补贴用户增速也快 → 说明补贴不是唯一原因
-- 竞对停止补贴后增速未下降 → 说明补贴不是主因
+Validation conditions:
+1. Competitor A's subsidy intensity > industry average
+2. Competitor A's subsidized user growth > non-subsidized users
+3. Competitor A's user growth drops after subsidies stop
 ```
 
-### 贝叶斯思维
+### Step 3: Design the Validation Plan
 
-**核心原则**：判断是概率性的，根据新证据不断更新。
+For each validation condition, design:
+- What data is needed?
+- Where to obtain it?
+- How to analyze it?
 
-操作方法：
-- 不说"竞对一定会进入"，说"竞对进入的概率约 60%"
-- 每获得新证据，更新概率判断
-- 最终报告标注置信度
+### Step 4: Execute Validation
 
-例子：
+Collect data, validate or disprove hypotheses.
+
+**Key: Actively seek counterexamples (falsification thinking)**
+
+Don't only look for evidence supporting the hypothesis. Actively ask:
+- Under what circumstances would the hypothesis not hold?
+- Are there counterexamples?
+
+### Step 5: Iterate or Conclude
+
+- **Hypothesis validated**: A conclusion can be drawn
+- **Hypothesis disproved**: Propose a new hypothesis, re-validate
+- **Partially validated**: Revise the hypothesis, continue validation
+
+---
+
+## Embedded Elements
+
+### Falsification Thinking
+
+**Core principle**: Actively seek evidence that could prove the hypothesis wrong.
+
+Operating method:
+- For each hypothesis, after listing "what we should observe if true," add "what we should observe if false"
+- When searching keywords, search both positive and negative keywords
+- When encountering opposing evidence, take it seriously rather than ignoring it
+
+Example:
 ```
-初始判断：竞对进入新市场的概率 30%
-新证据 1：竞对招聘了该领域团队 → 更新为 50%
-新证据 2：竞对 CEO 公开否认 → 更新为 30%
-新证据 3：竞对注册了相关商标 → 更新为 60%
+Hypothesis: Competitor's growth comes from subsidies
 
-最终结论：竞对进入概率约 60%，建议密切关注
+Supporting evidence:
+- Competitor's subsidy intensity is high
+- Subsidized user growth is fast
+
+Opposing evidence (must actively seek):
+- Competitor's non-subsidized user growth is also fast → Suggests subsidies aren't the only reason
+- Competitor's growth didn't drop after subsidies stopped → Suggests subsidies aren't the main driver
+```
+
+### Bayesian Thinking
+
+**Core principle**: Judgments are probabilistic, continuously updated with new evidence.
+
+Operating method:
+- Don't say "the competitor will definitely enter," say "probability of competitor entry is approximately 60%"
+- Update probability judgment with each new piece of evidence
+- Mark confidence level in the final report
+
+Example:
+```
+Initial judgment: Probability of competitor entering new market 30%
+New evidence 1: Competitor hired a team in this field → Updated to 50%
+New evidence 2: Competitor CEO publicly denied it → Updated to 30%
+New evidence 3: Competitor registered related trademarks → Updated to 60%
+
+Final conclusion: Competitor entry probability approximately 60%, recommend close monitoring
 ```
 
 ---
 
-## 假设的表达方式
+## How to Express Hypotheses
 
-### 好的假设
+### Good Hypotheses
 
-| 标准 | ❌ 差的假设 | ✅ 好的假设 |
-|------|-----------|-----------|
-| 具体 | "市场有机会" | "细分市场 X 的规模在 2 年内将翻倍" |
-| 可验证 | "用户喜欢这个功能" | "功能 A 的使用率 > 50%" |
-| 有分歧 | "竞对很强" | "竞对 A 的用户留存率高于我们 20%" |
+| Criteria | ❌ Poor Hypothesis | ✅ Good Hypothesis |
+|----------|---------------------|----------------------|
+| Specific | "Market has opportunities" | "Segment X market size will double within 2 years" |
+| Testable | "Users like this feature" | "Feature A usage rate > 50%" |
+| Debatable | "Competitor is strong" | "Competitor A's user retention is 20% higher than ours" |
 
-### 假设的来源
+### Sources of Hypotheses
 
-1. **用户输入**：用户已有的判断或疑问
-2. **初步调研**：快速扫描后的直觉
-3. **框架推导**：用分析框架推导出的可能情况
-4. **反常识**：与普遍认知相反的假设（往往最有价值）
+1. **User input**: The user's existing judgments or questions
+2. **Preliminary research**: Intuition after a quick scan
+3. **Framework derivation**: Possible situations derived from analytical frameworks
+4. **Counter-intuitive**: Hypotheses contrary to common belief (often the most valuable)
 
 ---
 
-## 在本 Skill 中的应用
+## Application in This Skill
 
-### Stage 3 假设生成
+### Stage 3 Hypothesis Generation
 
-1. 基于研究定义书，生成 3-7 个核心假设
-2. **每个假设必须标注对应的 Stage 2 子问题编号和分析透镜**（Q→H→Lens 映射）
-3. 无假设的子问题需注明原因（如"事实梳理型，不设假设"）
-4. 每个假设拆解验证条件
-5. 设计验证计划
-6. 输出到 `research_plan.md`
+1. Based on the Research Definition, generate 3-7 core hypotheses
+2. **Each hypothesis must be tagged with the corresponding Stage 2 sub-question number and analysis Lens** (Q→H→Lens mapping)
+3. Sub-questions without hypotheses must note the reason (e.g., "factual compilation type, no hypothesis set")
+4. Decompose each hypothesis into validation conditions
+5. Design the validation plan
+6. Output to `research_plan.md`
 
-### Stage 4 研究执行
+### Stage 4 Research Execution
 
-1. 按验证计划收集数据
-2. 主动寻找反面证据
-3. 更新假设概率
-4. 记录到 `evidence_base.md`
+1. Collect data per the validation plan
+2. Actively seek opposing evidence
+3. Update hypothesis probability
+4. Record in `evidence_base.md`
 
-### 输出格式
+### Output Format
 
 ```markdown
-## 假设清单
+## Hypothesis List
 
-### Q→H→Lens 映射总览
+### Q→H→Lens Mapping Overview
 
-| # | 假设 | 对应子问题 | 分析透镜 |
-|---|------|-----------|---------|
-| H1 | [假设陈述] | Q2 [子问题名称] | [框架维度，如 PESTEL-E] |
-| H2 | [假设陈述] | Q3 [子问题名称] | [框架维度，如 Five Forces-竞争] |
-| H3 | [假设陈述] | Q4 [子问题名称] | [框架维度，如 BMC] |
+| # | Hypothesis | Corresponding Sub-question | Analysis Lens |
+|---|-----------|---------------------------|---------------|
+| H1 | [Hypothesis statement] | Q2 [Sub-question name] | [Framework dimension, e.g., PESTEL-E] |
+| H2 | [Hypothesis statement] | Q3 [Sub-question name] | [Framework dimension, e.g., Five Forces-Competition] |
+| H3 | [Hypothesis statement] | Q4 [Sub-question name] | [Framework dimension, e.g., BMC] |
 
-> 未设假设的子问题：Q1（事实梳理型）、Q5（综合分析型）
-> 分析透镜继承自 `research_definition.md` 的子问题透镜分配
+> Sub-questions without hypotheses: Q1 (factual compilation), Q5 (integrated analysis)
+> Analysis Lens inherited from `research_definition.md` sub-question lens assignment
 
-### H1：[假设陈述]（← Q2 [子问题名称] | 透镜: [框架维度]）
-- 置信度：[初始概率]
-- 验证条件：
-  1. [条件1]
-  2. [条件2]
-- 验证计划：
-  - 数据源：[列出]
-  - 分析方法：[列出]
-- 当前状态：[待验证/已验证/已推翻]
+### H1: [Hypothesis statement] (← Q2 [Sub-question name] | Lens: [Framework dimension])
+- Confidence Level: [Initial probability]
+- Validation conditions:
+  1. [Condition 1]
+  2. [Condition 2]
+- Validation plan:
+  - Data sources: [List]
+  - Analysis methods: [List]
+- Current status: [Pending/Validated/Disproved]
 
-### H2：...
+### H2: ...
 ```
 
 ---
 
-## 常见错误
+## Common Mistakes
 
-### 错误 1：假设太模糊
+### Mistake 1: Hypothesis Too Vague
 
-❌ "竞对有优势"
-✅ "竞对 A 的获客成本比我们低 30%"
+❌ "Competitor has advantages"
+✅ "Competitor A's customer acquisition cost is 30% lower than ours"
 
-### 错误 2：假设不可验证
+### Mistake 2: Hypothesis Not Testable
 
-❌ "用户潜在需求很大"
-✅ "用户调研中 60% 的用户表示有 X 需求"
+❌ "Users' latent demand is high"
+✅ "60% of users in the survey expressed demand for X"
 
-### 错误 3：只找支持证据
+### Mistake 3: Only Finding Supporting Evidence
 
-❌ 只搜索"竞对补贴成功"
-✅ 同时搜索"竞对补贴成功"和"竞对补贴失败"
+❌ Only searching "competitor subsidy success"
+✅ Simultaneously searching "competitor subsidy success" and "competitor subsidy failure"
 
-### 错误 4：不愿推翻假设
+### Mistake 4: Reluctance to Disprove Hypotheses
 
-❌ 发现反例后强行解释
-✅ 承认假设不成立，提出新假设
+❌ Forcing explanations when counterexamples are found
+✅ Acknowledge the hypothesis doesn't hold, propose a new one
 
 ---
 
-## 与其他方法论的关系
+## Relationship with Other Methodologies
 
-- **MECE 原则**：假设清单应 MECE，覆盖所有可能
-- **Issue Tree**：Issue Tree 可转化为假设清单
-- **ACH 竞争假设分析**：关键判断时用 ACH 系统验证假设
-- **三角验证法**：用多源数据验证假设
+- **MECE Principle**: Hypothesis List should be MECE, covering all possibilities
+- **Issue Tree**: Issue Tree can be transformed into a Hypothesis List
+- **ACH**: Use ACH for systematic hypothesis validation at critical junctures
+- **Triangulation**: Use multi-source data to validate hypotheses

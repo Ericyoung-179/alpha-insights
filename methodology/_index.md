@@ -1,42 +1,43 @@
-# 方法论索引与使用规则（Methodology Index & Rules）
+# Methodology Index & Rules
 
-> **定位**：方法论的唯一真值源——文件清单、使用规则、触发条件、检查点
+> **Purpose**: The single source of truth for methodologies — file list, usage rules, trigger conditions, checkpoints
 >
-> **架构**：Tier 1（底层 OS，绑定 Stage 始终运行）+ Tier 2（场景增强，自动触发）
+> **Architecture**: Tier 1 (Base OS, bound to Stages, always active) + Tier 2 (Scenario Enhancement, auto-triggered)
 >
-> **使用方式**：
-> - Tier 1：到达对应 Stage 时自动加载，无需判断
-> - Tier 2：识别到研究场景匹配触发条件时，自动引用并告知用户
-> - 所有方法论的加载和引用都必须向用户明确展示（核心设计原则）
+> **Usage**:
+> - Tier 1: Auto-loaded when the corresponding Stage is reached, no judgment needed
+> - Tier 2: Auto-referenced when a research scenario matches the trigger conditions, with user notification
+> - All methodology loading and referencing must be transparently shown to the user (core design principle)
 
 ---
 
-## 架构总览
+## Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                     方法论两层架构                         │
+│               Methodology Two-Tier Architecture           │
 ├─────────────────────────────────────────────────────────┤
 │                                                          │
-│   Tier 1: 底层 OS（始终运行）                              │
+│   Tier 1: Base OS (Always Active)                        │
 │   ┌──────────┬──────────┬──────────┬──────────┐         │
-│   │ MECE +   │ 假设驱动  │ 三角验证  │ 金字塔原理 │         │
-│   │ Issue Tree│          │          │          │         │
+│   │ MECE +   │Hypothesis│Triangu-  │ Pyramid  │         │
+│   │Issue Tree│ -driven  │ lation   │ Principle│         │
 │   ├──────────┼──────────┼──────────┼──────────┤         │
 │   │ Stage 2  │ Stage 3-4│ Stage 4-5│ Stage 6  │         │
 │   └──────────┴──────────┴──────────┴──────────┘         │
 │                                                          │
-│   Tier 2: 场景增强（自动触发）                              │
+│   Tier 2: Scenario Enhancement (Auto-triggered)          │
 │   ┌──────────┬──────────┬──────────┐                     │
-│   │ 第一性原理 │   ACH    │ Pre-mortem│                    │
+│   │  First   │   ACH    │Pre-mortem│                     │
+│   │Principles│          │          │                     │
 │   ├──────────┼──────────┼──────────┤                     │
-│   │ 场景3,4, │ 场景5,6, │ 场景2,6, │                     │
-│   │ 5,7      │ 7        │ 7,8,9    │                     │
+│   │Scenario  │Scenario  │Scenario  │                     │
+│   │ 3,4,5,7  │ 5,6,7    │2,6,7,8,9│                     │
 │   └──────────┴──────────┴──────────┘                     │
 │                                                          │
-│   独立流程（不在映射体系内）                                 │
+│   Independent Process (outside mapping system)           │
 │   ┌──────────┐                                           │
-│   │  访谈法   │ → 跟随 Stage 3.5 访谈工作流触发             │
+│   │ Interview│ → Triggered by Stage 3.5 interview flow   │
 │   └──────────┘                                           │
 │                                                          │
 └─────────────────────────────────────────────────────────┘
@@ -44,188 +45,188 @@
 
 ---
 
-## Tier 1：底层 OS（始终运行）
+## Tier 1: Base OS (Always Active)
 
-> **定义**：无论什么研究场景、什么框架组合，以下方法论在对应 Stage **必须使用**，是分析的"操作系统"。
+> **Definition**: Regardless of research scenario or framework combination, the following methodologies **must be used** at their corresponding Stage — they are the analysis "operating system."
 
-### 1. MECE 原则 + Issue Tree — Stage 2
+### 1. MECE Principle + Issue Tree — Stage 2
 
-| 项目 | 说明 |
-|------|------|
-| **加载文件** | `mece.md` + `issue_tree.md` |
-| **绑定阶段** | Stage 2：问题定义 |
-| **核心作用** | 确保问题拆解完整（不重不漏），形成结构化的子问题树 |
-| **检查点** | ① 维度是否穷尽？（参考选中框架的维度结构确保覆盖） ② 维度是否互斥？ ③ 是否拆解到可分析层级？ ④ N/A 维度是否显式标注？ |
+| Item | Description |
+|------|-------------|
+| **Load Files** | `mece.md` + `issue_tree.md` |
+| **Bound Stage** | Stage 2: Issue Intake |
+| **Core Function** | Ensure problem decomposition is complete (no overlaps, no gaps), forming a structured sub-question tree |
+| **Checkpoints** | 1) Are dimensions exhaustive? (Reference the selected framework's dimension structure for coverage) 2) Are dimensions mutually exclusive? 3) Decomposed to an analyzable level? 4) Are N/A dimensions explicitly marked? |
 
-### 2. 假设驱动法 — Stage 3-4
+### 2. Hypothesis-driven Method — Stage 3-4
 
-| 项目 | 说明 |
-|------|------|
-| **加载文件** | `hypothesis_driven.md` |
-| **绑定阶段** | Stage 3：假设与计划 → Stage 4：研究执行 |
-| **核心作用** | 以可验证假设引导分析，避免信息过载和漫无目的 |
-| **检查点** | ① 是否形成了明确假设？ ② 假设是否可证伪？ ③ 数据收集是否围绕假设展开？ |
+| Item | Description |
+|------|-------------|
+| **Load Files** | `hypothesis_driven.md` |
+| **Bound Stage** | Stage 3: Hypotheses & Plan → Stage 4: Research Execution |
+| **Core Function** | Guide analysis with testable hypotheses, avoiding information overload and aimless exploration |
+| **Checkpoints** | 1) Have clear hypotheses been formed? 2) Are hypotheses falsifiable? 3) Is data collection organized around hypotheses? |
 
-### 3. 三角验证法 — Stage 4-5
+### 3. Triangulation — Stage 4-5
 
-| 项目 | 说明 |
-|------|------|
-| **加载文件** | `triangulation.md` |
-| **绑定阶段** | Stage 4：研究执行 → Stage 5：洞察生成 |
-| **核心作用** | 通过多来源交叉验证数据可信度，确保结论可靠 |
-| **检查点** | ① 核心数据是否有 2+ 独立来源？ ② 来源是否真正独立？ ③ 是否标注了验证程度（A/B/C/D）？ |
+| Item | Description |
+|------|-------------|
+| **Load Files** | `triangulation.md` |
+| **Bound Stage** | Stage 4: Research Execution → Stage 5: Insight Synthesis |
+| **Core Function** | Verify data credibility through multi-source cross-validation, ensuring reliable conclusions |
+| **Checkpoints** | 1) Do core data points have 2+ independent sources? 2) Are sources truly independent? 3) Is verification level marked (A/B/C/D)? |
 
-### 4. 金字塔原理 — Stage 6
+### 4. Pyramid Principle — Stage 6
 
-| 项目 | 说明 |
-|------|------|
-| **加载文件** | `pyramid_principle.md` |
-| **绑定阶段** | Stage 6：报告生成 |
-| **核心作用** | 确保报告结构清晰、结论先行、逻辑递进 |
-| **检查点** | ① 结论是否先行？ ② 论据是否分层支撑？ ③ 逻辑是否清晰无跳跃？ |
-
----
-
-## Tier 2：场景增强（自动触发）
-
-> **定义**：满足触发条件时 → **自动引用**，告知用户已引用 + 简要说明原因和关键分析维度。不需要用户选择接收或跳过。
-
-### 1. 第一性原理
-
-| 项目 | 说明 |
-|------|------|
-| **加载文件** | `first_principles.md` |
-| **应用阶段** | Stage 5：洞察生成 |
-| **核心作用** | 回归本质，剥离假设和惯例，突破"大家都这么做"的思维 |
-| **触发场景** | 场景 3（产品分析）、场景 4（商业模式）、场景 5（机会挖掘）、场景 7（投资决策） |
-| **触发逻辑** | 涉及创新机会识别、商业模式本质分析、价值创新空间探索时自动引用 |
-| **告知模板** | `🧠 自动引用方法论：第一性原理 — 本研究涉及[创新机会/模式本质]分析，需要回归本质思考。关键维度：剥离行业惯例 → 识别根本假设 → 重构价值逻辑` |
-
-### 2. ACH 竞争假设分析
-
-| 项目 | 说明 |
-|------|------|
-| **加载文件** | `ach.md` |
-| **应用阶段** | Stage 3：假设形成 + Stage 5：洞察验证 |
-| **核心作用** | 系统对比多个竞争假设，克服确认偏误 |
-| **触发场景** | 场景 5（机会挖掘）、场景 6（市场进入）、场景 7（投资决策） |
-| **触发逻辑** | 存在多个合理方向/方案需要对比决策时自动引用 |
-| **告知模板** | `🧠 自动引用方法论：ACH 竞争假设分析 — 本研究涉及[多方案对比/关键决策]，需要系统对比假设避免偏误。关键维度：列出竞争假设 → 逐一评估证据 → 识别最可能假设` |
-
-### 3. Pre-mortem 事前验尸
-
-| 项目 | 说明 |
-|------|------|
-| **加载文件** | `pre_mortem.md` |
-| **应用阶段** | Stage 5：洞察生成后 |
-| **核心作用** | 假设建议已经失败，反向识别关键风险因素 |
-| **触发场景** | 场景 2（竞争分析）、场景 6（市场进入）、场景 7（投资决策）、场景 8（战略规划）、场景 9（尽职调查） |
-| **触发逻辑** | 有核心战略建议/行动方案产出时自动引用 |
-| **告知模板** | `🧠 自动引用方法论：Pre-mortem 事前验尸 — 本研究产出了[核心建议/行动方案]，需要反向检验风险。关键维度：假设已失败 → 识别失败原因 → 制定预防措施` |
+| Item | Description |
+|------|-------------|
+| **Load Files** | `pyramid_principle.md` |
+| **Bound Stage** | Stage 6: Report Generation |
+| **Core Function** | Ensure report structure is clear, conclusion-first, logically progressive |
+| **Checkpoints** | 1) Is the conclusion first? 2) Are arguments layered in support? 3) Is logic clear without gaps? |
 
 ---
 
-## 访谈法 — 独立流程
+## Tier 2: Scenario Enhancement (Auto-triggered)
 
-> **重要**：访谈法不在 Tier 1/Tier 2 映射体系内，跟随 Stage 3.5 访谈工作流触发。
+> **Definition**: When trigger conditions are met → **auto-reference**, notifying the user of the reference + brief explanation of the reason and key analytical dimensions. No user opt-in/opt-out needed.
 
-| 项目 | 说明 |
-|------|------|
-| **加载文件** | `interview.md` |
-| **触发机制** | Stage 3 步骤 3.4 评估访谈必要性 → 用户确认要做访谈 → Stage 3.5 激活 → 加载文件 |
-| **不在本映射中的原因** | 访谈是一种信息获取方式，有独立的工作流（提纲设计 → 用户执行 → Track C 整合），不是分析方法论 |
+### 1. First Principles
+
+| Item | Description |
+|------|-------------|
+| **Load Files** | `first_principles.md` |
+| **Applied Stage** | Stage 5: Insight Synthesis |
+| **Core Function** | Return to fundamentals, strip away assumptions and conventions, break through "everyone does it this way" thinking |
+| **Trigger Scenarios** | Scenario 3 (Product Analysis), Scenario 4 (Business Model), Scenario 5 (Opportunity Discovery), Scenario 7 (Investment Decision) |
+| **Trigger Logic** | Auto-referenced when involving innovation opportunity identification, business model essence analysis, or value innovation space exploration |
+| **Notification Template** | `🧠 Auto-referencing methodology: First Principles — This research involves [innovation opportunity/model essence] analysis, requiring fundamental thinking. Key dimensions: Strip industry conventions → Identify root assumptions → Reconstruct value logic` |
+
+### 2. ACH (Analysis of Competing Hypotheses)
+
+| Item | Description |
+|------|-------------|
+| **Load Files** | `ach.md` |
+| **Applied Stage** | Stage 3: Hypothesis Formation + Stage 5: Insight Validation |
+| **Core Function** | Systematically compare multiple competing hypotheses, overcoming confirmation bias |
+| **Trigger Scenarios** | Scenario 5 (Opportunity Discovery), Scenario 6 (Market Entry), Scenario 7 (Investment Decision) |
+| **Trigger Logic** | Auto-referenced when multiple plausible directions/options need comparative evaluation |
+| **Notification Template** | `🧠 Auto-referencing methodology: ACH — This research involves [multi-option comparison/key decision], requiring systematic hypothesis comparison to avoid bias. Key dimensions: List competing hypotheses → Evaluate evidence against each → Identify most likely hypothesis` |
+
+### 3. Pre-mortem
+
+| Item | Description |
+|------|-------------|
+| **Load Files** | `pre_mortem.md` |
+| **Applied Stage** | Stage 5: After Insight Synthesis |
+| **Core Function** | Assume the recommendation has already failed, reverse-identify critical risk factors |
+| **Trigger Scenarios** | Scenario 2 (Competitive Analysis), Scenario 6 (Market Entry), Scenario 7 (Investment Decision), Scenario 8 (Strategic Planning), Scenario 9 (Due Diligence) |
+| **Trigger Logic** | Auto-referenced when core strategic recommendations/action plans are produced |
+| **Notification Template** | `🧠 Auto-referencing methodology: Pre-mortem — This research produced [core recommendations/action plans], requiring reverse risk validation. Key dimensions: Assume failure → Identify failure causes → Develop preventive measures` |
 
 ---
 
-## 双场景方法论规则
+## Interview Method — Independent Process
 
-> 当 `frameworks/_index.md` 识别为双场景匹配时（目的场景 + 方法场景），Tier 2 方法论取**两个场景的并集**。
+> **Important**: The interview method is NOT in the Tier 1/Tier 2 mapping system — it follows the Stage 3.5 interview workflow trigger.
+
+| Item | Description |
+|------|-------------|
+| **Load Files** | `interview.md` |
+| **Trigger Mechanism** | Stage 3 Step 3.4 assesses interview necessity → User confirms interview needed → Stage 3.5 activated → Load file |
+| **Reason Not Mapped** | Interviews are an information acquisition method with an independent workflow (outline design → user execution → Track C integration), not an analytical methodology |
+
+---
+
+## Dual-Scenario Methodology Rules
+
+> When `frameworks/_index.md` identifies a dual-scenario match (purpose scenario + method scenario), Tier 2 methodologies take the **union of both scenarios**.
 >
-> 示例：场景 5（机会挖掘）+ 场景 2（竞争分析）→ Tier 2 = 第一性原理 + ACH + Pre-mortem
+> Example: Scenario 5 (Opportunity Discovery) + Scenario 2 (Competitive Analysis) → Tier 2 = First Principles + ACH + Pre-mortem
 
 ---
 
-## 场景 × 方法论总览
+## Scenario x Methodology Overview
 
-| 场景 | Tier 1（始终运行） | Tier 2（自动触发） |
-|------|-------------------|-------------------|
-| 1. 行业研究 | MECE+Issue Tree, 假设驱动, 三角验证, 金字塔原理 | — |
-| 2. 竞争分析 | MECE+Issue Tree, 假设驱动, 三角验证, 金字塔原理 | **Pre-mortem** |
-| 3. 产品分析 | MECE+Issue Tree, 假设驱动, 三角验证, 金字塔原理 | **第一性原理** |
-| 4. 商业模式 | MECE+Issue Tree, 假设驱动, 三角验证, 金字塔原理 | **第一性原理** |
-| 5. 机会挖掘 | MECE+Issue Tree, 假设驱动, 三角验证, 金字塔原理 | **第一性原理** + **ACH** |
-| 6. 市场进入 | MECE+Issue Tree, 假设驱动, 三角验证, 金字塔原理 | **ACH** + **Pre-mortem** |
-| 7. 投资决策 | MECE+Issue Tree, 假设驱动, 三角验证, 金字塔原理 | **第一性原理** + **ACH** + **Pre-mortem** |
-| 8. 战略规划 | MECE+Issue Tree, 假设驱动, 三角验证, 金字塔原理 | **Pre-mortem** |
-| 9. 尽职调查 | MECE+Issue Tree, 假设驱动, 三角验证, 金字塔原理 | **Pre-mortem** |
-| 10. 专项议题 | MECE+Issue Tree, 假设驱动, 三角验证, 金字塔原理 | 视议题动态匹配 |
+| Scenario | Tier 1 (Always Active) | Tier 2 (Auto-triggered) |
+|----------|----------------------|------------------------|
+| 1. Industry Research | MECE+Issue Tree, Hypothesis-driven, Triangulation, Pyramid Principle | — |
+| 2. Competitive Analysis | MECE+Issue Tree, Hypothesis-driven, Triangulation, Pyramid Principle | **Pre-mortem** |
+| 3. Product Analysis | MECE+Issue Tree, Hypothesis-driven, Triangulation, Pyramid Principle | **First Principles** |
+| 4. Business Model | MECE+Issue Tree, Hypothesis-driven, Triangulation, Pyramid Principle | **First Principles** |
+| 5. Opportunity Discovery | MECE+Issue Tree, Hypothesis-driven, Triangulation, Pyramid Principle | **First Principles** + **ACH** |
+| 6. Market Entry | MECE+Issue Tree, Hypothesis-driven, Triangulation, Pyramid Principle | **ACH** + **Pre-mortem** |
+| 7. Investment Decision | MECE+Issue Tree, Hypothesis-driven, Triangulation, Pyramid Principle | **First Principles** + **ACH** + **Pre-mortem** |
+| 8. Strategic Planning | MECE+Issue Tree, Hypothesis-driven, Triangulation, Pyramid Principle | **Pre-mortem** |
+| 9. Due Diligence | MECE+Issue Tree, Hypothesis-driven, Triangulation, Pyramid Principle | **Pre-mortem** |
+| 10. Ad-hoc Topics | MECE+Issue Tree, Hypothesis-driven, Triangulation, Pyramid Principle | Dynamically matched to topic |
 
 ---
 
-## Stage × 方法论加载时序
+## Stage x Methodology Loading Sequence
 
 ```
-Stage 2: 问题定义
-    📚 自动加载：mece.md + issue_tree.md
-    🔧 应用：结构化拆解问题，形成 Issue Tree
+Stage 2: Issue Intake
+    📚 Auto-load: mece.md + issue_tree.md
+    🔧 Apply: Structurally decompose the problem, form Issue Tree
 
-Stage 3: 假设与计划
-    📚 自动加载：hypothesis_driven.md
-    📚 条件加载：ach.md（场景 5/6/7 自动触发）
-    🔧 应用：形成可证伪假设清单
+Stage 3: Hypotheses & Plan
+    📚 Auto-load: hypothesis_driven.md
+    📚 Conditional load: ach.md (auto-triggered for Scenarios 5/6/7)
+    🔧 Apply: Form falsifiable Hypothesis List
 
-Stage 3.5: 访谈（可选）
-    📚 条件加载：interview.md（用户选择做访谈时）
-    🔧 应用：设计访谈提纲，链接到假设
+Stage 3.5: Interview (Optional)
+    📚 Conditional load: interview.md (when user chooses to conduct interviews)
+    🔧 Apply: Design interview outline, link to hypotheses
 
-Stage 4: 研究执行
-    📚 自动加载：triangulation.md（如 Stage 3 已加载则延续）
-    🔧 应用：多源数据交叉验证
+Stage 4: Research Execution
+    📚 Auto-load: triangulation.md (continues if already loaded in Stage 3)
+    🔧 Apply: Multi-source data cross-validation
 
-Stage 5: 洞察生成
-    📚 自动加载：triangulation.md（延续验证）
-    📚 条件加载：first_principles.md（场景 3/4/5/7 自动触发）
-    📚 条件加载：pre_mortem.md（场景 2/6/7/8/9 自动触发）
-    📚 条件延续：ach.md（场景 5/6/7，延续 Stage 3 假设验证）
-    🔧 应用：生成洞察 → 第一性原理深挖 → Pre-mortem 风险检验
+Stage 5: Insight Synthesis
+    📚 Auto-load: triangulation.md (continues validation)
+    📚 Conditional load: first_principles.md (auto-triggered for Scenarios 3/4/5/7)
+    📚 Conditional load: pre_mortem.md (auto-triggered for Scenarios 2/6/7/8/9)
+    📚 Conditional continue: ach.md (Scenarios 5/6/7, continues Stage 3 hypothesis validation)
+    🔧 Apply: Generate insights → First Principles deep dive → Pre-mortem risk validation
 
-Stage 6: 报告生成
-    📚 自动加载：pyramid_principle.md
-    🔧 应用：结论先行、逻辑递进
+Stage 6: Report Generation
+    📚 Auto-load: pyramid_principle.md
+    🔧 Apply: Conclusion-first, logically progressive
 ```
 
 ---
 
-## 内嵌的方法论元素
+## Embedded Methodology Elements
 
-以下方法论元素**不单独成文件**，而是融入相关文件中：
+The following methodology elements are **not standalone files** but are embedded within related files:
 
-| 元素 | 融入位置 | 说明 |
-|------|---------|------|
-| 证伪思维 | `hypothesis_driven.md` | 主动寻找反例 |
-| 贝叶斯思维 | `hypothesis_driven.md` | 概率判断、动态更新 |
-| 5Whys 分析法 | `research_engine.md` | 深挖原因的技巧 |
+| Element | Embedded In | Description |
+|---------|-------------|-------------|
+| Falsification thinking | `hypothesis_driven.md` | Actively seek counterexamples |
+| Bayesian thinking | `hypothesis_driven.md` | Probabilistic judgment, dynamic updating |
+| 5 Whys analysis | `research_engine.md` | Technique for root cause investigation |
 
 ---
 
-## 质量检查清单
+## Quality Checklist
 
-### Stage 2 完成后
-- [ ] 是否使用 MECE 检查了问题拆解的完整性？
-- [ ] 是否形成了 Issue Tree？
-- [ ] 子问题是否拆解到可分析层级？
+### After Stage 2 Completion
+- [ ] Was MECE used to check problem decomposition completeness?
+- [ ] Was an Issue Tree formed?
+- [ ] Are sub-questions decomposed to an analyzable level?
 
-### Stage 3 完成后
-- [ ] 是否形成了假设驱动的研究计划？
-- [ ] 假设是否可证伪？
-- [ ] （场景 5/6/7）是否自动引用了 ACH？
+### After Stage 3 Completion
+- [ ] Was a hypothesis-driven research plan formed?
+- [ ] Are hypotheses falsifiable?
+- [ ] (Scenarios 5/6/7) Was ACH auto-referenced?
 
-### Stage 4-5 完成后
-- [ ] 核心数据是否经过三角验证？
-- [ ] 是否标注了数据验证程度？
-- [ ] （场景 3/4/5/7）是否自动引用了第一性原理？
-- [ ] （场景 2/6/7/8/9）是否自动引用了 Pre-mortem？
+### After Stage 4-5 Completion
+- [ ] Were core data points triangulated?
+- [ ] Was data verification level marked?
+- [ ] (Scenarios 3/4/5/7) Was First Principles auto-referenced?
+- [ ] (Scenarios 2/6/7/8/9) Was Pre-mortem auto-referenced?
 
-### Stage 6 完成后
-- [ ] 报告是否遵循金字塔原理？
-- [ ] 结论是否先行、论据是否分层？
+### After Stage 6 Completion
+- [ ] Does the report follow the Pyramid Principle?
+- [ ] Is the conclusion first, with layered arguments?

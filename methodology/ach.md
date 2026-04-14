@@ -1,235 +1,235 @@
-# ACH 竞争假设分析法
+# Analysis of Competing Hypotheses (ACH)
 
-> 核心价值：系统克服证实偏差，提高判断准确性
-
----
-
-## 定义
-
-ACH（Analysis of Competing Hypotheses）是一种**系统验证多个竞争假设**的方法：
-
-1. 列出**所有可能的假设**（包括你不同意的）
-2. 列出**所有证据**
-3. 构建"假设 × 证据"矩阵
-4. 评估每个证据对各假设的支持/否定程度
-5. **证据最不支持的假设，反而可能是正确的**
+> Core value: Systematically overcome confirmation bias, improve judgment accuracy
 
 ---
 
-## 使用时机
+## Definition
 
-**典型应用场景**：
-- 情报分析和竞争情报
-- 多假设评估
-- 高不确定性决策
-- 战略预判
+ACH (Analysis of Competing Hypotheses) is a method for **systematically validating multiple competing hypotheses**:
 
-**使用原则**：
-- 列出所有合理假设
-- 用证据矩阵系统评估
-- 证伪优于证实
-
-**使用流程**：
-1. 列出假设（所有可能性）
-2. 收集证据（支持和反对）
-3. 构建矩阵（证据 vs 假设）
-4. 评估一致性（证伪强证据）
-5. 形成判断（最可能的假设）
-
----## 为什么重要
-
-传统思维的陷阱：
-- 先有一个倾向性假设
-- 只找支持这个假设的证据
-- 忽略或淡化反面证据
-- 得出偏颇的结论
-
-ACH 通过**强制考虑所有可能性**，系统性地克服证实偏差。
+1. List **all possible hypotheses** (including those you disagree with)
+2. List **all evidence**
+3. Build a "hypothesis x evidence" matrix
+4. Assess how each piece of evidence supports/refutes each hypothesis
+5. **The hypothesis least supported by evidence may actually be the correct one**
 
 ---
 
-## 触发条件
+## When to Use
 
-满足以下 **2 条以上** 时启用：
+**Typical application scenarios**:
+- Intelligence analysis and competitive intelligence
+- Multi-hypothesis evaluation
+- High-uncertainty decisions
+- Strategic forecasting
 
-| 条件 | 判断标准 |
-|------|---------|
-| 结论关键性 | 判断直接影响重大决策（进入/不进入、投/不投） |
-| 假设多样性 | 存在 3 个以上合理的、相互竞争的假设 |
-| 偏见风险高 | 分析者或用户有明显倾向性 |
-| 证据复杂 | 证据之间存在矛盾，或来源多样 |
+**Usage principles**:
+- List all reasonable hypotheses
+- Use an evidence matrix for systematic evaluation
+- Falsification over confirmation
+
+**Usage flow**:
+1. List hypotheses (all possibilities)
+2. Collect evidence (supporting and opposing)
+3. Build matrix (evidence vs. hypotheses)
+4. Assess consistency (strong falsifying evidence)
+5. Form judgment (most likely hypothesis)
+
+---## Why It Matters
+
+The pitfall of traditional thinking:
+- Start with a preferred hypothesis
+- Only look for evidence supporting that hypothesis
+- Ignore or downplay opposing evidence
+- Arrive at a biased conclusion
+
+ACH overcomes confirmation bias systematically by **forcing consideration of all possibilities**.
 
 ---
 
-## 操作步骤
+## Trigger Conditions
 
-### Step 1：列出所有可能的假设
+Activate when **2 or more** of the following are met:
 
-基于已有信息，列出**所有合理的假设**，包括你不同意的。
+| Condition | Judgment Criteria |
+|-----------|-------------------|
+| Conclusion criticality | The judgment directly impacts a major decision (enter/don't enter, invest/don't invest) |
+| Hypothesis diversity | 3 or more reasonable, mutually competing hypotheses exist |
+| High bias risk | The analyst or user has an obvious inclination |
+| Evidence complexity | Evidence is contradictory or comes from diverse sources |
 
-标准：
-- 每个假设都应该是可能的（不是明显错误）
-- 假设之间相互竞争（只能有一个正确）
-- 通常 3-6 个假设
+---
 
-例子：
+## Operating Steps
+
+### Step 1: List All Possible Hypotheses
+
+Based on available information, list **all reasonable hypotheses**, including those you disagree with.
+
+Criteria:
+- Each hypothesis should be possible (not obviously wrong)
+- Hypotheses are mutually competing (only one can be correct)
+- Typically 3-6 hypotheses
+
+Example:
 ```
-问题：竞对 A 为什么增长快？
+Question: Why is Competitor A growing fast?
 
-假设：
-H1：补贴策略激进
-H2：产品体验更好
-H3：渠道拓展成功
-H4：品牌效应积累
-```
-
-### Step 2：列出所有证据
-
-收集与问题相关的**所有证据**，包括：
-- 支持某个假设的证据
-- 反对某个假设的证据
-- 中性的、与多个假设相关的证据
-
-例子：
-```
-E1：竞对 A 营销费用同比增长 200%
-E2：竞对 A 用户满意度 85%，高于行业平均
-E3：竞对 A 在抖音、小红书投放量第一
-E4：竞对 A 停止补贴后，用户增速下降 30%
-E5：竞对 A 产品迭代速度是行业平均的 2 倍
-E6：竞对 A 的 NPS 分数持续上升
+Hypotheses:
+H1: Aggressive subsidy strategy
+H2: Better product experience
+H3: Successful channel expansion
+H4: Accumulated brand effect
 ```
 
-### Step 3：构建证据矩阵
+### Step 2: List All Evidence
 
-构建"假设 × 证据"矩阵，评估每个证据对每个假设的影响。
+Collect **all evidence** related to the question, including:
+- Evidence supporting a hypothesis
+- Evidence opposing a hypothesis
+- Neutral evidence related to multiple hypotheses
 
-符号：
-- `+` 支持
-- `++` 强支持
-- `-` 反对
-- `--` 强反对
-- `N` 中性/无关
-- `?` 不确定
+Example:
+```
+E1: Competitor A's marketing spend grew 200% YoY
+E2: Competitor A's user satisfaction at 85%, above industry average
+E3: Competitor A ranks #1 in Douyin and Xiaohongshu ad spend
+E4: After Competitor A stopped subsidies, user growth dropped 30%
+E5: Competitor A's product iteration speed is 2x the industry average
+E6: Competitor A's NPS score is continuously rising
+```
 
-例子：
+### Step 3: Build the Evidence Matrix
 
-| 证据 | H1:补贴 | H2:产品 | H3:渠道 | H4:品牌 |
-|------|---------|---------|---------|---------|
-| E1:营销费用+200% | + | N | + | + |
-| E2:满意度85% | N | ++ | N | + |
-| E3:抖音投放第一 | + | N | ++ | + |
-| E4:停补贴后降30% | ++ | - | - | - |
-| E5:迭代速度快 | N | ++ | N | + |
-| E6:NPS上升 | N | + | N | ++ |
+Build a "hypothesis x evidence" matrix, assessing each piece of evidence's impact on each hypothesis.
 
-### Step 4：分析矩阵
+Symbols:
+- `+` Supports
+- `++` Strongly supports
+- `-` Opposes
+- `--` Strongly opposes
+- `N` Neutral/irrelevant
+- `?` Uncertain
 
-**关键原则：关注证据的"区分度"，而非数量**
+Example:
 
-- 有些证据对所有假设都支持 → 区分度低，价值低
-- 有些证据只支持/反对特定假设 → 区分度高，价值高
+| Evidence | H1:Subsidy | H2:Product | H3:Channel | H4:Brand |
+|----------|------------|------------|------------|----------|
+| E1: Marketing +200% | + | N | + | + |
+| E2: Satisfaction 85% | N | ++ | N | + |
+| E3: #1 Douyin spend | + | N | ++ | + |
+| E4: Growth -30% after subsidy stop | ++ | - | - | - |
+| E5: Fast iteration | N | ++ | N | + |
+| E6: NPS rising | N | + | N | ++ |
 
-上例分析：
-- E2、E5 强支持 H2（产品好）
-- E4 强支持 H1（补贴是主因），同时反对 H2、H3、H4
-- E3 支持 H3（渠道），但也支持 H1、H4
+### Step 4: Analyze the Matrix
 
-### Step 5：得出结论
+**Key principle: Focus on evidence "discriminating power," not quantity**
 
-**不是看哪个假设"支持最多"，而是看哪个假设"最没有被推翻"**
+- Some evidence supports all hypotheses → Low discriminating power, low value
+- Some evidence only supports/opposes specific hypotheses → High discriminating power, high value
 
-计算方法：
-1. 统计每个假设的 `+`、`++`、`-`、`--` 数量
-2. 重点关注 `--`（强反对）的证据
-3. 被 `--` 证据反对的假设，可能性大幅降低
+Analysis of the example above:
+- E2, E5 strongly support H2 (good product)
+- E4 strongly supports H1 (subsidy is the main driver), while opposing H2, H3, H4
+- E3 supports H3 (channel), but also supports H1, H4
 
-上例结论：
-- H1（补贴）：有 E1、E3、E4 支持，无强反对 → 可能性高
-- H2（产品）：有 E2、E5、E6 支持，但 E4 反对 → 可能性中
-- H3（渠道）：有 E3 支持，但 E4 反对 → 可能性低
-- H4（品牌）：有 E1、E6 支持，但 E4 反对 → 可能性低
+### Step 5: Draw Conclusions
 
-**综合判断**：竞对增长的主要原因是补贴策略，产品体验是次要因素。
+**Don't look at which hypothesis has "the most support" — look at which hypothesis has "the least refutation"**
 
-### Step 6：敏感性分析
+Calculation method:
+1. Count the `+`, `++`, `-`, `--` for each hypothesis
+2. Focus on `--` (strong opposition) evidence
+3. Hypotheses opposed by `--` evidence have significantly reduced likelihood
 
-问：如果某个证据是错的，结论会改变吗？
+Example conclusion:
+- H1 (Subsidy): Supported by E1, E3, E4, no strong opposition → High likelihood
+- H2 (Product): Supported by E2, E5, E6, but opposed by E4 → Medium likelihood
+- H3 (Channel): Supported by E3, but opposed by E4 → Low likelihood
+- H4 (Brand): Supported by E1, E6, but opposed by E4 → Low likelihood
 
-- 关键证据：E4（停补贴后降速）——如果这个证据有误，结论可能反转
-- 建议：进一步验证 E4 的可靠性
+**Overall judgment**: The competitor's growth is primarily driven by subsidy strategy, with product experience as a secondary factor.
+
+### Step 6: Sensitivity Analysis
+
+Question: If a piece of evidence were wrong, would the conclusion change?
+
+- Key evidence: E4 (growth drop after subsidy stop) — If this evidence is incorrect, the conclusion could reverse
+- Recommendation: Further verify the reliability of E4
 
 ---
 
-## 输出格式
+## Output Format
 
 ```markdown
-## ACH 分析结果
+## ACH Analysis Results
 
-### 问题
-[分析的问题]
+### Question
+[The question being analyzed]
 
-### 假设清单
-| 编号 | 假设 |
-|------|------|
-| H1 | [假设1] |
-| H2 | [假设2] |
-| H3 | [假设3] |
+### Hypothesis List
+| # | Hypothesis |
+|---|-----------|
+| H1 | [Hypothesis 1] |
+| H2 | [Hypothesis 2] |
+| H3 | [Hypothesis 3] |
 
-### 证据矩阵
-| 证据 | H1 | H2 | H3 |
-|------|----|----|----|
+### Evidence Matrix
+| Evidence | H1 | H2 | H3 |
+|----------|----|----|----|
 | E1 | + | N | - |
 | E2 | ++ | - | N |
 | E3 | - | ++ | + |
 
-### 分析结论
-- 最可能正确的假设：H1
-- 理由：[说明]
-- 关键证据：[列出区分度高的证据]
-- 敏感性：[哪些证据如果错误会影响结论]
+### Analysis Conclusion
+- Most likely correct hypothesis: H1
+- Reasoning: [Explanation]
+- Key evidence: [List high-discriminating evidence]
+- Sensitivity: [Which evidence, if wrong, would affect the conclusion]
 
-### 置信度
-[高/中/低]
+### Confidence Level
+[High/Medium/Low]
 ```
 
 ---
 
-## 常见错误
+## Common Mistakes
 
-### 错误 1：假设不完整
+### Mistake 1: Incomplete Hypotheses
 
-❌ 只列出自己认同的假设
-✅ 列出所有合理的假设，包括不同意的
+❌ Only listing hypotheses you agree with
+✅ Listing all reasonable hypotheses, including ones you disagree with
 
-### 错误 2：证据有偏见
+### Mistake 2: Biased Evidence
 
-❌ 只收集支持某个假设的证据
-✅ 收集所有相关证据，包括中性和反对的
+❌ Only collecting evidence supporting a specific hypothesis
+✅ Collecting all relevant evidence, including neutral and opposing
 
-### 错误 3：只看支持数量
+### Mistake 3: Only Counting Support
 
-❌ 哪个假设 `+` 最多就选哪个
-✅ 关注 `--`（强反对），排除被推翻的假设
+❌ Choosing whichever hypothesis has the most `+`
+✅ Focus on `--` (strong opposition), eliminate refuted hypotheses
 
-### 错误 4：忽略敏感性
+### Mistake 4: Ignoring Sensitivity
 
-❌ 不检验关键证据的可靠性
-✅ 识别关键证据，进一步验证
+❌ Not verifying the reliability of key evidence
+✅ Identify key evidence and further verify
 
 ---
 
-## 在本 Skill 中的应用
+## Application in This Skill
 
-### Stage 3 假设验证
+### Stage 3 Hypothesis Validation
 
-1. 满足触发条件时，询问用户是否启用 ACH
-2. 用户确认后，按步骤执行
-3. 输出到 `research_plan.md` 的 ACH 分析部分
+1. When trigger conditions are met, ask the user whether to activate ACH
+2. After user confirmation, execute step by step
+3. Output to the ACH analysis section of `research_plan.md`
 
-### 与假设驱动法的关系
+### Relationship with Hypothesis-driven Method
 
-- **假设驱动法**：整体工作方式
-- **ACH**：关键判断时的强化验证工具
+- **Hypothesis-driven method**: The overall working approach
+- **ACH**: An enhanced validation tool for critical judgments
 
-ACH 是假设驱动法的"升级版"，用于更关键、更复杂的判断。
+ACH is the "upgrade" of hypothesis-driven method, used for more critical and complex judgments.

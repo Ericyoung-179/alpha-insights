@@ -1,372 +1,372 @@
-# 报告标准（Report Standards）
+# Report Standards
 
-> **定位**：Stage 6 报告生成的质量标准
+> **Purpose**: Quality standards for Stage 6 report generation
 >
-> **用途**：确保报告专业、清晰、有洞察、可执行
+> **Usage**: Ensure reports are professional, clear, insightful, and actionable
 
 ---
 
-## 报告结构标准
+## Report Structure Standards
 
-### 标准结构（七段式）
+### Standard Structure (Seven-Section Format)
 
 ```
-1. Executive Summary（1 页，不超过 1 页）
-2. 研究背景与方法（1 页）
-3. 核心分析章节（4-5 章，每章 3-5 页）
-4. 关键洞察与建议（2-3 页）
-5. 风险与应对（1 页）
-6. 盲区审查（1 页）
-7. 证据附录
+1. Executive Summary (1 page, no more than 1 page)
+2. Research Background & Methodology (1 page)
+3. Core Analysis Chapters (4-5 chapters, 3-5 pages each)
+4. Key Insights & Recommendations (2-3 pages)
+5. Risks & Mitigation (1 page)
+6. Blind Spot Review (1 page)
+7. Evidence Appendix
 ```
 
-### 各章节标准
+### Chapter Standards
 
 #### 1. Executive Summary
 
-**必须包含**:
-- 核心结论（1 句话，有观点）
-- 3-5 条关键洞察（每条≤2 行）
-- 行动建议（按优先级排序）
-- 关键数据支撑（2-3 个核心数字）
+**Must include**:
+- Core conclusion (1 sentence, with a clear viewpoint)
+- 3-5 key insights (each ≤2 lines)
+- Action recommendations (prioritized)
+- Key data support (2-3 core figures)
 
-**写作标准**:
-- 独立可读：不看正文也能理解核心结论
-- 结论先行：第一句就是核心判断
-- 数据支撑：每个洞察都有具体数据
+**Writing standards**:
+- Standalone readable: core conclusions understandable without reading the full report
+- Conclusion-first: first sentence is the core judgment
+- Data-backed: every insight has specific data
 
-**❌ 错误示例**:
-> 本报告分析了 XX 行业，发现市场在增长，竞争在加剧，建议公司加强竞争力...
+**❌ Bad example**:
+> This report analyzes the XX industry, finding that the market is growing, competition is intensifying, and the company should strengthen its competitiveness...
 
-**✅ 正确示例**:
-> **核心结论**：建议在 12 个月内进入宠物保险市场，窗口期正在关闭。
-> - 洞察 1：市场 CAGR 35%，但 CR5 已达 60%，窗口期约 18 个月
-> - 洞察 2：现有玩家在产品创新和服务体验上有明显空白
-> - 洞察 3：我们现有客户中有 40% 表示有宠物保险需求
-> - 建议：Q2 启动产品设计，Q4 试点，预算 XXX 万
-
----
-
-#### 2. 研究背景与方法
-
-**必须包含**:
-- 研究问题（来自 Stage 2）
-- 分析框架（列出使用的框架 + N/A 维度说明）
-- 数据来源（P0/P1/P2 级来源数量）
-- 验证程度（A/B 级数据占比）
+**✅ Good example**:
+> **Core Conclusion**: Recommend entering the pet insurance market within 12 months — the window is closing.
+> - Insight 1: Market CAGR 35%, but CR5 already at 60%, window period ~18 months
+> - Insight 2: Existing players have clear gaps in product innovation and service experience
+> - Insight 3: 40% of our existing customers express demand for pet insurance
+> - Recommendation: Launch product design in Q2, pilot in Q4, budget XXX million
 
 ---
 
-#### 3. 核心分析章节
+#### 2. Research Background & Methodology
 
-**结构标准**:
+**Must include**:
+- Research question (from Stage 2)
+- Analytical frameworks (list frameworks used + N/A dimension explanations)
+- Data sources (count of P0/P1/P2 level sources)
+- Verification level (proportion of A/B grade data)
+
+---
+
+#### 3. Core Analysis Chapters
+
+**Structure standard**:
 ```
-第 X 章：[章节标题]
+Chapter X: [Chapter Title]
 
-X.1 核心发现（1 段结论先行）
-X.2 数据支撑（图表 + 核心指标，Tier 3 每章 ≥1 个 ECharts）
-X.3 维度拆解（向下展开 ≥1 层子维度，Tier 3 每个维度 ≥2 段展开）
-X.4 对比锚定（≥1 组参照系，Tier 3 每组对比含数据表或图表）
-X.5 So What 分析（含义解读，≥2 层推导；核心洞察章节 ≥3 层。Tier 3 每层独立段落，不合并）
-X.6 与我们的关系（上下文锚定，Tier 3 ≥2 段：影响判断 + 行动含义）
+X.1 Core Findings (1 paragraph, conclusion-first)
+X.2 Data Evidence (charts + key metrics, Tier 3 ≥1 ECharts per chapter)
+X.3 Dimension Breakdown (expand ≥1 level of sub-dimensions, Tier 3 ≥2 paragraphs per dimension)
+X.4 Comparative Anchoring (≥1 set of reference points, Tier 3 each comparison includes data table or chart)
+X.5 So What Analysis (implication interpretation, ≥2 layers of reasoning; core insight chapters ≥3 layers. Tier 3 each layer as separate paragraph, no merging)
+X.6 Relevance to Us (context anchoring, Tier 3 ≥2 paragraphs: impact assessment + action implications)
 ```
 
-**X.3 维度拆解（防止"只给总数不展开"）**:
-- 市场规模 → 按细分市场/区域/客群拆解
-- 竞争格局 → 按玩家/市场层级/商业模式拆解
-- 用户行为 → 按场景/频次/付费意愿拆解
-- **档位要求**: Tier 1 可省略 | Tier 2 ≥1 个维度 | Tier 3 ≥2 个维度（目标 3+，每个维度单独段落展开）
+**X.3 Dimension Breakdown (prevent "giving only totals without expansion")**:
+- Market size → Break down by segment/region/customer group
+- Competitive landscape → Break down by player/market tier/business model
+- User behavior → Break down by scenario/frequency/willingness to pay
+- **Tier requirements**: Tier 1 may omit | Tier 2 ≥1 dimension | Tier 3 ≥2 dimensions (target 3+, each dimension expanded in its own paragraph)
 
-**X.4 对比锚定（防止"只有绝对数字没有参照"）**:
-- 时间对比：同比/环比/CAGR
-- 竞品对比：与主要竞争对手的指标对比
-- 行业对比：与行业均值/标杆企业对比
-- 跨市场对比：成熟市场 vs 新兴市场，国际 vs 国内
-- **档位要求**: Tier 1 可省略 | Tier 2 ≥1 组对比 | Tier 3 ≥2 组对比（目标 3+，每组含量化数据）
+**X.4 Comparative Anchoring (prevent "absolute numbers without context")**:
+- Temporal comparison: YoY/QoQ/CAGR
+- Competitor comparison: metric comparison with key competitors
+- Industry comparison: vs. industry average/benchmark companies
+- Cross-market comparison: mature vs. emerging markets, international vs. domestic
+- **Tier requirements**: Tier 1 may omit | Tier 2 ≥1 comparison set | Tier 3 ≥2 comparison sets (target 3+, each with quantitative data)
 
-**写作标准**:
-- 每章聚焦一个洞察主题（大多数洞察主题对应单个子问题，少数跨子问题综合的洞察可独立成章）
-- 章节标题是判断或发现（如"市场出清创造三年窗口期"），不是子问题或框架名称
-- 每章都有维度拆解（不只给一个总数）
-- 每章都有对比锚定（不只给绝对值）
-- 每章都有明确的 So What
-- 每章都回答"与我们的关系"
+**Writing standards**:
+- Each chapter focuses on one insight theme (most insight themes correspond to a single sub-question; rare cross-question insights may form independent chapters)
+- Chapter titles are judgments or findings (e.g., "Market Consolidation Creates a Three-Year Window"), not sub-questions or framework names
+- Every chapter has dimension breakdown (not just one aggregate number)
+- Every chapter has comparative anchoring (not just absolute values)
+- Every chapter has a clear So What
+- Every chapter answers "Relevance to Us"
 
-**框架在报告中的呈现**:
-- 「研究背景与方法」章节：显性列出使用的框架组合 + N/A 维度说明（体现方法论严谨）
-- 核心分析章节：框架作为分析工具在章节内部使用，不作为章节标题
-- N/A 维度处理：括号一句话带过（如"环境维度与本次分析无直接关联，未纳入"），体现覆盖完整性
-
----
-
-#### 4. 关键洞察与建议
-
-**洞察标准**（来自 judgment_rules.md）:
-- 具体性：有数据/案例支撑
-- 独特性：非显而易见的发现
-- 可执行性：能转化为具体行动
-- 影响力：影响关键决策
-
-**洞察分级**（与 Stage 5 `insights.md` 对齐）:
-- **A 类核心洞察**（18-20 分）：报告主体章节重点展开，逐一深度阐述
-- **B 类核心洞察**（16-17 分）：精简呈现，按主题聚合
-
-**建议标准**:
-- 5W1H 完整：What/Why/Who/When/Where/How
-- 优先级清晰：P0/P1/P2 排序
-- ROI 预估：投入产出有量化估算
-- 风险标注：主要风险和应对策略
+**Framework presentation in reports**:
+- "Research Background & Methodology" chapter: explicitly list framework combinations used + N/A dimension explanations (demonstrating methodological rigor)
+- Core analysis chapters: frameworks used as analytical tools within chapters, not as chapter titles
+- N/A dimension handling: one sentence in parentheses (e.g., "Environmental dimension has no direct relevance to this analysis and was excluded"), demonstrating completeness and intellectual honesty
 
 ---
 
-#### 5. 风险与应对
+#### 4. Key Insights & Recommendations
 
-**必须包含**:
-- 主要风险（3-5 条）
-- 发生概率（高/中/低）
-- 影响程度（高/中/低）
-- 应对策略（具体行动）
+**Insight standards** (from judgment_rules.md):
+- Specificity: supported by data/cases
+- Uniqueness: non-obvious findings
+- Actionability: translatable into specific actions
+- Impact: influences key decisions
 
----
+**Insight tiers** (aligned with Stage 5 `insights.md`):
+- **A-class core insights** (18-20 points): expanded in depth across main report chapters
+- **B-class core insights** (16-17 points): presented concisely, grouped by theme
 
-#### 6. 证据附录
-
-**必须包含**:
-- 数据来源列表（按优先级标注）
-- 验证程度标注（A/B/C/D）
-- 补充分析（支撑性但不核心的内容）
-
----
-
-## 图表标准
-
-### 图表选择原则
-
-| 目的 | 推荐图表 |
-|------|---------|
-| 展示趋势 | 折线图、面积图 |
-| 比较数据 | 柱状图、条形图 |
-| 显示占比 | 饼图、环形图 |
-| 关系分析 | 散点图、气泡图 |
-| 流程展示 | 流程图 |
-| 结构拆解 | 树状图、金字塔图 |
-| 竞争定位 | 二维矩阵图 |
-| 市场测算 | 漏斗图 |
-
-### 图表质量标准
-
-- **标题清晰**：图表标题说明核心发现，不是"XX 市场规模"而是"市场规模 5 年 CAGR 25%"
-- **数据标注**：所有数据点标注来源
-- **颜色一致**：同一报告中相同含义用相同颜色
-- **简洁优先**：避免过度装饰，突出数据本身
+**Recommendation standards**:
+- Complete 5W1H: What/Why/Who/When/Where/How
+- Clear prioritization: P0/P1/P2 ranking
+- ROI estimates: quantified input-output estimates
+- Risk flagging: key risks and mitigation strategies
 
 ---
 
-## 语言标准
+#### 5. Risks & Mitigation
 
-### 写作原则
-
-1. **结论先行**：每段第一句是结论
-2. **数据支撑**：每个判断都有数据/证据
-3. **避免模糊**：不用"可能"、"大概"、"左右"
-4. **主动语态**：用主动句，不用被动句
-5. **简洁表达**：一句话≤30 字
-
-### 禁止用语
-
-| 模糊用语 | 替代表达 |
-|---------|---------|
-| "可能"、"大概" | 给出概率判断："约 70% 可能性" |
-| "快速增长" | "CAGR 25%" |
-| "市场领先" | "市占率第一，35%" |
-| "加强竞争力" | "具体行动：投入 XXX 万，建设 XX 能力" |
-| "把握机遇" | "具体行动：Q2 进入，目标市占率 X%" |
+**Must include**:
+- Major risks (3-5 items)
+- Probability (High/Medium/Low)
+- Impact level (High/Medium/Low)
+- Mitigation strategies (specific actions)
 
 ---
 
-## 章节自检 7 项
+#### 6. Evidence Appendix
 
-每章生成后必须自检：
-
-- [ ] **相关性**：是否直接支撑核心研究问题？
-- [ ] **证据**：是否有数据/证据支撑？
-- [ ] **维度拆解**：是否向下展开了至少 1 层子维度？（不能只给总数就停）
-- [ ] **对比锚定**：是否有至少 1 组参照系？（同比/竞品/行业均值/跨市场）
-- [ ] **So What**：是否有清晰的含义解读？（常规章节 ≥2 层推导；核心洞察章节 ≥3 层，与 Stage 5 对齐）
-- [ ] **反模式扫描**：逐段检查是否命中 `anti_patterns.md` 的 10 种反模式——命中则立即重写该段
-- [ ] **上下文锚定**：是否回答了"与我们的关系"？
+**Must include**:
+- Data source list (labeled by priority level)
+- Verification level labels (A/B/C/D)
+- Supplementary analysis (supporting but non-core content)
 
 ---
 
-## 产出档位标准
+## Chart Standards
 
-> 档位在 Stage 1 由用户确认，写入 `user_brief.md`，全流程据此控制深度和篇幅。
+### Chart Selection Principles
 
-### 三档定义
+| Purpose | Recommended Chart |
+|---------|------------------|
+| Show trends | Line chart, area chart |
+| Compare data | Bar chart, horizontal bar chart |
+| Show proportions | Pie chart, donut chart |
+| Relationship analysis | Scatter plot, bubble chart |
+| Process display | Flowchart |
+| Structure breakdown | Tree diagram, pyramid chart |
+| Competitive positioning | 2D matrix chart |
+| Market sizing | Funnel chart |
 
-| 档位 | 名称 | 篇幅 | 结构要求 | Stage 4 深度 | Stage 5 规则 | 图表数量 |
-|------|------|------|---------|-------------|-------------|---------|
-| **Tier 1** | 快速扫描 | 1-2 页 | 仅 Executive Summary | Layer 1 | 全部 8 条 | 0-2 |
-| **Tier 2** | 专题简报 | 5-8 页 | 七段式精简版（每章 1 页） | Layer 1-2 | 全部 8 条 | 3-5 |
-| **Tier 3** | 深度报告 | 20-35 页 | 完整七段式（每章 3-5 页） | Layer 1-2-3 | 全部 8 条 | 6-12 |
+### Chart Quality Standards
 
-### Tier 3 页面预算参考
-
-| 章节 | 页数 | 说明 |
-|------|------|------|
-| Executive Summary | 1 | 独立可读，不超过 1 页。核心数字 + 洞察 + 建议 |
-| 研究背景与方法 | 1 | 框架组合 + N/A 说明 + 数据来源概览 |
-| 核心分析章节 | 12-25 | 4-5 章 × 3-5 页，占报告主体 |
-| 关键洞察与建议 | 2-3 | A 类逐一展开，B 类按主题聚合 |
-| 风险与应对 | 1 | 3-5 条风险 + 应对策略 |
-| 盲区审查 | 1 | 框架维度覆盖缺口 + 数据盲区 |
-| 证据附录 | 2-3 | 数据来源 + 验证程度 + 补充分析 |
-| **合计** | **20-35** | |
-
-> 核心分析章节应占总篇幅 60-70%。如果核心章节不足 12 页，说明维度拆解或对比锚定展开不够。
-
-### 各档位的章节取舍
-
-| 章节 | Tier 1 | Tier 2 | Tier 3 |
-|------|--------|--------|--------|
-| Executive Summary | ✅ 完整 | ✅ 完整 | ✅ 完整（≤1 页） |
-| 研究背景与方法 | ❌ | ✅ 精简（半页） | ✅ 完整（1 页） |
-| 核心分析章节 | ❌ | ✅ 2-3 章（每章 1 页） | ✅ 4-5 章（每章 3-5 页） |
-| 关键洞察与建议 | ✅ 融入 Summary | ✅ 独立章节 | ✅ 独立章节 + 详细 5W1H |
-| 风险与应对 | ❌ | ✅ 精简（半页） | ✅ 完整（1 页） |
-| 证据附录 | ❌ | ❌ | ✅ 完整 |
-| 盲区审查 | ❌ | ✅ 简要标注 | ✅ 独立章节 |
-
-### 质量标准不随档位降低
-
-无论哪个档位，以下标准不变：
-- 结论先行（第一句是判断）
-- 数据支撑（每个判断有来源）
-- 核心数据 ≥ B 级验证
-- 无"正确的废话"
+- **Clear titles**: Chart titles state the core finding, not "XX Market Size" but "Market Size 5-Year CAGR 25%"
+- **Data labels**: All data points cite their sources
+- **Consistent colors**: Same meaning uses same color throughout the report
+- **Simplicity first**: Avoid excessive decoration, highlight the data itself
 
 ---
 
-## HTML 格式标准
+## Language Standards
 
-### 样式要求
+### Writing Principles
 
-- **页面式布局**：封面页→目录页→章节页→尾页，逐页阅读
-- **响应式**：支持桌面和移动端阅读
-- **可视化**：所有图表统一使用 ECharts（折线、柱状、饼图、雷达等），布局组件使用 CSS（数据卡片、高亮框等）
-- **可导出**：支持打印为 PDF（自动分页）
+1. **Conclusion-first**: First sentence of each paragraph is the conclusion
+2. **Data-backed**: Every judgment has data/evidence
+3. **Avoid vagueness**: Don't use "maybe", "roughly", "approximately"
+4. **Active voice**: Use active sentences, not passive
+5. **Concise expression**: Each sentence ≤30 words
 
-### 结构要求
+### Prohibited Expressions
+
+| Vague Expression | Replacement |
+|-----------------|-------------|
+| "maybe", "roughly" | Provide probability: "approximately 70% likelihood" |
+| "rapid growth" | "CAGR 25%" |
+| "market leader" | "No.1 market share at 35%" |
+| "strengthen competitiveness" | "Specific action: invest XXX million to build XX capability" |
+| "seize opportunities" | "Specific action: enter market in Q2, target X% market share" |
+
+---
+
+## Chapter Self-Check (7 Items)
+
+After generating each chapter, mandatory self-check:
+
+- [ ] **Relevance**: Does it directly support the core research question?
+- [ ] **Evidence**: Is it backed by data/evidence?
+- [ ] **Dimension breakdown**: Has it expanded at least 1 level of sub-dimensions? (Can't just give a total and stop)
+- [ ] **Comparative anchoring**: Does it have at least 1 set of reference points? (YoY/competitor/industry average/cross-market)
+- [ ] **So What**: Is there a clear implication interpretation? (Standard chapters ≥2 layers; core insight chapters ≥3 layers, aligned with Stage 5)
+- [ ] **Anti-pattern scan**: Check each paragraph against the 10 anti-patterns from `anti_patterns.md` — if any hit, immediately rewrite that paragraph
+- [ ] **Context anchoring**: Does it answer "Relevance to Us"?
+
+---
+
+## Output Tier Standards
+
+> Tiers are confirmed by the user in Stage 1, written to `user_brief.md`, and control depth and length throughout the entire workflow.
+
+### Three-Tier Definitions
+
+| Tier | Name | Length | Structure Requirements | Stage 4 Depth | Stage 5 Rules | Chart Count |
+|------|------|--------|----------------------|---------------|---------------|-------------|
+| **Tier 1** | Quick Scan | 1-2 pages | Executive Summary only | Layer 1 | All 8 rules | 0-2 |
+| **Tier 2** | Topic Brief | 5-8 pages | Condensed seven-section (1 page/chapter) | Layer 1-2 | All 8 rules | 3-5 |
+| **Tier 3** | Deep Report | 20-35 pages | Full seven-section (3-5 pages/chapter) | Layer 1-2-3 | All 8 rules | 6-12 |
+
+### Tier 3 Page Budget Reference
+
+| Section | Pages | Notes |
+|---------|-------|-------|
+| Executive Summary | 1 | Standalone readable, max 1 page. Core figures + insights + recommendations |
+| Research Background & Methodology | 1 | Framework combinations + N/A explanations + data source overview |
+| Core Analysis Chapters | 12-25 | 4-5 chapters × 3-5 pages, report body |
+| Key Insights & Recommendations | 2-3 | A-class expanded individually, B-class grouped by theme |
+| Risks & Mitigation | 1 | 3-5 risks + mitigation strategies |
+| Blind Spot Review | 1 | Framework dimension coverage gaps + data blind spots |
+| Evidence Appendix | 2-3 | Data sources + verification levels + supplementary analysis |
+| **Total** | **20-35** | |
+
+> Core analysis chapters should account for 60-70% of total length. If core chapters are under 12 pages, dimension breakdowns or comparative anchoring need more expansion.
+
+### Chapter Selection by Tier
+
+| Section | Tier 1 | Tier 2 | Tier 3 |
+|---------|--------|--------|--------|
+| Executive Summary | ✅ Full | ✅ Full | ✅ Full (≤1 page) |
+| Research Background & Methodology | ❌ | ✅ Condensed (half page) | ✅ Full (1 page) |
+| Core Analysis Chapters | ❌ | ✅ 2-3 chapters (1 page each) | ✅ 4-5 chapters (3-5 pages each) |
+| Key Insights & Recommendations | ✅ Merged into Summary | ✅ Standalone chapter | ✅ Standalone chapter + detailed 5W1H |
+| Risks & Mitigation | ❌ | ✅ Condensed (half page) | ✅ Full (1 page) |
+| Evidence Appendix | ❌ | ❌ | ✅ Full |
+| Blind Spot Review | ❌ | ✅ Brief notes | ✅ Standalone chapter |
+
+### Quality Standards Do Not Decrease with Tier
+
+Regardless of tier, these standards remain constant:
+- Conclusion-first (first sentence is a judgment)
+- Data-backed (every judgment has a source)
+- Core data ≥ B-grade verification
+- No "correct platitudes"
+
+---
+
+## HTML Format Standards
+
+### Style Requirements
+
+- **Page-based layout**: Cover page → Table of contents → Chapter pages → Footer page, read page by page
+- **Responsive**: Supports desktop and mobile reading
+- **Visualization**: All charts use ECharts (line, bar, pie, radar, etc.); layout components use CSS (data cards, highlight boxes, etc.)
+- **Exportable**: Supports printing to PDF (automatic pagination)
+
+### Structure Requirements
 
 ```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <title>报告标题</title>
+  <title>Report Title</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 样式（内联，参见 report_template.html） -->
+  <!-- Styles (inline, see report_template.html) -->
 </head>
 <body>
-  <div class="page cover-page"><!-- 封面 --></div>
-  <div class="page toc-page"><!-- 目录 --></div>
-  <div class="page chapter-section"><!-- 各章节（可多个） --></div>
-  <div class="page footer-page"><!-- 尾页 --></div>
+  <div class="page cover-page"><!-- Cover --></div>
+  <div class="page toc-page"><!-- Table of Contents --></div>
+  <div class="page chapter-section"><!-- Chapters (multiple) --></div>
+  <div class="page footer-page"><!-- Footer --></div>
 </body>
 </html>
 ```
 
-### 可用 CSS 布局组件
+### Available CSS Layout Components
 
-| 组件 | CSS 类名 | 用途 |
-|------|---------|------|
-| 高亮框 | `.highlight-box` / `.yellow` / `.red` / `.green` | 核心发现、风险提示 |
-| 数据卡片 | `.stats-grid` + `.stat-card` | 关键数据展示 |
-| 图表容器 | `.chart-container` | ECharts 图表的外层包裹 |
-| 策略卡片 | `.strategy-card.blue/green/yellow/red` | 行动建议 |
-| 洞察卡片 | `.insight-card` | 发现→含义→建议 |
-| 数据表格 | `.data-table` | 结构化数据 |
-| 标签 | `.tag-p0` / `.tag-p1` / `.badge-high/medium/low` | 优先级、风险等级 |
+| Component | CSS Class | Purpose |
+|-----------|----------|---------|
+| Highlight box | `.highlight-box` / `.yellow` / `.red` / `.green` | Core findings, risk alerts |
+| Data cards | `.stats-grid` + `.stat-card` | Key data display |
+| Chart container | `.chart-container` | ECharts chart wrapper |
+| Strategy cards | `.strategy-card.blue/green/yellow/red` | Action recommendations |
+| Insight cards | `.insight-card` | Finding → Implication → Recommendation |
+| Data tables | `.data-table` | Structured data |
+| Tags | `.tag-p0` / `.tag-p1` / `.badge-high/medium/low` | Priority, risk level |
 
-> ⚠️ 所有数据可视化图表（柱状图、饼图、折线图、雷达图等）统一使用 ECharts，不使用 CSS 图表。
+> ⚠️ All data visualization charts (bar, pie, line, radar, etc.) use ECharts exclusively. CSS charts are not used.
 
-### ECharts 图表
+### ECharts Charts
 
-> **定位**：所有数据可视化图表统一使用 ECharts。Tier 2 ≥3 个，Tier 3 ≥6 个。
-> report_template.html 已内置 ECharts CDN。参考示例：`report_demo.html`（扫地机器人行业研究 Tier 2 实测报告）。
+> **Purpose**: All data visualizations use ECharts exclusively. Tier 2 ≥3, Tier 3 ≥6.
+> report_template.html includes a built-in ECharts CDN. Reference example: `report_demo.html` (robot vacuum industry research Tier 2 live report).
 
-**推荐图表类型**：
+**Recommended chart types**:
 
-| 分析场景 | 推荐图表 | ECharts type |
-|---------|---------|-------------|
-| 市场规模趋势 | 折线图/面积图 | `line` |
-| 竞争对手对比 | 柱状图（分组） | `bar` |
-| 市场份额分布 | 饼图/环形图 | `pie` |
-| 竞争定位图 | 散点图 | `scatter` |
-| 多维能力对比 | 雷达图 | `radar` |
-| 产业链/流向 | 桑基图 | `sankey` |
-| 趋势+对比 | 双轴图（bar+line） | `bar` + `line` |
+| Analysis Scenario | Recommended Chart | ECharts type |
+|-------------------|------------------|-------------|
+| Market size trends | Line/area chart | `line` |
+| Competitor comparison | Bar chart (grouped) | `bar` |
+| Market share distribution | Pie/donut chart | `pie` |
+| Competitive positioning | Scatter plot | `scatter` |
+| Multi-dimensional comparison | Radar chart | `radar` |
+| Industry chain/flow | Sankey diagram | `sankey` |
+| Trend + comparison | Dual-axis (bar+line) | `bar` + `line` |
 
-**⚠️ 生成方法（强制使用 Python + 分步生成）**：
+**⚠️ Generation method (mandatory: Python + step-by-step generation)**:
 
-报告 HTML 必须通过 **Python 脚本** 写入文件。**推荐使用 `ReportBuilder` 分步生成**：
+Report HTML must be written to file via **Python scripts**. **Recommended: `ReportBuilder` step-by-step generation**:
 
 ```python
-# ━━━ 推荐方式：ReportBuilder 分步生成 ━━━
-# 每步一个 Bash 调用，每步只添加 1-2 章
+# ━━━ Recommended: ReportBuilder step-by-step ━━━
+# Each step is one Bash call, adding only 1-2 chapters per step
 import sys, os; sys.path.insert(0, 'scripts')
 from report_helper import ReportBuilder
 
-# Step 1: 初始化（确定 workspace 绝对路径）
+# Step 1: Initialize (determine workspace absolute path)
 ws = os.path.join(os.getcwd(), 'workspace', '{project}')
 os.makedirs(ws, exist_ok=True)
-b = ReportBuilder("报告标题", "副标题")
-b.set_toc_conclusion("核心结论")
+b = ReportBuilder("Report Title", "Subtitle")
+b.set_toc_conclusion("Core conclusion")
 b.save_state("/tmp/rpt.json")
 
-# Step 2-N: 逐章添加（每步一个 Bash 调用）
+# Step 2-N: Add chapters step by step (one Bash call per step)
 b = ReportBuilder.load_state("/tmp/rpt.json")
-b.add_chapter(1, "Executive Summary", "<h2>核心结论</h2><p>...</p>")
+b.add_chapter(1, "Executive Summary", "<h2>Core Conclusion</h2><p>...</p>")
 b.add_chart("chart1", {
     "xAxis": {"type": "category", "values": ["2023", "2024", "2025E"]},
     "series": [{"type": "bar", "values": [100, 200, 300]}]
 })
 b.save_state("/tmp/rpt.json")
 
-# 最后一步: 组装（使用绝对路径）
+# Final step: Assemble (use absolute paths)
 ws = os.path.join(os.getcwd(), 'workspace', '{project}')
 b = ReportBuilder.load_state("/tmp/rpt.json")
 b.build(os.path.join(ws, 'report.html'))
 ```
 
-> **关键**：图表配置中所有 ECharts 需要的 `data` 键，在 Python dict 中写为 `"values"`。脚本的 `_to_js()` 在序列化为 JS 时自动映射 `"values"` → `"data"`，从代码层面杜绝过滤问题。
-> **ReportBuilder 自动生成**：封面/目录/章节头/尾页/ECharts JS 初始化。模型只需输出章节内容 HTML + 图表 option。
+> **Key**: All ECharts `data` keys should be written as `"values"` in Python dicts. The script's `_to_js()` automatically maps `"values"` → `"data"` during JS serialization, eliminating filtering issues at the code level.
+> **ReportBuilder auto-generates**: cover page, table of contents, chapter headers, footer page, ECharts JS initialization. The model only needs to output chapter content HTML + chart option dicts.
 
-**备选方式**（ReportBuilder 不可用时回退到原始 `build_report()`）：
+**Fallback method** (when ReportBuilder is unavailable, fall back to raw `build_report()`):
 
 ```python
 import sys, os; sys.path.insert(0, 'scripts')
 from report_helper import build_report
 ws = os.path.join(os.getcwd(), 'workspace', '{project}')
 body = '<div class="page cover-page">...</div>'
-build_report(body=body, charts=[...], title="标题", output=os.path.join(ws, 'report.html'))
+build_report(body=body, charts=[...], title="Title", output=os.path.join(ws, 'report.html'))
 ```
 
-> **为什么不能用 Write 工具？** (1) 大 HTML 文件在上下文紧张时 content 参数会丢失；(2) 模型输出层会过滤 `` + 数组的模式（误判为 data URI），导致 ECharts 图表空白；(3) 一次性生成 Tier 3 报告需 15-25K tokens，极易超时。
+> **Why not use the Write tool?** (1) Large HTML files lose content parameters under context pressure; (2) The model output layer filters `data` + array patterns (misidentified as data URIs), causing blank ECharts; (3) Generating a Tier 3 report in one pass requires 15-25K tokens, easily timing out.
 
-**设计规范**：
-- 配色统一：主色 `#2563eb`，辅助色 `#f59e0b` `#10b981` `#ef4444`
-- 图表标题必须表达发现（如「B 端市场增速远超 C 端」），而非简单描述（如「市场规模」）
-- 所有图表必须有数据来源标注
-- 打印兼容：ECharts 图表在打印时自动渲染为静态图片
+**Design specifications**:
+- Unified color scheme: Primary `#2563eb`, accent `#f59e0b` `#10b981` `#ef4444`
+- Chart titles must express findings (e.g., "B2B Market Growth Far Exceeds B2C"), not simple descriptions (e.g., "Market Size")
+- All charts must have data source annotations
+- Print compatible: ECharts charts auto-render as static images when printing
 
-**与 CSS 布局组件的分工**：
-- **ECharts**：所有数据可视化（趋势、对比、分布、定位、雷达等）
-- **CSS 组件**：布局元素（数据卡片网格、高亮框、策略卡片、洞察卡片、表格）
+**Division of labor with CSS layout components**:
+- **ECharts**: All data visualizations (trends, comparisons, distributions, positioning, radar, etc.)
+- **CSS Components**: Layout elements (data card grids, highlight boxes, strategy cards, insight cards, tables)
 
-### 🚨 图表生成后自检（Python 脚本内执行）
+### 🚨 Post-Generation Chart Self-Check (executed within the Python script)
 
-报告 HTML 写入文件后，**必须在同一个 Python 脚本中**执行以下自检：
+After writing the report HTML to file, the following self-check **must be executed in the same Python script**:
 
 ```python
 import re
@@ -374,67 +374,67 @@ import re
 with open('report.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
-# 检查 1: ECharts 初始化数量
+# Check 1: Number of ECharts initializations
 init_count = len(re.findall(r'echarts\.init', html))
 
-# 检查 2: data 关键字数量（每个 echarts.init 至少对应 1 个 data）
+# Check 2: Number of data keys (each echarts.init should have at least 1 data)
 data_count = len(re.findall(r'\bdata\s*:', html))
 
-# 检查 3: 空数组检测（data: [] 说明数据没填入）
+# Check 3: Empty array detection (data: [] means data wasn't filled in)
 empty_data = len(re.findall(r'\bdata\s*:\s*\[\s*\]', html))
 
-print(f"[图表自检] ECharts 实例: {init_count}, data 键: {data_count}, 空数组: {empty_data}")
+print(f"[Chart Self-Check] ECharts instances: {init_count}, data keys: {data_count}, empty arrays: {empty_data}")
 
 if data_count < init_count:
-    print(f"⚠️ 警告: data 键数量({data_count}) < ECharts 实例数({init_count})，可能有图表数据被过滤！")
+    print(f"⚠️ Warning: data key count({data_count}) < ECharts instance count({init_count}), chart data may have been filtered!")
 if empty_data > 0:
-    print(f"⚠️ 警告: 发现 {empty_data} 个空数组，图表将无数据渲染！")
+    print(f"⚠️ Warning: Found {empty_data} empty arrays, charts will render without data!")
 if data_count >= init_count and empty_data == 0:
-    print("✅ 图表数据完整性检查通过")
+    print("✅ Chart data integrity check passed")
 ```
 
-> 如果自检报 ⚠️，**必须停下来修复后再交付**。不要忽略警告继续。
+> If self-check reports ⚠️, **you must stop and fix before delivery**. Do not ignore warnings and proceed.
 
 ---
 
-## 质量检查清单
+## Quality Checklist
 
-### Stage 5 洞察生成后自检
+### Stage 5 Post-Insight Self-Check
 
-- [ ] 每条洞察评分 ≥16 分？（具体性 + 独特性 + 可执行性 + 影响力）
-- [ ] 每条建议 5W1H 完整？
-- [ ] 核心结论有反面论据？
-- [ ] 正面行为 7 条全部满足？（见 anti_patterns.md）
-- [ ] 反模式 10 条全部避免？（见 anti_patterns.md）
+- [ ] Every insight scored ≥16? (Specificity + Uniqueness + Actionability + Impact)
+- [ ] Every recommendation has complete 5W1H?
+- [ ] Core conclusions have counter-arguments?
+- [ ] All 7 positive behaviors met? (see anti_patterns.md)
+- [ ] All 10 anti-patterns avoided? (see anti_patterns.md)
 
-### Stage 6 每章生成后自检
+### Stage 6 Post-Chapter Self-Check
 
-- [ ] 结论先行？（第一句是判断，不是描述）
-- [ ] 数据支撑？（每个判断有来源）
-- [ ] So What？（每个数据有含义解读）
-- [ ] 上下文锚定？（回答"与我们的关系"）
-- [ ] 反模式扫描？（无废话/堆砌/模糊/脱离上下文）
+- [ ] Conclusion-first? (First sentence is a judgment, not a description)
+- [ ] Data-backed? (Every judgment has a source)
+- [ ] So What? (Every data point has an implication interpretation)
+- [ ] Context anchoring? (Answers "Relevance to Us")
+- [ ] Anti-pattern scan? (No platitudes/data dumping/vagueness/context disconnect)
 
-### Stage 6 报告完成后总检
+### Stage 6 Post-Report Final Check
 
-**内容质量**:
-- [ ] Executive Summary 独立可读
-- [ ] 核心结论有观点，不是中性描述
-- [ ] 每条洞察都有数据支撑
-- [ ] 每条建议都具体可执行
-- [ ] 所有数据都标注来源
-- [ ] 核心数据达到 B 级验证
-- [ ] 每章都有 So What 分析
-- [ ] 每章都有上下文锚定
-- [ ] 图表标题说明发现，不是简单描述
-- [ ] 语言简洁，无模糊表达
+**Content quality**:
+- [ ] Executive Summary is standalone readable
+- [ ] Core conclusion has a viewpoint, not a neutral description
+- [ ] Every insight has data support
+- [ ] Every recommendation is specific and actionable
+- [ ] All data cites sources
+- [ ] Core data achieves B-grade verification
+- [ ] Every chapter has So What analysis
+- [ ] Every chapter has context anchoring
+- [ ] Chart titles state findings, not simple descriptions
+- [ ] Language is concise, no vague expressions
 
-**格式一致性**（逐项扫描，任一不通过则修正后再交付）:
-- [ ] **单位统一**：同一指标全文使用相同单位（不混用"亿元"和"百万"、"%"和"个百分点"）
-- [ ] **术语统一**：同一概念全文使用相同名称（不混用"市场规模"和"市场体量"、"用户"和"客户"）
-- [ ] **时间基准统一**：明确数据年份，不出现无年份的"市场规模 500 亿"；同一维度的对比数据使用相同时间基准
-- [ ] **数据一致**：同一数据点在不同位置（Executive Summary、正文、图表、附录）的数值完全一致
-- [ ] **置信度标注一致**：所有数据点均按 A/B/C/D 标注，不遗漏
-- [ ] **图表与正文对齐**：图表中的数据与正文引用的数据完全一致；图表标题与正文描述不矛盾
-- [ ] **优先级标签一致**：P0/P1/P2 标签在洞察和建议中使用同一套标准，不混乱
-- [ ] **来源引用格式一致**：全文使用统一的来源标注格式（"来源名称，年份"）
+**Format consistency** (scan each item; if any fails, fix before delivery):
+- [ ] **Unit consistency**: Same metric uses same unit throughout (no mixing "billion yuan" and "millions", "%" and "percentage points")
+- [ ] **Terminology consistency**: Same concept uses same name throughout (no mixing "market size" and "market volume", "users" and "customers")
+- [ ] **Time base consistency**: Data year is explicit, no year-less "market size of 50 billion"; comparative data for the same dimension uses the same time base
+- [ ] **Data consistency**: Same data point at different locations (Executive Summary, body text, charts, appendix) has exactly the same value
+- [ ] **Confidence level consistency**: All data points labeled A/B/C/D, none omitted
+- [ ] **Chart-text alignment**: Chart data matches body text references exactly; chart titles don't contradict body descriptions
+- [ ] **Priority label consistency**: P0/P1/P2 labels use the same standard across insights and recommendations, no confusion
+- [ ] **Citation format consistency**: Entire report uses uniform source citation format ("Source Name, Year")

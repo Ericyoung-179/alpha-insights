@@ -1,225 +1,225 @@
-# Issue Tree（问题树/逻辑树）
+# Issue Tree (Problem Tree / Logic Tree)
 
-> 来源：管理咨询行业通用
-> 核心价值：可视化拆解复杂问题
-
----
-
-## 定义
-
-Issue Tree 是将复杂问题**层级化拆解**为可管理的子问题的工具。
-
-- 每一层是对上一层的展开
-- 同一层级之间 MECE
-- 最底层是可执行、可验证的具体问题
+> Source: Management consulting industry standard
+> Core value: Visually decompose complex problems
 
 ---
 
-## 使用时机
+## Definition
 
-**典型应用场景**：
-- 复杂问题拆解
-- 研究范围界定
-- 团队分工协作
-- 分析进度追踪
+An Issue Tree is a tool for **hierarchically decomposing** complex problems into manageable sub-questions.
 
-**使用原则**：
-- 从核心问题出发，逐层向下拆解
-- 每一层遵循 MECE 原则
-- 拆解到可行动/可分析的粒度
-
-**使用流程**：
-1. 定义核心问题（问题陈述）
-2. 第一层拆解（2-4 个关键议题）
-3. 逐层细化（直到可执行层面）
-4. 优先级排序（标注 P0/P1/P2）
-
----## Issue Tree 的类型
-
-### 1. 问题树（Why Tree）
-
-用于**找原因**，从结果倒推。
-
-```
-为什么销量下降？
-├── 新用户减少
-│   ├── 渠道流量下降
-│   └── 转化率下降
-└── 老用户流失
-    ├── 产品体验问题
-    └── 竞对抢夺
-```
-
-### 2. 方案树（How Tree）
-
-用于**找方案**，从目标正推。
-
-```
-如何提升用户留存？
-├── 提升产品价值
-│   ├── 增加核心功能
-│   └── 优化用户体验
-└── 增加转换成本
-    ├── 会员体系
-    └── 社交关系
-```
-
-### 3. 假设树（Hypothesis Tree）
-
-用于**验证假设**，列出可能的答案。
-
-```
-竞对增长快的原因是什么？
-├── 假设1：补贴策略激进
-├── 假设2：产品体验更好
-└── 假设3：渠道拓展成功
-```
+- Each level is an expansion of the level above
+- Items at the same level are MECE
+- The bottom level consists of specific, actionable, verifiable questions
 
 ---
 
-## 操作步骤
+## When to Use
 
-### Step 1：明确根问题
+**Typical application scenarios**:
+- Complex problem decomposition
+- Research scope definition
+- Team division of work
+- Analysis progress tracking
 
-用清晰的问题陈述定义树的根节点。
+**Usage principles**:
+- Start from the core question and decompose level by level
+- Each level follows the MECE principle
+- Decompose to an actionable/analyzable granularity
 
-好的根问题：
-- 具体可衡量
-- 有明确的主体和范围
-- 可以被拆解
+**Usage flow**:
+1. Define the core question (problem statement)
+2. First-level decomposition (2-4 key issues)
+3. Progressive refinement (down to an actionable level)
+4. Priority ranking (label P0/P1/P2)
 
-❌ "竞对怎么样" — 太模糊
-✅ "竞对 A 在 2023 年用户增长 50% 的驱动因素是什么" — 具体
+---## Types of Issue Trees
 
-### Step 2：选择拆解维度
+### 1. Why Tree
 
-选择一个**单一维度**进行第一层拆解。
-
-常用拆解维度：
-- 组成部分：整体 = 部分1 + 部分2 + 部分3
-- 流程步骤：过程 = 步骤1 → 步骤2 → 步骤3
-- 驱动因素：结果 = 因素1 × 因素2 × 因素3
-- 可能原因：现象 = 原因1 或 原因2 或 原因3
-
-### Step 3：逐层展开
-
-对每个节点继续拆解，直到：
-- 可以直接回答或验证
-- 可以分配给具体的人/团队
-- 可以找到对应的数据源
-
-### Step 4：检验 MECE
-
-每一层检验：
-- [ ] 同层节点之间是否独立？
-- [ ] 同层节点加起来是否穷尽？
-
-### Step 5：标注优先级
-
-不是所有分支都同等重要。标注：
-- 🔴 高优先级：核心驱动因素
-- 🟡 中优先级：次要因素
-- 🟢 低优先级：可以暂时忽略
-
----
-
-## 示例：竞对增长分析
+Used to **find root causes**, reasoning backward from the result.
 
 ```
-竞对 A 为什么增长快？
-│
-├── 用户增长 🔴
-│   ├── 新用户获取 🔴
-│   │   ├── 渠道拓展（抖音、小红书）
-│   │   ├── KOL 合作
-│   │   └── 裂变活动
-│   └── 老用户留存 🟡
-│       ├── 产品粘性
-│       └── 会员体系
-│
-├── 收入增长 🟡
-│   ├── 用户数增长
-│   └── 单用户价值提升
-│
-└── 市场份额 🔴
-    ├── 行业整体增长
-    └── 抢占竞对份额
+Why are sales declining?
++-- New user decrease
+|   +-- Channel traffic decline
+|   +-- Conversion rate decline
++-- Existing user churn
+    +-- Product experience issues
+    +-- Competitor poaching
+```
+
+### 2. How Tree
+
+Used to **find solutions**, reasoning forward from the goal.
+
+```
+How to improve user retention?
++-- Increase product value
+|   +-- Add core features
+|   +-- Optimize user experience
++-- Increase switching costs
+    +-- Membership system
+    +-- Social relationships
+```
+
+### 3. Hypothesis Tree
+
+Used to **validate hypotheses**, listing possible answers.
+
+```
+Why is the competitor growing fast?
++-- Hypothesis 1: Aggressive subsidy strategy
++-- Hypothesis 2: Better product experience
++-- Hypothesis 3: Successful channel expansion
 ```
 
 ---
 
-## 常见错误
+## Operating Steps
 
-### 错误 1：层级混乱
+### Step 1: Define the Root Question
 
-❌ 不同层级的问题混在一起
-```
-竞对为什么增长？
-├── 降价了
-├── 营销做得好
-│   └── 抖音投了很多广告
-└── 产品优化
-```
-（"抖音投广告"是"营销"的子项，不应与其他项同级）
+Define the tree's root node with a clear problem statement.
 
-### 错误 2：拆解不够深
+Good root questions:
+- Specific and measurable
+- Have a clear subject and scope
+- Can be decomposed
 
-❌ 停在抽象层面
-```
-竞对为什么增长？
-├── 产品好
-├── 营销好
-└── 渠道好
-```
-（"好"是什么意思？需要继续拆解）
+❌ "How is the competitor doing" — Too vague
+✅ "What are the drivers behind Competitor A's 50% user growth in 2023" — Specific
 
-### 错误 3：拆解太深
+### Step 2: Choose the Decomposition Dimension
 
-❌ 一开始就拆到细节
-```
-竞对为什么增长？
-├── 2023年Q1抖音投放了500万
-├── 2023年Q2小红书合作了20个KOL
-└── ...
-```
-（缺少中间层级，难以把握全局）
+Choose a **single dimension** for the first-level decomposition.
+
+Common decomposition dimensions:
+- Components: Whole = Part 1 + Part 2 + Part 3
+- Process steps: Process = Step 1 -> Step 2 -> Step 3
+- Driving factors: Result = Factor 1 x Factor 2 x Factor 3
+- Possible causes: Phenomenon = Cause 1 or Cause 2 or Cause 3
+
+### Step 3: Expand Level by Level
+
+Continue decomposing each node until:
+- It can be directly answered or verified
+- It can be assigned to a specific person/team
+- A corresponding data source can be found
+
+### Step 4: Verify MECE
+
+At each level, verify:
+- [ ] Are items at the same level independent of each other?
+- [ ] Do items at the same level collectively exhaust the whole?
+
+### Step 5: Label Priorities
+
+Not all branches are equally important. Label:
+- 🔴 High priority: Core driving factors
+- 🟡 Medium priority: Secondary factors
+- 🟢 Low priority: Can be temporarily ignored
 
 ---
 
-## 在本 Skill 中的应用
+## Example: Competitor Growth Analysis
 
-### Stage 2 问题定义
+```
+Why is Competitor A growing fast?
+|
++-- User growth 🔴
+|   +-- New user acquisition 🔴
+|   |   +-- Channel expansion (Douyin, Xiaohongshu)
+|   |   +-- KOL partnerships
+|   |   +-- Viral campaigns
+|   +-- Existing user retention 🟡
+|       +-- Product stickiness
+|       +-- Membership system
+|
++-- Revenue growth 🟡
+|   +-- User base growth
+|   +-- Per-user value increase
+|
++-- Market share 🔴
+    +-- Overall industry growth
+    +-- Capturing competitor share
+```
 
-1. 将用户的研究问题转化为 Issue Tree
-2. 与用户确认拆解是否合理
-3. 标注优先级，确定研究重点
-4. 输出到 `research_definition.md`
+---
 
-### 输出格式
+## Common Mistakes
+
+### Mistake 1: Mixed Levels
+
+❌ Questions from different levels mixed together
+```
+Why is the competitor growing?
++-- Price cuts
++-- Good marketing
+|   +-- Heavy Douyin advertising
++-- Product optimization
+```
+("Douyin advertising" is a sub-item of "marketing" and shouldn't be at the same level as other items)
+
+### Mistake 2: Insufficient Decomposition Depth
+
+❌ Stopping at the abstract level
+```
+Why is the competitor growing?
++-- Good product
++-- Good marketing
++-- Good channels
+```
+(What does "good" mean? Needs further decomposition)
+
+### Mistake 3: Excessive Decomposition Depth
+
+❌ Jumping straight to details
+```
+Why is the competitor growing?
++-- Spent $5M on Douyin ads in Q1 2023
++-- Partnered with 20 KOLs on Xiaohongshu in Q2 2023
++-- ...
+```
+(Missing intermediate levels, hard to see the big picture)
+
+---
+
+## Application in This Skill
+
+### Stage 2 Issue Intake
+
+1. Transform the user's research question into an Issue Tree
+2. Confirm with the user whether the decomposition is appropriate
+3. Label priorities and determine research focus
+4. Output to `research_definition.md`
+
+### Output Format
 
 ```markdown
-## 问题拆解（Issue Tree）
+## Issue Decomposition (Issue Tree)
 
-### 根问题
-[用户的原始问题]
+### Root Question
+[User's original question]
 
-### 拆解树
-[Issue Tree 图示]
+### Decomposition Tree
+[Issue Tree diagram]
 
-### 优先级标注
-- 🔴 高优先级：[列出]
-- 🟡 中优先级：[列出]
-- 🟢 低优先级：[列出]
+### Priority Labels
+- 🔴 High priority: [List]
+- 🟡 Medium priority: [List]
+- 🟢 Low priority: [List]
 
-### 研究范围确认
-本次研究聚焦：[列出高优先级分支]
-暂时不覆盖：[列出低优先级分支]
+### Research Scope Confirmation
+This research focuses on: [List high-priority branches]
+Not covered this time: [List low-priority branches]
 ```
 
 ---
 
-## 与其他方法论的关系
+## Relationship with Other Methodologies
 
-- **MECE 原则**：Issue Tree 每层必须 MECE
-- **假设驱动法**：Issue Tree 可以转化为假设清单
-- **金字塔原理**：Issue Tree 是金字塔结构的底层逻辑
+- **MECE Principle**: Each level of the Issue Tree must be MECE
+- **Hypothesis-driven method**: An Issue Tree can be transformed into a Hypothesis List
+- **Pyramid Principle**: The Issue Tree is the underlying logic of pyramid structure

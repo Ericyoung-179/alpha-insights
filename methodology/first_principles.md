@@ -1,258 +1,258 @@
-# 第一性原理
+# First Principles
 
-> 核心价值：突破常规思维，发现创新机会
-
----
-
-## 定义
-
-第一性原理是一种**回到本质**的思考方式：
-
-1. 拆解：把问题拆到最基本的事实和假设
-2. 重构：从基本事实出发，重新推理
-
-与类比思维的区别：
-- 类比思维：别人怎么做，我也怎么做（或稍作改进）
-- 第一性原理：回到本质，从零开始推理
+> Core value: Break through conventional thinking, discover innovation opportunities
 
 ---
 
-## 使用时机
+## Definition
 
-**典型应用场景**：
-- 颠覆式创新
-- 复杂问题突破
-- 摆脱类比思维
-- 本质洞察
+First Principles is a **back-to-basics** way of thinking:
 
-**使用原则**：
-- 回归基本原理和事实
-- 质疑既有假设
-- 从底层重新推导
+1. Decompose: Break the problem down to its most fundamental facts and assumptions
+2. Reconstruct: Starting from fundamental facts, reason from scratch
 
-**使用流程**：
-1. 识别假设（什么是"理所当然"的）
-2. 追问为什么（5 Why 法）
-3. 找到基本原理（不可再简化的事实）
-4. 重新推导（从第一原理出发）
-
----## 为什么重要
-
-| 思维方式 | 特点 | 结果 |
-|---------|------|------|
-| 类比思维 | 参考现有方案 | 渐进式改进 |
-| 第一性原理 | 回到本质推理 | 突破性创新 |
-
-例子：
-- 类比思维：电动车电池太贵，所以电动车不划算
-- 第一性原理：电池由什么组成？原材料成本只有售价的 1/10。如果改进制造工艺，成本可以大幅下降 → Tesla 成立
+Distinction from analogical thinking:
+- Analogical thinking: Do what others do (or improve slightly)
+- First Principles: Return to fundamentals, reason from zero
 
 ---
 
-## 触发条件
+## When to Use
 
-满足以下 **1 条以上** 时作为独立章节输出：
+**Typical application scenarios**:
+- Disruptive innovation
+- Complex problem breakthroughs
+- Escaping analogical thinking
+- Fundamental insights
 
-| 条件 | 判断标准 |
-|------|---------|
-| 研究类型 | 是"商业机会挖掘"或"商业模式分析" |
-| 用户需求 | 用户明确要求"寻找创新机会" |
-| 用户反馈 | Stage 5 洞察生成后，用户对常规建议不满意 |
+**Usage principles**:
+- Return to basic principles and facts
+- Question existing assumptions
+- Re-derive from the ground up
 
----
+**Usage flow**:
+1. Identify assumptions (what is "taken for granted")
+2. Ask why (5 Whys method)
+3. Find basic principles (irreducible facts)
+4. Re-derive (reason from first principles)
 
-## 操作步骤
+---## Why It Matters
 
-### Step 1：识别"被当成常识的假设"
+| Thinking Mode | Characteristics | Outcome |
+|--------------|-----------------|---------|
+| Analogical thinking | Reference existing solutions | Incremental improvement |
+| First Principles | Reason from fundamentals | Breakthrough innovation |
 
-列出当前分析中所有"理所当然"的判断。
-
-问：这是**事实**，还是"大家都这么认为"？
-
-例子：
-```
-"这个行业必须重资产运营" — 是事实还是共识？
-"用户不愿意为这个付费" — 是事实还是共识？
-"竞对的成功是因为补贴" — 是事实还是共识？
-```
-
-### Step 2：追问到不可再拆的层面
-
-对每个假设连续追问：**为什么这是真的？**
-
-直到到达：
-- 物理定律（不可能改变）
-- 人性规律（极难改变）
-- 监管约束（短期内不变）
-
-例子：
-```
-"这个行业必须重资产运营"
-└── 为什么？因为需要线下门店
-    └── 为什么需要线下门店？因为用户需要体验产品
-        └── 为什么用户需要体验？因为产品复杂、决策成本高
-            └── 到达人性层面：用户在高决策成本时需要信任建立
-```
-
-### Step 3：检验每一层假设是否仍然成立
-
-问：这个假设在当前环境还成立吗？
-
-有没有被以下因素打破：
-- 技术变化
-- 政策变化
-- 用户习惯变化
-
-例子：
-```
-"用户需要线下体验才能建立信任" — 现在还成立吗？
-
-新技术/新模式：
-- 直播带货
-- AR 体验
-- KOL 背书
-- 七天无理由退换
-- 用户评价体系
-
-结论：信任建立不一定需要线下门店，有新方式可以替代
-```
-
-### Step 4：从保留下来的基本事实重新推理
-
-只保留**仍然成立的基本事实**，从这里重新推导可能性。
-
-例子：
-```
-基本事实：用户在高决策成本时需要信任建立（仍然成立）
-旧假设：必须线下门店（已被打破）
-
-新推理：
-- 直播 + KOL 可以建立信任
-- 售后保障可以降低决策风险
-- 用户评价可以提供社会证明
-
-结论：重资产运营可能不是必须的，轻资产模式可行
-```
-
-### Step 5：对比"常规方案"和"第一性原理方案"
-
-输出两个版本的对比：
-
-| 维度 | 常规方案 | 第一性原理方案 |
-|------|---------|---------------|
-| 假设基础 | 行业惯例 | 基本事实 |
-| 资源需求 | 重资产 | 轻资产 |
-| 风险 | 已验证，竞争激烈 | 未验证，可能失败 |
-| 潜在回报 | 行业平均 | 可能突破行业上限 |
+Example:
+- Analogical thinking: EV batteries are too expensive, so EVs aren't economical
+- First Principles: What are batteries made of? Raw material costs are only 1/10 of the retail price. If manufacturing processes improve, costs can drop dramatically → Tesla was founded
 
 ---
 
-## 在报告中的位置
+## Trigger Conditions
 
-第一性原理作为**独立章节**输出，不影响常规分析。
+Output as an independent chapter when **1 or more** of the following are met:
+
+| Condition | Judgment Criteria |
+|-----------|-------------------|
+| Research type | This is "business opportunity discovery" or "business model analysis" |
+| User need | User explicitly requests "finding innovation opportunities" |
+| User feedback | After Stage 5 Insight Synthesis, user is unsatisfied with conventional recommendations |
+
+---
+
+## Operating Steps
+
+### Step 1: Identify "Assumptions Treated as Common Knowledge"
+
+List all "taken for granted" judgments in the current analysis.
+
+Ask: Is this a **fact**, or "what everyone assumes"?
+
+Example:
+```
+"This industry requires heavy-asset operations" — Fact or consensus?
+"Users won't pay for this" — Fact or consensus?
+"The competitor's success is due to subsidies" — Fact or consensus?
+```
+
+### Step 2: Question Down to the Irreducible Level
+
+For each assumption, keep asking: **Why is this true?**
+
+Until reaching:
+- Laws of physics (cannot be changed)
+- Human nature (extremely difficult to change)
+- Regulatory constraints (unchangeable in the short term)
+
+Example:
+```
+"This industry requires heavy-asset operations"
++-- Why? Because physical stores are needed
+    +-- Why are physical stores needed? Because users need to experience the product
+        +-- Why do users need to experience it? Because the product is complex, decision cost is high
+            +-- Reaches human nature level: Users need trust-building when decision costs are high
+```
+
+### Step 3: Examine Whether Each Layer of Assumption Still Holds
+
+Ask: Does this assumption still hold in the current environment?
+
+Has it been broken by:
+- Technological change
+- Policy change
+- Changes in user habits
+
+Example:
+```
+"Users need in-store experience to build trust" — Still true today?
+
+New technologies/models:
+- Livestream commerce
+- AR experiences
+- KOL endorsements
+- 7-day no-questions-asked returns
+- User review systems
+
+Conclusion: Trust-building doesn't necessarily require physical stores; new methods can substitute
+```
+
+### Step 4: Re-derive from Remaining Fundamental Facts
+
+Keep only **the fundamental facts that still hold**, and re-derive possibilities from there.
+
+Example:
+```
+Fundamental fact: Users need trust-building when decision costs are high (still holds)
+Old assumption: Physical stores required (broken)
+
+New reasoning:
+- Livestream + KOL can build trust
+- After-sales guarantees can reduce decision risk
+- User reviews can provide social proof
+
+Conclusion: Heavy-asset operations may not be necessary; asset-light models are viable
+```
+
+### Step 5: Compare "Conventional Solution" vs "First Principles Solution"
+
+Output a comparison of both versions:
+
+| Dimension | Conventional Solution | First Principles Solution |
+|-----------|----------------------|--------------------------|
+| Assumption base | Industry conventions | Fundamental facts |
+| Resource requirements | Heavy-asset | Asset-light |
+| Risk | Proven, fierce competition | Unproven, may fail |
+| Potential return | Industry average | Could break industry ceiling |
+
+---
+
+## Position in the Report
+
+First Principles is output as an **independent chapter**, without affecting the conventional analysis.
 
 ```markdown
-报告结构：
+Report structure:
 
-第 1 章：市场概况（常规分析）
-第 2 章：竞争分析（常规分析）
-第 3 章：用户需求分析（常规分析）
-第 4 章：机会与建议（常规分析）
+Chapter 1: Market Overview (conventional analysis)
+Chapter 2: Competitive Analysis (conventional analysis)
+Chapter 3: User Demand Analysis (conventional analysis)
+Chapter 4: Opportunities & Recommendations (conventional analysis)
 
-第 5 章：从第一性原理看——突破性机会探索
-    5.1 被当成常识的假设
-    5.2 假设拆解与检验
-    5.3 重新推导的可能性
-    5.4 常规方案 vs 第一性原理方案对比
+Chapter 5: Through the Lens of First Principles — Breakthrough Opportunity Exploration
+    5.1 Assumptions Treated as Common Knowledge
+    5.2 Assumption Decomposition & Examination
+    5.3 Re-derived Possibilities
+    5.4 Conventional Solution vs First Principles Solution Comparison
 ```
 
 ---
 
-## 输出格式
+## Output Format
 
 ```markdown
-## 从第一性原理看：突破性机会探索
+## Through the Lens of First Principles: Breakthrough Opportunity Exploration
 
-### 一、被当成常识的假设
+### I. Assumptions Treated as Common Knowledge
 
-列出当前分析中的"常识"：
-1. [假设1]
-2. [假设2]
-3. [假设3]
+List the "common knowledge" in the current analysis:
+1. [Assumption 1]
+2. [Assumption 2]
+3. [Assumption 3]
 
-### 二、假设拆解与检验
+### II. Assumption Decomposition & Examination
 
-#### 假设：[假设1]
-- 拆解过程：[追问链条]
-- 基本事实：[不可再拆的层面]
-- 是否仍然成立：[是/否]
-- 打破因素：[技术/政策/习惯变化]
+#### Assumption: [Assumption 1]
+- Decomposition process: [Question chain]
+- Fundamental fact: [Irreducible level]
+- Still holds: [Yes/No]
+- Breaking factor: [Technology/policy/habit change]
 
-#### 假设：[假设2]
+#### Assumption: [Assumption 2]
 ...
 
-### 三、重新推导的可能性
+### III. Re-derived Possibilities
 
-基于仍然成立的基本事实，重新推导：
+Based on fundamental facts that still hold, re-derive:
 
-[新推理过程]
+[New reasoning process]
 
-[新结论]
+[New conclusion]
 
-### 四、方案对比
+### IV. Solution Comparison
 
-| 维度 | 常规方案 | 第一性原理方案 |
-|------|---------|---------------|
-| 假设基础 | ... | ... |
-| 资源需求 | ... | ... |
-| 风险 | ... | ... |
-| 潜在回报 | ... | ... |
+| Dimension | Conventional Solution | First Principles Solution |
+|-----------|----------------------|--------------------------|
+| Assumption base | ... | ... |
+| Resource requirements | ... | ... |
+| Risk | ... | ... |
+| Potential return | ... | ... |
 
-### 五、建议
+### V. Recommendations
 
-- 保守选择：常规方案
-- 激进选择：第一性原理方案
-- 折中方案：[结合两者]
+- Conservative choice: Conventional solution
+- Aggressive choice: First Principles solution
+- Balanced approach: [Combining both]
 ```
 
 ---
 
-## 常见错误
+## Common Mistakes
 
-### 错误 1：忽视行业现状
+### Mistake 1: Ignoring Industry Context
 
-❌ 只用第一性原理，不看竞对和行业
-✅ 第一性原理是独立章节，常规分析仍然要做
+❌ Using only First Principles without looking at competitors and the industry
+✅ First Principles is an independent chapter; conventional analysis must still be done
 
-### 错误 2：拆解不够深
+### Mistake 2: Not Decomposing Deep Enough
 
-❌ 停在"行业惯例"层面
-✅ 追问到"人性规律/物理定律"层面
+❌ Stopping at the "industry convention" level
+✅ Question down to the "human nature/laws of physics" level
 
-### 错误 3：忽略约束条件
+### Mistake 3: Ignoring Constraints
 
-❌ 提出的方案不考虑资源和能力
-✅ 方案对比中要说明风险和可行性
+❌ Proposals that don't consider resources and capabilities
+✅ Solution comparison must address risks and feasibility
 
-### 错误 4：没有对比
+### Mistake 4: No Comparison
 
-❌ 只输出第一性原理方案
-✅ 要与常规方案对比，让用户选择
-
----
-
-## 在本 Skill 中的应用
-
-### Stage 5-6 触发
-
-1. 满足触发条件时，作为独立章节输出
-2. 不影响常规分析的内容
-3. 输出到报告的第 5 章（或最后一章）
+❌ Only outputting the First Principles solution
+✅ Compare with the conventional solution, letting the user choose
 
 ---
 
-## 与其他方法论的关系
+## Application in This Skill
 
-- **假设驱动法**：第一性原理帮助识别和挑战隐含假设
-- **Pre-mortem**：第一性原理发现创新机会，Pre-mortem 发现风险
-- **Anti-patterns**：第一性原理避免"正确的废话"反模式
+### Stage 5-6 Trigger
+
+1. When trigger conditions are met, output as an independent chapter
+2. Does not affect conventional analysis content
+3. Output to Chapter 5 (or the last chapter) of the report
+
+---
+
+## Relationship with Other Methodologies
+
+- **Hypothesis-driven method**: First Principles helps identify and challenge implicit assumptions
+- **Pre-mortem**: First Principles discovers innovation opportunities; Pre-mortem discovers risks
+- **Anti-patterns**: First Principles avoids the "correct platitude" anti-pattern

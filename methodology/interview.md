@@ -1,325 +1,319 @@
-# 专家访谈方法论（SKILL执行流程版）
+# Expert Interview Methodology (SKILL Execution Flow)
 
-> **定位**：Stage 3.5 访谈准备的核心方法论
+> **Purpose**: Core methodology for Stage 3.5 interview preparation
 >
-> **核心价值**：获取公开渠道难以获取的行业洞见，验证商业假设，挖掘机会点
+> **Core value**: Acquire industry insights unavailable through public channels, validate business hypotheses, discover opportunity points
 
 ---
 
-## 一、Info vs Insight
+## I. Info vs Insight
 
-| 类型 | 说明 | 优势 | 劣势 |
-|------|------|------|------|
-| **Info（信息）** | 获取竞对/行业数据、验证竞对策略 | 公开信息的有益补充、更具针对性的竞对探查 | 数据校验风险、口径偏差风险、合规风险 |
-| **Insight（洞察）** | 验证商业假设、跟踪行业趋势、挖掘商业机会 | 高效的行业专家洞察、合规风险低 | 对访谈者研究能力要求高、需归纳总结 |
+| Type | Description | Advantages | Disadvantages |
+|------|-------------|------------|---------------|
+| **Info (Information)** | Acquire competitor/industry data, validate competitor strategies | Useful supplement to public information, more targeted competitive intelligence | Data verification risk, measurement discrepancy risk, compliance risk |
+| **Insight** | Validate business hypotheses, track industry trends, discover business opportunities | Efficient expert insight, low compliance risk | Requires high research capability from interviewers, needs synthesis and summarization |
 
-**核心定位**：专家访谈是信息的有效补充，但不宜单纯依赖
-
----
-
-## 二、SKILL执行流程
-
-```
-Stage 3 假设与计划
-       ↓
-评估是否需要专家访谈
-       ↓ (是)
-Stage 3.5 访谈准备
-       ↓
-┌─────────────────────────────┐
-│ Step 1: 拆解访谈提纲         │
-│ Step 2: 设计 Test Question   │
-│ Step 3: 筛选潜在专家         │
-│ Step 4: 生成 Vendor 话术     │
-│ Step 5: 创建共享文档文档         │
-│ Step 6: 发送通知通知         │
-└─────────────────────────────┘
-       ↓
-用户执行访谈
-       ↓
-访谈后整理
-       ↓
-┌─────────────────────────────┐
-│ Step 7: 录音转写             │
-│ Step 8: 整理核心 Insight     │
-│ Step 9: 发送通知通知         │
-│ Step 10: 整合进证据库        │
-└─────────────────────────────┘
-       ↓
-Stage 4 研究执行（Track B）
-```
+**Core positioning**: Expert interviews are an effective supplement to information, but should not be relied upon exclusively
 
 ---
 
-## 三、Step 1：访谈提纲设计
-
-### 3.1 两份提纲原则
-
-**建议准备两份提纲**：
-
-| 类型 | 用途 | 特点 |
-|------|------|------|
-| **简要提纲（对外）** | 给咨询机构和专家 | 5条左右，关键问题，用词适当模糊 |
-| **详细提纲（对内）** | 实际访谈使用 | 完整故事线，子问题展开，数据口径，校验信息 |
-
-### 3.2 提纲设计原则
-
-1. **核心问题**：按完整故事线设计
-2. **关键数据**：明确列出需要的数据和指标
-3. **子问题**：对核心问题答案提前预判，设计追问
-4. **校验信息**：内外部研究资料作为参考
-5. **节奏指引**：提纲必须包含时间分配建议（如 4 个 Part 各 15min，总计 60min），帮助访谈者控制节奏，避免前松后紧
-6. **假设全覆盖**：Stage 3 的每个核心假设都必须在提纲中有对应问题。如果某个假设仅在假设清单中但未进入提纲，必须补入或注明"已通过桌面研究验证，无需访谈"
-
-### 3.3 问题设计原则
-
-> **"泛泛的问题永远只能得到泛泛的回答"**
-
-| 问题类型 | 关键点及Flow |
-|---------|-------------|
-| **问数据** | 铺垫（给出索要数据的理由）→ 明确数据口径 → 直接或间接校验 |
-| **问产品** | 产品名称/要素 → 产品价值/客户链路 → 量化效果/案例/与竞品差异 |
-| **问策略** | 业务现状/结果 → 前瞻目标/计划达成方式 |
-| **问商业模式** | 供给（产品服务）→ 需求（用户）→ 客户 → 盈利模式/盈利情况 |
-| **问空间** | 规模/历史增速 → 行业核心drivers → Drivers趋势 |
-| **问竞争** | 主要玩家 → 前5-前10份额/集中度 → 份额变化趋势 |
-
-**追问深度要求**：每个核心问题必须设计 **2-3 个具体追问角度**，而非仅 1 个笼统追问。追问要给出具体维度提示，帮助访谈者在现场快速反应。
+## II. SKILL Execution Flow
 
 ```
-❌ 追问：能展开说说吗？
-✅ 追问：
-   - 壁垒主要来自哪方面？是品牌信任、原料溯源还是渠道壁垒？
-   - 这个壁垒在过去 3 年有变化吗？新玩家是怎么突破的？
-```
-
-### 3.4 探索性问题（挖掘行业门道）⭐
-
-> **核心价值**：专家最值钱的是"报告上没有的东西"——行业门道、非共识观点、边缘机会
-
-| 问题类型 | 目的 | 示例问题 |
-|---------|------|----------|
-| **门道型** | 挖掘行业隐性知识 | "您觉得这个行业里，有哪些关键因素是大家容易忽视的？" |
-| **反共识型** | 挑战主流认知 | "有什么大家都在做但其实不对的方向？" |
-| **假设型** | 借专家脑洞 | "如果您有5000万做这个赛道，会怎么做？" |
-| **边缘型** | 发现小众机会 | "有什么小众但您觉得有潜力的机会？" |
-| **失败型** | 避坑指南 | "这个行业最容易踩的坑是什么？" |
-| **公开秘密型** | 揭示潜规则 | "行业里有什么'公开的秘密'？" |
-
-**使用原则**：
-- 放在访谈后半段，专家已经进入状态时
-- 不要打断专家的分享，追问比预设问题更重要
-- 记录专家的"随口一说"，往往是最有价值的洞察
-- **探索性问题也要设计具体追问维度**，避免专家泛泛而谈。例如"有什么小众但有潜力的机会？"应追问具体维度（品类/渠道/团队/技术）；"最容易踩的坑是什么？"应追问"能举一个典型失败案例吗？失败的根本原因是什么？"
-
-### 3.4 提纲示例
-
-```
-【对外提纲 - 企业服务SaaS公司研究】
-1. 企业服务SaaS公司的商业模式和盈利前景？
-2. 行业发展趋势和机会点研判？
-3. 头部客户策略调整对行业的影响？
-4. 公司近两年营收规模、增长大致体量？
-5. 行业竞争日趋激烈，公司的竞争优势在哪里？
-
-【对内提纲 - 详细版】
-业务型问题：
-- 企业服务行业发展趋势如何，和过去几年比起来怎么样？
-- 现在行业中的SaaS公司同质性越来越强，对发展和机会点的看法？
-- 哪些垂直领域是接下来觉得有机会点和发展会比较快的？
-
-数据型问题：
-- 近两年的年营收/利润，年度同比？
-- 年营收中，多少是新客户带来的？
-- 营收的业务板块分类以及占比？
-- 核心产品标准定价是多少，整体平均客单价是多少？
-- 关键玩家份额分布，近两年的变化？
-```
-
-### 3.5 定量问题的艺术
-
-**问题**：全部是定量问题，专家拒访可能性极高（警觉或感觉缺少价值）
-
-**更合适的做法**：
-- 加入合适的或宏观的定性问题稀释定量问题
-- 研究初始合理选择高优的核心数据，减少问题
-- 口径很重要，但有些时候需要做合适的妥协
-
----
-
-## 四、Step 2：Test Question 设计
-
-### 4.1 定义
-
-从访谈提纲中选取 **2-3个最能识别专家是否qualification的核心问题**，作为Test Question。
-
-### 4.2 设计原则
-
-- 能快速判断专家对问题的了解水平
-- 能判断专家的回答意愿
-- 能判断信息颗粒度
-- 通常选择：公司总体的历史经营、财务数据，行业规模等
-
-### 4.3 示例
-
-```
-Test Question 示例（企业服务SaaS研究）：
-1. 公司整体营收规模大概在什么量级？
-2. 主要客户行业的分布大概是怎样的？
-3. 核心产品的定价和整体平均客单价分别是多少？
+Stage 3 Hypotheses & Plan
+       |
+Assess whether expert interviews are needed
+       | (yes)
+Stage 3.5 Interview Preparation
+       |
++-----------------------------+
+| Step 1: Design interview    |
+|         outline             |
+| Step 2: Design Test Question|
+| Step 3: Screen potential    |
+|         experts             |
+| Step 4: Generate vendor     |
+|         messaging           |
+| Step 5: Create shared doc   |
+| Step 6: Send notification   |
++-----------------------------+
+       |
+User conducts interviews
+       |
+Post-interview processing
+       |
++-----------------------------+
+| Step 7: Recording transcription |
+| Step 8: Organize core Insights  |
+| Step 9: Send notification       |
+| Step 10: Integrate into         |
+|          Evidence Base           |
++-----------------------------+
+       |
+Stage 4 Research Execution (Track B)
 ```
 
 ---
 
-## 五、Step 3：专家筛选
+## III. Step 1: Interview Outline Design
 
-### 5.1 专家画像基本要点
+### 3.1 Two-Outline Principle
 
-- **在职状态**：在职，或至多离职6个月以内
-- **基本信息**：行业/公司/职能/级别
-- **特别职能**：大型活动运营/某项目负责人等
-- **其他指标**：访谈反馈良好、访谈次数
+**Prepare two outlines**:
 
-### 5.2 筛选方式
+| Type | Purpose | Characteristics |
+|------|---------|-----------------|
+| **Brief outline (external)** | For consulting firms and experts | ~5 items, key questions, appropriately vague wording |
+| **Detailed outline (internal)** | For actual interview use | Complete storyline, expanded sub-questions, data definitions, verification information |
 
-| 方式 | 方法 | 优点 | 缺点 |
-|------|------|------|------|
-| **主动精准筛选** | 提出包含入职状态、公司、职能、层级的目标专家画像 | 专家匹配度高 | 备选专家少、容易错失相关专家 |
-| **被动模糊筛选** | 索要目标公司或行业的所有专家列表 | 反馈快 | 可能出现专家了解程度有限的情况 |
+### 3.2 Outline Design Principles
 
-**实操建议**：主被动结合方式寻找专家
+1. **Core questions**: Designed following a complete storyline
+2. **Key data**: Explicitly list required data and metrics
+3. **Sub-questions**: Pre-anticipate answers to core questions, design follow-ups
+4. **Verification info**: Internal and external research materials as reference
+5. **Pacing guide**: Outline must include time allocation suggestions (e.g., 4 parts x 15min each, 60min total) to help the interviewer manage pacing and avoid front-loading
+6. **Hypothesis full coverage**: Every core hypothesis from Stage 3 must have a corresponding question in the outline. If a hypothesis is only in the Hypothesis List but not in the outline, it must be added or noted as "already validated through desk research, no interview needed"
 
-### 5.3 不同部门专家的信息价值
+### 3.3 Question Design Principles
 
-| 专家类型 | 可获取信息 |
-|---------|-----------|
-| **业务部门** | 单业务经营数据（定量）、解决方案落地案例 |
-| **战略部门** | 行业产品/政策/竞争/技术趋势、竞对策略 |
-| **财务部门** | 预算、财务数据（定量） |
-| **行业专家** | 行业政策、竞争格局、行业趋势 |
+> **"Vague questions will only get vague answers"**
 
-### 5.4 专家简历判断要点
+| Question Type | Key Points & Flow |
+|--------------|-------------------|
+| **Asking for data** | Context (provide reason for requesting data) → Clarify data definitions → Direct or indirect verification |
+| **Asking about products** | Product name/elements → Product value/customer journey → Quantified results/cases/differences from competitors |
+| **Asking about strategy** | Business status/results → Forward-looking goals/how to achieve them |
+| **Asking about business model** | Supply (products & services) → Demand (users) → Customers → Revenue model/profitability |
+| **Asking about market size** | Scale/historical growth → Core industry drivers → Driver trends |
+| **Asking about competition** | Major players → Top 5-10 market share/concentration → Share change trends |
 
-关注：
-- 部门职位是否匹配需求
-- 职位与工作经历描述是否匹配
-- 专家的访谈意愿度和开放程度
-- 专家的费率倍率（初步判断是否符合预算）
+**Follow-up depth requirement**: Each core question must have **2-3 specific follow-up angles** designed, not just 1 generic follow-up. Follow-ups should provide specific dimension prompts to help the interviewer react quickly during the session.
+
+```
+❌ follow-up: Can you elaborate?
+✅ follow-up:
+   - What are the main barriers? Brand trust, raw material traceability, or channel barriers?
+   - Have these barriers changed over the past 3 years? How did new entrants break through?
+```
+
+### 3.4 Exploratory Questions (Uncovering Industry Know-how) ⭐
+
+> **Core value**: The most valuable thing from experts is "what's not in reports" — industry know-how, non-consensus views, edge opportunities
+
+| Question Type | Purpose | Example Question |
+|--------------|---------|------------------|
+| **Know-how** | Uncover tacit industry knowledge | "What key factors in this industry do you think people easily overlook?" |
+| **Counter-consensus** | Challenge mainstream views | "What direction is everyone pursuing but is actually wrong?" |
+| **Hypothetical** | Borrow the expert's imagination | "If you had $5 million to invest in this sector, what would you do?" |
+| **Edge** | Discover niche opportunities | "Are there any niche opportunities you think have potential?" |
+| **Failure** | Lessons learned | "What are the easiest pitfalls in this industry?" |
+| **Open secret** | Reveal unspoken rules | "What are the 'open secrets' of this industry?" |
+
+**Usage principles**:
+- Place in the second half of the interview, when the expert is warmed up
+- Don't interrupt the expert's sharing; follow-ups are more important than preset questions
+- Record the expert's "offhand remarks" — these are often the most valuable insights
+- **Exploratory questions must also have specific follow-up dimensions** to prevent vague answers. For example, "Any niche opportunities with potential?" should follow up on specific dimensions (category/channel/team/technology); "What are the easiest pitfalls?" should follow up with "Can you give a typical failure case? What was the root cause?"
+
+### 3.4 Outline Example
+
+```
+[External Outline - Enterprise SaaS Company Research]
+1. Business model and profitability outlook for enterprise SaaS companies?
+2. Industry development trends and opportunity assessment?
+3. Impact of top client strategy adjustments on the industry?
+4. Approximate revenue scale and growth trajectory over the past two years?
+5. With increasing competition, where are the company's competitive advantages?
+
+[Internal Outline - Detailed Version]
+Business questions:
+- How is the enterprise services industry developing, compared to previous years?
+- With increasing homogeneity among SaaS companies, views on development and opportunity points?
+- Which verticals are expected to have opportunities and faster growth going forward?
+
+Data questions:
+- Annual revenue/profit for the past two years, YoY growth?
+- Of annual revenue, how much comes from new customers?
+- Revenue breakdown by business segment and proportions?
+- Standard pricing for core products, and overall average deal size?
+- Market share distribution of key players, changes over the past two years?
+```
+
+### 3.5 The Art of Quantitative Questions
+
+**Problem**: If all questions are quantitative, expert rejection probability is extremely high (suspicion or feeling of low value)
+
+**Better approach**:
+- Add appropriate qualitative or macro questions to dilute quantitative questions
+- Select high-priority core data points at the beginning of research to reduce question count
+- Data definitions matter, but sometimes appropriate compromises are needed
 
 ---
 
-## 六、Step 4：Vendor话术生成
+## IV. Step 2: Test Question Design
 
-### 6.1 话术格式（必须严格遵守）
+### 4.1 Definition
+
+Select **2-3 core questions that best identify whether the expert is qualified** from the interview outline as Test Questions.
+
+### 4.2 Design Principles
+
+- Can quickly assess the expert's depth of knowledge on the topic
+- Can gauge the expert's willingness to answer
+- Can judge information granularity
+- Typically selected from: company's historical operations, financial data, industry scale
+
+### 4.3 Example
 
 ```
-帮我们找找[目标方向]的专家，如[公司A/B]（优先）、[公司C/D]（次优）等公司的[职级]。
-
-主要想聊[核心问题描述]：
-
-- [具体问题点1]
-- [具体问题点2]
+Test Question Examples (Enterprise SaaS Research):
+1. What's the approximate overall revenue scale of the company?
+2. What does the distribution of major client industries look like?
+3. What are the pricing for core products and the overall average deal size?
 ```
-
-### 6.2 话术示例
-
-```
-帮我们找找企业服务SaaS行业的专家，如某头部CRM厂商、某头部HR SaaS厂商（优先）、某头部协同办公厂商、某头部财务SaaS厂商（次优）等公司的产品总监或业务负责人。
-
-主要想聊企业服务SaaS公司的商业模式、发展机会点和竞争格局：
-
-- 企业服务SaaS公司的商业模式和盈利前景
-- 行业发展机会点和趋势判断
-- 主要玩家的竞争格局和份额变化
-```
-
-### 6.3 注意事项
-
-- 对外问卷把最想知道的数据点提出
-- 较敏感话题建议模糊处理（如使用"大致体量"等）
-- 可通过中介咨询公司转达"定量问题请专家认真准备"等信息
-- 主访建立信任后，利用追访获取细颗粒度信息
 
 ---
 
-## 七、Step 5-6：创建共享文档文档 & 发送通知
+## V. Step 3: Expert Screening
 
-### 7.1 共享文档文档内容
+### 5.1 Expert Profile Essentials
 
-包含以下内容：
-- Vendor话术
-- 访谈提纲（对外版 + 对内版）
-- Test Question
-- 潜在专家列表
+- **Employment status**: Currently employed, or departed within the last 6 months at most
+- **Basic info**: Industry/company/function/level
+- **Special roles**: Large event operations/specific project leads, etc.
+- **Other indicators**: Good interview feedback, interview count
 
-### 7.2 通知通知内容
+### 5.2 Screening Methods
 
-- 上述所有材料的完整内容
-- **必须附带共享文档文档链接**
-- **仅发送到1v1对话框，不发群聊**（除非用户明确要求）
+| Method | Approach | Pros | Cons |
+|--------|----------|------|------|
+| **Active precise screening** | Specify target expert profiles including employment status, company, function, level | High expert-match quality | Fewer backup experts, may miss related experts |
+| **Passive broad screening** | Request full expert lists for target companies or industries | Fast response | May include experts with limited depth |
+
+**Practical advice**: Combine active and passive methods to find experts
+
+### 5.3 Information Value by Department
+
+| Expert Type | Available Information |
+|-------------|---------------------|
+| **Business department** | Single business operational data (quantitative), solution implementation cases |
+| **Strategy department** | Industry product/policy/competition/technology trends, competitor strategies |
+| **Finance department** | Budget, financial data (quantitative) |
+| **Industry expert** | Industry policy, competitive landscape, industry trends |
+
+### 5.4 Expert Resume Assessment
+
+Focus on:
+- Whether department and position match the need
+- Whether position and work experience descriptions match
+- Expert's interview willingness and openness
+- Expert's rate multiplier (preliminary budget assessment)
 
 ---
 
-## 八、Step 7-10：访谈后整理
+## VI. Step 4: Vendor Messaging Generation
 
-### 8.1 纪要要素
-
-```
-📋 基本信息
-• 访谈项目：[项目名称]
-• 访谈时间：YYYY-MM-DD HH:MM-HH:MM
-• 受访专家：[背景及专家评价]
-• 访谈时长：[X]小时
-• 专家费率：[X]元/小时
-
-📝 核心内容
-• 整理归类后的要点（按研究目标的故事线逻辑）
-• 简要归纳的核心结论/待验证问题
-• 有价值的原声保留
-
-✅ 数据来源标注
-📄 来源：专家访谈 - [专家背景]
-📅 访谈日期：YYYY-MM-DD
-🔗 链接：[共享文档文档链接/录音文件路径]
-```
-
-### 8.2 核心Insight整理原则
-
-- **200字以内**
-- 包含关键结论（3-5点）
-- 突出核心洞察
-
-### 8.3 结论输出原则
-
-> **我们是分析师，不是记者；我们不是信息的搬运者，而是加工者**
+### 6.1 Messaging Format (must be strictly followed)
 
 ```
-专家访谈结果（数据、定性判断等）
+Help us find experts in [target area], such as [Company A/B] (preferred), [Company C/D] (secondary), etc., at the [level] position.
+
+We'd mainly like to discuss [core topic description]:
+
+- [Specific point 1]
+- [Specific point 2]
+```
+
+### 6.2 Messaging Example
+
+```
+Help us find experts in the enterprise SaaS industry, such as a top CRM vendor, a top HR SaaS vendor (preferred), a top collaboration platform, a top finance SaaS vendor (secondary), at the product director or business lead level.
+
+We'd mainly like to discuss enterprise SaaS business models, development opportunities, and competitive landscape:
+
+- Business models and profitability outlook for enterprise SaaS companies
+- Industry opportunity assessment and trend predictions
+- Competitive landscape and market share changes among major players
+```
+
+### 6.3 Notes
+
+- Include the most-wanted data points in the external questionnaire
+- Sensitive topics should be handled with vague wording (e.g., "approximate scale")
+- You can ask the intermediary to convey messages like "please have the expert prepare for quantitative questions"
+- After establishing trust in the main interview, use follow-up sessions for more granular information
+
+---
+
+## VII. Step 5-6: Create Shared Doc & Send Notification
+
+### 7.1 Shared Document Content
+
+Includes the following:
+- Vendor messaging
+- Interview outline (external + internal versions)
+- Test Questions
+- Potential expert list
+
+### 7.2 Notification Content
+
+- Complete content of all materials above
+- **Must include shared document link**
+- **Send to 1-on-1 chat only, not group chat** (unless user explicitly requests otherwise)
+
+---
+
+## VIII. Step 7-10: Post-Interview Processing
+
+### 8.1 Summary Elements
+
+```
+📋 Basic Information
+- Interview project: [Project name]
+- Interview time: YYYY-MM-DD HH:MM-HH:MM
+- Expert interviewed: [Background and expert evaluation]
+- Interview duration: [X] hours
+- Expert rate: $[X]/hour
+
+📝 Core Content
+- Organized key points (following the research objective storyline logic)
+- Briefly summarized core conclusions/questions to verify
+- Valuable direct quotes retained
+
+✅ Data Source Labeling
+📄 Source: Expert interview - [Expert background]
+📅 Interview date: YYYY-MM-DD
+🔗 Link: [Shared document link/recording file path]
+```
+
+### 8.2 Core Insight Organization Principles
+
+- **Under 200 words**
+- Include key conclusions (3-5 points)
+- Highlight core insights
+
+### 8.3 Conclusion Output Principles
+
+> **We are analysts, not reporters; we are not information couriers, but processors**
+
+```
+Expert interview results (data, qualitative judgments, etc.)
         +
-其他信息源 + 分析师的商业判断
-        ↓
-我们综合多方信息及逻辑推演后判断得出的结论输出
+Other information sources + analyst's business judgment
+        |
+Our conclusions derived from synthesizing multiple sources and logical reasoning
 ```
 
-**禁止**："xx专家说……""xx专家认为"作为解释发现的理由
+**Prohibited**: "Expert XX said..." "Expert XX believes..." as the justification for findings
 
-**推荐**：多以原声引用的形式在报告和项目沟通中，结论会更生动和丰满
-
----
-
-## 九、触发条件
-
-- Stage 3 评估是否需要专家访谈
-- 用户提及"访谈"、"专家访谈"、"采访"等关键词
-- 用户要求"拆解提纲"、"生成话术"
-- 用户上传音频文件并要求"转写"、"整理纪要"
+**Recommended**: Use direct quotes in reports and project communications — conclusions will be more vivid and compelling
 
 ---
 
-## 版本历史
+## IX. Trigger Conditions
 
-| 版本 | 日期 | 变更内容 |
-|------|------|---------|
-| V3 | 2026-03-20 | 精简为SKILL执行流程版，移除详细执行技巧，脱敏处理 |
-| V2 | 2026-03-20 | 整合《访谈技巧101》培训材料，完善全流程方法论 |
-| V1 | 2026-03-18 | 初始版本 |
+- Stage 3 assessment of whether expert interviews are needed
+- User mentions "interview," "expert interview," "consultation," etc.
+- User requests "design outline," "generate messaging"
+- User uploads audio file and requests "transcribe," "organize summary"

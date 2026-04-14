@@ -1,900 +1,901 @@
-# 研究执行引擎（Research Engine）
+# Research Engine
 
-> **定位**：Stage 4 研究执行的搜索操作手册
+> **Role**: Stage 4 research execution operations manual
 >
-> **核心模式**：A+B 并行（Subagent）+ D→E→F→G→C 串行（主 Session）
+> **Core Pattern**: A+B parallel (Subagent) + D→E→F→G→C sequential (Main Session)
 >
-> **关联模块**：
-> - [`data_sources.md`](./data_sources.md) - 必选数据源清单
-> - [`triangulation.md`](../methodology/triangulation.md) - 三角验证法
-> - [`hypothesis_driven.md`](../methodology/hypothesis_driven.md) - 假设驱动法
-> - [`interview.md`](../methodology/interview.md) - 专家访谈法
+> **Related Modules**:
+> - [`data_sources.md`](./data_sources.md) - Required data source catalog
+> - [`triangulation.md`](../methodology/triangulation.md) - Triangulation methodology
+> - [`hypothesis_driven.md`](../methodology/hypothesis_driven.md) - Hypothesis-driven methodology
+> - [`interview.md`](../methodology/interview.md) - Expert interview methodology
 
 ---
 
-## 核心原则
+## Core Principles
 
-1. **假设驱动**：每次搜索都服务于验证/证伪某个假设
-2. **数据源优先**：必须优先使用 `data_sources.md` 中的 P0-P2 级数据源
-3. **三角验证**：核心数据必须寻找 2-3 个独立来源
-4. **证据链可追溯**：每个结论都能追溯到原始来源
-5. **执行顺序**：A+B 并行 → D → E → F → G → C，依次执行
-6. **信息透明**：每个轨道执行前向用户播报，跳过时告知原因
+1. **Hypothesis-driven**: Every search serves to validate or falsify a specific hypothesis
+2. **Data Source Priority**: Must prioritize P0-P2 data sources from `data_sources.md`
+3. **Triangulation**: Core data must seek 2-3 independent sources
+4. **Evidence Chain Traceability**: Every conclusion must trace back to original sources
+5. **Execution Order**: A+B parallel → D → E → F → G → C, executed sequentially
+6. **Information Transparency**: Broadcast before each track execution; explain reasons when skipping
 
 ---
 
-## 执行架构
+## Execution Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    主 Session（Coordinator）                  │
+│                    Main Session (Coordinator)                 │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │ 任务分解 + 轨道激活判断                               │   │
+│  │ Task Decomposition + Track Activation Decisions       │   │
 │  └─────────────────────────────────────────────────────┘   │
 │                            │                                │
 │              ┌─────────────┴─────────────┐                 │
 │              ▼                           ▼                  │
 │       ┌──────────┐                ┌──────────┐             │
-│       │ Track A  │                │ Track B  │  ← 并行     │
-│       │ 公开搜索 │                │ 数据源   │  (Subagent) │
+│       │ Track A  │                │ Track B  │  ← Parallel │
+│       │ Public   │                │ Data     │  (Subagent) │
+│       │ Search   │                │ Sources  │             │
 │       └──────────┘                └──────────┘             │
 │              │                           │                  │
 │              └─────────────┬─────────────┘                 │
 │                            ▼                                │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │ Track D：知识库搜索（主 Session）                     │   │
+│  │ Track D: Knowledge Base Search (Main Session)        │   │
 │  └─────────────────────────────────────────────────────┘   │
 │                            ▼                                │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │ Track E：小红书（主 Session）                         │   │
+│  │ Track E: Xiaohongshu / Social Media (Main Session)   │   │
 │  └─────────────────────────────────────────────────────┘   │
 │                            ▼                                │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │ Track F：内部数据库（主 Session）                  │   │
+│  │ Track F: Internal Database (Main Session)            │   │
 │  └─────────────────────────────────────────────────────┘   │
 │                            ▼                                │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │ Track G：用户原声数据（主 Session）                   │   │
+│  │ Track G: User Voice Data (Main Session)              │   │
 │  └─────────────────────────────────────────────────────┘   │
 │                            ▼                                │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │ Track C：专家访谈（主 Session，如触发）               │   │
+│  │ Track C: Expert Interviews (Main Session, if triggered)│   │
 │  └─────────────────────────────────────────────────────┘   │
 │                            ▼                                │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │ 证据整合 + 三角验证                                   │   │
+│  │ Evidence Integration + Triangulation                  │   │
 │  └─────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 轨道定义
+### Track Definitions
 
-| 轨道 | 名称 | 执行方式 | 数据源 |
-|------|------|---------|--------|
-| **A** | 公开数据收集 | Subagent 并行 | 搜索引擎 + 网页抓取 |
-| **B** | 数据源定向搜索 | Subagent 并行 | 权威数据源官网（艾瑞、头豹等） |
-| **D** | 知识库搜索 | 主 Session | 内部历史研究、笔记 |
-| **E** | 小红书 | 主 Session | 消费者舆情、产品反馈 |
-| **F** | 内部数据库 | 主 Session | 业务数据、用户行为 |
-| **G** | 用户原声数据 | 主 Session | 用户体验问题、投诉痛点、满意度 |
-| **C** | 专家访谈 | 主 Session | 访谈纪要（需用户配合） |
+| Track | Name | Execution Mode | Data Sources |
+|-------|------|---------------|--------------|
+| **A** | Public Data Collection | Subagent parallel | Search engines + web scraping |
+| **B** | Directed Source Search | Subagent parallel | Authoritative source websites (iResearch, LeadLeo, etc.) |
+| **D** | Knowledge Base Search | Main Session | Internal historical research, notes |
+| **E** | Xiaohongshu / Social Media | Main Session | Consumer sentiment, product feedback |
+| **F** | Internal Database | Main Session | Business data, user behavior |
+| **G** | User Voice Data | Main Session | User experience issues, complaints, satisfaction |
+| **C** | Expert Interviews | Main Session | Interview notes (requires user coordination) |
 
 ---
 
-## 执行规则
+## Execution Rules
 
-### Track A+B：并行执行（Subagent）
+### Track A+B: Parallel Execution (Subagent)
 
-**触发条件**：所有研究项目必选
+**Trigger Condition**: Required for all research projects
 
-**执行方式**：
-1. 主 Session 分解任务，生成分发清单
-2. 启动 2 个 Subagent 并行执行
-3. 等待结果返回，**由主 Session 汇总合并证据**
+**Execution Method**:
+1. Main Session decomposes tasks and generates distribution list
+2. Launch 2 Subagents for parallel execution
+3. Wait for results to return; **Main Session consolidates and merges evidence**
 
-⛔ **并行写入保护**：Subagent 不直接写 `evidence_base.md`。各 Subagent 将结果返回给主 Session，由主 Session 统一写入，避免并发写入冲突。
+⛔ **Parallel Write Protection**: Subagents do not write directly to `evidence_base.md`. Each Subagent returns results to the Main Session, which performs unified writing to avoid concurrent write conflicts.
 
-⚠️ **Agent 工具不可用时的降级**：如果平台不支持 Agent/Subagent 工具，在主 Session 中串行执行 Track A → Track B，其余流程不变。
+⚠️ **Fallback When Agent Tool Unavailable**: If the platform does not support Agent/Subagent tools, execute Track A → Track B sequentially in the Main Session. All other processes remain unchanged.
 
-**进度播报**：
+**Progress Broadcast**:
 ```
-━━━ Track A+B 并行执行 ━━━
-📚 启动 Subagent 1：公开数据收集
-📚 启动 Subagent 2：数据源定向搜索
-⏳ 等待结果返回...
+━━━ Track A+B Parallel Execution ━━━
+📚 Launching Subagent 1: Public Data Collection
+📚 Launching Subagent 2: Directed Source Search
+⏳ Waiting for results...
 
-✅ Track A 完成：找到 X 条证据
-✅ Track B 完成：找到 X 条证据
+✅ Track A complete: Found X pieces of evidence
+✅ Track B complete: Found X pieces of evidence
 ```
 
-### 证据增量写入规则（防 context 丢失）
+### Evidence Incremental Writing Rules (Context Loss Prevention)
 
-每完成一个 Track（或 Layer 1 完成时），**立即将该轮证据追加写入 `evidence_base.md`**。不要等所有 Track 执行完再一次性写入。
+After completing each Track (or when Layer 1 completes), **immediately append that round's evidence to `evidence_base.md`**. Do not wait until all Tracks are complete before writing.
 
-**写入节奏**：
-- Track A+B 返回 → 首次写入 `evidence_base.md`（假设验证框架 + 初步数据）
-- 每个后续 Track（D/E/F/G/C）完成 → 追加写入对应章节
-- Stage 4 结束 → 最终整理（补充验证总结、数据质量评估、三角验证表）
+**Writing Cadence**:
+- Track A+B return → First write to `evidence_base.md` (hypothesis validation framework + initial data)
+- Each subsequent Track (D/E/F/G/C) completion → Append corresponding section
+- Stage 4 end → Final consolidation (add validation summary, data quality assessment, triangulation table)
 
-**原则：宁可多写几次文件，不能让数据只存在 context 里。** 平台会自动压缩早期对话内容，文件是唯一可靠的持久化手段。
+**Principle: Better to write to file multiple times than to keep data only in context.** The platform automatically compresses early conversation content; files are the only reliable persistence mechanism.
 
-**空结果处理**：任何 Track 返回 0 条有效证据时 → 扩展关键词重试 1 次（同义词/上位词/英文对照）→ 仍为空则在 evidence_base.md 中标注为「证据缺口：Track X 未找到数据，原因：[关键词/数据源限制]」→ 继续下一 Track。
+**Empty Result Handling**: When any Track returns 0 valid pieces of evidence → Expand keywords and retry once (synonyms/hypernyms/English equivalents) → If still empty, note in evidence_base.md as "Evidence gap: Track X found no data, reason: [keyword/data source limitation]" → Continue to next Track.
 
-**evidence_base.md 结构模板**：
+**evidence_base.md Structure Template**:
 
 ```markdown
-# 证据库
+# Evidence Base
 
-> 研究议题：[议题]
-> 生成时间：[日期]
-> 最后更新：[日期]
+> Research topic: [topic]
+> Generated: [date]
+> Last updated: [date]
 
-## 假设验证框架
+## Hypothesis Validation Framework
 
-| 假设 | 对应子问题 | 分析透镜 | 验证状态 | 支撑证据 | 反驳证据 |
-|------|-----------|---------|---------|---------|---------|
-| H1 | Q1 | [框架维度] | ✅ 验证 / ❌ 证伪 / ⏳ 部分 | [证据ID] | [证据ID] |
+| Hypothesis | Sub-question | Analysis Lens | Validation Status | Supporting Evidence | Contradicting Evidence |
+|-----------|-------------|--------------|-------------------|--------------------|-----------------------|
+| H1 | Q1 | [Framework dimension] | ✅ Validated / ❌ Falsified / ⏳ Partial | [Evidence ID] | [Evidence ID] |
 
-## 框架证据地图（随 Track 更新）
+## Framework-Evidence Map (Updated per Track)
 
-### [框架名称]
-| 维度 | 关联假设 | 证据 ID | 关键发现 | 状态 |
-|------|---------|---------|---------|------|
-| [维度1] | H1 | — | — | ⏳ |
-| [维度2] | — | — | — | ➖ N/A: [理由] |
+### [Framework Name]
+| Dimension | Related Hypothesis | Evidence ID | Key Finding | Status |
+|-----------|-------------------|-------------|-------------|--------|
+| [Dim 1] | H1 | — | — | ⏳ |
+| [Dim 2] | — | — | — | ➖ N/A: [reason] |
 
-> 初始化见 Step 1.0，每 Track 后按通用规则更新，Layer 3 Step 3.2.5 最终审核
+> Initialized in Step 1.0, updated per Track following universal rules, final review in Layer 3 Step 3.2.5
 
-## Track A：公开数据搜索
-### [假设/子问题] 相关证据
-- **[E-001]** [数据点] | 来源：[URL/文档] | 验证等级：A/B/C/D | 📊/💡/📰
+## Track A: Public Data Search
+### Evidence Related to [Hypothesis/Sub-question]
+- **[E-001]** [Data point] | Source: [URL/document] | Confidence Level: A/B/C/D | 📊/💡/📰
 
-## Track B：数据源定向
-[同上格式]
+## Track B: Directed Sources
+[Same format as above]
 
-## Track D-G：特色数据源
-[按实际激活的 Track 追加]
+## Track D-G: Specialized Data Sources
+[Appended per activated Track]
 
-## 框架分析结论
+## Framework Analysis Conclusions
 
-### [主框架名称] 分析结论
-- **维度覆盖**：X/Y 维度（[N/A 维度]: [理由]）
-- **核心发现**：[3-5 条]
-- **数据支撑**：[证据 ID]
-- **初步判断**：[框架视角下的整体判断]
+### [Primary Framework] Analysis Conclusions
+- **Dimension Coverage**: X/Y dimensions ([N/A dimensions]: [reason])
+- **Key Findings**: [3-5 items]
+- **Data Support**: [Evidence IDs]
+- **Preliminary Assessment**: [Overall assessment from framework perspective]
 
-### 跨框架交叉发现（如有）
-- [多个框架维度指向同一判断的交叉洞察]
+### Cross-Framework Findings (if any)
+- [Cross-cutting insights where multiple framework dimensions point to the same conclusion]
 
-## 数据质量评估
-| 等级 | 数量 | 占比 |
-|------|------|------|
-| A 级 | | |
-| B 级 | | |
-| C 级 | | |
-| D 级 | | |
+## Data Quality Assessment
+| Level | Count | Percentage |
+|-------|-------|------------|
+| A-level | | |
+| B-level | | |
+| C-level | | |
+| D-level | | |
 
-## 三角验证表
-[按 triangulation.md 模板]
+## Triangulation Table
+[Per triangulation.md template]
 ```
 
 ---
 
-### Track D-G：依次执行（主 Session）
+### Track D-G: Sequential Execution (Main Session)
 
-**执行原则**：
-- 原则上都执行
-- 跳过时必须按下方「跳过交互规则」处理，不可静默跳过
+**Execution Principle**:
+- All tracks are executed by default
+- When skipping, must follow the "Skip Interaction Rules" below — silent skipping is prohibited
 
-**跳过判断标准**：
+**Skip Criteria**:
 
-| 轨道 | 跳过条件 | 示例 |
-|------|---------|------|
-| **D 知识库** | 无知识库工具 / 无相关文档 | "未检测到知识库搜索工具，跳过此轨道" |
-| **E 小红书** | 非消费类议题 / 无权限 | "议题为 B 端业务，小红书数据价值较低，跳过此轨道" |
-| **F 数据库** | 无数据库工具 / （外部研究 **且** 用户非行业参与者） | "本次为纯外部行业研究且无内部业务数据，跳过此轨道" |
-| **G 用户原声** | 无权限 / （非产品相关议题 **且** 用户非行业参与者） | "本次为纯外部行业研究且无用户反馈数据，跳过此轨道" |
+| Track | Skip Condition | Example |
+|-------|---------------|---------|
+| **D Knowledge Base** | No knowledge base tool / no relevant documents | "Knowledge base search tool not detected, skipping this track" |
+| **E Social Media** | Non-consumer topic / no access | "Topic is B2B business, social media data has low value, skipping this track" |
+| **F Database** | No database tool / (external research **and** user is not an industry participant) | "This is purely external industry research with no internal business data, skipping this track" |
+| **G User Voice** | No access / (non-product topic **and** user is not an industry participant) | "This is purely external industry research with no user feedback data, skipping this track" |
 
-**跳过交互规则**：
+**Skip Interaction Rules**:
 
-| 跳过类型 | 判断依据 | 处理方式 |
-|---------|---------|---------|
-| **价值判断型** | AI 认为数据价值低（如"B端议题，小红书价值低"） | **必须用 AskUserQuestion 询问用户**，用户可能有不同视角 |
-| **技术故障型** | API 报错、无权限、工具不可用 | 告知用户原因 + 主动提供降级方案（如"小红书 API 不可用，我可以用搜索引擎间接获取小红书内容，是否需要？"） |
+| Skip Type | Decision Basis | Handling |
+|-----------|---------------|----------|
+| **Value Judgment** | AI assesses low data value (e.g., "B2B topic, social media value is low") | **Must use AskUserQuestion to ask the user** — user may have a different perspective |
+| **Technical Failure** | API error, no access, tool unavailable | Inform user of reason + proactively offer fallback (e.g., "Social media API unavailable, I can use search engines to indirectly obtain social media content — would you like me to?") |
 
-> **行业参与者判定**：用户在 Stage 1 `user_brief.md` 中表明自身是研究行业的现有企业/从业者（如"我们是猫粮公司，研究猫粮市场"），则视为行业参与者。此时 D/F/G 应默认激活探查，因为内部数据可能包含市场洞察（如用户画像、竞品对比、销售趋势等）。
+> **Industry Participant Determination**: If the user indicates in Stage 1 `user_brief.md` that they are an existing enterprise/practitioner in the industry being researched (e.g., "we are a cat food company researching the cat food market"), they are considered an industry participant. In this case, D/F/G should be activated by default for exploration, as internal data may contain market insights (e.g., user profiles, competitor comparisons, sales trends).
 >
-> **优先级**：行业参与者判定 > 跳过交互规则。即：用户为行业参与者时，F/G 不触发"价值判断型跳过"，直接激活（仍受权限约束）。
+> **Priority**: Industry participant determination > skip interaction rules. That is: when the user is an industry participant, F/G do not trigger "value judgment skip" and are activated directly (still subject to access constraints).
 
-**进度播报**：
+**Progress Broadcast**:
 ```
-━━━ Track D：知识库搜索 ━━━
-📚 加载工具：知识库搜索
-🔍 搜索关键词：[关键词]
-✅ 找到 X 篇相关文档
+━━━ Track D: Knowledge Base Search ━━━
+📚 Loading tool: Knowledge base search
+🔍 Search keywords: [keywords]
+✅ Found X relevant documents
 
-━━━ Track E：小红书 ━━━
-📚 加载工具：scripts/xhs/ (TikHub API)
-🔍 搜索关键词：[关键词]
-❓ 价值判断：议题为 B 端 SaaS 业务，小红书数据价值可能较低
-   → 使用 AskUserQuestion 询问用户：「是否仍需搜索小红书？」
-   → 用户选择跳过 → ⚠️ 跳过此轨道（用户确认）
+━━━ Track E: Social Media (Xiaohongshu) ━━━
+📚 Loading tool: scripts/xhs/ (TikHub API)
+🔍 Search keywords: [keywords]
+❓ Value judgment: Topic is B2B SaaS business, social media data value may be low
+   → Using AskUserQuestion: "Should we still search social media?"
+   → User chooses to skip → ⚠️ Skipping this track (user confirmed)
 
-━━━ Track F：内部数据库 ━━━
-📚 加载工具：数据库表搜索 → SQL 查询
-⚠️ 跳过此轨道：未检测到数据库查询工具。如需接入请配置对应 MCP 工具
+━━━ Track F: Internal Database ━━━
+📚 Loading tool: Database table search → SQL query
+⚠️ Skipping this track: Database query tool not detected. Please configure the corresponding MCP tool if needed
 
-━━━ Track G：用户原声数据 ━━━
-📚 加载工具：数据库查询工具
-🔍 查询表：{用户原声数据表}（按用户配置）
-✅ 找到 X 条相关问题记录
+━━━ Track G: User Voice Data ━━━
+📚 Loading tool: Database query tool
+🔍 Query table: {user_feedback_table} (per user configuration)
+✅ Found X relevant issue records
 ```
 
 ---
 
-### Track C：专家访谈（Stage 3.5 工作流激活）
+### Track C: Expert Interviews (Stage 3.5 Workflow Activation)
 
-**触发条件**：Stage 3 结束时 AI 主动建议，用户选择"需要访谈"。
+**Trigger Condition**: AI proactively suggests at end of Stage 3; user selects "need interviews."
 
-**Stage 3 访谈建议**（research_plan.md 确认后）：
-AI 根据议题特性主动建议是否需要访谈：
+**Stage 3 Interview Suggestion** (after research_plan.md confirmation):
+AI proactively suggests whether interviews are needed based on topic characteristics:
 ```
-「需要安排专家访谈吗？我的建议是 {具体建议}」
-A. 需要，帮我准备访谈提纲（→ 进入 Stage 3.5 生成提纲）
-B. 不需要，跳过访谈（→ 直接 Stage 4）
-```
-
-**Stage 3.5 执行**：
-1. 加载 `methodology/interview.md`
-2. 基于 Stage 2 研究定义 + Stage 3 假设，生成 `interview_guides.md`
-3. 用户确认提纲后，提醒：
-```
-「访谈提纲已生成。做完访谈后，把访谈纪要或原始记录给我，我来整理纳入研究。
-如果在研究过程中还没做完，我会在 Stage 4 结束前提醒你。」
+"Would you like to arrange expert interviews? My recommendation is {specific suggestion}"
+A. Yes, help me prepare interview guides (→ Enter Stage 3.5 to generate guides)
+B. No, skip interviews (→ Proceed directly to Stage 4)
 ```
 
-**⛔ 访谈催收检查点**（Stage 4 末尾）：
-
-访谈是用户的异步动作，通常需要数天。在 **Stage 4 所有其他轨道执行完毕后、生成 `evidence_base.md` 之前**，如果 Stage 3.5 曾被激活（`interview_guides.md` 已生成），必须执行催收：
-
+**Stage 3.5 Execution**:
+1. Load `methodology/interview.md`
+2. Based on Stage 2 research definition + Stage 3 hypotheses, generate `interview_guides.md`
+3. After user confirms the guides, remind:
 ```
-使用 AskUserQuestion：
-「Stage 3.5 生成了访谈提纲，访谈做完了吗？」
-
-A. 做完了，访谈纪要/原始记录给你
-   → 用户拖入文件或告知路径 → 读取 → 整理为 Track C 证据 → 纳入 evidence_base.md
-
-B. 还没做完，先用现有数据继续
-   → 在 evidence_base.md Track C 部分标注「访谈证据待补充」
-   → 提醒用户：「没关系，等访谈做完了随时把纪要给我，我会补充进研究和报告」
+"Interview guides have been generated. After completing the interviews, share the notes or raw records with me and I'll integrate them into the research.
+If they're not done during the research process, I'll remind you before Stage 4 concludes."
 ```
 
-**Stage 7 访谈补入**（用户跨 session 回来）：
-用户带着访谈文件回来时，按以下流程处理：
-1. 读取用户提供的访谈文件（纪要、原始记录、转录文本均可）
-2. 整理为标准 Track C 证据格式（证据 ID: C1-01 等）
-3. 补入 `evidence_base.md` Track C 部分
-4. 增量更新 `insights.md`（新证据是否改变/强化/推翻已有洞察）
-5. 重新生成 `report.html`
+**⛔ Interview Collection Checkpoint** (End of Stage 4):
 
-**访谈文件处理规则**：
-- 支持格式：.md / .txt / .docx（纯文本读取）
-- 用户可以拖入文件或告知文件路径，禁止要求用户放到指定目录
-- 转录文本（飞书妙记等工具产出）：提取关键观点 + 标注说话人
-- 手写纪要：直接作为证据来源
+Interviews are the user's asynchronous action and typically take several days. **After all other tracks in Stage 4 are complete and before generating `evidence_base.md`**, if Stage 3.5 was activated (`interview_guides.md` was generated), the collection check must be executed:
 
-无论用户选哪个，都在 `evidence_base.md` 的 Track C 部分记录状态。
+```
+Using AskUserQuestion:
+"Stage 3.5 generated interview guides. Have the interviews been completed?"
+
+A. Yes, here are the interview notes/raw records
+   → User provides file or path → Read → Organize as Track C evidence → Include in evidence_base.md
+
+B. Not yet, continue with existing data for now
+   → Note "Interview evidence pending" in evidence_base.md Track C section
+   → Remind user: "No problem. Whenever the interviews are done, share the notes with me and I'll supplement the research and report"
+```
+
+**Stage 7 Interview Supplement** (User returns across sessions):
+When the user returns with interview files, follow this process:
+1. Read the interview file provided by the user (notes, raw records, or transcripts are all acceptable)
+2. Organize into standard Track C evidence format (Evidence ID: C1-01, etc.)
+3. Append to `evidence_base.md` Track C section
+4. Incrementally update `insights.md` (does new evidence change/strengthen/overturn existing insights?)
+5. Regenerate `report.html`
+
+**Interview File Processing Rules**:
+- Supported formats: .md / .txt / .docx (plain text reading)
+- User can drag in files or provide file paths — never require users to place files in a specific directory
+- Transcripts (from transcription tools): Extract key viewpoints + annotate speakers
+- Handwritten notes: Use directly as evidence source
+
+Regardless of user's choice, record the status in the Track C section of `evidence_base.md`.
 
 ---
 
-## 异常处理
+## Error Handling
 
-### 无权限/无数据
+### No Access / No Data
 
-**处理流程**：
+**Handling Process**:
 ```
-1. 检测到无权限或无数据
+1. Detect no access or no data
    ↓
-2. 明确告知用户原因
+2. Clearly inform user of the reason
    ↓
-3. 提醒用户如何配置（如适用）
+3. Remind user how to configure (if applicable)
    ↓
-4. 跳过此轨道，继续执行下一轨道
+4. Skip this track, continue to next track
 ```
 
-**播报模板**：
+**Broadcast Template**:
 ```
-⚠️ Track [X] 跳过通知
+⚠️ Track [X] Skip Notification
 
-原因：[具体原因]
-- 无访问权限
-- 议题类型不匹配
-- 数据源暂不可用
+Reason: [specific reason]
+- No access permission
+- Topic type mismatch
+- Data source temporarily unavailable
 
-建议：[配置建议]
-- 如需接入请联系管理员
-- 可手动提供数据
+Suggestion: [configuration advice]
+- Contact administrator for access if needed
+- You can manually provide data
 
-继续执行下一轨道...
+Continuing to next track...
 ```
 
 ---
 
-### Subagent 超时
+### Subagent Timeout
 
-**处理**：
-1. 等待其他 Subagent 完成
-2. 对超时轨道使用已获取数据
-3. 在证据库标注"数据不完整"
-
----
-
-## 时间估算
-
-| 阶段 | 轨道 | 预计时间 |
-|------|------|---------|
-| 并行 | A+B | 20-40 分钟 |
-| 串行 | D | 5-10 分钟 |
-| 串行 | E | 10-20 分钟 |
-| 串行 | F | 10-20 分钟 |
-| 串行 | G | 5-10 分钟 |
-| 条件 | C | 30-60 分钟（如触发） |
-| 整合 | 三角验证 | 15-20 分钟 |
-
-**总计**：
-- 不含访谈：65-120 分钟
-- 含访谈：95-180 分钟
+**Handling**:
+1. Wait for other Subagents to complete
+2. Use already-obtained data for the timed-out track
+3. Note "incomplete data" in evidence base
 
 ---
 
-### 轨道激活决策矩阵
+## Time Estimates
 
-**三维度决策**：议题特性 × 数据源特性 × 用户权限
+| Phase | Track | Estimated Time |
+|-------|-------|---------------|
+| Parallel | A+B | 20-40 minutes |
+| Sequential | D | 5-10 minutes |
+| Sequential | E | 10-20 minutes |
+| Sequential | F | 10-20 minutes |
+| Sequential | G | 5-10 minutes |
+| Conditional | C | 30-60 minutes (if triggered) |
+| Integration | Triangulation | 15-20 minutes |
 
-#### 维度一：议题特性 → 数据需求
-
-| 议题类型 | 核心数据需求 | 必选轨道 | 可选轨道 | 用户为行业参与者时额外可选 |
-|---------|-------------|---------|---------|--------------------------|
-| 行业研究 | 市场规模、竞争格局、趋势 | A + B | D（历史研究） | **F**（内部业务数据佐证）、**G**（用户反馈印证市场需求） |
-| 竞争分析 | 竞对数据、策略、动向 | A + B | C（深度信息）、D | **F**（内部竞品对比数据）、**G**（用户对竞品的反馈） |
-| 消费者洞察 | 用户画像、需求、反馈 | A + B + E | D、G | **F**（用户行为数据） |
-| 内部业务分析 | 业务数据、用户行为 | F + A + B | D（历史研究）、G | — |
-| 商业机会挖掘 | 市场空白、未满足需求 | A + B + E | C、D | **F**（现有业务数据发现空白）、**G**（用户未满足需求） |
-| 商业模式分析 | 盈利模式、单位经济 | A + B | C（竞对信息）、D | **F**（自身单位经济数据） |
-| 新兴行业 | 行业定义、玩家、趋势 | A + B + C | D | — |
-
-#### 维度二：数据源特性 → 适用场景
-
-| 轨道 | 数据源特性 | 最适用场景 | 不适用场景 |
-|------|-----------|-----------|-----------|
-| **A 公开搜索** | 广泛、浅层、时效性强 | 所有议题的基础扫描 | 深度数据、内部数据 |
-| **B 数据源定向** | 权威、结构化、有深度 | 需要权威数据支撑的议题 | 非常新兴、无权威报告的领域 |
-| **C 专家访谈** | 深度、非公开、定制化 | 非公开信息、深度洞察验证 | 公开信息充足的议题 |
-| **D 知识库** | 内部沉淀、历史研究、方法论 | 有历史积累的话题 | 全新领域 |
-| **E 小红书** | 消费者舆情、产品反馈、趋势 | 消费类、C端产品、品牌舆情 | B端业务、非消费领域 |
-| **F 内部数据库** | 业务数据、用户行为、交易 | 内部分析、业务诊断、数据验证 | 外部研究且用户非行业参与者、无权限场景 |
-| **G 用户原声** | 用户体验问题、投诉痛点 | 产品优化、用户体验分析、消费者洞察 | 纯外部行业研究且用户非行业参与者 |
-
-#### 维度三：用户权限 → 轨道可用性
-
-| 轨道 | 权限要求 | 无权限时处理 |
-|------|---------|-------------|
-| A / B | 无 | - |
-| C | 需要专家资源或预算 | 跳过，仅用公开数据 |
-| D | 知识库搜索工具 | 跳过 |
-| E | 小红书数据接口权限 | 跳过，或用户手动提供 |
-| F | 数据库查询工具 | 跳过，或用户手动提供数据 |
-| G | 数据库访问权限（按用户配置的数据库项目） | 跳过，或用户手动提供数据 |
+**Total**:
+- Without interviews: 65-120 minutes
+- With interviews: 95-180 minutes
 
 ---
 
-### 轨道激活流程（Layer 1 执行）
+### Track Activation Decision Matrix
+
+**Three-Dimensional Decision**: Topic characteristics × Data source characteristics × User permissions
+
+#### Dimension 1: Topic Characteristics → Data Needs
+
+| Topic Type | Core Data Needs | Required Tracks | Optional Tracks | Additional When User Is Industry Participant |
+|-----------|----------------|----------------|----------------|---------------------------------------------|
+| Industry Research | Market size, competitive landscape, trends | A + B | D (historical research) | **F** (internal business data corroboration), **G** (user feedback validating market demand) |
+| Competitive Analysis | Competitor data, strategies, movements | A + B | C (deep information), D | **F** (internal competitor comparison data), **G** (user feedback on competitors) |
+| Consumer Insights | User profiles, needs, feedback | A + B + E | D, G | **F** (user behavior data) |
+| Internal Business Analysis | Business data, user behavior | F + A + B | D (historical research), G | — |
+| Business Opportunity Discovery | Market gaps, unmet needs | A + B + E | C, D | **F** (existing business data to identify gaps), **G** (unmet user needs) |
+| Business Model Analysis | Revenue models, unit economics | A + B | C (competitor info), D | **F** (own unit economics data) |
+| Emerging Industry | Industry definition, players, trends | A + B + C | D | — |
+
+#### Dimension 2: Data Source Characteristics → Applicable Scenarios
+
+| Track | Data Source Characteristics | Best For | Not Suitable For |
+|-------|---------------------------|----------|-----------------|
+| **A Public Search** | Broad, surface-level, timely | Baseline scanning for all topics | Deep data, internal data |
+| **B Directed Sources** | Authoritative, structured, in-depth | Topics requiring authoritative data support | Very emerging fields with no authoritative reports |
+| **C Expert Interviews** | Deep, non-public, customized | Non-public information, deep insight validation | Topics with sufficient public information |
+| **D Knowledge Base** | Internal accumulation, historical research, methodology | Topics with historical knowledge base | Entirely new fields |
+| **E Social Media** | Consumer sentiment, product feedback, trends | Consumer products, C-end products, brand sentiment | B2B business, non-consumer domains |
+| **F Internal Database** | Business data, user behavior, transactions | Internal analysis, business diagnostics, data validation | External research where user is not an industry participant, no-access scenarios |
+| **G User Voice** | UX issues, complaint pain points | Product optimization, UX analysis, consumer insights | Purely external industry research where user is not an industry participant |
+
+#### Dimension 3: User Permissions → Track Availability
+
+| Track | Permission Requirements | Handling When No Permission |
+|-------|------------------------|----------------------------|
+| A / B | None | — |
+| C | Expert resources or budget needed | Skip, use public data only |
+| D | Knowledge base search tool | Skip |
+| E | Social media data API access | Skip, or user provides manually |
+| F | Database query tool | Skip, or user provides data manually |
+| G | Database access permission (per user-configured database project) | Skip, or user provides data manually |
+
+---
+
+### Track Activation Flow (Layer 1 Execution)
 
 ```
-Step 1: 识别议题类型
+Step 1: Identify topic type
     ↓
-Step 2: 查询「议题特性→数据需求」表，确定必选/可选轨道
+Step 2: Query "Topic Characteristics → Data Needs" table to determine required/optional tracks
     ↓
-Step 2.5: 检查用户身份——是否为研究行业的参与者（从 user_brief.md 判断）
-          → 是：将「用户为行业参与者时额外可选」列的轨道加入可选清单
-          → 否：维持原可选清单
+Step 2.5: Check user identity — are they an industry participant? (Determine from user_brief.md)
+          → Yes: Add tracks from "Additional When User Is Industry Participant" column to optional list
+          → No: Maintain original optional list
     ↓
-Step 3: 检查用户权限，标记可用/不可用轨道
+Step 3: Check user permissions, mark tracks as available/unavailable
     ↓
-Step 4: 检查数据源特性适用性，调整轨道优先级
+Step 4: Check data source characteristic applicability, adjust track priority
     ↓
-Step 5: 输出「轨道激活清单」
+Step 5: Output "Track Activation List"
 ```
 
-**轨道激活清单模板**：
+**Track Activation List Template**:
 
 ```markdown
-## 轨道激活清单
+## Track Activation List
 
-### 议题类型
-[行业研究 / 竞争分析 / 消费者洞察 / ...]
+### Topic Type
+[Industry Research / Competitive Analysis / Consumer Insights / ...]
 
-### 激活轨道
-| 轨道 | 状态 | 原因 |
-|------|------|------|
-| A 公开搜索 | ✅ 激活 | 必选轨道 |
-| B 数据源定向 | ✅ 激活 | 必选轨道 |
-| C 专家访谈 | ⏸️ 待定 | 需用户确认是否有资源 |
-| D 知识库 | ✅ 激活 | 有历史研究可参考 |
-| E 小红书 | ❌ 跳过 | 议题非消费类 |
-| F 内部数据库 | ❌ 跳过 | 外部研究，无数据库工具 |
-| G 用户原声 | ❌ 跳过 | 非产品相关议题 |
+### Activated Tracks
+| Track | Status | Reason |
+|-------|--------|--------|
+| A Public Search | ✅ Activated | Required track |
+| B Directed Sources | ✅ Activated | Required track |
+| C Expert Interviews | ⏸️ Pending | Requires user confirmation of resources |
+| D Knowledge Base | ✅ Activated | Historical research available |
+| E Social Media | ❌ Skipped | Non-consumer topic |
+| F Internal Database | ❌ Skipped | External research, no database tool |
+| G User Voice | ❌ Skipped | Non-product topic |
 
-### Subagent 分发
-- Subagent 1: Track A（X个任务）
-- Subagent 2: Track B（X个任务）
+### Subagent Distribution
+- Subagent 1: Track A (X tasks)
+- Subagent 2: Track B (X tasks)
 ```
 
 ---
 
-### 轨道执行优先级
+### Track Execution Priority
 
-当资源有限时，按以下优先级执行：
+When resources are limited, execute in the following priority order:
 
-| 优先级 | 轨道 | 理由 |
-|--------|------|------|
-| P0 | A 公开搜索 | 基础，所有议题必选 |
-| P1 | B 数据源定向 | 权威性高，数据可信 |
-| P2 | D 知识库 | 内部视角，效率高 |
-| P3 | E/F/G 特色数据源 | 增量价值，按需激活 |
-| P4 | C 专家访谈 | 成本高，需用户配合 |
-
----
+| Priority | Track | Rationale |
+|----------|-------|-----------|
+| P0 | A Public Search | Foundational, required for all topics |
+| P1 | B Directed Sources | High authority, reliable data |
+| P2 | D Knowledge Base | Internal perspective, high efficiency |
+| P3 | E/F/G Specialized Sources | Incremental value, activated on demand |
+| P4 | C Expert Interviews | High cost, requires user coordination |
 
 ---
 
-## Layer 1：假设映射与任务分解（主 Session，10-15 分钟）
+---
 
-### 输入
-- Stage 3 输出的研究假设清单（`research_plan.md`），含 Q→H→Lens 映射
-- Stage 2 输出的研究定义（`research_definition.md`），含框架组合与维度覆盖
-- 研究议题类型（用于选择数据源组合）
+## Layer 1: Hypothesis Mapping & Task Decomposition (Main Session, 10-15 minutes)
 
-### 动作
+### Input
+- Stage 3 output: research hypothesis list (`research_plan.md`), containing Q→H→Lens mapping
+- Stage 2 output: research definition (`research_definition.md`), containing framework combination and dimension coverage
+- Research topic type (for selecting data source combinations)
 
-**Step 1.0：初始化框架证据地图（Framework Evidence Map）**
+### Actions
 
-从 `research_definition.md` 的子问题→透镜分配 和 `research_plan.md` 的 Q→H→Lens 映射，自动生成框架证据地图。地图在 `evidence_base.md` 中创建，随后续 Track 增量更新。
+**Step 1.0: Initialize Framework-Evidence Map**
+
+From `research_definition.md`'s sub-question→lens assignment and `research_plan.md`'s Q→H→Lens mapping, automatically generate the Framework-Evidence Map. The map is created in `evidence_base.md` and incrementally updated by subsequent Tracks.
 
 ```markdown
-## 框架证据地图（随 Track 更新）
+## Framework-Evidence Map (Updated per Track)
 
-### [增强框架名称，如 PESTEL]
-| 维度 | 关联假设 | 证据 ID | 关键发现 | 状态 |
-|------|---------|---------|---------|------|
+### [Enhanced Framework Name, e.g., PESTEL]
+| Dimension | Related Hypothesis | Evidence ID | Key Finding | Status |
+|-----------|-------------------|-------------|-------------|--------|
 | Political | H2 | — | — | ⏳ |
 | Economic | H1 | — | — | ⏳ |
 | Social | H2 | — | — | ⏳ |
 | Tech | — | — | — | ⏳ |
-| Environmental | — | — | — | ➖ N/A: [S2 标注的理由] |
+| Environmental | — | — | — | ➖ N/A: [S2 annotated reason] |
 | Legal | H7 | — | — | ⏳ |
 
-### [增强框架名称，如 Five Forces]
-| 力量 | 关联假设 | 证据 ID | 关键发现 | 状态 |
-|------|---------|---------|---------|------|
-| 现有竞争 | H3 | — | — | ⏳ |
+### [Enhanced Framework Name, e.g., Five Forces]
+| Force | Related Hypothesis | Evidence ID | Key Finding | Status |
+|-------|-------------------|-------------|-------------|--------|
+| Existing Competition | H3 | — | — | ⏳ |
 | ... | ... | — | — | ⏳ |
 ```
 
-**初始化规则**：
-- 「关联假设」列：从 Q→H→Lens 映射填入。有假设关联的维度 = 有明确研究方向
-- ➖ N/A：继承 Stage 2 research_definition.md 中标注的 N/A 维度和理由
-- ⏳：有假设关联但尚无证据（等待 Track 填充）
-- 无假设关联且非 N/A 的维度：也标 ⏳，后续 Track 可能偶然覆盖
+**Initialization Rules**:
+- "Related Hypothesis" column: Filled from Q→H→Lens mapping. Dimensions with hypothesis associations = clear research direction
+- ➖ N/A: Inherited from Stage 2 research_definition.md's annotated N/A dimensions and reasons
+- ⏳: Has hypothesis association but no evidence yet (awaiting Track population)
+- Dimensions with no hypothesis association and not N/A: Also marked ⏳; subsequent Tracks may incidentally cover them
 
 ---
 
-**Step 1.1：假设 → 数据点映射**
+**Step 1.1: Hypothesis → Data Point Mapping**
 
-对每个假设，识别需要验证的关键数据点：
+For each hypothesis, identify the key data points that need validation:
 
 ```markdown
-### 假设 H1：[假设描述]
+### Hypothesis H1: [Hypothesis description]
 
-需要验证的数据点：
-1. [数据点 1]：如"2024 年中国 SaaS 市场规模"
-2. [数据点 2]：如"头部厂商用户渗透率"
-3. [数据点 3]：如"头部竞对市场份额"
+Data points requiring validation:
+1. [Data point 1]: e.g., "2024 China SaaS market size"
+2. [Data point 2]: e.g., "Leading vendor user penetration rate"
+3. [Data point 3]: e.g., "Top competitor market share"
 ```
 
-**Step 1.2：数据点 → 搜索任务映射**
+**Step 1.2: Data Point → Search Task Mapping**
 
-对每个数据点，设计搜索任务：
+For each data point, design a search task:
 
 ```markdown
-| 数据点 | 搜索问题 | 关键词组合 | 首选数据源 | 备选数据源 |
-|-------|---------|-----------|-----------|-----------|
-| 市场规模 | 2024 年中国 SaaS 市场规模？ | "SaaS 市场规模 2024 艾瑞" | 艾瑞咨询 (P1) | 头豹研究院 (P1) |
-| 用户渗透率 | 头部厂商用户数及渗透率？ | "SaaS 用户数 2024" | 行业报告 (P3) | 艾瑞报告 (P1) |
+| Data Point | Search Question | Keyword Combination | Primary Source | Alternative Source |
+|-----------|----------------|--------------------|--------------|--------------------|
+| Market size | What is the 2024 China SaaS market size? | "SaaS market size 2024 iResearch" | iResearch (P1) | LeadLeo (P1) |
+| User penetration | Leading vendor user counts and penetration? | "SaaS users 2024" | Industry reports (P3) | iResearch reports (P1) |
 ```
 
-**Step 1.3：任务分发决策**
+**Step 1.3: Task Distribution Decision**
 
-将搜索任务分配到对应轨道：
+Assign search tasks to corresponding tracks:
 
 ```markdown
-## 任务分发清单
+## Task Distribution List
 
-### Track A（Subagent 1）：公开数据收集
-- 任务 A1：[搜索问题 1]
-- 任务 A2：[搜索问题 2]
+### Track A (Subagent 1): Public Data Collection
+- Task A1: [Search question 1]
+- Task A2: [Search question 2]
 - ...
 
-### Track B（Subagent 2）：数据源定向搜索
-- 任务 B1：访问 [数据源] 检索 [关键词]
-- 任务 B2：访问 [数据源] 检索 [关键词]
+### Track B (Subagent 2): Directed Source Search
+- Task B1: Access [data source] and search for [keywords]
+- Task B2: Access [data source] and search for [keywords]
 - ...
 
-### Track C（主 Session）：专家访谈
-- [如触发，见 interview.md]
+### Track C (Main Session): Expert Interviews
+- [If triggered, see interview.md]
 ```
 
-### 输出
+### Output
 
-1. **搜索任务清单**（分发给 Subagent）
-2. **Subagent Prompt**（包含任务说明、输出格式、时间约束）
+1. **Search Task List** (distributed to Subagents)
+2. **Subagent Prompt** (including task description, output format, time constraints)
 
 ---
 
-## Layer 2：并行执行（Subagent + 主 Session，30-60 分钟）
+## Layer 2: Parallel Execution (Subagent + Main Session, 30-60 minutes)
 
-### ⛔ 通用规则：每个 Track 完成后更新框架证据地图
+### ⛔ Universal Rule: Update Framework-Evidence Map After Each Track
 
-每个 Track（A/B/D/E/F/G）完成后，在写入 `evidence_base.md` 的同时更新框架证据地图：
+After each Track (A/B/D/E/F/G) completes, update the Framework-Evidence Map while writing to `evidence_base.md`:
 
-1. **归位**：将本 Track 的证据按 H→Lens 映射归入对应框架维度，填入证据 ID 和关键发现
-2. **状态更新**：⏳→✅（有证据支撑）
-3. **意外覆盖**：如果某条证据偶然关联到无假设的框架维度，也填入地图（扩大覆盖）
-4. **缺口观察**：记录哪些维度仍为 ⏳，留给后续 Track 或 Layer 3 处理
+1. **Allocate**: Assign this Track's evidence to the corresponding framework dimensions per H→Lens mapping; fill in evidence ID and key findings
+2. **Status Update**: ⏳→✅ (evidence supported)
+3. **Incidental Coverage**: If an evidence item incidentally relates to a framework dimension without a hypothesis, fill it into the map as well (expanding coverage)
+4. **Gap Observation**: Note which dimensions remain ⏳, leaving them for subsequent Tracks or Layer 3
 
-> 注意：此步是轻量操作（每 Track 约 2-3 分钟），不要求写完整结论，只更新表格。
+> Note: This is a lightweight operation (~2-3 minutes per Track). No need to write complete conclusions — just update the table.
 
 ---
 
-### Track A：公开数据收集（Subagent 1）
+### Track A: Public Data Collection (Subagent 1)
 
-**工具**：搜索引擎 → 网页抓取（使用当前环境中可用的搜索和抓取工具）
+**Tools**: Search engine → Web scraping (using search and scraping tools available in the current environment)
 
-**执行流程**：
-
-```
-1. 接收任务清单（来自主 Session）
-   ↓
-2. 对每个任务：
-   ├── 使用搜索引擎搜索关键词
-   ├── 用网页抓取工具获取搜索结果页面内容
-   ├── 追溯数据原始来源（不满足于二手引用）
-   └── 记录数据 + 来源 + 链接
-   ↓
-3. 输出结构化证据（JSON/Markdown）
-   ↓
-4. 回传给主 Session
-```
-
-**关键词设计公式**：
+**Execution Flow**:
 
 ```
-核心关键词 = 主体词 + 数据词 + 来源词 + 时间词
+1. Receive task list (from Main Session)
+   ↓
+2. For each task:
+   ├── Search keywords using search engine
+   ├── Use web scraping tool to fetch search result page content
+   ├── Trace data back to original source (do not settle for second-hand citations)
+   └── Record data + source + link
+   ↓
+3. Output structured evidence (JSON/Markdown)
+   ↓
+4. Return to Main Session
+```
 
-中文示例：
+**Keyword Design Formula**:
+
+```
+Core keywords = Subject term + Data term + Source term + Time term
+
+Chinese examples:
 - "中国 SaaS 市场规模 2024 艾瑞咨询"
 - "头部厂商 用户数 渗透率 2024 报告"
 - "竞争分析 业务规模 券商 2024"
 
-英文示例（Tier 2+ 默认中英双搜）：
+English examples (Tier 2+ default bilingual search):
 - "China SaaS market size 2024 IDC Gartner"
 - "second-hand electronics market 2024 report"
 - "credit scoring industry global landscape"
 ```
 
-**多语言搜索规则**：
-- **Tier 2+**：默认中英双搜。每组中文关键词对应生成英文版本
-- 英文搜索使用搜索引擎工具，覆盖海外对标企业、国际机构报告、全球趋势
-- 搜索结果中的英文数据需标注来源，与中文数据交叉验证
+**Multilingual Search Rules**:
+- **Tier 2+**: Default bilingual search (Chinese + English). Each set of Chinese keywords generates a corresponding English version
+- English searches use the search engine tool, covering international benchmarks, global institution reports, and worldwide trends
+- English-source data in search results must cite sources and be cross-validated against Chinese data
 
-**来源追溯规则**：
+**Source Tracing Rules**:
 
-| 看到的信息 | 追溯动作 |
-|-----------|---------|
-| 媒体报道引用数据 | 找到原始报告/官方数据 |
-| "据 XX 报告显示" | 找到 XX 报告原文 |
-| "据公开数据" | 寻找具体出处 |
-| 博客/自媒体分析 | 追溯数据来源，不直接引用 |
+| Information Encountered | Tracing Action |
+|------------------------|---------------|
+| Media report citing data | Find the original report/official data |
+| "According to XX report" | Find the XX report original text |
+| "According to public data" | Find the specific source |
+| Blog/self-media analysis | Trace data sources; do not cite directly |
 
-**输出格式**（Subagent 1 回传）：
+**Output Format** (Subagent 1 returns):
 
 ```markdown
-## Track A 证据清单
+## Track A Evidence List
 
-### 任务 A1：[搜索问题]
+### Task A1: [Search question]
 
-| 证据 ID | 数据内容 | 原始摘录 | 来源 | 发布日期 | 链接 | 初步验证 |
-|--------|---------|---------|------|---------|------|---------|
-| A1-01 | [提炼后的数据] | "[原文关键句]" | [来源] | [日期] | [URL] | [待验证] |
-| A1-02 | [提炼后的数据] | "[原文关键句]" | [来源] | [日期] | [URL] | [待验证] |
+| Evidence ID | Data Content | Original Excerpt | Source | Publication Date | Link | Preliminary Validation |
+|------------|-------------|-----------------|--------|-----------------|------|----------------------|
+| A1-01 | [Refined data] | "[Key original quote]" | [Source] | [Date] | [URL] | [Pending validation] |
+| A1-02 | [Refined data] | "[Key original quote]" | [Source] | [Date] | [URL] | [Pending validation] |
 
-### 任务 A2：...
+### Task A2: ...
 ```
 
 ---
 
-### Track B：数据源定向搜索（Subagent 2）
+### Track B: Directed Source Search (Subagent 2)
 
-**必选数据源组合**：根据议题类型，从 [`data_sources.md`](./data_sources.md) 的「按议题的数据源组合策略」章节选择对应的 P0-P2 级数据源。
+**Required Data Source Combination**: Based on topic type, select corresponding P0-P2 data sources from the "Data Source Combination Strategy by Topic" section of [`data_sources.md`](./data_sources.md).
 
-**执行流程**：
+**Execution Flow**:
 
 ```
-1. 接收任务清单 + 数据源列表（来自主 Session）
+1. Receive task list + data source list (from Main Session)
    ↓
-2. 对每个数据源：
-   ├── 访问官网/报告平台
-   ├── 使用站内搜索或关键词检索
-   ├── 下载/抓取相关报告
-   └── 提取核心数据
+2. For each data source:
+   ├── Access official website/report platform
+   ├── Use site search or keyword search
+   ├── Download/scrape relevant reports
+   └── Extract core data
    ↓
-3. 记录搜索结果为结构化格式
+3. Record search results in structured format
    ↓
-4. 回传给主 Session
+4. Return to Main Session
 ```
 
-**搜索记录格式**：
+**Search Record Format**:
 
 ```markdown
-## 数据源搜索记录
+## Data Source Search Record
 
-| 数据源 | 搜索关键词 | 找到的报告/数据 | 相关性 | 数据可用性 |
-|-------|-----------|----------------|-------|-----------|
-| 艾瑞咨询 | "个人征信" | 《2024 年中国个人征信行业报告》 | 高 | 有核心数据 |
-| QuestMobile | "征信 APP" | 月度报告摘要 | 中 | 部分数据 |
+| Data Source | Search Keywords | Reports/Data Found | Relevance | Data Availability |
+|-----------|----------------|-------------------|-----------|------------------|
+| iResearch | "personal credit" | "2024 China Personal Credit Industry Report" | High | Core data available |
+| QuestMobile | "credit scoring APP" | Monthly report summary | Medium | Partial data |
 ```
 
-**输出格式**（Subagent 2 回传）：
+**Output Format** (Subagent 2 returns):
 
 ```markdown
-## Track B 证据清单
+## Track B Evidence List
 
-### 数据源：[数据源名称]
+### Data Source: [Source name]
 
-| 证据 ID | 数据内容 | 来源报告 | 发布日期 | 链接 | 初步验证 |
-|--------|---------|---------|---------|------|---------|
-| B1-01 | [数据] | [报告名] | [日期] | [URL] | [待验证] |
+| Evidence ID | Data Content | Source Report | Publication Date | Link | Preliminary Validation |
+|------------|-------------|-------------|-----------------|------|----------------------|
+| B1-01 | [Data] | [Report name] | [Date] | [URL] | [Pending validation] |
 
-### 数据源：...
+### Data Source: ...
 ```
 
 ---
 
-### Track C：专家访谈（主 Session）
+### Track C: Expert Interviews (Main Session)
 
-**触发条件**：Stage 3.5 被激活（用户在 Stage 3 选择了"需要访谈"）
+**Trigger Condition**: Stage 3.5 was activated (user selected "need interviews" in Stage 3)
 
-**流程**：参考 [`interview.md`](../methodology/interview.md) + 上方「Track C 工作流」
+**Process**: Refer to [`interview.md`](../methodology/interview.md) + Track C workflow above
 
-**主 Session 动作**：
-1. Stage 3.5 已生成 `interview_guides.md`
-2. Stage 4 催收检查点询问用户访谈进展
-3. 用户提供访谈纪要/原始记录 → 读取文件 → 整理为 Track C 证据
-4. 或用户选择跳过 → 标注待补充 → Stage 7 可补入
+**Main Session Actions**:
+1. Stage 3.5 already generated `interview_guides.md`
+2. Stage 4 collection checkpoint asks user about interview progress
+3. User provides interview notes/raw records → Read file → Organize as Track C evidence
+4. Or user chooses to skip → Mark as pending → Can supplement in Stage 7
 
 ---
 
-### Track D：知识库搜索（主 Session）
+### Track D: Knowledge Base Search (Main Session)
 
-**工具**：知识库搜索工具 → 知识库文档详情工具
+**Tools**: Knowledge base search tool → Knowledge base document detail tool
 
-**执行流程**：
+**Execution Flow**:
 
 ```
-1. 接收任务清单（来自主 Session）
+1. Receive task list (from Main Session)
    ↓
-2. 对每个任务：
-   ├── 使用知识库搜索工具搜索关键词
-   ├── 筛选相关文档（按相关性和时间）
-   ├── 使用知识库文档详情工具获取完整内容
-   └── 提取有用信息，记录来源
+2. For each task:
+   ├── Search keywords using knowledge base search tool
+   ├── Filter relevant documents (by relevance and date)
+   ├── Use document detail tool to get full content
+   └── Extract useful information, record source
    ↓
-3. 输出结构化证据
+3. Output structured evidence
    ↓
-4. 回传给主 Session
+4. Return to Main Session
 ```
 
-**搜索策略**：
-- 优先搜索个人知识库，再搜索团队知识库
-- 关键词组合：主体词 + 领域词 + 时间词
-- 文档类型优先级：研究报告 > 行业笔记 > 方法论 > 会议纪要
+**Search Strategy**:
+- Search personal knowledge base first, then team knowledge base
+- Keyword combinations: Subject term + Domain term + Time term
+- Document type priority: Research reports > Industry notes > Methodology > Meeting notes
 
-**输出格式**：
+**Output Format**:
 
 ```markdown
-## Track D 证据清单
+## Track D Evidence List
 
-### 文档：[文档标题]
+### Document: [Document title]
 
-| 证据 ID | 数据内容 | 文档来源 | 更新日期 | 文档链接 | 相关性 |
-|--------|---------|---------|---------|---------|--------|
-| D1-01 | [数据/观点] | [知识库名] | [日期] | [URL] | 高 |
+| Evidence ID | Data Content | Document Source | Updated | Document Link | Relevance |
+|------------|-------------|----------------|---------|--------------|-----------|
+| D1-01 | [Data/viewpoint] | [Knowledge base name] | [Date] | [URL] | High |
 
-### 文档：...
+### Document: ...
 ```
 
 ---
 
-### Track E：小红书数据搜索（主 Session）
+### Track E: Social Media Data Search (Main Session)
 
-**工具**：`scripts/xhs/` 目录下的 TikHub API node 脚本。
+**Tools**: `scripts/xhs/` directory — TikHub API node scripts.
 
-> ⛔ **禁止调用外部 SKILL**（如 weavefox-xhs-intel）。小红书数据采集由 Alpha Insights 内置脚本独立完成。
+> ⛔ **Do not invoke external SKILLs** (e.g., weavefox-xhs-intel). Social media data collection is handled independently by Alpha Insights' built-in scripts.
 
-**脚本位置**：`scripts/xhs/`
+**Script Location**: `scripts/xhs/`
 
-**执行流程**：
+**Execution Flow**:
 
 ```
-1. 接收任务清单（来自主 Session）
+1. Receive task list (from Main Session)
    ↓
-2. 对每个任务：
-   ├── 选择合适的脚本
-   ├── 构建参数（关键词、时间范围、排序方式）
-   ├── 执行 node 脚本
-   └── 解析 JSON 返回结果
+2. For each task:
+   ├── Select appropriate script
+   ├── Build parameters (keywords, time range, sort order)
+   ├── Execute node script
+   └── Parse JSON response
    ↓
-3. 价值判断：
-   ├── 高互动笔记 → 重点分析
-   ├── KOL/KOC 原创 → 记录观点
-   └── 常规内容 → 简要记录或忽略
+3. Value judgment:
+   ├── High-engagement posts → In-depth analysis
+   ├── KOL/KOC original content → Record viewpoints
+   └── Routine content → Brief record or ignore
    ↓
-4. 输出结构化证据
+4. Output structured evidence
    ↓
-5. 回传给主 Session
+5. Return to Main Session
 ```
 
-**脚本选择指南**：
+**Script Selection Guide**:
 
-| 场景 | 脚本 | 示例 |
-|------|------|------|
-| 话题搜索 | search_notes.js | `--keyword "AI编程" --max-pages 15 --sort popularity_descending` |
-| 舆情扫描 | check_topics.js | `--keywords "关键词1,关键词2" --since 24h` |
-| 博主动态 | fetch_user_notes.js | `--user-id "uid1,uid2" --count 5` |
-| 笔记详情 | get_note.js | `--url "分享链接"` |
+| Scenario | Script | Example |
+|----------|--------|---------|
+| Topic search | search_notes.js | `--keyword "AI programming" --max-pages 15 --sort popularity_descending` |
+| Sentiment scanning | check_topics.js | `--keywords "keyword1,keyword2" --since 24h` |
+| Blogger activity | fetch_user_notes.js | `--user-id "uid1,uid2" --count 5` |
+| Post details | get_note.js | `--url "share link"` |
 
-**搜索数量标准**：
+**Search Volume Standards**:
 
-> 搜索数量决定分析的可信度，必须遵循最低数量要求。假设每页约 10 条笔记。
+> Search volume determines analysis credibility and must meet minimum requirements. Assume ~10 posts per page.
 
-| 研究阶段 | 搜索要求 | 笔记数量 | 说明 |
-|---------|---------|---------|------|
-| **预扫描** | 每关键词 10-20 页 | 100-200条 | 快速判断话题热度 |
-| **深度研究** | 每关键词 30-50 页 | 300-500条 | 获取足够样本做定量分析 |
-| **竞品分析** | 竞品品牌名搜索 15-30 页 | 150-300条 | 了解竞品声量 |
+| Research Phase | Search Requirement | Post Count | Notes |
+|---------------|-------------------|-----------|-------|
+| **Pre-scan** | 10-20 pages per keyword | 100-200 posts | Quick topic popularity assessment |
+| **Deep research** | 30-50 pages per keyword | 300-500 posts | Sufficient sample for quantitative analysis |
+| **Competitor analysis** | 15-30 pages per competitor brand | 150-300 posts | Understand competitor share of voice |
 
-**定性定量结合要求**：
+**Quantitative-Qualitative Integration Requirement**:
 
-> 小红书分析必须同时输出定量指标和定性洞察，缺一不可。
+> Social media analysis must output both quantitative metrics and qualitative insights — neither is optional.
 
-| 分析类型 | 定量指标 | 定性洞察 |
-|---------|---------|---------|
-| **痛点分析** | 痛点占比TOP5 | 典型用户原话（3-5条） |
-| **竞品分析** | 提及次数、正向比例 | 用户真实评价（好评/差评各2条） |
-| **需求分析** | "求推荐"类占比 | 典型求助帖内容摘要 |
+| Analysis Type | Quantitative Metrics | Qualitative Insights |
+|--------------|---------------------|---------------------|
+| **Pain point analysis** | Top 5 pain points by percentage | Typical user quotes (3-5) |
+| **Competitor analysis** | Mention count, positive ratio | Real user reviews (2 positive + 2 negative) |
+| **Demand analysis** | "Seeking recommendations" post percentage | Typical help-seeking post content summary |
 
-**参数组合建议**：
+**Parameter Combination Suggestions**:
 
 ```bash
-# 消费者舆情扫描（推荐）
+# Consumer sentiment scanning (recommended)
 node scripts/xhs/check_topics.js \
-  --keywords "品牌名,产品名,竞品名" --since 24h
+  --keywords "brand_name,product_name,competitor_name" --since 24h
 
-# 热门内容搜索
+# Popular content search
 node scripts/xhs/search_notes.js \
-  --keyword "关键词" --sort popularity_descending
+  --keyword "keyword" --sort popularity_descending
 
-# 最新动态追踪
+# Latest activity tracking
 node scripts/xhs/search_notes.js \
-  --keyword "关键词" --sort time_descending
+  --keyword "keyword" --sort time_descending
 ```
 
-**价值判断标准**：
+**Value Judgment Criteria**:
 
-| 类型 | 特征 | 处理 |
-|------|------|------|
-| 值得关注 | 深度评测、行业趋势、KOL观点、高互动(1万+) | 重点分析 |
-| 常规内容 | 转载、广告、低互动、关联度低 | 简要记录或忽略 |
+| Type | Characteristics | Handling |
+|------|----------------|----------|
+| Worth attention | In-depth reviews, industry trends, KOL opinions, high engagement (10K+) | In-depth analysis |
+| Routine content | Reposts, ads, low engagement, low relevance | Brief record or ignore |
 
-**输出格式**：
+**Output Format**:
 
 ```markdown
-## Track E 证据清单
+## Track E Evidence List
 
-### 关键词：[关键词]
+### Keyword: [keyword]
 
-| 证据 ID | 标题 | 作者 | 互动量 | 发布时间 | 链接 | 价值判断 |
-|--------|------|------|--------|---------|------|---------|
-| E1-01 | [标题] | @博主 | ❤️1.2万⭐8956 | [日期] | [URL] | 高 |
-| E1-02 | [标题] | @博主 | ❤️3456⭐2100 | [日期] | [URL] | 中 |
+| Evidence ID | Title | Author | Engagement | Post Date | Link | Value Assessment |
+|------------|-------|--------|------------|-----------|------|-----------------|
+| E1-01 | [Title] | @blogger | ❤️12K⭐8956 | [Date] | [URL] | High |
+| E1-02 | [Title] | @blogger | ❤️3456⭐2100 | [Date] | [URL] | Medium |
 
-### 核心观点提炼
-- [观点1]
-- [观点2]
+### Core Insights Extracted
+- [Insight 1]
+- [Insight 2]
 ```
 
-**定量分析方法论**：
+**Quantitative Analysis Methodology**:
 
-> 小红书数据不仅要定性分析，更要定量量化，形成可比较、可追溯的数据洞察。
+> Social media data requires not only qualitative analysis but also quantitative measurement, producing comparable and traceable data insights.
 
-| 维度 | 指标 | 计算方式 | 价值 |
-|------|------|----------|------|
-| **热度分析** | 关键词热度指数 | 笔记数 × 平均互动量 / 1000 | 判断话题关注度 |
-| **情感分析** | 正/负向比例 | 正向笔记数 / 总笔记数 | 判断舆情倾向 |
-| **痛点聚类** | 痛点TOP5 | 高频词 + 互动量加权 | 识别核心需求 |
-| **竞品提及** | 品牌提及频次 | 笔记中品牌名出现次数 | 竞品声量对比 |
-| **需求洞察** | 未满足需求 | "求推荐"类帖子占比 | 发现机会点 |
+| Dimension | Metric | Calculation Method | Value |
+|-----------|--------|-------------------|-------|
+| **Popularity Analysis** | Keyword popularity index | Post count × Average engagement / 1000 | Assess topic attention level |
+| **Sentiment Analysis** | Positive/negative ratio | Positive posts / Total posts | Assess sentiment trend |
+| **Pain Point Clustering** | Top 5 pain points | High-frequency terms + engagement-weighted | Identify core needs |
+| **Competitor Mentions** | Brand mention frequency | Brand name occurrences in posts | Compare competitor share of voice |
+| **Demand Insights** | Unmet needs | "Seeking recommendations" post percentage | Discover opportunities |
 
-**定量分析输出格式**：
+**Quantitative Analysis Output Format**:
 
 ```markdown
-📊 小红书舆情分析报告
+📊 Social Media Sentiment Analysis Report
 
-【热度分析】
-- 搜索关键词："[关键词]"
-- 笔记数量：X条
-- 平均互动量：❤️ X ⭐ X 💬 X
-- 热度指数：X.X（高/中/低热度）
+【Popularity Analysis】
+- Search keyword: "[keyword]"
+- Post count: X posts
+- Average engagement: ❤️ X ⭐ X 💬 X
+- Popularity index: X.X (High/Medium/Low)
 
-【痛点聚类TOP5】
-1. 痛点1（占比%）："关键词"
-2. 痛点2（占比%）："关键词"
+【Pain Point Clustering TOP5】
+1. Pain point 1 (X%): "keyword"
+2. Pain point 2 (X%): "keyword"
 ...
 
-【竞品提及】
-| 品牌 | 提及次数 | 正向比例 |
-|------|---------|---------|
-| 品牌1 | X | X% |
+【Competitor Mentions】
+| Brand | Mention Count | Positive Ratio |
+|-------|--------------|----------------|
+| Brand 1 | X | X% |
 
-【未满足需求】
-- "求推荐"类帖子占比 X%
-- 核心未满足需求：[需求描述]
+【Unmet Needs】
+- "Seeking recommendations" post percentage: X%
+- Core unmet need: [description]
 ```
 
 ---
 
-### Track F：内部数据库（主 Session）
+### Track F: Internal Database (Main Session)
 
-**工具**：数据库表搜索工具 → 表详情工具 → SQL 查询工具
+**Tools**: Database table search tool → Table detail tool → SQL query tool
 
-**执行流程**：
+**Execution Flow**:
 
 ```
-1. 接收任务清单（来自主 Session）
+1. Receive task list (from Main Session)
    ↓
-2. 表发现：
-   ├── 使用数据库表搜索工具搜索相关表（自然语言描述）
-   ├── 或使用字段搜索工具搜索字段名
-   └── 筛选出最相关的 3-5 张表
+2. Table discovery:
+   ├── Use database table search tool to find relevant tables (natural language description)
+   ├── Or use field search tool to search by field name
+   └── Filter to the 3-5 most relevant tables
    ↓
-3. 表理解：
-   ├── 使用表详情工具获取表详情
-   ├── 理解字段定义、数据口径
-   └── 确认数据可用性
+3. Table comprehension:
+   ├── Use table detail tool to get table details
+   ├── Understand field definitions and data specifications
+   └── Confirm data availability
    ↓
-4. 数据提取：
-   ├── 编写 SQL 查询（只允许 SELECT）
-   ├── 添加分区过滤和 LIMIT 限制
-   └── 使用 SQL 查询工具执行查询
+4. Data extraction:
+   ├── Write SQL query (SELECT only)
+   ├── Add partition filters and LIMIT constraints
+   └── Execute query using SQL query tool
    ↓
-5. 输出结构化证据
+5. Output structured evidence
    ↓
-6. 回传给主 Session
+6. Return to Main Session
 ```
 
-**SQL 编写规范**：
+**SQL Writing Standards**:
 ```sql
--- ✅ 推荐：明确字段、分区过滤、限制行数
+-- ✅ Recommended: Explicit fields, partition filter, row limit
 SELECT
     user_id,
     SUM(gmv) AS total_gmv,
@@ -905,64 +906,64 @@ WHERE dt = '2024-01-01'
 GROUP BY user_id
 LIMIT 1000;
 
--- ❌ 禁止：SELECT * 全量查询大表
+-- ❌ Prohibited: SELECT * full scan on large tables
 SELECT * FROM huge_table;
 ```
 
-**注意事项**：
-1. 只执行 SELECT 语句，禁止 INSERT/UPDATE/DELETE/DROP
-2. 大表查询必须添加 LIMIT
-3. 优先使用分区字段（如 dt）过滤
-4. 涉及用户隐私数据需脱敏
+**Important Notes**:
+1. Only execute SELECT statements — INSERT/UPDATE/DELETE/DROP are prohibited
+2. Large table queries must include LIMIT
+3. Prefer partition fields (e.g., dt) for filtering
+4. User privacy data must be anonymized
 
-**输出格式**：
+**Output Format**:
 
 ```markdown
-## Track F 证据清单
+## Track F Evidence List
 
-### 表：[表名]
+### Table: [table_name]
 
-| 证据 ID | 数据内容 | 查询SQL | 执行时间 | 数据量级 | 验证等级 |
-|--------|---------|---------|---------|---------|---------|
-| F1-01 | [数据] | SELECT... | [时间] | [行数] | B级 |
+| Evidence ID | Data Content | SQL Query | Execution Time | Data Scale | Confidence Level |
+|------------|-------------|-----------|---------------|-----------|-----------------|
+| F1-01 | [Data] | SELECT... | [Time] | [Row count] | B-level |
 
-### 表：...
+### Table: ...
 ```
 
 ---
 
-### Track G：用户原声数据（主 Session）
+### Track G: User Voice Data (Main Session)
 
-**工具**：数据库查询工具
+**Tools**: Database query tool
 
-**核心数据表**：`{user_feedback_table}`（按 `data_sources.md` 用户原声节配置，项目：`{project_name_dev}`）
+**Core Data Table**: `{user_feedback_table}` (configured per `data_sources.md` user voice section, project: `{project_name_dev}`)
 
-**执行流程**：
+**Execution Flow**:
 
 ```
-1. 确定分析维度（来自主 Session 的任务清单）
+1. Determine analysis dimensions (from Main Session task list)
    ↓
-2. 问题分布扫描：
-   ├── 按一级类目 GROUP BY，了解问题大类分布
-   ├── 定位与研究议题相关的类目
-   └── 按二级/三级/四级类目下钻，聚类高频问题
+2. Issue distribution scan:
+   ├── GROUP BY first-level category to understand issue type distribution
+   ├── Locate categories related to the research topic
+   └── Drill down by second/third/fourth-level categories to cluster high-frequency issues
    ↓
-3. 痛点深挖：
-   ├── 筛选目标类目，获取 question_name 原文
-   ├── 提取【用户问题】【解决方案】【用户态度】三部分
-   └── 按 product / sub_product 维度交叉分析
+3. Pain point deep dive:
+   ├── Filter target categories, get question_name original text
+   ├── Extract [User Question] [Solution] [User Attitude] components
+   └── Cross-analyze by product / sub_product dimensions
    ↓
-4. 定量 + 定性整合：
-   ├── 定量：问题量 TOP N、趋势变化
-   └── 定性：典型用户原话（3-5 条）
+4. Quantitative + qualitative integration:
+   ├── Quantitative: Top N issue volume, trend changes
+   └── Qualitative: Typical user quotes (3-5)
    ↓
-5. 输出结构化证据
+5. Output structured evidence
 ```
 
-**SQL 编写规范**：
+**SQL Writing Standards**:
 
 ```sql
--- ✅ 必须加分区过滤和 LIMIT
+-- ✅ Must include partition filter and LIMIT
 SELECT first_level_name, COUNT(*) AS cnt
 FROM {user_feedback_table}
 WHERE dt >= '20260101'
@@ -970,282 +971,282 @@ GROUP BY first_level_name
 ORDER BY cnt DESC
 LIMIT 20;
 
--- ⚠️ 一级类目带"(新) "前缀，注意匹配
+-- ⚠️ First-level categories have "(新) " prefix, match accordingly
 WHERE first_level_name = '(新) 支付'
 ```
 
-**定量定性结合要求**：
+**Quantitative-Qualitative Integration Requirement**:
 
-| 分析类型 | 定量指标 | 定性洞察 |
-|---------|---------|---------|
-| **痛点分析** | 各类目问题量 TOP5 + 占比 | 典型用户原话（3-5 条） |
-| **产品体验** | 各子产品问题量排名 | 用户态度分析（正/负/中性） |
-| **趋势分析** | 问题量月度/周度变化 | 新增问题类型识别 |
+| Analysis Type | Quantitative Metrics | Qualitative Insights |
+|--------------|---------------------|---------------------|
+| **Pain point analysis** | Top 5 category issue volume + percentage | Typical user quotes (3-5) |
+| **Product experience** | Sub-product issue volume ranking | User attitude analysis (positive/negative/neutral) |
+| **Trend analysis** | Monthly/weekly issue volume changes | New issue type identification |
 
-**输出格式**：
+**Output Format**:
 
 ```markdown
-## Track G 证据清单
+## Track G Evidence List
 
-### 问题分布概览
-| 一级类目 | 问题数量 | 占比 |
-|---------|---------|------|
-| (新) 支付 | X | X% |
-| (新) 售后 | X | X% |
+### Issue Distribution Overview
+| First-level Category | Issue Count | Percentage |
+|---------------------|------------|------------|
+| Payments | X | X% |
+| After-sales | X | X% |
 
-### 高频痛点 TOP5
-| 排名 | 四级类目 | 问题数量 | 典型用户原话 |
-|------|---------|---------|------------|
-| 1 | [痛点] | X | "[原话摘录]" |
+### High-frequency Pain Points TOP5
+| Rank | Fourth-level Category | Issue Count | Typical User Quote |
+|------|----------------------|------------|-------------------|
+| 1 | [Pain point] | X | "[Quote excerpt]" |
 
-### 证据明细
-| 证据 ID | 数据内容 | 查询SQL | 数据量级 | 验证等级 |
-|--------|---------|---------|---------|---------|
-| G1-01 | [数据] | SELECT... | [行数] | A级 |
+### Evidence Detail
+| Evidence ID | Data Content | SQL Query | Data Scale | Confidence Level |
+|------------|-------------|-----------|-----------|-----------------|
+| G1-01 | [Data] | SELECT... | [Row count] | A-level |
 ```
 
 ---
 
-## Layer 3：证据整合与三角验证（主 Session，20-30 分钟）
+## Layer 3: Evidence Integration & Triangulation (Main Session, 20-30 minutes)
 
-### Step 3.1：汇总所有轨道的证据
+### Step 3.1: Consolidate Evidence from All Tracks
 
 ```markdown
-## 证据库（Evidence Base）
+## Evidence Base
 
-### 假设 H1：[假设描述]
+### Hypothesis H1: [Hypothesis description]
 
-#### 汇总证据
-| 证据 ID | 轨道 | 数据内容 | 来源 | 验证程度 |
-|--------|------|---------|------|---------|
-| H1-E01 | A | [数据] | [来源] | 待验证 |
-| H1-E02 | B | [数据] | [来源] | 待验证 |
-| H1-E03 | C | [数据] | [访谈] | 待验证 |
+#### Consolidated Evidence
+| Evidence ID | Track | Data Content | Source | Confidence Level |
+|------------|-------|-------------|--------|-----------------|
+| H1-E01 | A | [Data] | [Source] | Pending validation |
+| H1-E02 | B | [Data] | [Source] | Pending validation |
+| H1-E03 | C | [Data] | [Interview] | Pending validation |
 ```
 
-### Step 3.2：执行三角验证
+### Step 3.2: Execute Triangulation
 
-对每个核心数据：
+For each core data point:
 
-1. **检查是否有 2-3 个独立来源**
-2. **对比数据是否一致**
-3. **如不一致，分析原因**（口径差异？时间不同？）
-4. **标注验证程度**（A/B/C/D 级）
+1. **Check whether 2-3 independent sources exist**
+2. **Compare data consistency**
+3. **If inconsistent, analyze reasons** (different definitions? different time periods?)
+4. **Assign confidence level** (A/B/C/D)
 
-**验证程度标准**：A/B/C/D 分级定义见 [`triangulation.md`](../methodology/triangulation.md) 的「验证程度分级」章节。
+**Confidence Level Standards**: A/B/C/D grade definitions are in the "Confidence Level Grading" section of [`triangulation.md`](../methodology/triangulation.md).
 
-### Step 3.2.5：框架证据地图最终审核
+### Step 3.2.5: Framework-Evidence Map Final Review
 
-所有 Track 完成后，对框架证据地图做最终审核：
+After all Tracks complete, perform a final review of the Framework-Evidence Map:
 
-1. **分类剩余 ⏳ 维度**：
-   - **⚠️ 有缺口且与核心问题相关**（该维度影响核心假设的验证）→ 定向补搜 2-3 条搜索，轻量补充，不重跑整个 Track
-   - **➖ N/A**（与核心问题无直接关联）→ 标注理由，框架结论中一句话说明
+1. **Classify remaining ⏳ dimensions**:
+   - **⚠️ Gap exists and relates to core question** (dimension affects core hypothesis validation) → Targeted supplementary search of 2-3 queries, lightweight supplement, do not re-run the entire Track
+   - **➖ N/A** (no direct relation to core question) → Annotate reason; mention in one sentence in framework conclusions
 
-2. **定向补搜执行**：仅针对 ⚠️ 维度，在主 Session 中执行 2-3 次精准搜索。搜索结果归入对应框架维度，更新地图状态。
+2. **Targeted supplementary search execution**: Only for ⚠️ dimensions, execute 2-3 precise searches in the Main Session. Search results are assigned to corresponding framework dimensions, updating map status.
 
-3. **地图终态**：所有维度应为 ✅（有证据）或 ➖ N/A（有理由）。不应有残留 ⏳。
+3. **Map final state**: All dimensions should be ✅ (evidence found) or ➖ N/A (with reason). No residual ⏳ should remain.
 
-### Step 3.3：输出数据验证清单
+### Step 3.3: Output Data Validation List
 
-> 使用 [`triangulation.md`](../methodology/triangulation.md) 的「输出格式 → 数据验证清单」模板。
+> Use the "Output Format → Data Validation List" template from [`triangulation.md`](../methodology/triangulation.md).
 
 ---
 
-## Subagent 任务交接规范
+## Subagent Task Handoff Standards
 
-> ⛔ **强制要求**：所有 Subagent 提示词**必须**遵循下方模板格式。
-> 禁止使用简化提示词（如「你是一个商业研究助手，请搜索 XX」）。
-> 每个 Subagent prompt 必须包含：≥5 个搜索关键词（含英文）、明确的输出格式、≥2 个目标数据源。
+> ⛔ **Mandatory requirement**: All Subagent prompts **must** follow the template format below.
+> Simplified prompts are prohibited (e.g., "You are a business research assistant, please search for XX").
+> Every Subagent prompt must include: ≥5 search keywords (including English), explicit output format, ≥2 target data sources.
 
-### Subagent Prompt 模板
+### Subagent Prompt Template
 
 ```markdown
-# 研究任务：[Track A/B 公开数据收集/数据源定向搜索]
+# Research Task: [Track A/B Public Data Collection / Directed Source Search]
 
-## 背景
-你正在协助完成一项商业分析研究，当前处于 Stage 4 研究执行阶段。
+## Background
+You are assisting with a business analysis research project, currently in the Stage 4 research execution phase.
 
-## 你的任务
-[Track A/B 的具体任务描述]
+## Your Task
+[Specific task description for Track A/B]
 
-## 搜索任务清单
-| 任务 ID | 搜索问题 | 中文关键词 | 英文关键词 | 目标数据源 |
-|--------|---------|-----------|-----------|-----------|
-| A1 | [问题] | [中文关键词] | [English keywords] | [数据源] |
+## Search Task List
+| Task ID | Search Question | Chinese Keywords | English Keywords | Target Data Sources |
+|---------|----------------|-----------------|-----------------|-------------------|
+| A1 | [Question] | [Chinese keywords] | [English keywords] | [Data sources] |
 | ... | ... | ... | ... | ... |
 
-> ⛔ **中英双搜强制要求（Tier 2+）**：每个任务必须同时填写中文和英文关键词，分别执行搜索。英文关键词不是中文的直译，而是该议题在英文语境下的专业表达。
+> ⛔ **Bilingual Search Mandatory (Tier 2+)**: Each task must have both Chinese and English keywords, searched separately. English keywords are not literal translations of Chinese but professional expressions for the topic in English contexts.
 
-## 输出要求
-1. 每个任务必须输出结构化数据（见下方格式）
-2. **每个任务必须包含中文搜索结果和英文搜索结果**
-3. 必须追溯数据原始来源（不满足于二手引用）
-4. 记录每个数据的来源、发布日期、链接
-5. 初步标注验证程度（如有多个来源）
+## Output Requirements
+1. Each task must output structured data (see format below)
+2. **Each task must include both Chinese and English search results**
+3. Must trace data to original sources (do not settle for second-hand citations)
+4. Record source, publication date, and link for each data point
+5. Preliminarily assign confidence levels (if multiple sources available)
 
-## 输出格式
+## Output Format
 ```markdown
-## Track [A/B] 证据清单
+## Track [A/B] Evidence List
 
-### 任务 [ID]：[搜索问题]
+### Task [ID]: [Search question]
 
-| 证据 ID | 数据内容 | 来源 | 发布日期 | 链接 | 初步验证 |
-|--------|---------|------|---------|------|---------|
+| Evidence ID | Data Content | Source | Publication Date | Link | Preliminary Validation |
+|------------|-------------|--------|-----------------|------|----------------------|
 | ... | ... | ... | ... | ... | ... |
 ```
 
-## 时间约束
-- 预计完成时间：[X] 分钟
-- 完成后将证据回传给主 Session
+## Time Constraint
+- Estimated completion time: [X] minutes
+- Return evidence to Main Session upon completion
 ```
 
-### 主 Session 整合动作
+### Main Session Integration Actions
 
-1. **接收 Subagent 输出**
-2. **格式标准化**（统一证据 ID、验证程度标注）
-3. **按假设组织证据**
-4. **执行三角验证**
-5. **输出数据验证清单**
+1. **Receive Subagent output**
+2. **Format standardization** (unified evidence IDs, confidence level annotations)
+3. **Organize evidence by hypothesis**
+4. **Execute triangulation**
+5. **Output data validation list**
 
 ---
 
-## 进度广播机制
+## Progress Broadcast Mechanism
 
-**广播节点**：
+**Broadcast Nodes**:
 
-| 节点 | 触发条件 | 广播内容 |
-|------|---------|---------|
-| Layer 1 完成 | 任务分解完成 | 搜索任务清单、Subagent 分发情况 |
-| Track A 完成 | Subagent 1 回传 | Track A 证据摘要、找到的核心数据 |
-| Track B 完成 | Subagent 2 回传 | Track B 证据摘要、数据源覆盖情况 |
-| Track C 完成 | 访谈结束（如触发） | 访谈核心观点摘要 |
-| Layer 3 完成 | 证据整合完成 | 数据验证清单、验证覆盖率 |
+| Node | Trigger Condition | Broadcast Content |
+|------|-------------------|-------------------|
+| Layer 1 complete | Task decomposition done | Search task list, Subagent distribution details |
+| Track A complete | Subagent 1 returns | Track A evidence summary, core data found |
+| Track B complete | Subagent 2 returns | Track B evidence summary, data source coverage |
+| Track C complete | Interviews done (if triggered) | Interview core viewpoint summary |
+| Layer 3 complete | Evidence integration done | Data validation list, validation coverage rate |
 
-**广播格式**：
+**Broadcast Format**:
 
 ```markdown
-## 研究进度更新 [时间戳]
+## Research Progress Update [timestamp]
 
-### 当前阶段
+### Current Phase
 [Layer 1/2/3]
 
-### 本阶段完成内容
-- [完成项 1]
-- [完成项 2]
+### Completed in This Phase
+- [Completed item 1]
+- [Completed item 2]
 
-### 核心发现摘要
-- [发现 1]
-- [发现 2]
+### Key Findings Summary
+- [Finding 1]
+- [Finding 2]
 
-### 下一步
-- [下一步动作]
+### Next Steps
+- [Next action]
 
-### 需要用户确认的事项（如有）
-- [事项 1]
+### Items Requiring User Confirmation (if any)
+- [Item 1]
 ```
 
 ---
 
-## 质量检查清单
+## Quality Checklist
 
-### Layer 1：任务分解后
+### Layer 1: After Task Decomposition
 
-- [ ] 每个假设都有对应的搜索任务
-- [ ] 每个任务都有明确的关键词和目标数据源
-- [ ] 任务已正确分发到 Track A/B/C
+- [ ] Every hypothesis has corresponding search tasks
+- [ ] Every task has clear keywords and target data sources
+- [ ] Tasks are correctly distributed to Track A/B/C
 
-### Layer 2：Subagent 回传后
+### Layer 2: After Subagent Returns
 
-- [ ] Track A 证据是否追溯至原始来源
-- [ ] Track B 是否覆盖了必选数据源组合
-- [ ] 证据格式是否标准化
+- [ ] Track A evidence traces back to original sources
+- [ ] Track B covers the required data source combination
+- [ ] Evidence format is standardized
 
-### Layer 3：证据整合后
+### Layer 3: After Evidence Integration
 
-- [ ] 核心数据是否都有 2+ 来源验证
-- [ ] 验证程度标注是否正确
-- [ ] 数据验证清单是否完整
-- [ ] 证据是否按假设组织
-
----
-
-## 常见错误与规避
-
-### 错误 1：Subagent 任务描述不清晰
-
-❌ "去搜一下市场规模"
-✅ "搜索 2024 年中国个人征信市场规模，关键词'个人征信 市场规模 2024 艾瑞咨询'，目标数据源：艾瑞咨询官网"
-
-### 错误 2：证据格式不统一
-
-❌ 每个 Subagent 输出格式不同
-✅ 使用统一的输出模板，主 Session 负责标准化
-
-### 错误 3：三角验证流于形式
-
-❌ 用同一机构的多份报告当作多个独立来源
-✅ 确保来源真正独立（不同机构、不同方法论）
-
-### 错误 4：进度不透明
-
-❌ 用户不知道 Subagent 在做什么
-✅ 每个节点广播进度和核心发现
+- [ ] Core data points all have 2+ source validation
+- [ ] Confidence level annotations are correct
+- [ ] Data validation list is complete
+- [ ] Evidence is organized by hypothesis
 
 ---
 
-## 与其他模块的接口
+## Common Errors & Prevention
 
-### 输入接口
+### Error 1: Unclear Subagent Task Descriptions
 
-| 上游模块 | 输入内容 | 使用方式 |
-|---------|---------|---------|
-| Stage 2 研究定义 | `research_definition.md`（框架组合、维度覆盖、N/A 标注） | Step 1.0 框架证据地图初始化 |
-| Stage 3 假设与计划 | `research_plan.md`（假设清单、Q→H→Lens 映射） | 转化为搜索任务 + Step 1.0 假设关联 |
-| `data_sources.md` | 必选数据源清单 | Track B 定向搜索目标 |
-| `triangulation.md` | 验证程度标准 | Layer 3 验证执行 |
+❌ "Go search for market size"
+✅ "Search for 2024 China personal credit market size, keywords 'personal credit market size 2024 iResearch', target data source: iResearch official website"
 
-### 输出接口
+### Error 2: Inconsistent Evidence Formats
 
-| 下游模块 | 输出内容 | 使用方式 |
-|---------|---------|---------|
-| Stage 5 洞察生成 | 证据库、验证程度标注、框架证据地图、框架分析结论（含跨框架交叉发现） | 洞察提炼基础 + 跨维度模式识别 |
-| Stage 6 报告生成 | 数据验证清单、框架组合与 N/A 说明 | 报告附录 + 「研究背景与方法」章节 |
+❌ Each Subagent outputs in a different format
+✅ Use unified output template; Main Session handles standardization
 
----
+### Error 3: Superficial Triangulation
 
-## 附录
+❌ Using multiple reports from the same institution as "multiple independent sources"
+✅ Ensure sources are truly independent (different institutions, different methodologies)
 
-> 各 Layer 章节已包含完整示例和模板。实际执行按 Layer 1 → 2 → 3 顺序操作，输入/输出在对应章节定义。
+### Error 4: Opaque Progress
+
+❌ User doesn't know what Subagents are doing
+✅ Broadcast progress and key findings at every node
 
 ---
 
-## Stage 4 完成后：框架分析结论（必须）
+## Module Interfaces
 
-> Stage 4 所有 Track 完成后，**必须**从框架证据地图聚合产出框架分析结论。
-> 框架分析结论基于整个 Stage 4 期间积累的地图数据，不是从原始证据中一次性"捞取"。
+### Input Interfaces
 
-**执行要求**：
+| Upstream Module | Input Content | Usage |
+|----------------|--------------|-------|
+| Stage 2 Research Definition | `research_definition.md` (framework combination, dimension coverage, N/A annotations) | Step 1.0 Framework-Evidence Map initialization |
+| Stage 3 Hypotheses & Plan | `research_plan.md` (hypothesis list, Q→H→Lens mapping) | Convert to search tasks + Step 1.0 hypothesis association |
+| `data_sources.md` | Required data source catalog | Track B directed search targets |
+| `triangulation.md` | Confidence level standards | Layer 3 validation execution |
 
-对 Stage 2 确认的每个框架（主框架 + 增强框架），从框架证据地图聚合结论，在 `evidence_base.md` 末尾产出：
+### Output Interfaces
+
+| Downstream Module | Output Content | Usage |
+|------------------|---------------|-------|
+| Stage 5 Insight Synthesis | Evidence base, confidence level annotations, Framework-Evidence Map, framework analysis conclusions (including cross-framework findings) | Insight synthesis foundation + cross-dimension pattern recognition |
+| Stage 6 Report Generation | Data validation list, framework combination and N/A notes | Report appendix + "Research Background & Methods" section |
+
+---
+
+## Appendix
+
+> Each Layer section above contains complete examples and templates. Execute in Layer 1 → 2 → 3 order during actual execution; inputs/outputs are defined in the corresponding sections.
+
+---
+
+## Post-Stage 4: Framework Analysis Conclusions (Mandatory)
+
+> After all Stage 4 Tracks complete, framework analysis conclusions **must** be aggregated from the Framework-Evidence Map.
+> Framework analysis conclusions are based on map data accumulated throughout Stage 4, not extracted all at once from raw evidence.
+
+**Execution Requirements**:
+
+For each framework confirmed in Stage 2 (primary + enhanced frameworks), aggregate conclusions from the Framework-Evidence Map and produce at the end of `evidence_base.md`:
 
 ```markdown
-## 框架分析结论
+## Framework Analysis Conclusions
 
-### [主框架名称] 分析结论
-- **维度覆盖**：X/Y 维度（[N/A 维度]: [理由]）
-- **核心发现**：[基于地图中 ✅ 维度的 3-5 条关键发现]
-- **数据支撑**：[引用地图中对应的证据 ID]
-- **初步判断**：[框架视角下的整体判断]
+### [Primary Framework Name] Analysis Conclusions
+- **Dimension Coverage**: X/Y dimensions ([N/A dimensions]: [reason])
+- **Key Findings**: [3-5 key findings based on ✅ dimensions in the map]
+- **Data Support**: [Reference corresponding evidence IDs from the map]
+- **Preliminary Assessment**: [Overall assessment from the framework perspective]
 
-### [增强框架 1] 分析结论
-- **维度覆盖**：X/Y 维度（[N/A 维度]: [理由]）
-- **核心发现**：[2-3 条关键发现]
-- **与主框架的关系**：[如何深化主框架某个步骤的分析]
+### [Enhanced Framework 1] Analysis Conclusions
+- **Dimension Coverage**: X/Y dimensions ([N/A dimensions]: [reason])
+- **Key Findings**: [2-3 key findings]
+- **Relationship to Primary Framework**: [How it deepens analysis of a specific step in the primary framework]
 
-### 跨框架交叉发现（如有）
-- [多个框架维度指向同一判断的交叉洞察]
-- [这些通常是 Stage 5 最有价值的洞察来源]
+### Cross-Framework Findings (if any)
+- [Cross-cutting insights where multiple framework dimensions point to the same conclusion]
+- [These are typically the most valuable insight sources for Stage 5]
 ```
 
-**目的**：确保框架不只是「选了」，而是「用了」——地图提供了积累过程，结论提供了聚合输出。N/A 维度的显式标注体现了分析的完整性和诚实性。
+**Purpose**: Ensure frameworks are not just "selected" but actually "used" — the map provides the accumulation process; conclusions provide the aggregated output. Explicit N/A dimension annotation demonstrates analytical completeness and honesty.

@@ -1,206 +1,213 @@
-# 独立质量复核（Independent Quality Review, IQR）
+# Independent Quality Review (IQR)
 
-> **在质量体系中的角色**：审查角色「独立评审者」的执行模板和评分标准
-> **定位**：Stage 2/4/6 完成后，启动独立 Subagent 评估产出质量
-> **核心原则**：生成与评估分离——模型评价自己的产出时天然宽容，需要独立评估者
-> **触发条件**：Tier 2 及以上研究（Tier 1 快速扫描跳过 IQR）
-> **执行方式**：使用 Agent 工具启动 subagent，传入待审产物 + 下方 prompt 模板
-> **降级**：Agent 工具不可用时，在主 Session 中按下方模板逐项自检，结论等效
-
----
-
-## IQR 通用规则
-
-1. **独立性**：IQR Subagent 不能看到生成过程，只看到最终产出
-2. **评分制**：每个维度 1-5 分，3 分为及格线
-3. **强制输出**：必须给出至少 1 条具体改进建议（不接受"整体良好"这种空话）
-4. **阻断条件**：任何维度 ≤ 1 分，或 ≥ 3 个维度 = 2 分 → 必须修复后重跑 IQR 才能进入下一 Stage
-5. **结果记录**：IQR 结果写入对应交付物末尾的 `## IQR 复核记录` 章节
+> **Role in Quality System**: Execution template and scoring criteria for the "Independent Reviewer" role
+> **Position**: Launch independent Subagent to evaluate deliverable quality after Stage 2/4/6 completion
+> **Core Principle**: Separation of generation and evaluation — models are inherently lenient when evaluating their own output; independent evaluation is required
+> **Trigger Condition**: Tier 2 and above research (Tier 1 quick scans skip IQR)
+> **Execution Method**: Use the Agent tool to launch a subagent with the deliverable + prompt template below
+> **Fallback**: When Agent tool is unavailable, self-check in the main session using the template below; conclusions are equivalent
 
 ---
 
-## Stage 2 IQR：研究定义复核
+## IQR General Rules
 
-> 审查对象：`research_definition.md`
-> 时机：Stage 2 完成、用户确认后、进入 Stage 3 前
-
-### Subagent Prompt 模板
-
-```
-使用 Agent 工具启动 subagent，prompt 如下：
-
-你是一位有 20 年管理咨询经验的项目总监。你见过太多"问题定义不清导致整个项目跑偏"的案例。
-你的审查标准极高——因为你知道，研究定义阶段每省下 1 小时思考，后续会浪费 10 小时执行。
-
-## 用户议题
-[粘贴 user_brief.md 中的核心议题和背景]
-
-## 待审查产物
-[粘贴 research_definition.md 全文]
-
-## 审查维度（每项 1-5 分）
-
-### 1. 问题拆解质量（MECE 程度）
-- 子问题是否互不重叠（ME）？
-- 子问题是否覆盖了核心议题的所有关键面（CE）？
-- 是否存在"隐藏的第六个子问题"——一个显而易见但被遗漏的维度？
-
-### 2. 框架适配度与透镜分配
-- 选择的框架是否真正匹配研究场景，还是"拿着锤子找钉子"？
-- 框架之间是否有互补性，还是在重复分析同一维度？
-- 有没有更合适但未被考虑的框架？
-- 每个子问题是否分配了分析透镜（框架维度）？透镜是否与子问题匹配？
-- N/A 维度是否标注并给出理由？维度覆盖比例是否合理？
-
-### 3. 范围合理性
-- 研究边界是否清晰（做什么 vs 不做什么）？
-- 范围是否过大（试图什么都分析）或过小（遗漏关键维度）？
-- "不做什么"的决策是否有合理理由？
-
-### 4. 上下文锚定
-- 是否清楚回答了"我们是谁、在哪、要什么"？
-- 研究定义是否紧扣用户的实际决策场景？
-- 分析结果对用户是否有可操作性？
-
-## 输出格式
-| 维度 | 评分(1-5) | 判断理由 | 具体改进建议 |
-|------|----------|---------|------------|
-总评：[PASS ✅ / REVISE ⚠️ / BLOCK ❌] + 一句话总结
-```
+1. **Independence**: The IQR Subagent must not see the generation process — only the final deliverable
+2. **Scoring System**: Each dimension scored 1-5, with 3 as the passing threshold
+3. **Mandatory Output**: Must provide at least 1 specific improvement suggestion (generic "overall good" is not accepted)
+4. **Blocking Condition**: Any dimension ≤ 1, or ≥ 3 dimensions = 2 → must fix and re-run IQR before proceeding to the next Stage
+5. **Result Recording**: IQR results are written into the `## IQR Review Record` section at the end of the corresponding deliverable
 
 ---
 
-## Stage 4 IQR：证据基础复核
+## Stage 2 IQR: Research Definition Review
 
-> 审查对象：`evidence_base.md`
-> 时机：Stage 4 完成、进入 Stage 5 前
+> Review target: `research_definition.md`
+> Timing: After Stage 2 completion, after user confirmation, before entering Stage 3
 
-### Subagent Prompt 模板
+### Subagent Prompt Template
 
 ```
-使用 Agent 工具启动 subagent，prompt 如下：
+Launch a subagent using the Agent tool with the following prompt:
 
-你是一位数据驱动型研究主管，在贝恩咨询和高盛做了 12 年行业研究。
-你最反感的是"用 Google 搜索前三条结果就开始写结论"的分析方式。你信奉"没有数据支撑的观点就是噪音"。
-你的审查哲学：证据基础的质量决定了洞察的上限——垃圾进，垃圾出。
+You are a project director with 20 years of management consulting experience. You've seen too many cases where "unclear problem definition derailed entire projects."
+Your review standards are extremely high — because you know that every hour saved in the research definition phase wastes 10 hours in execution.
 
-## 研究定义
-[粘贴 research_definition.md 的核心问题和子问题]
+## User Issue
+[Paste the core issue and background from user_brief.md]
 
-## 待审查产物
-[粘贴 evidence_base.md 全文]
+## Deliverable Under Review
+[Paste the full text of research_definition.md]
 
-## 审查维度（每项 1-5 分）
+## Review Dimensions (score 1-5 each)
 
-### 1. 证据覆盖度
-- 每个 Stage 2 子问题是否都有对应证据？哪些子问题证据薄弱？
-- 是否存在"证据沙漠"——某个关键问题完全没有数据支撑？
+### 1. Problem Decomposition Quality (MECE)
+- Are sub-questions mutually exclusive (ME)?
+- Do sub-questions collectively exhaustive cover all key aspects of the core issue (CE)?
+- Is there a "hidden sixth sub-question" — an obvious dimension that was missed?
 
-### 2. 数据源多样性
-- 是否过度依赖单一来源（如只用了媒体报道）？
-- 是否有政府/权威数据（P0/P1 级）作为锚点？
-- 不同来源之间是否做了交叉验证？
+### 2. Framework Fit & Lens Assignment
+- Does the chosen framework truly match the research scenario, or is it "a hammer looking for nails"?
+- Are frameworks complementary, or do they redundantly analyze the same dimension?
+- Are there more suitable frameworks that weren't considered?
+- Is each sub-question assigned an analytical lens (framework dimension)? Do lenses match sub-questions?
+- Are N/A dimensions marked with justification? Is the dimension coverage ratio reasonable?
 
-### 3. 置信度分布健康度
-- A/B 级证据占比是否 ≥ 50%？
-- C/D 级证据是否被用于支撑关键结论？（如果是，这是严重问题）
-- 置信度标注是否合理（有没有明显的"自我抬高"——把 C 级标成 B 级）？
+### 3. Scope Reasonableness
+- Are research boundaries clear (what to do vs. what not to do)?
+- Is the scope too broad (trying to analyze everything) or too narrow (missing key dimensions)?
+- Are "out of scope" decisions justified?
 
-### 4. 证据新鲜度与相关性
-- 数据年份是否足够新？（超过 2 年的市场数据需要标注）
-- 证据是否直接相关，还是"擦边"引用？
-- 国际数据是否适用于中国市场（或反之）？
+### 4. Context Anchoring
+- Does it clearly answer "who we are, where we are, what we want"?
+- Is the research definition tightly aligned with the user's actual decision scenario?
+- Are analysis results actionable for the user?
 
-### 5. 框架证据地图完整性
-- 框架证据地图是否随 Track 持续更新？是否有维度长期停留在 ⏳？
-- ⚠️ 维度（有缺口且与核心问题相关）是否做了定向补搜？
-- N/A 维度（➖）是否标注了理由？
-- 地图终态是否为 ✅ 或 ➖，无残留 ⏳？
-
-### 6. 关键缺口识别
-- 如果只能补充 3 条证据来大幅提升研究质量，应该补什么？
-- 有没有"不在 evidence_base 里但对结论至关重要"的数据？
-
-## 输出格式
-| 维度 | 评分(1-5) | 判断理由 | 具体改进建议 |
-|------|----------|---------|------------|
-关键缺口（必填）：[列出 1-3 个最重要的证据缺口]
-总评：[PASS ✅ / REVISE ⚠️ / BLOCK ❌] + 一句话总结
+## Output Format
+| Dimension | Score (1-5) | Rationale | Specific Improvement Suggestion |
+|-----------|------------|-----------|-------------------------------|
+Overall: [PASS ✅ / REVISE ⚠️ / BLOCK ❌] + one-sentence summary
 ```
 
 ---
 
-## Stage 6 IQR：报告质量复核
+## Stage 4 IQR: Evidence Base Review
 
-> 审查对象：`report.html`（读取文本内容）
-> 时机：Stage 6 初版生成后、交付用户前
+> Review target: `evidence_base.md`
+> Timing: After Stage 4 completion, before entering Stage 5
 
-### Subagent Prompt 模板
+### Subagent Prompt Template
 
 ```
-使用 Agent 工具启动 subagent，prompt 如下：
+Launch a subagent using the Agent tool with the following prompt:
 
-你是一位资深的研究报告编辑，在《哈佛商业评论》中文版担任了 8 年高级编辑。
-你的评判标准：一份好的商业研究报告应该让 CEO 在 5 分钟内抓住要点，在 30 分钟内做出决策。
-你最讨厌的报告类型：堆砌数据但没有观点的"数据搬运工"报告，以及观点宏大但没有证据的"空中楼阁"报告。
+You are a data-driven research director who spent 12 years in industry research at Bain and Goldman Sachs.
+What you despise most is the "Google the top 3 results and start writing conclusions" approach. You believe "opinions without data support are just noise."
+Your review philosophy: the quality of the evidence base determines the ceiling of insights — garbage in, garbage out.
 
-## 研究议题
-[粘贴 user_brief.md 中的核心议题]
+## Research Definition
+[Paste the core questions and sub-questions from research_definition.md]
 
-## 核心洞察
-[粘贴 insights.md 的洞察摘要]
+## Deliverable Under Review
+[Paste the full text of evidence_base.md]
 
-## 待审查产物
-[粘贴 report.html 的文本内容（去除 HTML 标签后的纯文本）]
+## Review Dimensions (score 1-5 each)
 
-## 审查维度（每项 1-5 分）
+### 1. Evidence Coverage
+- Does every Stage 2 sub-question have corresponding evidence? Which sub-questions have weak evidence?
+- Are there "evidence deserts" — key questions with zero data support?
 
-### 1. 洞察忠实度
-- 报告是否完整传达了 insights.md 中的核心洞察？
-- 有没有洞察在报告中被弱化、遗漏或曲解？
-- 红蓝队审查的修正是否已体现在报告中？
+### 2. Data Source Diversity
+- Is there over-reliance on a single source type (e.g., only media reports)?
+- Are there government/authoritative data (P0/P1 level) as anchors?
+- Has cross-validation been performed across different sources?
 
-### 2. 叙事逻辑
-- 报告的叙事弧线是否清晰（结论先行 → 证据支撑 → 行动建议）？
-- 章节之间的逻辑衔接是否顺畅？
-- 读者能否在不看完全文的情况下，仅通过 Executive Summary 抓住要点？
+### 3. Confidence Distribution Health
+- Is the A/B-level evidence proportion ≥ 50%?
+- Is C/D-level evidence being used to support key conclusions? (If so, this is a serious issue)
+- Are confidence ratings reasonable (any obvious "self-inflation" — labeling C-level as B-level)?
 
-### 3. 证据可追溯性
-- 关键结论是否有明确的数据/证据支撑？
-- 数据来源是否标注清楚？
-- 图表是否与正文论述一致？
+### 4. Evidence Freshness & Relevance
+- Is the data sufficiently recent? (Market data older than 2 years needs flagging)
+- Is the evidence directly relevant, or tangentially cited?
+- Is international data applicable to the Chinese market (or vice versa)?
 
-### 4. 可操作性
-- 建议是否具体到可以直接执行（SMART 标准）？
-- 是否区分了"立即行动"和"持续关注"？
-- 读者读完后是否清楚"下一步该做什么"？
+### 5. Framework-Evidence Map Completeness
+- Is the framework-evidence map continuously updated across Tracks? Are there dimensions stuck at ⏳ long-term?
+- Have ⚠️ dimensions (gaps related to core questions) been addressed with targeted supplementary searches?
+- Are N/A dimensions (➖) marked with justification?
+- Is the map in its final state with ✅ or ➖ only, with no residual ⏳?
 
-### 5. 表达质量
-- 语言是否简洁有力，还是冗长啰嗦？
-- 是否存在反模式用语（"全面分析""综合考虑""有待观察"等）？
-- 图表是否增强了而非干扰了理解？
+### 6. Critical Gap Identification
+- If you could only add 3 pieces of evidence to significantly improve research quality, what would they be?
+- Is there data "not in the evidence_base but critical to the conclusions"?
 
-## 输出格式
-| 维度 | 评分(1-5) | 判断理由 | 具体改进建议 |
-|------|----------|---------|------------|
-总评：[PASS ✅ / REVISE ⚠️ / BLOCK ❌] + 一句话总结
-修改优先级：[列出 1-3 个最影响报告质量的具体修改项]
+## Output Format
+| Dimension | Score (1-5) | Rationale | Specific Improvement Suggestion |
+|-----------|------------|-----------|-------------------------------|
+Critical Gaps (mandatory): [List 1-3 most important evidence gaps]
+Overall: [PASS ✅ / REVISE ⚠️ / BLOCK ❌] + one-sentence summary
 ```
 
 ---
 
-## IQR 结果处理规则
+## Stage 6 IQR: Report Quality Review
 
-| 总评 | 处理 |
-|------|------|
-| **PASS ✅** | 所有维度 ≥ 3 分，继续下一 Stage |
-| **REVISE ⚠️** | 存在 1-2 个维度 = 2 分，按建议修改后继续（不需要重跑 IQR） |
-| **BLOCK ❌** | 存在维度 ≤ 1 分，或 ≥ 3 个维度 = 2 分，必须修复后重跑 IQR |
+> Review target: `report.html` (read text content)
+> Timing: After Stage 6 initial version is generated, before delivery to user
 
-**面向用户的呈现**：
+### Subagent Prompt Template
+
 ```
-🔍 独立质量复核 (Stage N IQR)
-| 维度 | 评分 | 状态 |
-总评: [PASS ✅ / REVISE ⚠️ / BLOCK ❌]
-[如有改进建议，逐条列出]
+Launch a subagent using the Agent tool with the following prompt:
+
+You are a senior research report editor who served as Senior Editor at Harvard Business Review (Chinese Edition) for 8 years.
+Your standard: a good business research report should let a CEO grasp the key points in 5 minutes and make a decision in 30 minutes.
+The report types you despise most: "data mover" reports that pile up data without viewpoints, and "castle in the sky" reports with grand opinions but no evidence.
+
+## Research Issue
+[Paste the core issue from user_brief.md]
+
+## Core Insights
+[Paste the insight summary from insights.md]
+
+## Deliverable Under Review
+[Paste the text content of report.html (plain text after removing HTML tags)]
+
+## Anti-Pattern Checklist
+[Paste the complete content of the "Anti-Pattern Checklist (10 Must-Avoid)" section from anti_patterns.md]
+
+## Review Dimensions (score 1-5 each)
+
+### 1. Insight Fidelity
+- Does the report fully convey the core insights from insights.md?
+- Have any insights been weakened, omitted, or misrepresented in the report?
+- Have Red/Blue Team review corrections been reflected in the report?
+
+### 2. Narrative Logic
+- Is the report's narrative arc clear (conclusion-first → evidence support → action recommendations)?
+- Are logical transitions between chapters smooth?
+- Can the reader grasp the key points from the Executive Summary alone without reading the full report?
+
+### 3. Evidence Traceability
+- Do key conclusions have clear data/evidence support?
+- Are data sources clearly annotated?
+- Are charts consistent with the body text?
+
+### 4. Actionability
+- Are recommendations specific enough to execute directly (SMART criteria)?
+- Is there a distinction between "immediate actions" and "ongoing monitoring"?
+- After reading, does the reader know "what to do next"?
+
+### 5. Expression Quality
+- Is the language concise and powerful, or verbose and redundant?
+- Do charts enhance rather than distract from understanding?
+
+### 6. Anti-Pattern Detection
+Cross-check each of the 10 anti-patterns from the "Anti-Pattern Checklist" above against the report.
+For each: ✅ Not found / ⚠️ Suspected (cite specific paragraph) / ❌ Clearly present
+Aggregate scoring: All 10 ✅ → 5 points; 1-2 ⚠️ → 4 points; 3+ ⚠️ or 1 ❌ → 3 points; 2-3 ❌ → 2 points; 4+ ❌ → 1 point
+
+## Output Format
+| Dimension | Score (1-5) | Rationale | Specific Improvement Suggestion |
+|-----------|------------|-----------|-------------------------------|
+Overall: [PASS ✅ / REVISE ⚠️ / BLOCK ❌] + one-sentence summary
+Revision Priority: [List 1-3 most impactful specific revisions]
+```
+
+---
+
+## IQR Result Handling Rules
+
+| Overall | Action |
+|---------|--------|
+| **PASS ✅** | All dimensions ≥ 3, proceed to next Stage |
+| **REVISE ⚠️** | 1-2 dimensions = 2, revise per suggestions then proceed (no IQR re-run needed) |
+| **BLOCK ❌** | Any dimension ≤ 1, or ≥ 3 dimensions = 2, must fix then re-run IQR |
+
+**User-Facing Presentation**:
+```
+🔍 Independent Quality Review (Stage N IQR)
+| Dimension | Score | Status |
+Overall: [PASS ✅ / REVISE ⚠️ / BLOCK ❌]
+[If there are improvement suggestions, list them one by one]
 ```

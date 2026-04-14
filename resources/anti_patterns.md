@@ -1,226 +1,221 @@
-# 反模式防火墙（Anti-Patterns）
+# Anti-Pattern Firewall
 
-> **在质量体系中的角色**：自检工具——已知错误模式标准库（审查角色「错误模式检测者」的执行手册）
-> **定位**：识别和避免商业分析中的常见错误模式
+> **Role in quality system**: Self-check tool -- standard library of known error patterns (execution manual for the "Error Pattern Detector" reviewer role)
+> **Purpose**: Identify and avoid common error patterns in business analysis
 >
-> **职责边界**：
-> - 本文件 = "什么不能做"（错误模式识别 + 防火墙）
-> - `judgment_rules.md` = "怎么判断"（8 条规则，洞察生成流程）
-> - `report_standards.md` = "怎么写"（报告结构、语言、格式标准）
+> **Scope boundaries**:
+> - This file = "what not to do" (error pattern identification + firewall)
+> - `judgment_rules.md` = "how to judge" (8 rules, Insight generation process)
+> - `report_standards.md` = "how to write" (report structure, language, format standards)
 >
-> **加载时机**：Stage 5 开始时加载（作为规则 1-7 的背景约束，不作为独立执行步骤）；Stage 6 报告生成时加载（使用下方自检清单）
+> **Loading timing**: Loaded at Stage 5 start (as background constraints for Rules 1-7, not as an independent execution step); loaded during Stage 6 report generation (using the self-check checklist below)
 
 ---
 
-## 反模式清单（10 条必须避免）
+## Anti-Pattern Checklist (10 patterns to avoid)
 
 ---
 
-## 反模式 1: 正确的废话
+## Anti-Pattern 1: Correct but Useless Truisms
 
-**表现**:
-- 结论正确但无信息量
-- 放之四海而皆准
-- 无法指导具体行动
+**Symptoms**:
+- Conclusions are correct but contain no information
+- Universally applicable to any situation
+- Cannot guide specific actions
 
-**示例**:
+**Examples**:
 ```
-❌ "开源模型正在改变行业格局"
-✅ "2025 年开源模型在关键基准测试中追平闭源模型，差距从 17.5% 降至 0.3%"
+❌ "Open-source models are changing the industry landscape"
+✅ "In 2025, open-source models caught up with closed-source models on key benchmarks, with the gap narrowing from 17.5% to 0.3%"
 
-❌ "企业需要选择合适的策略"
-✅ "具备生态运营能力的企业应加速开源，否则应谨慎"
+❌ "Companies need to choose the right strategy"
+✅ "Companies with ecosystem operation capabilities should accelerate open-sourcing; otherwise, proceed with caution"
 ```
 
-**检测方法**:
-- 把这句话的主语换成其他行业，是否仍然成立？
-- 这句话能告诉决策者具体做什么吗？
+**Detection method**:
+- Replace the subject with another industry -- does it still hold true?
+- Can this statement tell a decision-maker exactly what to do?
 
 ---
 
-## 反模式 2: 数据堆砌无洞察
+## Anti-Pattern 2: Data Dumping Without Insights
 
-**表现**:
-- 罗列大量数据
-- 没有"So What"
-- 读者不知道意味着什么
+**Symptoms**:
+- Lists large amounts of data
+- No "So What"
+- Reader doesn't know what it means
 
-**示例**:
+**Examples**:
 ```
-❌ "Qwen 下载量 6 亿次，衍生模型 17 万个，阿里云收入增长 34%..."
-✅ "Qwen 下载量 6 亿次 → 生态效应已形成 → 建议跟进开源策略"
+❌ "Qwen has 600 million downloads, 170K derivative models, Alibaba Cloud revenue grew 34%..."
+✅ "Qwen's 600 million downloads -> ecosystem effect has formed -> recommend following the open-source strategy"
 ```
 
-**检测方法**:
-- 每个数据点是否都有"So What"解读？
-- 读者能从数据中得出什么行动建议？
+**Detection method**:
+- Does every data point have a "So What" interpretation?
+- What action recommendations can the reader derive from the data?
 
 ---
 
-## 反模式 3: 忽视反面证据
+## Anti-Pattern 3: Ignoring Counter-Evidence
 
-**表现**:
-- 只收集支持假设的证据
-- 忽视/淡化反面证据
-- 结论一边倒
+**Symptoms**:
+- Only collects evidence supporting the hypothesis
+- Ignores/downplays contradictory evidence
+- One-sided conclusions
 
-**示例**:
+**Examples**:
 ```
-❌ 只强调开源成功案例，忽视 Meta Llama 团队剧变
-✅ 同时分析开源成功与阻力，给出平衡判断
+❌ Only emphasizing open-source success stories, ignoring Meta Llama team upheaval
+✅ Analyzing both open-source successes and obstacles, providing balanced judgment
 ```
 
-**检测方法**:
-- 是否主动寻找反面证据？
-- 反面证据是否被充分讨论？
+**Detection method**:
+- Was counter-evidence actively sought?
+- Was counter-evidence discussed thoroughly?
 
 ---
 
-## 反模式 4: 脱离用户上下文
+## Anti-Pattern 4: Disconnected from User Context
 
-**表现**:
-- 通用模板式报告
-- 没有回答"与我们何干"
-- 建议无法落地到用户场景
+**Symptoms**:
+- Generic template-style report
+- Fails to answer "Relevance to Us"
+- Recommendations cannot be applied to the user's scenario
 
-**示例**:
+**Examples**:
 ```
-❌ "企业应该考虑开源策略"（未指定哪类企业）
-✅ "作为已发布大模型的大厂，您应评估：1) 生态能力 2) 商业化进度 3) 竞争位置"
+❌ "Companies should consider an open-source strategy" (unspecified which type of company)
+✅ "As a major tech company that has released large models, you should assess: 1) Ecosystem capability 2) Commercialization progress 3) Competitive position"
 ```
 
-**检测方法**:
-- 把报告中的"企业"换成具体公司名，是否仍然通顺？
-- 建议是否考虑了用户的具体约束？
+**Detection method**:
+- Replace "companies" in the report with a specific company name -- does it still read well?
+- Do the recommendations consider the user's specific constraints?
 
 ---
 
-## 反模式 5: 因果混淆
+## Anti-Pattern 5: Causal Confusion
 
-**表现**:
-- 把相关性当因果
-- 忽视第三变量
-- 颠倒因果方向
+**Symptoms**:
+- Treating correlation as causation
+- Ignoring third variables
+- Reversing causal direction
 
-**示例**:
+**Examples**:
 ```
-❌ "开源导致成功"（忽视成功企业更可能开源的选择偏差）
-✅ "开源是成功企业的策略之一，因果关系需审慎判断"
+❌ "Open-sourcing leads to success" (ignoring the selection bias that successful companies are more likely to open-source)
+✅ "Open-sourcing is one strategy of successful companies; the causal relationship requires careful evaluation"
 ```
 
-**检测方法**:
-- 是否有其他解释？
-- 因果机制是否清晰？
+**Detection method**:
+- Are there alternative explanations?
+- Is the causal mechanism clear?
 
 ---
 
-## 反模式 6: 静态分析
+## Anti-Pattern 6: Static Analysis
 
-**表现**:
-- 忽视动态变化
-- 假设当前状态持续
-- 不考虑竞争反应
+**Symptoms**:
+- Ignoring dynamic changes
+- Assuming the current state persists
+- Not considering competitive responses
 
-**示例**:
+**Examples**:
 ```
-❌ "开源模型已追平，所以应该开源"
-✅ "开源模型已追平，但需考虑：1) 闭源模型反击 2) 技术迭代速度 3) 时间窗口"
+❌ "Open-source models have caught up, so we should open-source"
+✅ "Open-source models have caught up, but consider: 1) Closed-source model counterattack 2) Technology iteration speed 3) Window of opportunity"
 ```
 
-**检测方法**:
-- 分析是否考虑了时间维度？
-- 是否考虑了竞争对手的反应？
+**Detection method**:
+- Does the analysis consider the time dimension?
+- Does it consider competitors' responses?
 
 ---
 
-## 反模式 7: 虚假精确
+## Anti-Pattern 7: False Precision
 
-**表现**:
-- 给出精确数字但来源不可靠
-- 过度量化模糊概念
-- 用精确性掩盖不确定性
+**Symptoms**:
+- Providing precise numbers from unreliable sources
+- Over-quantifying vague concepts
+- Using precision to mask uncertainty
 
-**示例**:
+**Examples**:
 ```
-❌ "开源将带来 37.5% 的收入增长"（无依据）
-✅ "开源可能带来显著收入增长，参考阿里云 AI 收入 +34%"
+❌ "Open-sourcing will bring 37.5% revenue growth" (no basis)
+✅ "Open-sourcing may bring significant revenue growth, referencing Alibaba Cloud AI revenue +34%"
 ```
 
-**检测方法**:
-- 数字来源是否可靠？
-- 是否标注了不确定性？
+**Detection method**:
+- Is the data source reliable?
+- Is uncertainty annotated?
 
 ---
 
-## 反模式 8: 建议不可执行
+## Anti-Pattern 8: Non-Actionable Recommendations
 
-**表现**:
-- 建议过于抽象
-- 缺乏资源/时间约束
-- 没有明确负责人
+**Symptoms**:
+- Recommendations too abstract
+- Lacking resource/time constraints
+- No clear responsible party
 
-**示例**:
+**Examples**:
 ```
-❌ "加强生态建设"
-✅ "Q2 前投入 500 万组建 10 人社区运营团队，目标开发者 10 万"
+❌ "Strengthen ecosystem development"
+✅ "Invest 5 million by Q2 to build a 10-person community operations team, targeting 100K developers"
 ```
 
-**检测方法**:
-- 建议是否包含具体行动、负责人、时间框架？
-- 用户拿到建议知道明天做什么吗？
+**Detection method**:
+- Do recommendations include specific actions, responsible parties, and timeframes?
+- Does the user know what to do tomorrow after receiving the recommendation?
 
 ---
 
-## 反模式 9: 框架滥用
+## Anti-Pattern 9: Framework Abuse
 
-**表现**:
-- 为用框架而用框架
-- 框架与分析脱节
-- 生搬硬套
+**Symptoms**:
+- Using Frameworks for the sake of using them
+- Frameworks disconnected from analysis
+- Forced application
 
-**示例**:
+**Examples**:
 ```
-❌ 强行套用 PESTEL 六个维度，每个维度泛泛而谈
-✅ 只使用与问题最相关的 2-3 个维度，深入分析
+❌ Forcing all six PESTEL dimensions, discussing each superficially
+✅ Using only the 2-3 dimensions most relevant to the problem, analyzing in depth
 ```
 
-**检测方法**:
-- 框架是否服务于分析目的？
-- 去掉框架名称，分析是否仍然成立？
+**Detection method**:
+- Does the Framework serve the analytical purpose?
+- If you remove the Framework name, does the analysis still hold?
 
 ---
 
-## 反模式 10: 忽视实施障碍
+## Anti-Pattern 10: Ignoring Implementation Barriers
 
-**表现**:
-- 只谈"应该做什么"
-- 不谈"如何做到"
-- 忽视组织阻力
+**Symptoms**:
+- Only discussing "what should be done"
+- Not discussing "how to achieve it"
+- Ignoring organizational resistance
 
-**示例**:
+**Examples**:
 ```
-❌ "应该开源大模型"
-✅ "应该开源大模型，但需克服：1) 技术团队阻力 2) 商业化不确定性 3) 竞争对手利用风险"
+❌ "Should open-source the large model"
+✅ "Should open-source the large model, but need to overcome: 1) Technical team resistance 2) Commercialization uncertainty 3) Risk of competitor exploitation"
 ```
 
-**检测方法**:
-- 是否讨论了实施障碍？
-- 是否有克服障碍的具体建议？
+**Detection method**:
+- Are implementation barriers discussed?
+- Are there specific recommendations for overcoming barriers?
 
 ---
 
-## 报告自检清单（Stage 6 使用）
+## Report Self-Check Checklist (for Stage 6)
 
-> Stage 5 洞察生成的自检由 `judgment_rules.md` 的八条规则覆盖。
+> Stage 5 Insight generation self-checks are covered by the eight rules in `judgment_rules.md`.
 
-**Stage 6 报告生成自检**:
-- [ ] 没有"正确的废话"
-- [ ] 每个数据点都有"So What"解读
-- [ ] 建议具体可执行（行动/负责人/时间）
-- [ ] 与用户上下文锚定
-- [ ] 实施障碍被讨论
-
----
-
-*Version: 2.0 | Last Updated: 2026-03-24*
-*合并自 behavioral_constraints.md，原文件已删除*
+**Stage 6 Report Generation Self-Check**:
+- [ ] No "correct but useless truisms"
+- [ ] Every data point has a "So What" interpretation
+- [ ] Recommendations are specific and actionable (action/responsible party/timeline)
+- [ ] Anchored to user context
+- [ ] Implementation barriers are discussed

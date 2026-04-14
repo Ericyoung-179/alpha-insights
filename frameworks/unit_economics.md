@@ -1,548 +1,548 @@
-# Unit Economics | 单体经济模型
+# Unit Economics | Unit Economics Model
 
-**创始人/来源**: 风险投资/互联网行业通用框架
-**核心价值**: 验证商业模式的基本经济单元是否健康，判断规模化是否可持续
-**一句话**: 如果每笔交易都亏钱，规模化只会让你死得更快
-
----
-
-## 概述
-
-单位经济模型（Unit Economics）是分析单个经济单元（用户/订单/门店等）盈利能力的框架，是验证商业模式可持续性的核心工具。
-
-**核心设计理念**：
-- **单元思维**：将复杂业务简化为单个经济单元分析
-- **可持续性验证**：LTV > CAC 是商业模式成立的基本条件
-- **可扩展性判断**：单位经济健康是规模扩张的前提
-
-**最佳使用时机**：
-- 商业模式可持续性验证
-- 用户获取和留存策略
-- 定价策略优化
-- 融资可行性评估
-
-**输出价值**：
-- LTV/CAC 比率计算
-- 单位经济模型拆解
-- 盈利路径图
-- 关键杠杆点识别
+**Creator/Source**: Venture Capital / Internet industry standard framework
+**Core Value**: Validate whether a business model's basic economic unit is healthy and determine if scaling is sustainable
+**One-liner**: If you lose money on every transaction, scaling only makes you die faster
 
 ---
 
-## 一、框架概述
+## Overview
 
-### 1.1 单体经济模型核心逻辑
+Unit Economics is a framework for analyzing the profitability of individual economic units (users/orders/stores, etc.), and is the core tool for validating business model sustainability.
+
+**Core Design Principles**:
+- **Unit Thinking**: Simplify complex businesses into individual economic unit analysis
+- **Sustainability Validation**: LTV > CAC is the fundamental condition for a viable business model
+- **Scalability Assessment**: Healthy unit economics is the prerequisite for scaling
+
+**Best Use Cases**:
+- Business model sustainability validation
+- User acquisition and retention strategy
+- Pricing strategy optimization
+- Fundraising feasibility assessment
+
+**Output Value**:
+- LTV/CAC ratio calculation
+- Unit economics model decomposition
+- Path to profitability map
+- Key leverage point identification
+
+---
+
+## I. Framework Overview
+
+### 1.1 Unit Economics Core Logic
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                  单体经济模型逻辑                            │
+│                  Unit Economics Logic                         │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│  健康 UE:                    不健康 UE:                      │
-│  ─────────                   ───────────                     │
-│  LTV > CAC                   LTV < CAC                       │
-│  (每单赚钱)                   (每单亏钱)                       │
-│       ↓                           ↓                          │
-│  规模化 = 盈利增长            规模化 = 加速死亡              │
+│  Healthy UE:                    Unhealthy UE:                │
+│  ─────────                      ───────────                  │
+│  LTV > CAC                      LTV < CAC                    │
+│  (Profit per unit)               (Loss per unit)              │
+│       ↓                              ↓                       │
+│  Scaling = Profitable growth    Scaling = Accelerated death  │
 │                                                             │
-│  关键问题:                                                   │
-│  • 获取一个客户赚多少钱？(LTV - CAC)                         │
-│  • 多久能回本？(Payback Period)                             │
-│  • 投入 1 元能赚多少？(LTV/CAC)                              │
+│  Key Questions:                                              │
+│  • How much do you earn per customer? (LTV - CAC)            │
+│  • How long to break even? (Payback Period)                  │
+│  • How much return per ¥1 invested? (LTV/CAC)               │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 1.2 核心指标定义
+### 1.2 Core Metric Definitions
 
-| 指标 | 全称 | 定义 | 公式 |
-|------|------|------|------|
-| **UE** | Unit Economics | 单体经济模型 | 收入 - 可变成本 |
-| **LTV** | Life Time Value | 客户生命周期价值 | ARPU × 毛利率 × 平均生命周期 |
-| **CAC** | Customer Acquisition Cost | 客户获取成本 | 营销费用 / 新增客户数 |
-| **ARPU** | Average Revenue Per User | 每用户平均收入 | 总收入 / 用户数 |
-| **CM** | Contribution Margin | 边际贡献 | 收入 - 可变成本 |
+| Metric | Full Name | Definition | Formula |
+|--------|-----------|-----------|---------|
+| **UE** | Unit Economics | Unit economics model | Revenue - Variable costs |
+| **LTV** | Lifetime Value | Customer lifetime value | ARPU × Gross margin × Avg. lifetime |
+| **CAC** | Customer Acquisition Cost | Cost to acquire a customer | Marketing spend / New customers |
+| **ARPU** | Average Revenue Per User | Average revenue per user | Total revenue / User count |
+| **CM** | Contribution Margin | Marginal contribution | Revenue - Variable costs |
 
-### 1.3 健康 UE 的基准
+### 1.3 Healthy UE Benchmarks
 
 ```
 ┌─────────────────────────────────────────────┐
-│          健康 UE 基准 (互联网行业)            │
+│     Healthy UE Benchmarks (Internet)        │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  LTV/CAC > 3        (投入 1 元赚 3 元)        │
+│  LTV/CAC > 3     (¥1 invested earns ¥3)    │
 │                                             │
-│  CAC 回本周期 < 12 个月                      │
+│  CAC payback period < 12 months             │
 │                                             │
-│  边际贡献率 > 30%                           │
+│  Contribution margin > 30%                  │
 │                                             │
-│  12 个月 LTV / CAC > 3                       │
+│  12-month LTV / CAC > 3                     │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
 
 ---
 
-## 二、UE 核心指标详解
+## II. UE Core Metrics Explained
 
-### 2.1 LTV (客户生命周期价值)
+### 2.1 LTV (Customer Lifetime Value)
 
-**定义**: 一个客户在整个生命周期内贡献的毛利润。
+**Definition**: The gross profit a customer contributes over their entire lifecycle.
 
-**计算公式**:
+**Calculation Formulas**:
 ```
-基础公式:
-LTV = ARPU × 毛利率 × 平均生命周期
+Basic formula:
+LTV = ARPU × Gross margin × Average lifetime
 
-或
+OR
 
-LTV = Σ(每期收入 × 毛利率 × 留存概率) / (1 + 折现率)^期数
-```
-
-**关键参数**:
-| 参数 | 说明 | 估算方法 |
-|------|------|---------|
-| ARPU | 每用户平均收入 | 历史数据平均 |
-| 毛利率 | 收入 - 可变成本/收入 | 财务数据 |
-| 平均生命周期 | 客户活跃时长 | 1/流失率 |
-| 留存率 | 每期留存比例 | 队列分析 |
-| 折现率 | 资金成本 | 通常取 10% |
-
-**生命周期估算方法**:
-```
-方法 1: 简单估算
-平均生命周期 = 1 / 月流失率
-
-示例:
-月流失率 = 5%
-平均生命周期 = 1 / 0.05 = 20 个月
-
-方法 2: 队列分析
-• 追踪同期群留存曲线
-• 计算曲线下的面积
-• 更精确但数据要求高
+LTV = Σ(Per-period revenue × Gross margin × Retention probability) / (1 + Discount rate)^period
 ```
 
-### 2.2 CAC (客户获取成本)
+**Key Parameters**:
+| Parameter | Description | Estimation Method |
+|-----------|-----------|------------------|
+| ARPU | Average revenue per user | Historical data average |
+| Gross margin | (Revenue - Variable costs) / Revenue | Financial data |
+| Average lifetime | Duration of customer activity | 1 / Churn rate |
+| Retention rate | Per-period retention proportion | Cohort analysis |
+| Discount rate | Cost of capital | Typically 10% |
 
-**定义**: 获取一个付费客户所需的营销费用。
-
-**计算公式**:
+**Lifetime Estimation Methods**:
 ```
-CAC = 营销费用 / 新增付费客户数
-```
+Method 1: Simple estimation
+Average lifetime = 1 / Monthly churn rate
 
-**营销费用构成**:
-| 费用类型 | 说明 | 示例 |
-|---------|------|------|
-| 广告投放 | 各类广告支出 | 信息流、搜索广告 |
-| 渠道费用 | 渠道分成 | 应用商店分成 |
-| 营销人力 | 营销团队工资 | 优化师、运营 |
-| 营销工具 | SaaS 工具费用 | 营销自动化 |
-| 品牌营销 | 品牌建设费用 | 公关、活动 |
+Example:
+Monthly churn rate = 5%
+Average lifetime = 1 / 0.05 = 20 months
 
-**注意事项**:
-```
-⚠️ CAC 计算常见错误:
-1. 只算广告费，不算人力
-2. 忽略渠道分成
-3. 忽略品牌营销摊销
-4. 用当月新增算当月 CAC (有滞后)
+Method 2: Cohort analysis
+• Track same-cohort retention curves
+• Calculate area under the curve
+• More precise but requires more data
 ```
 
-### 2.3 LTV/CAC 比率
+### 2.2 CAC (Customer Acquisition Cost)
 
-**定义**: 投入产出比，衡量获客效率。
+**Definition**: Marketing cost required to acquire one paying customer.
 
-**基准值**:
-| 比率 | 含义 | 建议 |
-|------|------|------|
-| >5 | 获客效率极高 | 加大投入 |
-| 3-5 | 健康 | 稳定投入 |
-| 2-3 | 需要优化 | 提升 LTV 或降低 CAC |
-| 1-2 | 危险 | 重新审视模式 |
-| <1 | 不可持续 | 立即调整 |
-
-**动态视角**:
+**Calculation Formula**:
 ```
-LTV/CAC 的变化趋势:
-
-早期: 可能较低 (获客成本高，LTV 未验证)
-成长期: 应该提升 (规模效应，留存改善)
-成熟期: 可能下降 (获客成本上升)
-
-关键: 趋势比绝对值更重要
+CAC = Marketing spend / New paying customers
 ```
 
-### 2.4 CAC 回本周期 (Payback Period)
+**Marketing Cost Components**:
+| Cost Type | Description | Example |
+|----------|-----------|---------|
+| Ad spend | Various advertising expenditures | Feed ads, search ads |
+| Channel fees | Channel commissions | App store commissions |
+| Marketing staff | Marketing team salaries | Optimization specialists, operations |
+| Marketing tools | SaaS tool costs | Marketing automation |
+| Brand marketing | Brand building costs | PR, events |
 
-**定义**: 多久能赚回获客成本。
-
-**计算公式**:
+**Cautions**:
 ```
-CAC 回本周期 = CAC / (ARPU × 毛利率)
-
-或
-
-CAC 回本周期 = CAC / 每月边际贡献
-```
-
-**基准值**:
-| 周期 | 含义 | 现金流影响 |
-|------|------|-----------|
-| <6 个月 | 优秀 | 现金流压力小 |
-| 6-12 个月 | 健康 | 可接受 |
-| 12-18 个月 | 需要关注 | 现金流压力大 |
-| >18 个月 | 危险 | 需要融资支持 |
-
-### 2.5 边际贡献 (Contribution Margin)
-
-**定义**: 收入扣除可变成本后的剩余。
-
-**计算公式**:
-```
-边际贡献 = 收入 - 可变成本
-
-边际贡献率 = 边际贡献 / 收入
+⚠️ Common CAC calculation errors:
+1. Only counting ad spend, ignoring labor costs
+2. Ignoring channel commissions
+3. Ignoring brand marketing amortization
+4. Calculating current month CAC from current month new users (lag effect)
 ```
 
-**可变成本构成**:
-| 成本类型 | 说明 | 示例 |
-|---------|------|------|
-| 履约成本 | 交付产品/服务成本 | 物流、支付手续费 |
-| 服务成本 | 客户服务成本 | 客服人力 |
-| 内容成本 | 内容获取成本 | 版权费、分成 |
-| 退款损失 | 退款造成的成本 | 退款金额 |
+### 2.3 LTV/CAC Ratio
+
+**Definition**: Return on investment ratio, measuring customer acquisition efficiency.
+
+**Benchmark Values**:
+| Ratio | Meaning | Recommendation |
+|-------|---------|---------------|
+| >5 | Extremely high acquisition efficiency | Increase investment |
+| 3-5 | Healthy | Maintain steady investment |
+| 2-3 | Needs optimization | Improve LTV or reduce CAC |
+| 1-2 | Dangerous | Re-examine the model |
+| <1 | Unsustainable | Adjust immediately |
+
+**Dynamic Perspective**:
+```
+LTV/CAC trend:
+
+Early stage: May be low (high acquisition costs, LTV unvalidated)
+Growth stage: Should improve (scale effects, retention improvements)
+Mature stage: May decline (acquisition costs rising)
+
+Key: Trend matters more than absolute value
+```
+
+### 2.4 CAC Payback Period
+
+**Definition**: How long until customer acquisition cost is recouped.
+
+**Calculation Formula**:
+```
+CAC Payback Period = CAC / (ARPU × Gross margin)
+
+OR
+
+CAC Payback Period = CAC / Monthly contribution margin
+```
+
+**Benchmark Values**:
+| Period | Meaning | Cash Flow Impact |
+|--------|---------|-----------------|
+| <6 months | Excellent | Low cash flow pressure |
+| 6-12 months | Healthy | Acceptable |
+| 12-18 months | Needs attention | High cash flow pressure |
+| >18 months | Dangerous | Requires funding support |
+
+### 2.5 Contribution Margin
+
+**Definition**: Revenue remaining after deducting variable costs.
+
+**Calculation Formula**:
+```
+Contribution Margin = Revenue - Variable costs
+
+Contribution Margin Rate = Contribution Margin / Revenue
+```
+
+**Variable Cost Components**:
+| Cost Type | Description | Example |
+|----------|-----------|---------|
+| Fulfillment costs | Product/service delivery costs | Logistics, payment processing fees |
+| Service costs | Customer service costs | Customer support staff |
+| Content costs | Content acquisition costs | Licensing fees, revenue sharing |
+| Refund losses | Costs from refunds | Refund amounts |
 
 ---
 
-## 三、UE 分析执行步骤
+## III. UE Analysis Execution Steps
 
-### Step 1: 定义"单体"
+### Step 1: Define the "Unit"
 
-**目标**: 明确分析的基本单位。
+**Goal**: Clarify the basic unit of analysis.
 
-**常见单体**:
-| 业务类型 | 单体定义 | 示例 |
-|---------|---------|------|
-| 电商 | 每单/每客户 | 淘宝订单 |
-| SaaS | 每客户 | 订阅用户 |
-| 平台 | 每用户/每交易 | 滴滴订单 |
-| 内容 | 每用户 | 会员用户 |
-| 金融 | 每客户/每贷款 | 贷款客户 |
+**Common Units**:
+| Business Type | Unit Definition | Example |
+|--------------|----------------|---------|
+| E-commerce | Per order/per customer | Taobao order |
+| SaaS | Per customer | Subscription user |
+| Platform | Per user/per transaction | Didi order |
+| Content | Per user | Member user |
+| Finance | Per customer/per loan | Loan customer |
 
-**选择原则**:
+**Selection Principles**:
 ```
-1. 收入可识别
-   • 单体贡献的收入可追踪
+1. Revenue identifiable
+   • Revenue contribution from the unit is trackable
 
-2. 成本可归集
-   • 可变成本可归集到单体
+2. Costs attributable
+   • Variable costs can be attributed to the unit
 
-3. 决策相关
-   • 单体是业务决策的基本单位
-```
-
-### Step 2: 识别收入和成本
-
-**目标**: 将收入和成本归集到单体。
-
-**收入识别**:
-```
-直接收入:
-• 商品销售
-• 服务收费
-• 订阅费
-
-间接收入:
-• 广告收入
-• 佣金收入
-• 数据变现
+3. Decision-relevant
+   • The unit is the basic unit of business decisions
 ```
 
-**成本归集**:
+### Step 2: Identify Revenue and Costs
+
+**Goal**: Attribute revenue and costs to the unit.
+
+**Revenue Identification**:
 ```
-可变成本 (计入 UE):
-• 履约成本
-• 支付手续费
-• 客服成本
-• 退款损失
+Direct revenue:
+• Product sales
+• Service fees
+• Subscription fees
 
-固定成本 (不计入 UE):
-• 研发费用
-• 管理费用
-• 办公室租金
-```
-
-### Step 3: 计算 UE 指标
-
-**目标**: 计算核心 UE 指标。
-
-**计算模板**:
-```
-单体 UE 计算:
-
-收入:
-├─ GMV/订单金额: XXX
-├─ 净收入 (扣除退款): XXX
-└─ 其他收入: XXX
-
-可变成本:
-├─ 履约成本: XXX
-├─ 支付手续费: XXX
-├─ 客服成本: XXX
-└─ 其他可变成本: XXX
-
-边际贡献 = 收入 - 可变成本
-边际贡献率 = 边际贡献 / 收入
+Indirect revenue:
+• Advertising revenue
+• Commission revenue
+• Data monetization
 ```
 
-### Step 4: 计算 LTV 和 CAC
-
-**目标**: 计算 LTV 和 CAC。
-
-**LTV 计算**:
+**Cost Attribution**:
 ```
-LTV 计算步骤:
+Variable costs (included in UE):
+• Fulfillment costs
+• Payment processing fees
+• Customer service costs
+• Refund losses
 
-1. 计算 ARPU
-   ARPU = 总收入 / 用户数
-
-2. 计算毛利率
-   毛利率 = (收入 - 可变成本) / 收入
-
-3. 估算平均生命周期
-   平均生命周期 = 1 / 流失率
-
-4. 计算 LTV
-   LTV = ARPU × 毛利率 × 平均生命周期
+Fixed costs (excluded from UE):
+• R&D expenses
+• Administrative expenses
+• Office rent
 ```
 
-**CAC 计算**:
+### Step 3: Calculate UE Metrics
+
+**Goal**: Calculate core UE metrics.
+
+**Calculation Template**:
 ```
-CAC 计算步骤:
+Unit UE Calculation:
 
-1. 汇总营销费用
-   • 广告费用
-   • 渠道费用
-   • 营销人力
-   • 营销工具
+Revenue:
+├─ GMV/Order value: XXX
+├─ Net revenue (after refunds): XXX
+└─ Other revenue: XXX
 
-2. 统计新增客户数
-   • 新增付费客户
+Variable costs:
+├─ Fulfillment costs: XXX
+├─ Payment processing fees: XXX
+├─ Customer service costs: XXX
+└─ Other variable costs: XXX
 
-3. 计算 CAC
-   CAC = 营销费用 / 新增客户数
+Contribution Margin = Revenue - Variable costs
+Contribution Margin Rate = Contribution Margin / Revenue
 ```
 
-### Step 5: 分析和优化
+### Step 4: Calculate LTV and CAC
 
-**目标**: 识别优化方向。
+**Goal**: Calculate LTV and CAC.
 
-**分析框架**:
+**LTV Calculation**:
 ```
-UE 健康度诊断:
+LTV Calculation Steps:
+
+1. Calculate ARPU
+   ARPU = Total revenue / User count
+
+2. Calculate gross margin
+   Gross margin = (Revenue - Variable costs) / Revenue
+
+3. Estimate average lifetime
+   Average lifetime = 1 / Churn rate
+
+4. Calculate LTV
+   LTV = ARPU × Gross margin × Average lifetime
+```
+
+**CAC Calculation**:
+```
+CAC Calculation Steps:
+
+1. Aggregate marketing costs
+   • Ad spend
+   • Channel fees
+   • Marketing staff
+   • Marketing tools
+
+2. Count new customers
+   • New paying customers
+
+3. Calculate CAC
+   CAC = Marketing spend / New customer count
+```
+
+### Step 5: Analyze and Optimize
+
+**Goal**: Identify optimization directions.
+
+**Analysis Framework**:
+```
+UE Health Diagnostic:
 
 1. LTV/CAC < 3
-   → 提升 LTV 或降低 CAC
+   → Improve LTV or reduce CAC
 
-2. CAC 回本周期 > 12 个月
-   → 提升 ARPU 或毛利率
+2. CAC payback period > 12 months
+   → Increase ARPU or gross margin
 
-3. 边际贡献率 < 30%
-   → 提升价格或降低可变成本
+3. Contribution margin rate < 30%
+   → Raise prices or reduce variable costs
 
-4. 流失率过高
-   → 提升留存
+4. Churn rate too high
+   → Improve retention
 ```
 
-**优化方向**:
-| 指标 | 优化方向 | 具体措施 |
-|------|---------|---------|
-| LTV ↑ | 提升 ARPU | 提价、交叉销售、向上销售 |
-| LTV ↑ | 提升留存 | 改善产品、增加粘性 |
-| LTV ↑ | 提升毛利率 | 降低成本、优化结构 |
-| CAC ↓ | 降低获客成本 | 优化投放、提升转化 |
-| CAC ↓ | 提升自然流量 | 品牌、SEO、口碑 |
+**Optimization Directions**:
+| Metric | Optimization Direction | Specific Measures |
+|--------|----------------------|-------------------|
+| LTV ↑ | Increase ARPU | Price increases, cross-sell, upsell |
+| LTV ↑ | Improve retention | Product improvement, increase stickiness |
+| LTV ↑ | Improve gross margin | Cost reduction, structure optimization |
+| CAC ↓ | Reduce acquisition cost | Optimize ad spend, improve conversion |
+| CAC ↓ | Increase organic traffic | Brand, SEO, word-of-mouth |
 
 ---
 
-## 四、输出格式
+## IV. Output Format
 
-### 4.1 UE 分析报告
+### 4.1 UE Analysis Report
 
 ```markdown
-## Unit Economics - [业务名称]
+## Unit Economics - [Business Name]
 
-### 单体定义
-- **分析单位**: [每客户/每订单/...]
-- **时间周期**: [月/季度/年]
+### Unit Definition
+- **Analysis unit**: [Per customer/per order/...]
+- **Time period**: [Month/quarter/year]
 
-### UE 计算
-| 项目 | 金额 | 占比 |
-|------|------|------|
-| 收入 | XXX | 100% |
-| 可变成本 | XXX | XX% |
-| 边际贡献 | XXX | XX% |
+### UE Calculation
+| Item | Amount | Share |
+|------|--------|-------|
+| Revenue | XXX | 100% |
+| Variable costs | XXX | XX% |
+| Contribution margin | XXX | XX% |
 
-### 核心指标
-| 指标 | 数值 | 行业基准 | 健康度 |
-|------|------|---------|--------|
+### Core Metrics
+| Metric | Value | Industry Benchmark | Health |
+|--------|-------|--------------------|--------|
 | LTV | XXX | - | - |
 | CAC | XXX | - | - |
-| LTV/CAC | X.X | >3 | 健康/警告/危险 |
-| CAC 回本周期 | X 月 | <12 月 | 健康/警告/危险 |
-| 边际贡献率 | XX% | >30% | 健康/警告/危险 |
+| LTV/CAC | X.X | >3 | Healthy/Warning/Danger |
+| CAC payback period | X months | <12 months | Healthy/Warning/Danger |
+| Contribution margin rate | XX% | >30% | Healthy/Warning/Danger |
 
-### 趋势分析
-| 指标 | 本月 | 上月 | 变化 |
-|------|------|------|------|
+### Trend Analysis
+| Metric | This Month | Last Month | Change |
+|--------|-----------|-----------|--------|
 | LTV | ... | ... | ↑/↓ |
 | CAC | ... | ... | ↑/↓ |
 | LTV/CAC | ... | ... | ↑/↓ |
 
-### 优化建议
-| 优先级 | 优化方向 | 具体措施 | 预期效果 |
-|-------|---------|---------|---------|
+### Optimization Recommendations
+| Priority | Optimization Direction | Specific Measures | Expected Impact |
+|---------|----------------------|-------------------|----------------|
 | P0 | ... | ... | ... |
 | P1 | ... | ... | ... |
 ```
 
-### 4.2 UE 敏感性分析
+### 4.2 UE Sensitivity Analysis
 
 ```markdown
-## UE 敏感性分析
+## UE Sensitivity Analysis
 
-### 关键假设
-| 假设 | 基准值 | 乐观 | 悲观 |
-|------|--------|------|------|
-| 获客成本 | XXX | -10% | +20% |
-| 留存率 | XX% | +5% | -5% |
+### Key Assumptions
+| Assumption | Baseline | Optimistic | Pessimistic |
+|-----------|----------|-----------|-------------|
+| Acquisition cost | XXX | -10% | +20% |
+| Retention rate | XX% | +5% | -5% |
 | ARPU | XXX | +10% | -10% |
 
-### 敏感性结果
-| 场景 | LTV | CAC | LTV/CAC | 回本周期 |
-|------|-----|-----|---------|---------|
-| 基准 | ... | ... | ... | ... |
-| 乐观 | ... | ... | ... | ... |
-| 悲观 | ... | ... | ... | ... |
+### Sensitivity Results
+| Scenario | LTV | CAC | LTV/CAC | Payback Period |
+|----------|-----|-----|---------|---------------|
+| Baseline | ... | ... | ... | ... |
+| Optimistic | ... | ... | ... | ... |
+| Pessimistic | ... | ... | ... | ... |
 
-### 盈亏平衡分析
-- **盈亏平衡 CAC**: XXX
-- **盈亏平衡留存率**: XX%
-- **盈亏平衡 ARPU**: XXX
+### Break-even Analysis
+- **Break-even CAC**: XXX
+- **Break-even retention rate**: XX%
+- **Break-even ARPU**: XXX
 ```
 
 ---
 
-## 外部研究补充：单位经济最佳实践
+## External Research Supplement: Unit Economics Best Practices
 
-根据创投行业实践总结：
+Based on VC industry practice:
 
-### 1. 核心公式
+### 1. Core Formulas
 
 ```
-LTV = ARPU × 毛利率 × 平均生命周期
-CAC = 营销费用 / 新增用户数
-LTV/CAC > 3 为健康
+LTV = ARPU × Gross margin × Average lifetime
+CAC = Marketing spend / New users
+LTV/CAC > 3 is healthy
 
-回本周期 = CAC / (ARPU × 毛利率)
-<12 个月为健康
+Payback period = CAC / (ARPU × Gross margin)
+<12 months is healthy
 ```
 
-### 2. 单位选择
+### 2. Unit Selection
 
-| 业务类型 | 推荐单位 |
-|---------|---------|
-| SaaS | 单个客户 |
-| 电商 | 单个订单 |
-| 平台 | 单次交易 |
-| 零售 | 单店/单平米 |
-| 出行 | 单次行程 |
+| Business Type | Recommended Unit |
+|--------------|-----------------|
+| SaaS | Single customer |
+| E-commerce | Single order |
+| Platform | Single transaction |
+| Retail | Single store/per sqm |
+| Mobility | Single trip |
 
-### 3. 常见错误
+### 3. Common Errors
 
-| 错误 | 表现 | 修正 |
-|------|------|------|
-| 忽视留存 | 只算首单 LTV | 加入留存曲线计算 LTV |
-| 混淆毛利 | 用收入代替毛利 | LTV 用毛利计算 |
-| 平均陷阱 | 用整体平均掩盖差异 | 分渠道/分用户群计算 |
+| Error | Manifestation | Correction |
+|-------|--------------|-----------|
+| Ignoring retention | Only calculating first-order LTV | Include retention curves in LTV calculation |
+| Confusing gross profit | Using revenue instead of gross profit | Calculate LTV using gross profit |
+| Averaging trap | Using overall averages that mask differences | Calculate by channel/user segment |
 
 ---
 
-## 五、实战案例
+## V. Case Study
 
-### 在线教育 vs SaaS 单位经济学对比（2024）
+### Online Education vs SaaS Unit Economics Comparison (2024)
 
-| 指标 | 在线教育（职业教育） | SaaS（企业协作工具） |
-|------|-------------------|-------------------|
-| **CAC** | ~3000 元 | ~15000 元 |
-| **LTV** | ~8000 元 | ~45000 元 |
+| Metric | Online Education (Vocational) | SaaS (Enterprise Collaboration) |
+|--------|------------------------------|-------------------------------|
+| **CAC** | ~¥3,000 | ~¥15,000 |
+| **LTV** | ~¥8,000 | ~¥45,000 |
 | **LTV/CAC** | 2.7 | 3.0 |
-| **回本周期** | ~6 个月 | ~14 个月 |
-| **毛利率** | ~65% | ~75% |
-| **NDR（净收入留存率）** | ~85%（续报率制约） | >110%（seat expansion） |
-| **用户生命周期** | ~18 个月（课程结束即流失） | ~36 个月（切换成本高） |
+| **Payback period** | ~6 months | ~14 months |
+| **Gross margin** | ~65% | ~75% |
+| **NDR (Net Dollar Retention)** | ~85% (constrained by re-enrollment rates) | >110% (seat expansion) |
+| **User lifetime** | ~18 months (churn upon course completion) | ~36 months (high switching costs) |
 
-**对比分析**：
-- **SaaS 的 CAC 更高但 NDR 带来持续增长**：NDR >100% 意味着即使不获新客，存量收入也在增长——这是 SaaS 模型的核心优势
-- **教育类 LTV 受课程复购率制约**：学完即走，除非持续开发新课程或做职业成长路径
-- **回本周期差异**：教育 6 个月 vs SaaS 14 个月——SaaS 的现金流压力更大，但长期回报更高
+**Comparative Analysis**:
+- **SaaS has higher CAC but NDR drives continuous growth**: NDR >100% means even without acquiring new customers, existing revenue is growing — this is the core advantage of the SaaS model
+- **Education LTV constrained by course repurchase rates**: Users leave after completing courses, unless new courses or career growth paths are continuously developed
+- **Payback period difference**: Education 6 months vs SaaS 14 months — SaaS faces greater cash flow pressure but offers higher long-term returns
 
-**So What**：LTV/CAC >3 是健康标准，但**更关键的是回本周期**——它决定了融资节奏和现金流安全垫。教育公司回本快但天花板低；SaaS 回本慢但 NDR 驱动的复利效应使长期价值更高。投资视角应重点关注 NDR 和回本周期的组合，而非单看 LTV/CAC 比率。
-
----
-
-## 六、数据来源建议
-
-| 分析维度 | 推荐数据来源 |
-|---------|------------|
-| CAC 数据 | 财报（营销费用/新增用户）、招股书获客成本披露 |
-| LTV 估算 | 用户留存曲线（队列分析）+ ARPU，财报中的客户流失率 |
-| 行业基准 | SaaS Capital 年度报告、券商研报行业对标 |
-| 竞品对比 | 招股书（S-1/F-1 通常披露关键 UE 指标） |
-| 单位成本 | 企业内部数据、专家访谈、管理层电话会 |
-| NDR/留存 | SaaS 企业财报（Dollar-Based NDR）、第三方 SaaS 基准数据库 |
+**So What**: LTV/CAC >3 is the health standard, but **payback period is more critical** — it determines fundraising cadence and cash flow safety margin. Education companies recover costs quickly but have a low ceiling; SaaS recovers slowly but NDR-driven compounding makes long-term value higher. Investors should focus on the NDR and payback period combination rather than solely on the LTV/CAC ratio.
 
 ---
 
-## 七、常见错误
+## VI. Data Source Recommendations
 
-| 错误类型 | 表现 | 修正方法 |
-|---------|------|---------|
-| 忽视可变成本 | 只算营销成本 | 完整归集可变成本 |
-| LTV 高估 | 用理论生命周期 | 用队列分析实际数据 |
-| CAC 低估 | 只算广告费 | 包含人力、工具等 |
-| 忽视滞后 | 当月新增算当月 CAC | 考虑转化周期 |
-| 平均数陷阱 | 用整体平均 | 分渠道/分人群分析 |
-| 忽视固定成本 | UE 好但整体亏损 | UE 只是第一步 |
-
----
-
-## 八、与其他框架的集成
-
-| 上游框架 | 输入内容 | 本框架输出 | 下游框架 |
-|---------|---------|-----------|---------|
-| 商业模式 | 收入模式 | UE 验证 | Flywheel |
-| 三层分析 | 业务数据 | 单体盈利性 | BCG Matrix |
-| 竞争分析 | 对手数据 | UE 对比 | Value Chain |
-| JTBD | 价值主张 | LTV 假设 | TAM/SAM/SOM |
-
-**典型组合**:
-- **商业模式分析**: BMC → Value Chain → Unit Economics
-- **商业机会挖掘**: JTBD → Unit Economics → Flywheel
-- **市场进入**: TAM/SAM/SOM → Unit Economics → Three Horizons
+| Analysis Dimension | Recommended Data Sources |
+|-------------------|------------------------|
+| CAC data | Company filings (marketing spend/new users), prospectus CAC disclosures |
+| LTV estimation | User retention curves (cohort analysis) + ARPU, customer churn rates from filings |
+| Industry benchmarks | SaaS Capital annual reports, securities research industry benchmarks |
+| Competitor comparison | Prospectuses (S-1/F-1 typically disclose key UE metrics) |
+| Unit costs | Internal company data, expert interviews, earnings calls |
+| NDR/Retention | SaaS company filings (Dollar-Based NDR), third-party SaaS benchmark databases |
 
 ---
 
-## 九、中国本土化考量
+## VII. Common Mistakes
 
-| 维度 | 中国特色 | 案例 |
-|------|---------|------|
-| 获客成本高 | 流量竞争激烈，主流平台 CAC 持续攀升 | 电商 CAC 从 2018 年~100 元涨至 2024 年~300 元 |
-| 留存挑战大 | 用户忠诚度低，多 App 切换常态化 | 生鲜电商用户同时使用 3-4 个平台比价 |
-| 变现压力大 | C 端付费意愿低，免费+增值模式为主 | 爱奇艺会员 ARPU 远低于 Netflix |
-| 补贴依赖 | 用户被补贴教育，停补即流失 | 社区团购停补后订单量普遍腰斩 |
-| 流量成本分化 | 不同平台流量价格差异大，需精准选择渠道 | 抖音 CPM~50 元 vs 微信私域近乎免费 |
-| 补贴战博弈 | 竞争对手补贴直接拉高行业 CAC | 滴滴 vs 快的补贴战，单均补贴超 20 元 |
-| 生态依赖 | 获客高度依赖超级 App 生态 | 微信小程序/支付宝生活号成为冷启动标配 |
+| Mistake Type | Manifestation | Correction |
+|-------------|--------------|-----------|
+| Ignoring variable costs | Only counting marketing costs | Fully attribute all variable costs |
+| LTV overestimation | Using theoretical lifetime | Use cohort analysis actual data |
+| CAC underestimation | Only counting ad spend | Include staff, tools, etc. |
+| Ignoring lag effects | Current month new users for current month CAC | Account for conversion cycle |
+| Averaging trap | Using overall averages | Analyze by channel/user segment |
+| Ignoring fixed costs | Healthy UE but overall losses | UE is only the first step |
+
+---
+
+## VIII. Integration with Other Frameworks
+
+| Upstream Framework | Input Content | This Framework's Output | Downstream Framework |
+|-------------------|--------------|------------------------|---------------------|
+| Business model | Revenue model | UE validation | Flywheel |
+| Three-Layer Analysis | Business data | Unit profitability | BCG Matrix |
+| Competitive analysis | Competitor data | UE comparison | Value Chain |
+| JTBD | Value proposition | LTV assumptions | TAM/SAM/SOM |
+
+**Typical Combinations**:
+- **Business model analysis**: BMC → Value Chain → Unit Economics
+- **Business opportunity discovery**: JTBD → Unit Economics → Flywheel
+- **Market entry**: TAM/SAM/SOM → Unit Economics → Three Horizons
+
+---
+
+## IX. China Market Specifics
+
+| Dimension | China Characteristics | Case |
+|-----------|----------------------|------|
+| High acquisition costs | Fierce traffic competition; mainstream platform CAC continues rising | E-commerce CAC rose from ~¥100 in 2018 to ~¥300 in 2024 |
+| Retention challenges | Low user loyalty; multi-app switching is the norm | Fresh grocery users simultaneously use 3-4 platforms to compare prices |
+| Monetization pressure | Low C-end willingness to pay; freemium model predominates | iQiyi member ARPU far below Netflix |
+| Subsidy dependency | Users educated by subsidies; churn when subsidies stop | Community group buying order volume typically halved after subsidy removal |
+| Traffic cost divergence | Large price differences across platforms; precise channel selection needed | Douyin CPM ~¥50 vs WeChat private domain nearly free |
+| Subsidy war dynamics | Competitor subsidies directly inflate industry CAC | Didi vs Kuaidi subsidy war, per-ride subsidy exceeded ¥20 |
+| Ecosystem dependency | Customer acquisition highly dependent on Super App ecosystems | WeChat Mini Programs/Alipay Life accounts became standard for cold starts |

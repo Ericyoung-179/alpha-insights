@@ -1,247 +1,248 @@
-# 竞争定位图（Competitive Positioning Map）
+# Competitive Positioning Map
 
-> **核心价值**：在二维空间中可视化竞争者位置，直观发现定位空白和聚集区域
+> **Core Value**: Visualize competitor positions in a two-dimensional space, revealing positioning gaps and clusters at a glance
 >
-> **来源**：通用战略/营销分析工具，又称感知图（Perceptual Map）
+> **Source**: General strategic / marketing analysis tool, also known as Perceptual Map
 >
-> **一句话**：一张图看清谁和谁在打、哪里有空白
+> **One-liner**: One chart to see who competes with whom and where the white spaces are
 
 ---
 
-## 概述
+## Overview
 
-竞争定位图（Competitive Positioning Map）是可视化分析竞争格局的二维矩阵工具，用于识别市场空白和差异化定位机会。
+The Competitive Positioning Map is a two-dimensional matrix visualization tool for analyzing competitive landscapes, used to identify market gaps and differentiation opportunities.
 
-**核心设计理念**：
-- **二维空间**：用两个关键维度构建竞争空间
-- **相对位置**：可视化各竞争者的相对位置
-- **空白识别**：发现未被占据的定位空间
+**Core Design Principles**:
+- **Two-Dimensional Space**: Build the competitive space using two key dimensions
+- **Relative Positioning**: Visualize each competitor's relative position
+- **White Space Identification**: Discover unoccupied positioning spaces
 
-**最佳使用时机**：
-- 竞争格局可视化
-- 差异化定位机会识别
-- 新品牌/新产品定位
-- 竞争策略设计
+**Best Use Cases**:
+- Competitive landscape visualization
+- Differentiation opportunity identification
+- New brand / new product positioning
+- Competitive strategy design
 
-**输出价值**：
-- 二维竞争定位图
-- 竞争者位置标注
-- 市场空白识别
-- 推荐定位策略
+**Output Value**:
+- Two-dimensional competitive positioning map
+- Competitor position annotations
+- Market white space identification
+- Recommended positioning strategies
 
 ---
 
-## 框架总览
+## Framework Overview
 
 ```
-维度 Y（如：价格/品质）
-  高 │
-     │    ★ 竞对 A        ★ 竞对 B
+Dimension Y (e.g., Price / Quality)
+  High │
+     │    ★ Competitor A      ★ Competitor B
      │
      │              ┌─────────┐
-     │              │ 空白地带  │ ← 潜在机会
+     │              │ White    │ ← Potential opportunity
+     │              │ Space    │
      │              └─────────┘
      │
-     │  ★ 竞对 C
-     │                    ★ 竞对 D
-  低 │
-     └──────────────────────────────→ 维度 X（如：功能广度/专业度）
-    低                              高
+     │  ★ Competitor C
+     │                    ★ Competitor D
+  Low │
+     └──────────────────────────────→ Dimension X (e.g., Feature Breadth / Specialization)
+    Low                              High
 ```
 
 ---
 
-## 为什么需要竞争定位图
+## Why You Need Competitive Positioning Maps
 
-| 其他竞争分析工具 | 局限 | 定位图补充 |
-|---------------|------|----------|
-| Five Forces | 分析行业层面，不区分个别竞对 | 精确到每个竞对的位置 |
-| SWOT | 文字化的优劣势列表 | 可视化的空间关系 |
-| SCP | 分析竞争行为逻辑 | 直观展示竞争结果 |
+| Other Competitive Tools | Limitation | What Positioning Maps Add |
+|------------------------|-----------|--------------------------|
+| Five Forces | Analyzes at the industry level, doesn't distinguish individual competitors | Pinpoints each competitor's exact position |
+| SWOT | Text-based lists of strengths and weaknesses | Visual spatial relationships |
+| SCP | Analyzes competitive behavior logic | Directly shows competitive outcomes |
 
-**核心价值**：
-1. 发现**竞争聚集区**（红海）
-2. 发现**空白地带**（潜在蓝海）
-3. 识别**直接竞对**（同区域）vs **间接竞对**（不同区域）
-4. 评估**定位差异化**程度
+**Core Value**:
+1. Discover **competitive clusters** (red oceans)
+2. Discover **white spaces** (potential blue oceans)
+3. Identify **direct competitors** (same zone) vs. **indirect competitors** (different zones)
+4. Assess the degree of **positioning differentiation**
 
 ---
 
-## 执行步骤
+## Execution Steps
 
-### Step 1：选择定位维度
+### Step 1: Select Positioning Dimensions
 
-**这是最关键的一步**。维度选择决定了分析的洞察力。
+**This is the most critical step**. Dimension selection determines the analytical power.
 
-选择原则：
-1. 维度必须是**客户关心**的（不是内部视角）
-2. 两个维度应**相对独立**（不高度相关）
-3. 竞对在这两个维度上应**有明显差异**
+Selection criteria:
+1. Dimensions must be things **customers care about** (not internal perspectives)
+2. The two dimensions should be **relatively independent** (not highly correlated)
+3. Competitors should have **clear differentiation** on these two dimensions
 
-常用维度组合：
+Common dimension combinations:
 
-| 行业 | 维度 X | 维度 Y |
-|------|--------|--------|
-| 通用 | 价格 | 品质/服务水平 |
-| 互联网产品 | 功能广度 | 用户体验/易用性 |
-| B2B 服务 | 定制化程度 | 价格 |
-| 零售 | 便利性 | 产品丰富度 |
-| 金融科技 | 服务覆盖范围 | 技术先进性 |
-| 消费品 | 价格带 | 品牌调性（大众↔高端） |
+| Industry | Dimension X | Dimension Y |
+|----------|------------|------------|
+| General | Price | Quality / Service level |
+| Internet products | Feature breadth | User experience / Ease of use |
+| B2B services | Degree of customization | Price |
+| Retail | Convenience | Product variety |
+| Fintech | Service coverage range | Technology sophistication |
+| Consumer goods | Price tier | Brand positioning (mass ↔ premium) |
 
-**高级技巧**：可以做 2-3 组不同维度的定位图，从多个角度观察竞争格局。
+**Advanced technique**: Create 2-3 different dimension combinations for positioning maps to observe the competitive landscape from multiple angles.
 
-### Step 2：列出竞争者
+### Step 2: List Competitors
 
-| 竞对 | 维度 X 评分（1-10） | 维度 Y 评分（1-10） | 市场份额 |
-|------|-------------------|-------------------|---------|
-| 我方 | | | |
-| 竞对 A | | | |
-| 竞对 B | | | |
+| Competitor | Dimension X Score (1-10) | Dimension Y Score (1-10) | Market Share |
+|-----------|------------------------|------------------------|-------------|
+| Our Company | | | |
+| Competitor A | | | |
+| Competitor B | | | |
 | ... | | | |
 
-评分方法（按优先级选择）：
+Scoring methods (by priority):
 
-| 优先级 | 方法 | 适用场景 | 具体操作 |
-|--------|------|---------|---------|
-| **P0** | 客观数据直接转换 | 价格、功能数量、覆盖城市数等可量化维度 | 取行业最高/最低值，线性映射到 1-10 分。如价格维度：最高价=10，最低价=1，其余按比例 |
-| **P1** | 用户感知数据 | 体验、品牌调性等主观维度 | 取 App Store 评分（1-5 → 2-10）、大众点评/小红书平均评分、NPS 数据 |
-| **P2** | 专家打分 | 无公开数据的维度 | 3 位以上行业从业者独立打分，取中位数，标注"专家评估" |
+| Priority | Method | Applicable Scenario | Specific Approach |
+|----------|--------|--------------------|--------------------|
+| **P0** | Direct conversion from objective data | Price, feature count, number of cities covered, and other quantifiable dimensions | Map industry max/min values to 1-10 linearly. E.g., for price: highest price=10, lowest=1, others proportionally |
+| **P1** | User perception data | Experience, brand positioning, and other subjective dimensions | Use App Store ratings (1-5 → 2-10), review platform average ratings, NPS data |
+| **P2** | Expert scoring | Dimensions with no public data | 3+ industry practitioners score independently, take median, label as "expert assessment" |
 
-**关键规则**：
-- 评分依据必须标注来源，不允许无依据打分
-- 同一维度的所有竞对必须用同一方法评分
-- 维度评分需回测：如果调换两个相邻评分的竞对，结论是否仍然成立？
+**Key Rules**:
+- Scoring basis must cite sources; unsubstantiated scoring is not allowed
+- All competitors on the same dimension must use the same scoring method
+- Dimension scores require back-testing: If you swap two adjacent-scored competitors, does the conclusion still hold?
 
-### Step 3：绘制定位图
+### Step 3: Draw the Positioning Map
 
-将竞对放置在二维空间中。可用圆的大小表示市场份额或营收规模。
+Place competitors in the two-dimensional space. Circle size can represent market share or revenue scale.
 
-### Step 4：分析定位图
+### Step 4: Analyze the Positioning Map
 
-从定位图中提取以下洞察：
+Extract the following insights from the positioning map:
 
-| 分析维度 | 关注点 |
-|---------|--------|
-| **聚集区域** | 哪些竞对挤在一起？→ 红海，竞争最激烈 |
-| **空白区域** | 哪里没有竞对？→ 可能是机会，也可能是伪需求 |
-| **我方位置** | 是否有差异化？最近的竞对是谁？距离多远？ |
-| **移动趋势** | 竞对过去 1-2 年在往哪个方向移动？ |
-| **规模分布** | 大玩家集中在哪个区域？小玩家呢？ |
+| Analysis Dimension | Focus |
+|-------------------|-------|
+| **Cluster zones** | Which competitors are crowded together? → Red ocean, most intense competition |
+| **White space** | Where are no competitors? → May be an opportunity or a false demand |
+| **Our position** | Is there differentiation? Who is the closest competitor? How far apart? |
+| **Movement trends** | Which direction have competitors moved over the past 1-2 years? |
+| **Scale distribution** | Where do large players concentrate? Small players? |
 
-### Step 5：推导战略含义
+### Step 5: Derive Strategic Implications
 
-基于定位图，回答：
-1. **当前定位是否合理**？是否差异化不足？
-2. **空白地带是否值得进入**？（需要结合 JTBD 验证需求真实性）
-3. **应该向哪个方向移动**？
-4. **哪些竞对是真正的直接威胁**？
+Based on the positioning map, answer:
+1. **Is the current positioning reasonable?** Is differentiation insufficient?
+2. **Is the white space worth entering?** (Must combine with JTBD to verify demand authenticity)
+3. **Which direction should we move toward?**
+4. **Which competitors are the true direct threats?**
 
 ---
 
-## 输出格式
+## Output Format
 
 ```markdown
-## 竞争定位分析：[行业/市场]
+## Competitive Positioning Analysis: [Industry/Market]
 
-### 定位维度选择
-- **X 轴**：[维度名称] — [选择理由]
-- **Y 轴**：[维度名称] — [选择理由]
+### Dimension Selection
+- **X Axis**: [Dimension name] — [Selection rationale]
+- **Y Axis**: [Dimension name] — [Selection rationale]
 
-### 竞对评分
-| 竞对 | [维度 X] (1-10) | [维度 Y] (1-10) | 市场份额 | 评分依据 |
-|------|-----------------|-----------------|---------|---------|
-| **我方** | X | X | XX% | [依据] |
-| 竞对 A | X | X | XX% | [依据] |
-| 竞对 B | X | X | XX% | [依据] |
+### Competitor Scoring
+| Competitor | [Dimension X] (1-10) | [Dimension Y] (1-10) | Market Share | Scoring Basis |
+|-----------|---------------------|---------------------|-------------|---------------|
+| **Our Company** | X | X | XX% | [basis] |
+| Competitor A | X | X | XX% | [basis] |
+| Competitor B | X | X | XX% | [basis] |
 
-### 定位图洞察
-1. **聚集区域**：[描述] → [含义]
-2. **空白地带**：[描述] → [机会评估]
-3. **我方定位**：[描述] → [差异化评估]
-4. **移动趋势**：[描述] → [未来竞争走向]
+### Positioning Map Insights
+1. **Cluster zones**: [description] → [implications]
+2. **White space**: [description] → [opportunity assessment]
+3. **Our positioning**: [description] → [differentiation assessment]
+4. **Movement trends**: [description] → [future competitive trajectory]
 
-### 战略建议
-- **定位调整方向**：[建议]
-- **核心差异化要素**：[建议]
-- **需要监控的竞对移动**：[竞对 + 方向]
+### Strategic Recommendations
+- **Positioning adjustment direction**: [recommendation]
+- **Core differentiation elements**: [recommendation]
+- **Competitor movements to monitor**: [competitor + direction]
 ```
 
 ---
 
-## 最佳实践
+## Best Practices
 
-### 数据来源建议
+### Data Source Recommendations
 
-| 分析需求 | 推荐数据来源 |
-|---------|------------|
-| 维度评分（客观） | 产品参数对比（官网/测评网站）、价格数据（电商平台抓取）、第三方测评（消费者报告、DxOMark） |
-| 维度评分（感知） | 用户调研问卷、App Store / 大众点评评分、小红书/知乎口碑分析、NPS 数据 |
-| 市场份额 | 券商研报、QuestMobile（App 类）、欧睿/GfK（消费品类）、IDC/Canalys（科技类） |
-| 竞对移动轨迹 | 历年产品线变化、定价策略调整、财报中的战略方向陈述、高管公开演讲 |
+| Analysis Need | Recommended Data Sources |
+|---------------|------------------------|
+| Dimension scoring (objective) | Product specification comparisons (official websites/review sites), price data (e-commerce platform scraping), third-party reviews (Consumer Reports, DxOMark) |
+| Dimension scoring (perception) | User survey questionnaires, App Store / review platform scores, social media sentiment analysis, NPS data |
+| Market share | Brokerage research reports, QuestMobile (apps), Euromonitor/GfK (consumer goods), IDC/Canalys (tech) |
+| Competitor movement trajectory | Product line evolution over years, pricing strategy adjustments, strategic direction stated in financial reports, executive public speeches |
 
-### 行业定位图案例
+### Industry Positioning Map Cases
 
-| 行业 | 推荐维度组合 | 典型洞察 |
-|------|------------|---------|
-| 新茶饮 | 价格带 × 产品创新度 | 喜茶/奈雪聚集高价创新区，蜜雪冰城独占低价标准化区，中间地带是空白 |
-| 新能源车 | 价格 × 智能化程度 | 特斯拉/蔚来占据高价高智能，比亚迪占据中低价中智能，高价低智能区域（传统豪华）正在被侵蚀 |
-| SaaS 工具 | 功能深度 × 易用性 | 企业级产品聚集"深度高/易用低"，新兴工具聚集"深度低/易用高"，两者的交汇点是竞争焦点 |
-| 跨境电商 | 品类广度 × 履约时效 | SHEIN 占据"窄品类+快时效"，Temu 占据"宽品类+慢时效"，Amazon 占据"全品类+快时效" |
+| Industry | Recommended Dimension Combination | Typical Insights |
+|----------|----------------------------------|-----------------|
+| New tea drinks | Price tier × Product innovation frequency | Heytea/Nayuki cluster in high-price innovative zone, Mixue Bingcheng alone in low-price standardized zone, middle ground is white space |
+| New energy vehicles | Price × Degree of intelligence | Tesla/NIO occupy high-price high-intelligence, BYD occupies mid-low price mid-intelligence, high-price low-intelligence zone (traditional luxury) is being eroded |
+| SaaS tools | Feature depth × Ease of use | Enterprise products cluster in "high depth/low ease of use," emerging tools cluster in "low depth/high ease of use," their intersection is the competitive focal point |
+| Cross-border e-commerce | Category breadth × Fulfillment speed | SHEIN occupies "narrow category + fast fulfillment," Temu occupies "broad category + slow fulfillment," Amazon occupies "full category + fast fulfillment" |
 
-### 完整案例：新茶饮行业定位图
+### Full Case Study: New Tea Drinks Industry Positioning Map
 
-**维度选择**：X = 产品均价（元）；Y = 产品创新频率（月均上新 SKU 数）
+**Dimension Selection**: X = Average product price (RMB); Y = Product innovation frequency (monthly new SKU count)
 
-| 品牌 | 均价（元） | X 评分 | 月均上新 | Y 评分 | 年营收（亿） | 评分依据 |
-|------|----------|--------|---------|--------|------------|---------|
-| 喜茶 | 25-35 | 8 | 6-8 款 | 9 | ~60 | 美团/饿了么价格数据 + 官方公众号上新统计 |
-| 奈雪 | 22-32 | 7 | 4-5 款 | 7 | 52（2023财报） | 上市公司财报 + 门店菜单追踪 |
-| 茶百道 | 12-20 | 5 | 2-3 款 | 4 | 57（2023招股书） | 招股书数据 |
-| 古茗 | 10-18 | 4 | 2-3 款 | 4 | 55+（2023招股书） | 招股书数据 |
-| 蜜雪冰城 | 4-8 | 1 | 1-2 款 | 2 | 200+（2023招股书） | 招股书数据 |
-| 霸王茶姬 | 14-22 | 5 | 3-4 款 | 5 | ~50 | 美团数据 + 行业估算 |
-| 沪上阿姨 | 10-16 | 3 | 2-3 款 | 3 | ~40 | 行业研报 |
+| Brand | Avg. Price (RMB) | X Score | Monthly New Items | Y Score | Annual Revenue (B RMB) | Scoring Basis |
+|-------|-------------------|---------|-------------------|---------|------------------------|---------------|
+| Heytea | 25-35 | 8 | 6-8 items | 9 | ~6 | Meituan/Ele.me price data + official account new-item tracking |
+| Nayuki | 22-32 | 7 | 4-5 items | 7 | 5.2 (2023 financials) | Public company financials + menu tracking |
+| Chabaidao | 12-20 | 5 | 2-3 items | 4 | 5.7 (2023 prospectus) | Prospectus data |
+| Guming | 10-18 | 4 | 2-3 items | 4 | 5.5+ (2023 prospectus) | Prospectus data |
+| Mixue Bingcheng | 4-8 | 1 | 1-2 items | 2 | 20+ (2023 prospectus) | Prospectus data |
+| Bawangchaji | 14-22 | 5 | 3-4 items | 5 | ~5 | Meituan data + industry estimates |
+| Hushang Ayi | 10-16 | 3 | 2-3 items | 3 | ~4 | Industry research reports |
 
-**定位图洞察**：
-1. **聚集区域**：中价位（10-20 元）+ 低创新（2-3 款/月）高度拥挤——茶百道、古茗、沪上阿姨激烈竞争
-2. **空白地带**：高创新 + 低价位区域无人占据（创新需要研发投入，低价模式难以支撑）→ 伪需求
-3. **霸王茶姬的差异化**：以"东方茶"概念在中价位打出差异化，避开了与喜茶的正面竞争
-4. **蜜雪冰城的孤立优势**：低价区唯一规模化玩家，护城河深（供应链 + 密度）
+**Positioning Map Insights**:
+1. **Cluster zone**: Mid-price (10-20 RMB) + low innovation (2-3 items/month) is highly crowded — Chabaidao, Guming, and Hushang Ayi in fierce competition
+2. **White space**: High innovation + low price zone is unoccupied (innovation requires R&D investment, low-price models can't support it) → false demand
+3. **Bawangchaji's differentiation**: Using the "Oriental Tea" concept to carve out differentiation in mid-price, avoiding head-on competition with Heytea
+4. **Mixue Bingcheng's isolated advantage**: Only scaled player in the low-price zone, deep moat (supply chain + density)
 
-**So What**：新进入者应避开中价位红海，要么在高价位做极致创新（对标喜茶），要么做蜜雪冰城打不到的"品质平价"（如均价 8-12 元 + 品质感）。
-
----
-
-### 中国市场特色要素
-
-| 维度 | 中国特色 | 案例 |
-|------|---------|------|
-| 维度选择 | 中国消费者对"性价比"极度敏感，价格几乎是必选维度之一；社交属性常是隐性但关键的第二维度 | 新茶饮定位图必选"价格"维度；泡泡玛特的"社交货币"维度 |
-| 动态性强 | 中国市场竞争格局变化快，建议每 6 个月更新定位图，关注"竞对移动速度" | 瑞幸 2023 年价格带从 15-25 元骤降到 9.9 元，半年内重塑咖啡定位图 |
-| 生态维度 | 对平台型企业，需增加"生态完整度"维度 | 微信生态 vs 支付宝生态 vs 抖音生态的竞争定位对比 |
+**So What**: New entrants should avoid the mid-price red ocean. Either do extreme innovation at high price (benchmarking Heytea) or do "quality at accessible prices" that Mixue Bingcheng cannot reach (e.g., average 8-12 RMB + quality perception).
 
 ---
 
-## 常见错误
+### China Market Specifics
 
-| 错误 | 正确做法 |
-|------|---------|
-| 维度选择随意 | 必须是客户关心的、竞对有差异的维度 |
-| 评分纯主观 | 用数据/用户反馈支撑评分 |
-| 只画图不分析 | 图是手段，洞察（聚集、空白、趋势）才是目的 |
-| 空白地带 = 机会 | 空白可能是伪需求，需要 JTBD 验证 |
-| 只做一组维度 | 可做 2-3 组，多角度观察 |
+| Dimension | China Characteristics | Case |
+|-----------|----------------------|------|
+| Dimension selection | Chinese consumers are extremely "value-for-money" sensitive — price is almost always a required dimension; social attributes are often a hidden but critical second dimension | New tea drinks positioning maps must include "price" dimension; Pop Mart's "social currency" dimension |
+| High dynamism | Chinese market competitive landscapes change rapidly — recommend updating positioning maps every 6 months, tracking "competitor movement speed" | Luckin's price tier dropped from 15-25 RMB to 9.9 RMB in 2023, reshaping the coffee positioning map within 6 months |
+| Ecosystem dimension | For platform-type companies, an "ecosystem completeness" dimension should be added | WeChat ecosystem vs. Alipay ecosystem vs. Douyin ecosystem competitive positioning comparison |
 
 ---
 
-## 与其他框架的配合
+## Common Mistakes
 
-| 配合框架 | 关系 | 具体协同方式 |
-|---------|------|------------|
-| 蓝海战略 | Strategy Canvas 是多维度对比，定位图是二维空间对比 | 定位图发现空白 → 蓝海的"消除-减少-增加-创造"验证空白价值 |
-| JTBD | 空白地带的需求验证 | 定位图发现空白区域 → JTBD 验证该区域是否有真实未满足任务 |
-| SWOT | 定位分析结果输入 S 和 W | 定位图的差异化优势 → S；定位劣势 → W；移动趋势 → O/T |
-| SCP | Conduct 分析的可视化呈现 | SCP 的 Conduct 层行为分析 → 定位图直观展示竞争行为结果 |
-| Five Forces | 行业层面竞争强度 → 企业层面竞争关系 | Five Forces 判断行业吸引力 → 定位图精确到每个竞对的位置和差异化 |
-| Playing to Win | 定位图输出支撑 WTP/HTW 选择 | 聚集区域 = 红海（避开）；空白区域 = WTP 候选；差异化距离 = HTW 线索 |
+| Mistake | Correct Approach |
+|---------|-----------------|
+| Arbitrary dimension selection | Must be dimensions customers care about and where competitors differ |
+| Purely subjective scoring | Support scores with data/user feedback |
+| Only drawing without analyzing | The chart is the means; insights (clusters, white space, trends) are the goal |
+| White space = opportunity | White space may be false demand — needs JTBD verification |
+| Only one set of dimensions | Create 2-3 sets for multi-angle observation |
+
+---
+
+## Integration with Other Frameworks
+
+| Partner Framework | Relationship | Specific Synergy |
+|-------------------|-------------|------------------|
+| Blue Ocean Strategy | Strategy Canvas is multi-dimensional comparison; positioning map is 2D spatial comparison | Positioning map discovers white space → Blue Ocean's "Eliminate-Reduce-Raise-Create" validates white space value |
+| JTBD | Demand verification for white spaces | Positioning map finds white space → JTBD verifies whether real unmet tasks exist in that zone |
+| SWOT | Positioning analysis results feed into S and W | Positioning map differentiation advantages → S; positioning weaknesses → W; movement trends → O/T |
+| SCP | Visual presentation of Conduct analysis | SCP's Conduct-layer behavior analysis → positioning map visually displays competitive behavior outcomes |
+| Five Forces | Industry-level competitive intensity → firm-level competitive relationships | Five Forces judges industry attractiveness → positioning map pinpoints each competitor's position and differentiation |
+| Playing to Win | Positioning map outputs support WTP/HTW choices | Cluster zones = red ocean (avoid); white space = WTP candidates; differentiation distance = HTW clues |

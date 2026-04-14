@@ -1,242 +1,246 @@
-# SWOT 分析
+# SWOT Analysis
 
-> **核心价值**：将分散的分析发现综合为结构化的战略判断
+> **Core Value**: Synthesize scattered analytical findings into structured strategic judgments
 >
-> **创始人**：Albert Humphrey, Stanford Research Institute (1960s)
+> **Creator**: Albert Humphrey, Stanford Research Institute (1960s)
 >
-> **一句话**：所有分析框架的"合成器"——把内外部因素汇总为可行动的战略方向
+> **One-liner**: The "synthesizer" of all analysis frameworks — consolidate internal and external factors into actionable strategic directions
 
 ---
 
-## 概述
+## Overview
 
-SWOT 分析由斯坦福研究所的 Albert Humphrey 于 1960 年代提出，是战略管理领域最经典的战略合成工具。
+SWOT Analysis was developed by Albert Humphrey at Stanford Research Institute in the 1960s and is the most classic strategic synthesis tool in strategic management.
 
-**核心设计理念**：
-- **内外分明**：内部因素（S/W）与外部因素（O/T）严格区分
-- **数据驱动**：每个要素必须有数据/证据支撑
-- **交叉分析**：通过 TOWS 矩阵将四象限转化为可行动的战略
+**Core Design Principles**:
+- **Internal vs. External Separation**: Internal factors (S/W) and external factors (O/T) are strictly distinguished
+- **Data-Driven**: Every element must be supported by data or evidence
+- **Cross-Analysis**: Use the TOWS matrix to convert four quadrants into actionable strategies
 
-**最佳使用时机**：
-- **所有分析的最后阶段**：SWOT 是"合成器"，不是第一个做的分析
-- 战略决策前的综合判断
-- 竞争策略制定
+**Best Use Cases**:
+- **Final stage of all analyses**: SWOT is a "synthesizer," not the first analysis performed
+- Comprehensive judgment before strategic decisions
+- Competitive strategy formulation
 
-**输出价值**：
-- 内外部因素的结构化汇总（每象限 Top 3-5）
-- TOWS 交叉分析生成的四种战略方向
+**Output Value**:
+- Structured summary of internal and external factors (Top 3-5 per quadrant)
+- Four strategic directions generated through TOWS cross-analysis
 
 ---
 
-## 框架总览
+## Framework Overview
 
 ```
-              内部因素                    外部因素
+              Internal Factors               External Factors
         ┌──────────────┐          ┌──────────────┐
-  有利   │  S trengths   │          │ O pportunities│
-        │  优势          │          │ 机会          │
+  Favorable │  S trengths   │          │ O pportunities│
+        │               │          │               │
         ├──────────────┤          ├──────────────┤
-  不利   │  W eaknesses  │          │  T hreats     │
-        │  劣势          │          │ 威胁          │
+  Unfavorable│  W eaknesses  │          │  T hreats     │
+        │               │          │               │
         └──────────────┘          └──────────────┘
               ↑                          ↑
-         来自 Value Chain              来自 PESTEL
-         BMC / 内部数据              Five Forces / SCP
+         From Value Chain              From PESTEL
+         BMC / Internal Data         Five Forces / SCP
 ```
 
-**关键认知**：SWOT 不是第一个做的分析，而是**最后做的合成**。先用其他框架（PESTEL、Five Forces、Value Chain 等）做深入分析，再用 SWOT 汇总结论。
+**Key Insight**: SWOT is not the first analysis you do — it is the **final synthesis**. First conduct deep analysis using other frameworks (PESTEL, Five Forces, Value Chain, etc.), then use SWOT to consolidate conclusions.
 
 ---
 
-## 为什么 SWOT 容易做烂
+## Why SWOT Is Often Done Poorly
 
-大多数 SWOT 分析质量低下的原因：
+Most SWOT analyses are low quality because:
 
-| 常见问题 | 示例 | 后果 |
-|---------|------|------|
-| 空洞无数据 | "品牌知名度高" | 无法判断"高"到什么程度 |
-| 内外不分 | 把"市场增长快"放在 S 里 | 逻辑混乱 |
-| 没有排序 | 列了 10 个优势 10 个劣势 | 看完什么都没记住 |
-| 不做交叉 | 四个象限独立列完就结束 | 没有产出战略方向 |
+| Common Problem | Example | Consequence |
+|----------------|---------|-------------|
+| Empty, no data | "Strong brand awareness" | Cannot determine how "strong" |
+| Internal/external confusion | Placing "fast market growth" under S | Logical confusion |
+| No prioritization | Listed 10 strengths and 10 weaknesses | Nothing memorable |
+| No cross-analysis | Four quadrants listed independently, then done | No strategic output |
 
-**本框架的核心改进**：强制要求数据支撑 + 优先级排序 + SO/WO/ST/WT 交叉分析。
+**Core improvement in this framework**: Mandatory data support + priority ranking + SO/WO/ST/WT cross-analysis.
 
 ---
 
-## 执行步骤
+## Execution Steps
 
-### Step 1：收集输入（从上游框架汇总）
+### Step 1: Collect Inputs (Summarize from Upstream Frameworks)
 
-| SWOT 维度 | 输入来源 |
-|----------|---------|
-| **S 优势** | Value Chain 分析、内部数据、竞对对比中的领先项 |
-| **W 劣势** | Value Chain 分析、内部数据、竞对对比中的落后项 |
-| **O 机会** | PESTEL 的有利趋势、Five Forces 中的低威胁区域、市场空白 |
-| **T 威胁** | PESTEL 的不利趋势、Five Forces 中的高威胁区域、竞对动作 |
+| SWOT Dimension | Input Source |
+|---------------|-------------|
+| **S Strengths** | Value Chain analysis, internal data, areas of advantage in competitive benchmarking |
+| **W Weaknesses** | Value Chain analysis, internal data, areas of disadvantage in competitive benchmarking |
+| **O Opportunities** | Favorable trends from PESTEL, low-threat areas in Five Forces, market gaps |
+| **T Threats** | Unfavorable trends from PESTEL, high-threat areas in Five Forces, competitor actions |
 
-### Step 2：结构化填充（带数据支撑）
+### Step 2: Structured Population (with Data Support)
 
-每个要素必须包含：
-1. **要素描述**（具体，非空泛）
-2. **数据/证据支撑**
-3. **重要性评级**（高/中/低）
+Each element must include:
+1. **Element description** (specific, not vague)
+2. **Data/evidence support**
+3. **Importance rating** (High/Medium/Low)
 
-**示例**：
+**Example**:
 
-❌ 差的 S：品牌知名度高
-✅ 好的 S：品牌认知度 92%（来源：QuestMobile），在细分领域排名第一，领先第二名 40 个百分点
+❌ Bad S: Strong brand awareness
+✅ Good S: Brand recognition rate 92% (source: QuestMobile), ranked #1 in segment, leading second place by 40 percentage points
 
-### Step 3：优先级排序
+### Step 3: Priority Ranking
 
-每个象限保留 **Top 3-5 个**最重要的要素，按重要性排序。不要罗列超过 5 个。
+Retain **Top 3-5** most important elements per quadrant, ranked by importance. Do not list more than 5.
 
-### Step 4：交叉分析（TOWS 矩阵）— **核心步骤**
+### Step 4: Cross-Analysis (TOWS Matrix) — **Core Step**
 
-这是 SWOT 产出战略价值的关键。将四个象限两两交叉，生成四种战略方向：
+This is where SWOT generates strategic value. Cross-reference four quadrants pairwise to generate four strategic directions:
 
 ```
               Strengths (S)           Weaknesses (W)
             ┌─────────────────┬─────────────────┐
-Opportuni-  │  SO 战略          │  WO 战略          │
-ties (O)    │  用优势抓机会      │  克服劣势抓机会    │
-            │  (进攻型)         │  (扭转型)         │
+Opportuni-  │  SO Strategy      │  WO Strategy      │
+ties (O)    │  Use strengths     │  Overcome weak-   │
+            │  to seize          │  nesses to seize  │
+            │  opportunities     │  opportunities    │
+            │  (Offensive)       │  (Turnaround)     │
             ├─────────────────┼─────────────────┤
-Threats (T) │  ST 战略          │  WT 战略          │
-            │  用优势化解威胁    │  避免劣势遭受威胁  │
-            │  (防御型)         │  (收缩/退出型)    │
+Threats (T) │  ST Strategy      │  WT Strategy      │
+            │  Use strengths     │  Avoid weaknesses │
+            │  to counter        │  being amplified  │
+            │  threats           │  by threats       │
+            │  (Defensive)       │  (Retreat/Exit)   │
             └─────────────────┴─────────────────┘
 ```
 
-| 战略类型 | 核心逻辑 | 适用场景 |
-|---------|---------|---------|
-| **SO 战略** | 用优势捕获机会 | 条件最好时的进攻策略 |
-| **WO 战略** | 抓住机会弥补劣势 | 市场好但自身需提升 |
-| **ST 战略** | 用优势抵御威胁 | 外部环境恶化时的防守 |
-| **WT 战略** | 减少劣势、回避威胁 | 最不利情况下的底线策略 |
+| Strategy Type | Core Logic | Applicable Scenario |
+|--------------|-----------|---------------------|
+| **SO Strategy** | Leverage strengths to capture opportunities | Best-case offensive strategy |
+| **WO Strategy** | Seize opportunities to address weaknesses | Good market but self-improvement needed |
+| **ST Strategy** | Use strengths to defend against threats | Defense when external environment deteriorates |
+| **WT Strategy** | Minimize weaknesses, avoid threats | Baseline strategy in worst-case scenarios |
 
-### Step 5：战略建议排序
+### Step 5: Strategic Recommendation Ranking
 
-从四种战略中选择 **1-2 个主攻方向**，配合 1 个防守方向。
+From the four strategies, select **1-2 primary offensive directions**, complemented by 1 defensive direction.
 
 ---
 
-## 输出格式
+## Output Format
 
 ```markdown
-## SWOT 分析：[分析对象]
+## SWOT Analysis: [Analysis Subject]
 
-### 四象限摘要
+### Four-Quadrant Summary
 
-| | 有利 | 不利 |
-|---|------|------|
-| **内部** | **S1**: [优势1] [数据支撑] | **W1**: [劣势1] [数据支撑] |
-| | **S2**: [优势2] [数据支撑] | **W2**: [劣势2] [数据支撑] |
-| | **S3**: [优势3] [数据支撑] | **W3**: [劣势3] [数据支撑] |
-| **外部** | **O1**: [机会1] [数据支撑] | **T1**: [威胁1] [数据支撑] |
-| | **O2**: [机会2] [数据支撑] | **T2**: [威胁2] [数据支撑] |
-| | **O3**: [机会3] [数据支撑] | **T3**: [威胁3] [数据支撑] |
+| | Favorable | Unfavorable |
+|---|-----------|-------------|
+| **Internal** | **S1**: [Strength 1] [data support] | **W1**: [Weakness 1] [data support] |
+| | **S2**: [Strength 2] [data support] | **W2**: [Weakness 2] [data support] |
+| | **S3**: [Strength 3] [data support] | **W3**: [Weakness 3] [data support] |
+| **External** | **O1**: [Opportunity 1] [data support] | **T1**: [Threat 1] [data support] |
+| | **O2**: [Opportunity 2] [data support] | **T2**: [Threat 2] [data support] |
+| | **O3**: [Opportunity 3] [data support] | **T3**: [Threat 3] [data support] |
 
-### 交叉战略分析（TOWS）
+### Cross-Strategic Analysis (TOWS)
 
-#### SO 战略（进攻）：[战略名称]
-- 利用 [S1/S2] 抓住 [O1/O2]
-- 具体行动：[...]
+#### SO Strategy (Offensive): [Strategy Name]
+- Leverage [S1/S2] to seize [O1/O2]
+- Specific actions: [...]
 
-#### WO 战略（扭转）：[战略名称]
-- 借助 [O1/O2] 弥补 [W1/W2]
-- 具体行动：[...]
+#### WO Strategy (Turnaround): [Strategy Name]
+- Use [O1/O2] to address [W1/W2]
+- Specific actions: [...]
 
-#### ST 战略（防御）：[战略名称]
-- 利用 [S1/S2] 应对 [T1/T2]
-- 具体行动：[...]
+#### ST Strategy (Defensive): [Strategy Name]
+- Use [S1/S2] to counter [T1/T2]
+- Specific actions: [...]
 
-#### WT 战略（底线）：[战略名称]
-- 规避 [W1/W2] 被 [T1/T2] 放大
-- 具体行动：[...]
+#### WT Strategy (Baseline): [Strategy Name]
+- Prevent [W1/W2] from being amplified by [T1/T2]
+- Specific actions: [...]
 
-### 推荐战略优先级
-1. **主攻**：[SO/WO 战略名称] — [理由]
-2. **防守**：[ST 战略名称] — [理由]
+### Recommended Strategic Priority
+1. **Primary Offensive**: [SO/WO strategy name] — [rationale]
+2. **Defensive**: [ST strategy name] — [rationale]
 ```
 
 ---
 
-## 实战案例
+## Case Studies
 
-### 案例 1：瑞幸咖啡 SWOT 分析（2024）
+### Case 1: Luckin Coffee SWOT Analysis (2024)
 
-**背景**：分析瑞幸在中国现磨咖啡市场的战略位置
+**Background**: Analyzing Luckin's strategic position in China's freshly brewed coffee market
 
-| | 有利 | 不利 |
-|---|------|------|
-| **内部** | **S1**: 门店 18,000+家，规模全球第一（超星巴克中国 7,000 家），密度带来便利性优势 | **W1**: 品牌调性偏"平价快餐"，高端场景渗透率低（商务会议/送礼场景<5%） |
-| | **S2**: 数字化运营能力强——APP 月活 3,000 万+，用户画像精度支撑精准营销，单杯营销成本<1元 | **W2**: 加盟模式品控风险——2024年多起加盟店卫生事件，NPS 环比下降 3 分 |
-| | **S3**: 供应链成本优势——自建烘焙工厂+集采，原材料成本比独立咖啡店低 30%+ | **W3**: 产品同质化——9.9 元爆款策略导致产品线向"奶茶化"倾斜，精品咖啡心智弱 |
-| **外部** | **O1**: 中国人均咖啡杯数仅 12 杯/年（日本 200+、美国 380+），渗透率提升空间巨大 | **T1**: 库迪咖啡 8.8 元低价战，直接冲击 9.9 元价格带，利润空间被压缩 |
-| | **O2**: 下沉市场咖啡渗透率<5%，三四线城市增速 40%+（vs 一线<10%） | **T2**: 蜜雪冰城"幸运咖"4 元咖啡+万店规模，从更低端颠覆 |
-| | **O3**: 咖啡+茶饮融合趋势——茶咖品类增速 60%+，客群重叠度高 | **T3**: 原材料（咖啡豆）价格 2024 年上涨 25%+，成本压力传导 |
+| | Favorable | Unfavorable |
+|---|-----------|-------------|
+| **Internal** | **S1**: 18,000+ stores, largest scale globally (surpassing Starbucks China's ~7,000), density delivers convenience advantage | **W1**: Brand perceived as "budget fast food," low penetration in premium scenarios (business meetings/gifting <5%) |
+| | **S2**: Strong digital operations — App MAU 30M+, user profiling precision enables targeted marketing, per-cup marketing cost <1 RMB | **W2**: Franchise model quality control risk — multiple hygiene incidents at franchise stores in 2024, NPS down 3 points QoQ |
+| | **S3**: Supply chain cost advantage — self-built roasting facilities + bulk procurement, raw material costs 30%+ lower than independent coffee shops | **W3**: Product commoditization — 9.9 RMB hit strategy pushes product line toward "milk tea-ification," weak specialty coffee mindshare |
+| **External** | **O1**: China per-capita coffee consumption only 12 cups/year (Japan 200+, US 380+), enormous penetration headroom | **T1**: Cotti Coffee's 8.8 RMB low-price war directly attacks the 9.9 RMB price tier, compressing profit margins |
+| | **O2**: Lower-tier market coffee penetration <5%, Tier 3-4 city growth 40%+ (vs. Tier 1 <10%) | **T2**: Mixue Bingcheng's "Lucky Cup" 4 RMB coffee + 10,000+ store scale, disrupting from an even lower tier |
+| | **O3**: Coffee-tea fusion trend — tea-coffee category growth 60%+, high customer overlap | **T3**: Raw material (coffee bean) prices up 25%+ in 2024, cost pressure transmission |
 
-**TOWS 交叉**：
-- **SO（进攻）**：用万店规模+供应链优势加速下沉市场扩张（S1+S3 × O2）
-- **WO（扭转）**：推出高端产品线进入商务/送礼场景，借咖啡渗透率提升的东风（O1 弥补 W1）
-- **ST（防御）**：用数字化运营和会员锁客对抗库迪价格战（S2 应对 T1）
-- **WT（底线）**：收紧加盟质量标准，避免品控问题被竞对放大（W2 × T1/T2）
+**TOWS Cross-Analysis**:
+- **SO (Offensive)**: Use 10,000-store scale + supply chain advantage to accelerate lower-tier market expansion (S1+S3 × O2)
+- **WO (Turnaround)**: Launch premium product line for business/gifting scenarios, riding the coffee penetration wave (O1 addressing W1)
+- **ST (Defensive)**: Use digital operations and membership lock-in to counter Cotti's price war (S2 countering T1)
+- **WT (Baseline)**: Tighten franchise quality standards to prevent QC issues from being amplified by competitors (W2 × T1/T2)
 
-**实际验证**：瑞幸 2024 年确实以 SO 战略为主——加速下沉市场开店（新增 5,000+ 家），同时用 ST 战略——会员体系升级+产品创新（生椰拿铁系列持续迭代）应对竞争。
+**Real-World Validation**: Luckin in 2024 indeed pursued SO strategy as primary — accelerating lower-tier market store openings (5,000+ new stores), while deploying ST strategy — membership system upgrades + product innovation (Coconut Latte series continuous iteration) to counter competition.
 
-### 案例 2：比亚迪 SWOT 分析（2024）
+### Case 2: BYD SWOT Analysis (2024)
 
-| | 有利 | 不利 |
-|---|------|------|
-| **内部** | **S1**: 垂直整合能力独一无二——自研电池(弗迪)+芯片(IGBT)+电机，BOM 成本低于竞对 15-20% | **W1**: 品牌溢价能力弱——仰望/腾势高端化尚在培育期，30万+市场份额<5% |
-| | **S2**: 产品矩阵全覆盖——7.98 万(秦PLUS)到 109.8 万(仰望U8)，全价位段竞争 | **W2**: 智能驾驶技术落后华为/小鹏 1-2 代，高阶智驾搭载率<10% |
-| **外部** | **O1**: 海外市场——中国新能源车出口增速 60%+，东南亚/中东/拉美渗透率<5% | **T1**: 欧盟加征关税（最高 35.3%），美国关税 100%，海外扩张受阻 |
-| | **O2**: 插混市场快速增长——2024 年插混增速 85% vs 纯电 15%，比亚迪 DM-i 技术领先 | **T2**: 价格战持续——行业毛利率承压，二三线品牌"掀桌式"降价清库存 |
+| | Favorable | Unfavorable |
+|---|-----------|-------------|
+| **Internal** | **S1**: Unparalleled vertical integration — self-developed battery (FinDreams) + chips (IGBT) + motors, BOM cost 15-20% lower than competitors | **W1**: Weak brand premium capability — Yangwang/Denza premium positioning still in cultivation, <5% market share above 300K RMB |
+| | **S2**: Full product matrix coverage — from 79,800 RMB (Qin PLUS) to 1,098,000 RMB (Yangwang U8), competing across all price tiers | **W2**: Autonomous driving tech lags Huawei/XPeng by 1-2 generations, advanced AD adoption rate <10% |
+| **External** | **O1**: Overseas markets — China NEV exports growing 60%+; Southeast Asia/Middle East/Latin America penetration <5% | **T1**: EU surcharges (up to 35.3%), US tariffs 100%, overseas expansion facing obstacles |
+| | **O2**: PHEV market rapid growth — 2024 PHEV growth 85% vs. BEV 15%, BYD DM-i technology leads | **T2**: Ongoing price wars — industry margin pressure, second/third-tier brands "table-flipping" price cuts to clear inventory |
 
-**关键洞察**：比亚迪的核心 SO 战略是**用成本优势（S1）抓住海外（O1）和插混（O2）两个增长极**，但 T1 的关税壁垒正在迫使 SO 战略向 ST 战略转换——需要海外建厂（匈牙利/泰国/巴西）而非简单出口。
-
----
-
-## 中国本土化考量
-
-| 维度 | 中国特色 | 案例 |
-|------|---------|------|
-| S 的特殊来源 | 中国企业的独特优势常来自：供应链集群效应、超大规模市场的网络效应、政策红利（补贴/白名单） | 比亚迪的长三角/珠三角供应链集群；拼多多 9 亿用户的网络效应 |
-| W 的隐性面 | 常见隐性劣势：合规体系不完善（出海时暴露）、组织管理跟不上规模扩张、过度依赖创始人决策 | TikTok 出海遭遇数据合规挑战；瑞幸早期治理缺陷导致财务造假 |
-| O 的政策驱动 | 机会常由政策创造："双碳"→新能源、"数据要素"→数据服务、"银发经济"→养老产业 | "双碳"政策催生宁德时代等万亿市值企业 |
-| T 的独特性 | 中国特有威胁：监管政策突变、地缘政治（芯片制裁/关税壁垒）、平台经济反垄断 | "双减"消灭新东方/好未来千亿市值；华为芯片制裁 |
+**Key Insight**: BYD's core SO strategy is **using cost advantage (S1) to capture two growth poles: overseas (O1) and PHEV (O2)**. However, T1's tariff barriers are forcing SO strategy to shift toward ST — requiring overseas factory construction (Hungary/Thailand/Brazil) rather than simple exports.
 
 ---
 
-## 数据来源建议
+## China Localization Considerations
 
-| 维度 | 推荐数据来源 |
-|------|------------|
-| S 优势 | 内部经营数据、市场份额报告（券商研报/QuestMobile）、专利数据库（CNKI/Google Patents）、品牌调研（BrandZ/C-NPS） |
-| W 劣势 | 上市公司年报"风险提示"章节、竞对对比数据、用户差评分析（App Store/大众点评）、离职员工访谈（脉脉） |
-| O 机会 | PESTEL 分析输出、五年规划/部委政策文件、市场空白调研、行业报告增长预测 |
-| T 威胁 | 竞对动态（36Kr/虎嗅）、政策变化监测（国务院/发改委官网）、技术替代趋势（Gartner）、供应链风险追踪 |
-
----
-
-## 常见错误
-
-| 错误 | 正确做法 |
-|------|---------|
-| 优势写成"团队优秀" | 具体化 + 数据化：市场份额 XX%、专利 XX 项 |
-| 机会写成"市场很大" | 具体化：XX 细分市场年增长 XX%，渗透率仅 XX% |
-| 只做四象限不做交叉 | TOWS 交叉分析是核心产出，不能省略 |
-| 罗列 10+ 条不排序 | 每象限 Top 3-5，按重要性排序 |
-| 第一个就做 SWOT | SWOT 是合成工具，必须先做 PESTEL/Five Forces 等 |
+| Dimension | China Characteristics | Case |
+|-----------|----------------------|------|
+| Unique S sources | Chinese companies' unique strengths often come from: supply chain cluster effects, network effects of ultra-large-scale markets, policy dividends (subsidies/whitelists) | BYD's Yangtze/Pearl River Delta supply chain clusters; Pinduoduo's 900M-user network effects |
+| Hidden W dimensions | Common hidden weaknesses: incomplete compliance systems (exposed when going overseas), organizational management failing to keep pace with scale expansion, over-reliance on founder decision-making | TikTok's overseas data compliance challenges; Luckin's early governance deficiencies leading to financial fraud |
+| Policy-driven O | Opportunities often created by policy: "Dual Carbon" → new energy, "Data Assets" → data services, "Silver Economy" → elderly care | "Dual Carbon" policy catalyzed CATL and other trillion-RMB-market-cap companies |
+| Unique T characteristics | China-specific threats: sudden regulatory changes, geopolitics (chip sanctions/tariff barriers), platform economy antitrust | "Double Reduction" wiped out New Oriental/TAL's hundreds of billions in market cap; Huawei chip sanctions |
 
 ---
 
-## 与其他框架的配合
+## Data Source Recommendations
 
-| 配合框架 | 关系 |
-|---------|------|
-| PESTEL | O 和 T 的主要输入来源 |
-| Five Forces | T 的结构性输入（供应商/买家/替代品/新进入/竞争） |
-| Value Chain | S 和 W 的内部分析输入 |
-| Playing to Win | SWOT 产出的战略方向 → Playing to Win 细化为选择级联 |
-| 竞争定位图 | 定位分析结果输入 S 和 W |
+| Dimension | Recommended Data Sources |
+|-----------|------------------------|
+| S Strengths | Internal operational data, market share reports (brokerage research/QuestMobile), patent databases (CNKI/Google Patents), brand surveys (BrandZ/C-NPS) |
+| W Weaknesses | Public company annual report "Risk Factors" section, competitive benchmarking data, user negative review analysis (App Store/review platforms), exit interviews (professional networks) |
+| O Opportunities | PESTEL analysis outputs, Five-Year Plans / ministry policy documents, market gap research, industry report growth forecasts |
+| T Threats | Competitor dynamics (tech news outlets), policy change monitoring (government websites), technology substitution trends (Gartner), supply chain risk tracking |
+
+---
+
+## Common Mistakes
+
+| Mistake | Correct Approach |
+|---------|-----------------|
+| Strength listed as "excellent team" | Quantify + provide  market share XX%, XX patents |
+| Opportunity listed as "market is large" | Be specific: XX sub-market growing XX% annually, penetration only XX% |
+| Only doing four quadrants without cross-analysis | TOWS cross-analysis is the core output — cannot be skipped |
+| Listing 10+ items without ranking | Top 3-5 per quadrant, ranked by importance |
+| Doing SWOT first | SWOT is a synthesis tool — must first complete PESTEL/Five Forces etc. |
+
+---
+
+## Integration with Other Frameworks
+
+| Partner Framework | Relationship |
+|-------------------|-------------|
+| PESTEL | Primary input source for O and T |
+| Five Forces | Structural input for T (suppliers/buyers/substitutes/new entrants/rivalry) |
+| Value Chain | Internal analysis input for S and W |
+| Playing to Win | Strategic directions from SWOT → refined into Playing to Win choice cascade |
+| Competitive Positioning Map | Positioning analysis results feed into S and W |

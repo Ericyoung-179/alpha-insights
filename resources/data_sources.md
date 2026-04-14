@@ -1,341 +1,341 @@
-# 数据源清单（Data Sources）
+# Data Sources
 
-> **定位**：AI 商业分析师 Skill 的**必选数据源清单**
+> **Purpose**: **Curated data source checklist** for the AI Business Analyst Skill
 >
-> **使用原则**：
-> 1. 这不是 exhaustive 的列表，而是**curated 高质量源**
-> 2. 当研究议题匹配时，AI **必须**优先搜索这些数据源
-> 3. 禁止仅依赖 Google 搜索的泛结果，必须追溯至权威来源
-> 4. 遵循**三角验证法**：核心数据需 2-3 个独立来源交叉验证
+> **Usage principles**:
+> 1. This is not an exhaustive list, but a **curated collection of high-quality sources**
+> 2. When the research topic matches, the AI **must** prioritize searching these data sources
+> 3. Relying solely on generic Google search results is prohibited; original authoritative sources must be traced
+> 4. Follow the **Triangulation method**: core data requires 2-3 independent sources for cross-validation
 
 ---
 
-## 数据源选择策略
+## Data Source Selection Strategy
 
-### 优先级原则
+### Priority Principles
 
-| 优先级 | 来源类型 | 可信度 | 使用场景 |
-|--------|---------|--------|---------|
-| **P0** | 官方数据（政府/监管） | 最高 | 宏观数据、政策法规、行业统计 |
-| **P1** | 权威第三方（券商/咨询） | 高 | 市场规模、竞争格局、趋势判断 |
-| **P2** | 垂直数据平台（QuestMobile 等） | 中高 | 用户行为、App 数据、细分赛道 |
-| **P3** | 企业官方披露（财报/公告） | 高 | 公司数据、经营指标 |
-| **P4** | 媒体/自媒体 | 中低 | 仅作为线索，必须验证 |
+| Priority | Source Type | Reliability | Use Case |
+|----------|-----------|-------------|----------|
+| **P0** | Official data (government/regulatory) | Highest | Macro data, policies & regulations, industry statistics |
+| **P1** | Authoritative third-party (brokerages/consulting) | High | Market size, competitive landscape, trend analysis |
+| **P2** | Vertical data platforms (QuestMobile, etc.) | Medium-High | User behavior, App data, niche segments |
+| **P3** | Corporate official disclosures (earnings/filings) | High | Company data, operating metrics |
+| **P4** | Media/self-media | Medium-Low | Use as leads only, must verify |
 
-### 数据验证规则
+### Data Verification Rules
 
-> 验证程度分级（A/B/C/D 级）的完整定义和验证方法见 [`triangulation.md`](../methodology/triangulation.md)。
+> Complete definitions and verification methods for validation levels (A/B/C/D) are in [`triangulation.md`](../methodology/triangulation.md).
 
-**本清单的执行规则**：
-- 核心数据（市场规模、增长率、竞对数据、用户数据）**必须**达到 B 级或以上
-- D 级数据**禁止**作为关键结论的支撑证据
-- C 级数据需标注"建议后续补充验证"
+**Execution rules for this checklist**:
+- Core data (market size, growth rate, competitor data, user data) **must** achieve B-level or above
+- D-level data is **prohibited** as supporting evidence for key conclusions
+- C-level data should be annotated with "recommend supplementary verification"
 
-### 信息类型标注规范（重要）
+### Information Type Annotation Standards (Important)
 
-> 数据不仅有「可信度」之分，更有「类型」之分。不同类型的信息，处理方式不同。
+> Data varies not only in "reliability" but also in "type." Different types of information require different handling.
 
-| 标签 | 信息类型 | 定义 | 处理方式 |
-|------|---------|------|---------|
-| 📊 | **事实数据** | 市场规模、财报数字、用户量、交易额等可量化事实 | 可直接引用，按 A/B/C/D 标注置信度 |
-| 💡 | **观点/意图** | 战略定位、团队判断、管理层表态、内部文档中的方向性描述 | **必须**标注为「内部观点」，附批判性分析（合理性 / 替代选择 / 风险） |
-| 📰 | **媒体报道** | 新闻报道、行业文章、自媒体分析 | 需交叉验证，追溯原始数据来源 |
+| Label | Information Type | Definition | Handling |
+|-------|-----------------|------------|----------|
+| 📊 | **Factual Data** | Market size, earnings figures, user counts, transaction volumes, and other quantifiable facts | Can be directly cited; annotate Confidence Level as A/B/C/D |
+| 💡 | **Opinions/Intentions** | Strategic positioning, team judgments, management statements, directional descriptions in internal documents | **Must** annotate as "internal opinion," with critical analysis (reasonableness / alternatives / risks) |
+| 📰 | **Media Reports** | News articles, industry reports, self-media analysis | Requires cross-validation; trace to original data source |
 
-**关键规则**：
-- 内部文档（如知识库）中的战略意图/观点，**禁止**直接作为分析结论
-- 必须区分「团队选择做 X」（💡 观点）和「X 的市场规模是 Y」（📊 事实）
-- 示例：知识库文档写「只做平台模式」→ 标注为 💡 内部观点，需分析：为什么选平台模式？有无替代路径？风险是什么？
+**Key rules**:
+- Strategic intentions/opinions from internal documents (e.g., knowledge base) are **prohibited** from being used directly as analytical conclusions
+- Must distinguish between "the team chose to do X" (💡 opinion) and "X's market size is Y" (📊 fact)
+- Example: Knowledge base document states "only do platform model" -> annotate as 💡 internal opinion; analyze: why the platform model? are there alternatives? what are the risks?
 
-### ⛔ 禁止行为
+### ⛔ Prohibited Behaviors
 
-❌ 仅依赖 Google 搜索的泛结果，不追溯原始来源
-❌ 使用单一来源的核心数据而不标注验证程度
-❌ 将企业自述数据（官网/公关稿）当作事实在报告中呈现
-❌ 使用 D 级数据支撑关键结论
-❌ 数据矛盾时不解释、不处理
-
----
-
-## ⚡ 数据路由表（Stage 4 快速决策用）
-
-> **用法**：Stage 4 开始时，按研究需求逐行匹配，确定该用哪个工具、查什么、查不到怎么办。
-> **多源覆盖原则**：对同一数据需求，不要查到一个来源就停——按下方「按议题的数据源组合策略」尽可能覆盖多个独立来源，交叉验证后再确定采信。回退方案不是"备胎"，而是"第二视角"。
-
-| 数据需求 | 首选能力 | 查询模板 | 回退方案 |
-|---------|---------|---------|---------|
-| **宏观经济数据**（GDP/CPI/人口/投资） | 搜索引擎 | `{指标} {年份} site:stats.gov.cn` | `{指标} 国家统计局 {年份}` → Wind 万得 |
-| **行业市场规模** | 搜索引擎 | `{行业} 市场规模 {年份} 亿元` + 限定可信域名 | 慧博搜券商研报 → Statista |
-| **竞品公司数据**（财报/融资/产品） | 网页抓取 | 直接抓取 cninfo.com.cn / SEC EDGAR 站内搜索页 | 搜索引擎 `{公司名} 年报 {年份}` → 企查查/天眼查 |
-| **用户行为/App 数据** | 搜索引擎 | `{App名} MAU DAU QuestMobile {年份}` | 七麦数据 → SimilarWeb |
-| **政策法规** | 搜索引擎 | `{关键词} site:gov.cn` | 北大法宝 → LegalSearch MCP |
-| **消费者洞察/用户原声** | 小红书脚本 | `scripts/xhs/check_topics.js --keywords "{关键词}"` | 搜索引擎 `{产品} 评测 小红书` |
-| **内部数据/业务文档** | 知识库搜索 | 按用户配置的知识库 MCP 搜索 | 直接询问用户 |
-| **结构化业务数据** | 数据库查询 | 按用户配置的数据库 MCP 查询 | 降级为公开数据估算 |
-| **专家观点/深度信息** | 访谈（Track C） | Stage 3.5 生成提纲 → 用户执行 | 行业 KOL 公开发言 → 券商电话会纪要 |
-| **国际市场数据** | 搜索引擎 | `{industry} market size {year} report` | Statista → World Bank → OECD |
-| **⚠️ 数据不存在** | — | 上述路径均无结果时 | Bottom-up 估算（拆分变量逐项推导）→ 标注为 C 级 + 注明估算方法 |
-
-### 工具可用性判断
-
-> AI 应根据当前环境自动检测可用工具。下表列出每种能力的**常见工具名**（仅作示例，实际名称因环境而异）。
-
-| 能力 | 常见工具示例 | 说明 |
-|------|------------|------|
-| **搜索引擎** | WebSearch、GoogleSearch MCP、Tavily MCP 等 | 优先使用环境中可用的搜索工具 |
-| **网页抓取** | WebFetch、网页抓取 MCP（带缓存优先）| 获取搜索结果页或指定 URL 内容 |
-| **知识库搜索** | 知识库 MCP、Notion MCP、Confluence MCP 等 | 按用户配置的知识库工具搜索 |
-| **数据库查询** | ODPS MCP、BigQuery MCP、Snowflake MCP 等 | 按用户配置的数据库工具查询 |
-| **小红书** | 本地 `scripts/xhs/` 脚本 | TikHub API，开箱即用 |
-
-```
-判断逻辑：
-1. 检测当前环境中可用的工具列表
-2. 按上表匹配能力 → 使用对应工具执行
-3. 如果某能力无可用工具 → 告知用户具体缺失 → 建议用户手动获取 → 降级标注为 C/D 级
-```
+❌ Relying solely on generic Google search results without tracing original sources
+❌ Using single-source core data without annotating verification level
+❌ Presenting corporate self-reported data (official website/PR releases) as facts in the report
+❌ Using D-level data to support key conclusions
+❌ Not explaining or addressing data contradictions
 
 ---
 
-## 外部公开数据源
+## ⚡ Data Routing Table (for Stage 4 Quick Decisions)
 
-### 一、中国政府官方数据（P0 级）
+> **Usage**: At the start of Stage 4, match rows sequentially by research needs to determine which tool to use, what to query, and fallback options.
+> **Multi-source coverage principle**: For the same data need, don't stop after finding one source -- cover as many independent sources as possible per the "Data Source Combination Strategy by Topic" below, cross-validate before determining which to trust. Fallback options aren't "backups" -- they're "second perspectives."
 
-| 数据源 | 网址 | 覆盖内容 | 使用场景 |
-|--------|------|---------|---------|
-| **国家统计局** | https://data.stats.gov.cn/ | GDP、人口、消费、投资、工业等宏观经济 | 宏观环境分析、市场规模测算 |
-| **国家数据局** | https://www.nda.gov.cn/ | 数据要素、数字经济政策 | 数字经济、AI、大数据行业 |
-| **工信部** | https://www.miit.gov.cn/ | 工业、通信业、软件服务业数据 | 制造业、TMT 行业研究 |
-| **中国人民银行** | http://www.pbc.gov.cn/ | 金融、信贷、支付数据 | 金融、支付、信贷行业 |
-| **商务部** | http://www.mofcom.gov.cn/ | 商贸流通、电商、外资数据 | 零售、电商、消费行业 |
-| **中国互联网络信息中心 (CNNIC)** | https://www.cnnic.net.cn/ | 互联网发展统计报告 | 互联网行业基础数据 |
+| Data Need | Primary Capability | Query Template | Fallback |
+|-----------|--------------------|----------------|----------|
+| **Macroeconomic data** (GDP/CPI/population/investment) | Search engine | `{indicator} {year} site:stats.gov.cn` | `{indicator} National Bureau of Statistics {year}` -> Wind |
+| **Industry market size** | Search engine | `{industry} market size {year}` + restrict to trusted domains | Broker research reports -> Statista |
+| **Competitor company data** (earnings/funding/products) | Web scraping | Directly scrape cninfo.com.cn / SEC EDGAR in-site search page | Search engine `{company} annual report {year}` -> enterprise data platforms |
+| **User behavior/App data** | Search engine | `{App} MAU DAU QuestMobile {year}` | Qimai Data -> SimilarWeb |
+| **Policies & regulations** | Search engine | `{keywords} site:gov.cn` | PKU Law -> LegalSearch MCP |
+| **Consumer insights/user voices** | Xiaohongshu scripts | `scripts/xhs/check_topics.js --keywords "{keywords}"` | Search engine `{product} review Xiaohongshu` |
+| **Internal data/business docs** | Knowledge base search | Search via user-configured knowledge base MCP | Ask user directly |
+| **Structured business data** | Database query | Query via user-configured database MCP | Degrade to public data estimation |
+| **Expert opinions/deep information** | Interview (Track C) | Stage 3.5 generates guide -> user executes | Industry KOL public statements -> broker conference call transcripts |
+| **International market data** | Search engine | `{industry} market size {year} report` | Statista -> World Bank -> OECD |
+| **⚠️ Data does not exist** | -- | All above paths yield no results | Bottom-up estimation (decompose variables for step-by-step derivation) -> annotate as C-level + note estimation method |
 
----
+### Tool Availability Assessment
 
-### 二、国内权威第三方机构（P1 级）
+> The AI should automatically detect available tools in the current environment. The table below lists **common tool names** for each capability (examples only; actual names vary by environment).
 
-| 数据源 | 网址 | 特色领域 | 使用场景 |
-|--------|------|---------|---------|
-| **艾瑞咨询** | https://report.iresearch.cn/ | 互联网、新经济、消费 | 互联网行业、新商业模式 |
-| **易观分析（含易观千帆）** | https://www.analysys.cn/ | 数字用户分析、产业数字化、App 活跃用户/使用时长 | 用户画像、数字化转型、竞品分析 |
-| **头豹研究院** | https://www.leadleo.com/ | 新兴行业、细分赛道 | 新兴行业快速扫描 |
-| **CIC 灼识咨询** | https://www.cninsights.com/ | 消费、医疗、TMT | 消费行业、医疗健康 |
-| **IDC 中国** | https://www.idc.com/ | IT、云服务、数字化转型 | 企业软件、云计算、AI |
-| **Gartner 中国** | https://www.gartner.com/ | 技术趋势、IT 战略 | 技术选型、IT 投资判断 |
-
----
-
-### 三、券商研报、企业披露与工商数据平台（P1/P2/P3 级）
-
-| 数据源 | 网址 | 特点 | 使用场景 |
-|--------|------|------|---------|
-| **慧博投研资讯** | https://www.hibor.com.cn/ | 免费研报聚合平台 | 快速检索各行业深度报告 |
-| **洞见研报** | https://www.djyanbao.com/ | 研报下载、关键词检索（⚠️ 非官方渠道，存在合规风险，仅作线索检索用） | 竞争分析线索、公司研究（引用需追溯原始研报来源） |
-| **东方财富 Choice** | https://data.eastmoney.com/ | 金融数据终端 | 上市公司财务数据、行业数据 |
-| **Wind 金融终端** | https://www.wind.com.cn/ | 权威金融数据（需订阅） | 深度金融分析（如有权限） |
-| **巨潮资讯网** | https://www.cninfo.com.cn/ | A 股上市公司公告/财报原文 | 公司研究、财务分析（P3 级企业披露） |
-| **SEC EDGAR** | https://www.sec.gov/cgi-bin/browse-edgar | 美股上市公司 Filing 原文 | 中概股/美股公司研究（P3 级企业披露） |
-| **企查查** | https://www.qcc.com/ | 企业工商信息、股权结构、融资历史、司法风险 | 竞品背景调查、股权穿透、风险排查（P2 级） |
-| **天眼查** | https://www.tianyancha.com/ | 企业工商信息、关联图谱、经营风险 | 竞品尽调、供应商/合作方背调（P2 级） |
-| **IT桔子** | https://www.itjuzi.com/ | 创投数据库、融资事件、并购记录 | 新兴赛道投融资分析、竞品融资轮次追踪（P2 级） |
-
----
-
-### 四、移动互联网数据平台（P2 级）
-
-| 数据源 | 网址 | 核心能力 | 使用场景 |
-|--------|------|---------|---------|
-| **QuestMobile** | https://www.questmobile.com.cn/ | App 用户行为、DAU/MAU、使用时长 | 互联网产品分析、用户行为 |
-| **极光大数据** | https://www.jiguang.cn/ | 移动开发者数据、用户画像 | App 用户分析、行业趋势 |
-| **TalkingData** | https://www.talkingdata.com/ | 移动数据监测、用户洞察 | 用户行为分析、营销效果 |
-
----
-
-### 五、国际权威数据源（P1/P2 级，用于全球视角）
-
-| 数据源 | 网址 | 覆盖范围 | 使用场景 |
-|--------|------|---------|---------|
-| **Statista** | https://www.statista.com/ | 全球统计数据、市场预测 | 国际对标、全球市场（P1 📊） |
-| **IBISWorld** | https://www.ibisworld.com/ | 全球行业报告、市场研究 | 行业进入评估、国际对标（P1 📊） |
-| **Euromonitor** | https://www.euromonitor.com/ | 消费市场、零售数据 | 消费品、零售行业（P1 📊） |
-| **McKinsey Insights** | https://www.mckinsey.com/featured-insights | 思想领导力文章，非结构化数据 | 战略视角参考、趋势定性判断（P2 💡，禁止作为定量数据源） |
-| **BCG Insights** | https://www.bcg.com/publications | 思想领导力文章，非结构化数据 | 战略框架参考、创新模式启发（P2 💡，禁止作为定量数据源） |
-| **Bain Insights** | https://www.bain.com/insights/ | 思想领导力文章，非结构化数据 | 并购/战略视角参考（P2 💡，禁止作为定量数据源） |
-
----
-
-### 六、互联网大厂研究院（P2 级）
-
-| 数据源 | 网址 | 特色领域 | 使用场景 |
-|--------|------|---------|---------|
-| **阿里研究院** | https://www.aliresearch.com/ | 电商、数字经济、中小企业 | 电商、平台经济、产业带 |
-| **腾讯研究院** | https://tisi.org/ | 互联网 +、AI、数字内容 | 数字内容、AI 应用 |
-
----
-
-### 七、行业协会与组织（P1 级）
-
-| 数据源 | 领域 | 使用场景 |
-|--------|------|---------|
-| **中国银行业协会** | 银行业 | 银行业数据、行业规范 |
-| **中国保险行业协会** | 保险业 | 保险业统计、产品数据 |
-| **国家金融监督管理总局** | 金融监管 | 银行/保险/非银监管数据（原银保监会，2023 年重组） |
-| **中国支付清算协会** | 支付行业 | 支付交易数据、行业报告 |
-| **中国互联网协会** | 互联网行业 | 行业发展报告、自律规范 |
-| **中国连锁经营协会** | 零售业 | 连锁零售数据、消费趋势 |
-
----
-
-## 按议题的数据源组合策略
-
-### 互联网/数字经济行业
+| Capability | Common Tool Examples | Notes |
+|------------|---------------------|-------|
+| **Search engine** | WebSearch, GoogleSearch MCP, Tavily MCP, etc. | Prefer available search tools in the environment |
+| **Web scraping** | WebFetch, web scraping MCP (prefer cached) | Retrieve search result pages or specified URL content |
+| **Knowledge base search** | Yuque MCP, Notion MCP, Confluence MCP, etc. | Search via user-configured knowledge base tool |
+| **Database query** | ODPS MCP, BigQuery MCP, Snowflake MCP, etc. | Query via user-configured database tool |
+| **Xiaohongshu** | Local `scripts/xhs/` scripts | TikHub API, works out of the box |
 
 ```
-必选组合：
-1. CNNIC（基础用户数据）
-2. QuestMobile（App 行为数据）
-3. 艾瑞咨询/易观（行业分析报告）
-4. 国家统计局（数字经济宏观数据）
-
-可选补充：
-- 阿里研究院/腾讯研究院（生态视角）
-- IDC（企业 IT/云数据）
-```
-
-### 消费行业
-
-```
-必选组合：
-1. 国家统计局（社零数据、消费宏观）
-2. CIC 灼识咨询（消费行业报告）
-3. 券商消费行业研报（慧博检索）
-
-可选补充：
-- Euromonitor（国际对标）
-- 中国连锁经营协会（渠道数据）
-```
-
-### 金融/支付行业
-
-```
-必选组合：
-1. 中国人民银行（官方金融数据）
-2. 中国支付清算协会（支付数据）
-3. 国家金融监管总局/银行业协会（银行业数据）
-4. 券商金融行业研报
-
-可选补充：
-- 艾瑞咨询（支付行业报告）
-- IDC（金融科技 IT 投入）
-```
-
-### TMT/科技行业
-
-```
-必选组合：
-1. 工信部（行业统计数据）
-2. IDC/Gartner（技术趋势、市场数据）
-3. 券商 TMT 行业研报
-
-可选补充：
-- 腾讯/阿里研究院（AI/云数据）
-- Statista（全球对标）
-```
-
-### 新兴行业/细分赛道
-
-```
-必选组合：
-1. 头豹研究院（快速扫描）
-2. 券商深度研报（慧博检索）
-3. 工商/企查查（企业数据）
-
-可选补充：
-- 专家访谈（验证非公开信息）
-- 媒体报道交叉验证
+Decision logic:
+1. Detect available tools in the current environment
+2. Match capabilities to the table above -> use corresponding tool
+3. If a capability has no available tool -> inform user of the gap -> suggest manual retrieval -> degrade annotation to C/D level
 ```
 
 ---
 
-## 内部特色数据源
+## External Public Data Sources
 
-### 八、知识库搜索（特色数据源 ★）
+### I. China Government Official Data (P0 Level)
 
-> **定位**：搜索用户知识库（知识库、Notion、Confluence 等）中的历史研究报告、行业笔记、方法论沉淀
+| Data Source | URL | Coverage | Use Case |
+|-------------|-----|----------|----------|
+| **National Bureau of Statistics** | https://data.stats.gov.cn/ | GDP, population, consumption, investment, industry, and other macroeconomic data | Macro environment analysis, market size estimation |
+| **National Data Administration** | https://www.nda.gov.cn/ | Data elements, digital economy policies | Digital economy, AI, big data industries |
+| **Ministry of Industry and Information Technology** | https://www.miit.gov.cn/ | Industrial, communications, software services data | Manufacturing, TMT industry research |
+| **People's Bank of China** | http://www.pbc.gov.cn/ | Finance, credit, payment data | Finance, payments, credit industries |
+| **Ministry of Commerce** | http://www.mofcom.gov.cn/ | Commerce circulation, e-commerce, foreign investment data | Retail, e-commerce, consumer industries |
+| **China Internet Network Information Center (CNNIC)** | https://www.cnnic.net.cn/ | Internet development statistical reports | Internet industry foundational data |
+
+---
+
+### II. Domestic Authoritative Third-Party Institutions (P1 Level)
+
+| Data Source | URL | Specialty | Use Case |
+|-------------|-----|-----------|----------|
+| **iResearch** | https://report.iresearch.cn/ | Internet, new economy, consumption | Internet industry, new business models |
+| **Analysys (incl. Analysys Qianfan)** | https://www.analysys.cn/ | Digital user analysis, industry digitalization, App active users/usage duration | User profiling, digital transformation, competitor analysis |
+| **LeadLeo** | https://www.leadleo.com/ | Emerging industries, niche segments | Quick scanning of emerging industries |
+| **CIC Consulting** | https://www.cninsights.com/ | Consumer, healthcare, TMT | Consumer industry, healthcare |
+| **IDC China** | https://www.idc.com/ | IT, cloud services, digital transformation | Enterprise software, cloud computing, AI |
+| **Gartner China** | https://www.gartner.com/ | Technology trends, IT strategy | Technology selection, IT investment decisions |
+
+---
+
+### III. Broker Reports, Corporate Disclosures & Business Data Platforms (P1/P2/P3 Level)
+
+| Data Source | URL | Characteristics | Use Case |
+|-------------|-----|-----------------|----------|
+| **Hibor** | https://www.hibor.com.cn/ | Free research report aggregation platform | Quick retrieval of in-depth industry reports |
+| **DJYanbao** | https://www.djyanbao.com/ | Report downloads, keyword search (⚠️ unofficial channel with compliance risks, use for lead search only) | Competitive analysis leads, company research (citations must trace to original report source) |
+| **East Money Choice** | https://data.eastmoney.com/ | Financial data terminal | Listed company financial data, industry data |
+| **Wind Financial Terminal** | https://www.wind.com.cn/ | Authoritative financial data (subscription required) | In-depth financial analysis (if authorized) |
+| **CNINFO** | https://www.cninfo.com.cn/ | A-share listed company announcements/earnings originals | Company research, financial analysis (P3 corporate disclosure) |
+| **SEC EDGAR** | https://www.sec.gov/cgi-bin/browse-edgar | US-listed company filing originals | ADR/US-listed company research (P3 corporate disclosure) |
+| **Qichacha** | https://www.qcc.com/ | Enterprise registration info, equity structure, funding history, legal risks | Competitor background investigation, equity tracing, risk screening (P2) |
+| **Tianyancha** | https://www.tianyancha.com/ | Enterprise registration info, relationship graphs, operational risks | Competitor due diligence, supplier/partner background checks (P2) |
+| **IT Juzi** | https://www.itjuzi.com/ | VC/PE database, funding events, M&A records | Emerging segment investment analysis, competitor funding round tracking (P2) |
+
+---
+
+### IV. Mobile Internet Data Platforms (P2 Level)
+
+| Data Source | URL | Core Capability | Use Case |
+|-------------|-----|-----------------|----------|
+| **QuestMobile** | https://www.questmobile.com.cn/ | App user behavior, DAU/MAU, usage duration | Internet product analysis, user behavior |
+| **Aurora Mobile** | https://www.jiguang.cn/ | Mobile developer data, user profiling | App user analysis, industry trends |
+| **TalkingData** | https://www.talkingdata.com/ | Mobile data monitoring, user insights | User behavior analysis, marketing effectiveness |
+
+---
+
+### V. International Authoritative Data Sources (P1/P2 Level, for global perspective)
+
+| Data Source | URL | Coverage | Use Case |
+|-------------|-----|----------|----------|
+| **Statista** | https://www.statista.com/ | Global statistics, market forecasts | International benchmarking, global markets (P1 📊) |
+| **IBISWorld** | https://www.ibisworld.com/ | Global industry reports, market research | Industry entry assessment, international benchmarking (P1 📊) |
+| **Euromonitor** | https://www.euromonitor.com/ | Consumer markets, retail data | Consumer goods, retail industry (P1 📊) |
+| **McKinsey Insights** | https://www.mckinsey.com/featured-insights | Thought leadership articles, unstructured data | Strategic perspective reference, qualitative trend assessment (P2 💡, prohibited as quantitative data source) |
+| **BCG Insights** | https://www.bcg.com/publications | Thought leadership articles, unstructured data | Strategic framework reference, innovation model inspiration (P2 💡, prohibited as quantitative data source) |
+| **Bain Insights** | https://www.bain.com/insights/ | Thought leadership articles, unstructured data | M&A/strategy perspective reference (P2 💡, prohibited as quantitative data source) |
+
+---
+
+### VI. Internet Tech Company Research Institutes (P2 Level)
+
+| Data Source | URL | Specialty | Use Case |
+|-------------|-----|-----------|----------|
+| **Alibaba Research Institute** | https://www.aliresearch.com/ | E-commerce, digital economy, SMEs | E-commerce, platform economy, industrial clusters |
+| **Tencent Research Institute** | https://tisi.org/ | Internet+, AI, digital content | Digital content, AI applications |
+
+---
+
+### VII. Industry Associations & Organizations (P1 Level)
+
+| Data Source | Domain | Use Case |
+|-------------|--------|----------|
+| **China Banking Association** | Banking | Banking data, industry standards |
+| **Insurance Association of China** | Insurance | Insurance statistics, product data |
+| **National Financial Regulatory Administration** | Financial regulation | Banking/insurance/non-bank regulatory data (formerly CBIRC, reorganized 2023) |
+| **Payment & Clearing Association of China** | Payments industry | Payment transaction data, industry reports |
+| **Internet Society of China** | Internet industry | Industry development reports, self-regulatory standards |
+| **China Chain Store & Franchise Association** | Retail | Chain retail data, consumption trends |
+
+---
+
+## Data Source Combination Strategy by Topic
+
+### Internet/Digital Economy
+
+```
+Required combination:
+1. CNNIC (foundational user data)
+2. QuestMobile (App behavior data)
+3. iResearch/Analysys (industry analysis reports)
+4. National Bureau of Statistics (digital economy macro data)
+
+Optional supplements:
+- Alibaba Research Institute/Tencent Research Institute (ecosystem perspective)
+- IDC (enterprise IT/cloud data)
+```
+
+### Consumer Industry
+
+```
+Required combination:
+1. National Bureau of Statistics (retail sales data, consumption macro)
+2. CIC Consulting (consumer industry reports)
+3. Broker consumer industry reports (Hibor search)
+
+Optional supplements:
+- Euromonitor (international benchmarking)
+- China Chain Store & Franchise Association (channel data)
+```
+
+### Finance/Payments Industry
+
+```
+Required combination:
+1. People's Bank of China (official financial data)
+2. Payment & Clearing Association of China (payment data)
+3. National Financial Regulatory Administration/Banking Association (banking data)
+4. Broker finance industry reports
+
+Optional supplements:
+- iResearch (payments industry reports)
+- IDC (fintech IT spending)
+```
+
+### TMT/Technology Industry
+
+```
+Required combination:
+1. Ministry of Industry and Information Technology (industry statistics)
+2. IDC/Gartner (technology trends, market data)
+3. Broker TMT industry reports
+
+Optional supplements:
+- Tencent/Alibaba Research Institutes (AI/cloud data)
+- Statista (global benchmarking)
+```
+
+### Emerging Industries/Niche Segments
+
+```
+Required combination:
+1. LeadLeo (quick scanning)
+2. Broker in-depth reports (Hibor search)
+3. Business registration/Qichacha (enterprise data)
+
+Optional supplements:
+- Expert interviews (validating non-public information)
+- Media report cross-validation
+```
+
+---
+
+## Internal Specialty Data Sources
+
+### VIII. Knowledge Base Search (Specialty Data Source)
+
+> **Purpose**: Search user knowledge bases (Yuque, Notion, Confluence, etc.) for historical research reports, industry notes, methodology resources
 >
-> **前提**：需要用户配置了知识库 MCP 工具
+> **Prerequisite**: User must have configured a knowledge base MCP tool
 
-**所需能力**（AI 根据环境自动匹配可用工具）：
+**Required capabilities** (AI auto-matches available tools in the environment):
 
-| 能力 | 说明 | 使用场景 |
-|------|------|---------|
-| **关键词搜索** | 在知识库中搜索文档 | 快速检索历史研究、行业笔记 |
-| **文档详情** | 获取文档正文内容 | 深入阅读特定文档 |
-| **知识库浏览** | 列出知识库或文档列表 | 按知识库浏览文档 |
+| Capability | Description | Use Case |
+|------------|-------------|----------|
+| **Keyword search** | Search documents in the knowledge base | Quick retrieval of historical research, industry notes |
+| **Document detail** | Get full document content | Deep reading of specific documents |
+| **Knowledge base browsing** | List knowledge bases or document lists | Browse documents by knowledge base |
 
-**使用时机**：
-- Stage 3 预扫描：快速了解是否有相关历史研究
-- Stage 4 研究执行：补充内部视角、历史数据
-- Stage 5 洞察生成：参考历史洞察框架
+**When to use**:
+- Stage 3 pre-scan: Quick check for relevant historical research
+- Stage 4 Research Execution: Supplement internal perspective, historical data
+- Stage 5 Insight Synthesis: Reference historical Insight frameworks
 
-**使用规则**：
-1. 优先搜索用户个人知识库，再搜索团队知识库
-2. 找到相关文档后，使用文档详情工具获取完整内容
-3. 引用知识库内容时，标注来源：`📄 来源：知识库文档 - [文档标题]`
-4. 知识库内容作为内部视角，需与公开数据交叉验证
+**Usage rules**:
+1. Search user's personal knowledge base first, then team knowledge base
+2. After finding relevant documents, use document detail tool for full content
+3. When citing knowledge base content, annotate source: `📄 Source: Knowledge Base - [Document Title]`
+4. Knowledge base content serves as internal perspective; cross-validate with public data
 
-**搜索策略**：
+**Search strategy**:
 ```
-Step 1: 使用知识库搜索工具搜索关键词
-Step 2: 根据搜索结果选择最相关文档
-Step 3: 使用文档详情工具获取正文
-Step 4: 提取有用信息，标注来源
+Step 1: Search keywords using knowledge base search tool
+Step 2: Select most relevant documents from results
+Step 3: Use document detail tool to get full text
+Step 4: Extract useful information, annotate source
 ```
 
 ---
 
-### 九、内部数据库（特色数据源 ★）
+### IX. Internal Database (Specialty Data Source)
 
-> **定位**：公司内部业务数据、用户行为数据、交易记录等核心数据资产
+> **Purpose**: Company internal business data, user behavior data, transaction records, and other core data assets
 >
-> **前提**：需要用户配置了数据库 MCP 工具（如 ODPS、BigQuery、Snowflake 等）并有相应访问权限
+> **Prerequisite**: User must have configured a database MCP tool (e.g., ODPS, BigQuery, Snowflake) with appropriate access permissions
 
-**所需能力**（AI 根据环境自动匹配可用工具）：
+**Required capabilities** (AI auto-matches available tools in the environment):
 
-| 能力 | 说明 | 使用场景 |
-|------|------|---------|
-| **表搜索** | 根据自然语言描述搜索相关表 | 找到目标数据表 |
-| **表详情** | 获取表详情（字段、描述、大小） | 了解表结构和数据内容 |
-| **SQL 查询** | 执行 SQL 查询 | 提取具体数据 |
-| **字段搜索** | 搜索字段名 | 找到包含特定字段的表 |
+| Capability | Description | Use Case |
+|------------|-------------|----------|
+| **Table search** | Search related tables by natural language description | Find target data tables |
+| **Table detail** | Get table details (fields, descriptions, size) | Understand table structure and content |
+| **SQL query** | Execute SQL queries | Extract specific data |
+| **Field search** | Search field names | Find tables containing specific fields |
 
-**使用时机**：
-- Stage 3 预扫描：快速了解是否有相关内部数据
-- Stage 4 研究执行：提取内部业务数据、用户行为数据
-- 数据验证：与公开数据交叉验证，提升置信度
+**When to use**:
+- Stage 3 pre-scan: Quick check for relevant internal data
+- Stage 4 Research Execution: Extract internal business data, user behavior data
+- Data validation: Cross-validate with public data to improve Confidence Level
 
-**执行流程**：
+**Execution flow**:
 ```
-Step 1: 表发现
-   - 使用表搜索工具搜索关键词（如"用户交易"、"商品明细"）
-   - 或使用字段搜索工具搜索字段名（如"user_id"、"gmv"）
+Step 1: Table Discovery
+   - Search keywords using table search tool (e.g., "user transactions", "product details")
+   - Or search field names using field search tool (e.g., "user_id", "gmv")
 
-Step 2: 表理解
-   - 使用表详情工具获取表详情
-   - 查看字段定义、表描述、数据量级
+Step 2: Table Understanding
+   - Use table detail tool to get table details
+   - Review field definitions, table descriptions, data volume
 
-Step 3: 数据提取
-   - 编写 SQL 查询语句
-   - 使用 SQL 查询工具执行
-   - 注意：只允许执行 SELECT 语句
+Step 3: Data Extraction
+   - Write SQL query statements
+   - Execute using SQL query tool
+   - Note: Only SELECT statements are allowed
 
-Step 4: 结果处理
-   - 解析返回数据
-   - 标注数据来源：📄 来源：{数据库} - [表名] - [查询时间]
+Step 4: Result Processing
+   - Parse returned data
+   - Annotate source: 📄 Source: {database} - [table name] - [query time]
 ```
 
-**SQL 编写规范**：
+**SQL coding standards**:
 ```sql
--- ✅ 推荐：明确字段、添加条件、限制行数
+-- ✅ Recommended: explicit fields, add conditions, limit rows
 SELECT
     user_id,
     SUM(gmv) AS total_gmv,
@@ -346,156 +346,156 @@ WHERE dt = '2024-01-01'
 GROUP BY user_id
 LIMIT 1000;
 
--- ❌ 禁止：SELECT * 全量查询大表
+-- ❌ Prohibited: SELECT * full scan on large tables
 SELECT * FROM huge_table;
 ```
 
-**注意事项**：
-1. **只执行 SELECT 语句**：禁止 INSERT/UPDATE/DELETE/DROP
-2. **限制查询行数**：大表查询必须添加 LIMIT
-3. **分区过滤**：优先使用分区字段（如 dt）过滤，减少扫描量
-4. **数据脱敏**：涉及用户隐私数据需脱敏处理
-5. **来源标注**：所有数据必须标注来源表和查询时间
+**Notes**:
+1. **Only execute SELECT statements**: INSERT/UPDATE/DELETE/DROP prohibited
+2. **Limit query rows**: Large table queries must include LIMIT
+3. **Partition filtering**: Prefer partition fields (e.g., dt) for filtering, reducing scan volume
+4. **Data masking**: User privacy data requires masking
+5. **Source annotation**: All data must annotate source table and query time
 
-**数据验证等级**：
-| 来源类型 | 验证等级 | 说明 |
-|---------|---------|------|
-| 官方数据表（经过审批） | A 级 | 可信赖 |
-| 业务数据表（常规） | B 级 | 需理解数据口径 |
-| 临时表/中间表 | C 级 | 需追溯上游验证 |
+**Data verification levels**:
+| Source Type | Verification Level | Notes |
+|-------------|-------------------|-------|
+| Official data tables (approved) | A Level | Trustworthy |
+| Business data tables (regular) | B Level | Need to understand data definitions |
+| Temporary/intermediate tables | C Level | Need to trace upstream for validation |
 
 ---
 
-### 十、小红书数据（特色数据源 ★）
+### X. Xiaohongshu Data (Specialty Data Source)
 
-> **定位**：消费者舆情、产品反馈、趋势洞察、品牌口碑
+> **Purpose**: Consumer sentiment, product feedback, trend insights, brand reputation
 >
-> **数据来源**：TikHub API（已内置 API Key，开箱即用）
+> **Data source**: TikHub API (built-in API Key, works out of the box)
 
-**脚本位置**：`scripts/xhs/`
+**Script location**: `scripts/xhs/`
 
-| 脚本 | 功能 | 使用场景 |
-|------|------|---------|
-| **search_notes.js** | 关键词搜索笔记 | 快速检索话题相关内容 |
-| **fetch_user_notes.js** | 获取用户最新笔记 | 追踪特定博主动态 |
-| **get_note.js** | 获取笔记详情 | 深入分析单条内容 |
-| **check_topics.js** | 批量扫描关键词/用户 | 舆情监控、趋势扫描 |
-| **tikhub_client.js** | API 客户端（共享） | 内部依赖 |
+| Script | Function | Use Case |
+|--------|----------|----------|
+| **search_notes.js** | Keyword note search | Quick retrieval of topic-related content |
+| **fetch_user_notes.js** | Get user's latest notes | Track specific influencer activity |
+| **get_note.js** | Get note details | In-depth analysis of individual content |
+| **check_topics.js** | Batch keyword/user scan | Sentiment monitoring, trend scanning |
+| **tikhub_client.js** | API client (shared) | Internal dependency |
 
-**使用时机**：
-- Stage 3 预扫描：了解消费者舆情、产品口碑
-- Stage 4 研究执行：收集消费者真实反馈、竞品舆情
-- Stage 5 洞察生成：从用户视角提炼洞察
+**When to use**:
+- Stage 3 pre-scan: Understanding consumer sentiment, product reputation
+- Stage 4 Research Execution: Collecting authentic consumer feedback, competitor sentiment
+- Stage 5 Insight Synthesis: Extracting Insights from user perspective
 
-**执行流程**：
+**Execution flow**:
 ```
-Step 1: 关键词搜索
-   - node scripts/xhs/search_notes.js --keyword "关键词"
-   - 可选排序：general（综合）、time_descending（最新）、popularity_descending（最热）
+Step 1: Keyword Search
+   - node scripts/xhs/search_notes.js --keyword "keyword"
+   - Optional sort: general, time_descending (newest), popularity_descending (most popular)
 
-Step 2: 批量扫描（推荐）
-   - node scripts/xhs/check_topics.js --keywords "关键词1,关键词2" --since 24h
-   - 自动去重、按互动量排序、时间范围过滤
+Step 2: Batch Scan (recommended)
+   - node scripts/xhs/check_topics.js --keywords "keyword1,keyword2" --since 24h
+   - Auto-dedup, sorted by engagement, time range filtering
 
-Step 3: 详情获取（如需深入）
-   - node scripts/xhs/get_note.js --url "分享链接"
-   - 获取完整笔记内容和评论
+Step 3: Detail Retrieval (for deep dives)
+   - node scripts/xhs/get_note.js --url "share link"
+   - Get full note content and comments
 ```
 
-**参数说明**：
+**Parameter reference**:
 
-| 参数 | 说明 | 示例 |
-|------|------|------|
-| `--keyword` | 搜索关键词 | "AI编程" |
-| `--keywords` | 多关键词（逗号分隔） | "AI编程,Cursor" |
-| `--user-id` | 用户ID（可多个） | "uid1,uid2" |
-| `--since` | 时间范围 | `1h`, `6h`, `24h`, `7d` |
-| `--sort` | 排序方式 | `general`, `time_descending`, `popularity_descending` |
-| `--count` | 返回条数 | 默认 5 |
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `--keyword` | Search keyword | "AI programming" |
+| `--keywords` | Multiple keywords (comma-separated) | "AI programming,Cursor" |
+| `--user-id` | User ID (can be multiple) | "uid1,uid2" |
+| `--since` | Time range | `1h`, `6h`, `24h`, `7d` |
+| `--sort` | Sort method | `general`, `time_descending`, `popularity_descending` |
+| `--count` | Number of results | Default 5 |
 
-**价值判断标准**：
+**Value assessment criteria**:
 
-| 类型 | 特征 | 处理方式 |
-|------|------|---------|
-| **值得关注** | 深度评测、行业趋势、KOL观点、竞品动态、用户痛点、高互动 | 重点分析 |
-| **常规内容** | 转载搬运、广告软文、低互动、关联度低 | 简要记录或忽略 |
+| Type | Characteristics | Handling |
+|------|-----------------|----------|
+| **Worth noting** | In-depth reviews, industry trends, KOL opinions, competitor dynamics, user pain points, high engagement | Focus analysis |
+| **Regular content** | Reposts, sponsored content, low engagement, low relevance | Brief note or skip |
 
-**输出格式**：
+**Output format**:
 ```
-小红书情报扫描完成（最近 24h）
+Xiaohongshu intelligence scan complete (last 24h)
 
-🔔 值得关注的内容：
+🔔 Notable content:
 
-1. @博主名 - 2026-02-24
-   标题：AI编程工具深度对比评测
-   ❤️ 1.2万 | ⭐ 8956 | 💬 326
+1. @AuthorName - 2026-02-24
+   Title: In-depth Comparison of AI Programming Tools
+   ❤️ 12K | ⭐ 8956 | 💬 326
    🔗 https://www.xiaohongshu.com/explore/...
 
-2. @另一位博主 - 2026-02-24
-   标题：Cursor 使用一个月真实感受
+2. @AnotherAuthor - 2026-02-24
+   Title: One Month Real Experience with Cursor
    ❤️ 3456 | ⭐ 2100 | 💬 89
    🔗 https://www.xiaohongshu.com/explore/...
 
-📋 其他内容：8 条常规笔记（已省略）
+📋 Other content: 8 regular notes (omitted)
 ```
 
-**数据验证等级**：
-| 来源类型 | 验证等级 | 说明 |
-|---------|---------|------|
-| 高互动笔记（1万+） | B 级 | 反映真实用户关注 |
-| KOL/KOC 原创 | B 级 | 专业视角，需交叉验证 |
-| 普通用户笔记 | C 级 | 个案，需多样本验证 |
-| 广告软文 | D 级 | 禁止作为关键论据 |
+**Data verification levels**:
+| Source Type | Verification Level | Notes |
+|-------------|-------------------|-------|
+| High-engagement notes (10K+) | B Level | Reflects genuine user interest |
+| KOL/KOC original content | B Level | Professional perspective, needs cross-validation |
+| Regular user notes | C Level | Individual cases, need multi-sample validation |
+| Sponsored content | D Level | Prohibited as key evidence |
 
-**适用场景判断**：
+**Applicability assessment**:
 
-| 议题类型 | 是否适用 | 理由 |
-|---------|---------|------|
-| 消费者洞察 | ✅ 强烈推荐 | 直接获取用户真实反馈 |
-| C端产品研究 | ✅ 推荐 | 了解用户评价和痛点 |
-| 品牌舆情监控 | ✅ 推荐 | 实时追踪品牌口碑 |
-| B端业务研究 | ⚠️ 谨慎 | 内容较少，需结合其他渠道 |
-| 行业宏观研究 | ⚠️ 辅助 | 补充消费者视角 |
+| Topic Type | Applicable? | Reason |
+|------------|-------------|--------|
+| Consumer insights | ✅ Strongly recommended | Direct access to authentic user feedback |
+| C-end product research | ✅ Recommended | Understanding user reviews and pain points |
+| Brand sentiment monitoring | ✅ Recommended | Real-time brand reputation tracking |
+| B-end business research | ⚠️ Use with caution | Limited content, supplement with other channels |
+| Industry macro research | ⚠️ Supplementary | Adding consumer perspective |
 
 ---
 
-### 十一、用户反馈数据（特色数据源 ★）
+### XI. User Feedback Data (Specialty Data Source)
 
-> **定位**：用户真实反馈、体验问题、投诉痛点、满意度洞察
+> **Purpose**: Authentic user feedback, experience issues, complaint pain points, satisfaction insights
 >
-> **前提**：需要用户配置了数据库 MCP 工具，且有用户反馈/客服工单类数据表
+> **Prerequisite**: User must have configured a database MCP tool with access to user feedback/customer service ticket data tables
 
-**所需能力**（AI 根据环境自动匹配可用工具）：
+**Required capabilities** (AI auto-matches available tools in the environment):
 
-| 能力 | 说明 | 使用场景 |
-|------|------|---------|
-| **表搜索** | 搜索用户反馈/客服相关数据表 | 找到目标表 |
-| **表详情** | 获取表结构和字段定义 | 理解数据口径 |
-| **SQL 查询** | 执行聚合/明细查询 | 提取反馈数据 |
+| Capability | Description | Use Case |
+|------------|-------------|----------|
+| **Table search** | Search user feedback/customer service related data tables | Find target table |
+| **Table detail** | Get table structure and field definitions | Understand data definitions |
+| **SQL query** | Execute aggregate/detail queries | Extract feedback data |
 
-**典型表结构**（实际字段以用户环境为准）：
+**Typical table structure** (actual fields depend on user environment):
 
-| 字段类型 | 典型字段名 | 分析价值 |
-|---------|-----------|---------|
-| 问题分类（多级） | `category_l1`, `category_l2`, `category_l3` 等 | 问题分布、痛点聚类 |
-| 问题内容 | `question_text`, `feedback_content` 等 | 痛点挖掘、情感分析 |
-| 产品维度 | `product`, `sub_product` 等 | 产品维度分析 |
-| 时间分区 | `dt`, `create_date` 等 | 趋势变化分析 |
+| Field Type | Typical Field Names | Analysis Value |
+|------------|---------------------|----------------|
+| Issue category (multi-level) | `category_l1`, `category_l2`, `category_l3`, etc. | Issue distribution, pain point clustering |
+| Issue content | `question_text`, `feedback_content`, etc. | Pain point mining, sentiment analysis |
+| Product dimension | `product`, `sub_product`, etc. | Product dimension analysis |
+| Time partition | `dt`, `create_date`, etc. | Trend analysis |
 
-**典型分析维度**：
+**Typical analysis dimensions**:
 
-| 分析类型 | SQL 思路 | 产出 |
-|---------|---------|------|
-| **问题分布** | GROUP BY 一级/二级分类 + COUNT | 哪些品类问题最多 |
-| **痛点聚类** | GROUP BY 最细分类 + COUNT + ORDER BY DESC | TOP N 高频痛点 |
-| **产品体验** | WHERE product = 'X' + GROUP BY sub_product | 特定产品的体验短板 |
-| **趋势变化** | GROUP BY 日期 + COUNT | 问题量随时间变化 |
-| **深度挖掘** | WHERE 分类条件 + 问题内容字段 | 具体用户原话和态度 |
+| Analysis Type | SQL Approach | Output |
+|---------------|-------------|--------|
+| **Issue distribution** | GROUP BY level-1/level-2 category + COUNT | Which categories have the most issues |
+| **Pain point clustering** | GROUP BY finest category + COUNT + ORDER BY DESC | TOP N high-frequency pain points |
+| **Product experience** | WHERE product = 'X' + GROUP BY sub_product | Specific product's experience shortcomings |
+| **Trend analysis** | GROUP BY date + COUNT | Issue volume change over time |
+| **Deep dive** | WHERE category condition + content field | Specific user verbatims and attitudes |
 
-**示例 SQL**（字段名需替换为实际表字段）：
+**Example SQL** (field names need to be replaced with actual table fields):
 
 ```sql
--- 问题分布：各一级分类问题量
+-- Issue distribution: issue volume by level-1 category
 SELECT category_l1, COUNT(*) AS cnt
 FROM {project}.{feedback_table}
 WHERE dt >= '{start_date}'
@@ -503,71 +503,71 @@ GROUP BY category_l1
 ORDER BY cnt DESC
 LIMIT 20;
 
--- 痛点聚类：某分类下 TOP 高频问题
+-- Pain point clustering: TOP frequent issues under a category
 SELECT category_l3, COUNT(*) AS cnt
 FROM {project}.{feedback_table}
-WHERE category_l1 = '{目标分类}'
+WHERE category_l1 = '{target_category}'
   AND dt >= '{start_date}'
   AND category_l3 IS NOT NULL
 GROUP BY category_l3
 ORDER BY cnt DESC
 LIMIT 30;
 
--- 用户原话：获取具体问题详情
+-- User verbatims: get specific issue details
 SELECT category_l1, category_l2, feedback_content, dt
 FROM {project}.{feedback_table}
-WHERE category_l1 IN ('{分类1}', '{分类2}')
+WHERE category_l1 IN ('{category1}', '{category2}')
   AND dt >= '{start_date}'
 LIMIT 100;
 ```
 
-**执行流程**：
+**Execution flow**:
 ```
-Step 1: 使用表搜索工具搜索"用户反馈"、"客服工单"、"用户投诉"等关键词
-Step 2: 使用表详情工具查看字段定义，理解分类体系和数据口径
-Step 3: 根据实际字段编写 SQL，注意分区过滤和 LIMIT
-Step 4: 解析结果，标注来源
+Step 1: Search for "user feedback", "customer service tickets", "user complaints" using table search tool
+Step 2: Use table detail tool to view field definitions, understand the classification system and data definitions
+Step 3: Write SQL based on actual fields, ensure partition filtering and LIMIT
+Step 4: Parse results, annotate source
 ```
 
-**注意事项**：
-1. **分区过滤必须**：日期分区字段必须加条件，避免全表扫描
-2. **LIMIT 必须**：默认 LIMIT 1000，深度分析可适当放大
-3. **字段适配**：不同公司的分类体系不同，先查表结构再写 SQL
-4. **内容字段**：用户反馈内容字段可能包含多部分结构（问题+方案+态度），注意解析
+**Notes**:
+1. **Partition filtering required**: Date partition field must have conditions to avoid full table scans
+2. **LIMIT required**: Default LIMIT 1000, can increase moderately for deep analysis
+3. **Field adaptation**: Classification systems differ across companies; check table structure before writing SQL
+4. **Content fields**: User feedback content fields may contain multi-part structures (issue+solution+attitude); parse carefully
 
-**数据验证等级**：
+**Data verification levels**:
 
-| 来源类型 | 验证等级 | 说明 |
-|---------|---------|------|
-| 问题量统计（聚合） | A 级 | 官方系统数据，直接可信 |
-| 单条用户原话 | B 级 | 真实反馈，但属个案 |
-| 趋势判断（需多期对比） | B 级 | 需验证时间跨度是否充分 |
+| Source Type | Verification Level | Notes |
+|-------------|-------------------|-------|
+| Issue volume statistics (aggregate) | A Level | Official system data, directly trustworthy |
+| Individual user verbatim | B Level | Authentic feedback, but individual case |
+| Trend assessment (needs multi-period comparison) | B Level | Need to verify sufficient time span |
 
-**适用场景判断**：
+**Applicability assessment**:
 
-| 议题类型 | 是否适用 | 理由 |
-|---------|---------|------|
-| 产品优化 | ✅ 强烈推荐 | 直接定位用户痛点和体验短板 |
-| 消费者洞察 | ✅ 推荐 | 获取用户真实反馈和态度 |
-| 竞争分析 | ⚠️ 辅助 | 可了解自身短板，但无竞品数据 |
-| 行业研究 | ❌ 不适用 | 仅覆盖自有产品 |
-| 商业模式分析 | ⚠️ 辅助 | 可发现用户未满足需求 |
+| Topic Type | Applicable? | Reason |
+|------------|-------------|--------|
+| Product optimization | ✅ Strongly recommended | Directly identify user pain points and experience gaps |
+| Consumer insights | ✅ Recommended | Access to authentic user feedback and attitudes |
+| Competitive analysis | ⚠️ Supplementary | Can identify own weaknesses, but no competitor data |
+| Industry research | ❌ Not applicable | Only covers own products |
+| Business model analysis | ⚠️ Supplementary | Can discover unmet user needs |
 
 ---
 
-## 数据源接入状态
+## Data Source Integration Status
 
-> 特色数据源需用户自行配置对应 MCP 工具。AI 在 Stage 4 开始时自动检测可用工具，未配置的数据源自动跳过并告知用户。
+> Specialty data sources require user configuration of corresponding MCP tools. The AI auto-detects available tools at Stage 4 start; unconfigured data sources are automatically skipped with user notification.
 >
-> | 数据源 | 所需配置 | 状态 |
-> |--------|---------|------|
-> | 知识库搜索 | 知识库/Notion/Confluence MCP | 按环境检测 |
-> | 内部数据库 | ODPS/BigQuery/Snowflake MCP | 按环境检测 |
-> | 小红书数据 | 内置脚本（开箱即用） | ✅ 已内置 |
-> | 用户反馈数据 | 数据库 MCP + 反馈类数据表 | 按环境检测 |
+> | Data Source | Required Configuration | Status |
+> |------------|----------------------|--------|
+> | Knowledge base search | Yuque/Notion/Confluence MCP | Auto-detected |
+> | Internal database | ODPS/BigQuery/Snowflake MCP | Auto-detected |
+> | Xiaohongshu data | Built-in scripts (out of the box) | ✅ Built-in |
+> | User feedback data | Database MCP + feedback data table | Auto-detected |
 
 ---
 
-## 附录：数据验证清单模板
+## Appendix: Data Verification Checklist Template
 
-> 验证清单的完整模板见 [`triangulation.md`](../methodology/triangulation.md) 的「输出格式」章节。每份报告末尾必须附该清单。
+> The complete verification checklist template is in the "Output Format" section of [`triangulation.md`](../methodology/triangulation.md). Every report must include this checklist at the end.

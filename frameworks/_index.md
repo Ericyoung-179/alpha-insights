@@ -1,385 +1,387 @@
-# 框架索引与匹配规则（Framework Index）
+# Framework Index & Matching Rules (Framework Index)
 
-> **定位**：Stage 2 问题定义时加载，用于为研究议题匹配最合适的分析框架组合
+> **Purpose**: Loaded during Stage 2 problem definition to match the most suitable analytical framework combination for research topics
 >
-> **核心机制**：主框架（分析骨架）+ 增强框架（补充深度）+ 可选框架（按需叠加）
+> **Core Mechanism**: Primary Framework (analysis backbone) + Enhancement Framework (supplementary depth) + Optional Framework (add-on as needed)
 >
-> **使用方式**：AI 根据研究类型和议题特征，从本索引选择框架组合加载
+> **Usage**: AI selects and loads framework combinations from this index based on research type and topic characteristics
 
 ---
 
-## 框架层级定义
+## Framework Tier Definitions
 
-| 层级 | 符号 | 定义 | 数量限制 |
-|------|------|------|---------|
-| 🏗️ **主框架** | Primary | 分析骨架，提供完整结构，所有分析围绕它展开 | 1 个 |
-| 🔧 **增强框架** | Enhancement | 补充主框架特定维度的深度，有明确插入点 | 2-4 个 |
-| 📎 **可选框架** | Optional | 根据议题特征按需叠加，不强制 | 0-2 个 |
+| Tier | Symbol | Definition | Quantity Limit |
+|------|--------|-----------|---------------|
+| 🏗️ **Primary Framework** | Primary | Analysis backbone, provides complete structure; all analysis revolves around it | 1 |
+| 🔧 **Enhancement Framework** | Enhancement | Supplements specific dimensions of the Primary Framework with depth; has explicit insertion points | 2-4 |
+| 📎 **Optional Framework** | Optional | Added on-demand based on topic characteristics; not mandatory | 0-2 |
 
-### 使用原则
+### Usage Principles
 
-1. **主框架是骨架**：所有分析沿主框架的步骤/维度展开，增强框架嵌入其中
-2. **增强框架有插入点**：每个增强框架明确标注它嵌入主框架的哪个步骤/维度
-3. **不是并列关系**：增强框架服务于主框架，不独立成章，而是深化主框架某个步骤的分析
-4. **综合消化**：框架之间不互相矛盾，分析时综合理解、综合运用
-5. **用户可覆盖**：Stage 2 检查点向用户展示推荐组合，用户可增减
+1. **Primary Framework is the backbone**: All analysis follows the Primary Framework's steps/dimensions; Enhancement Frameworks embed within it
+2. **Enhancement Frameworks have insertion points**: Each Enhancement Framework clearly indicates which step/dimension of the Primary Framework it plugs into
+3. **Not a parallel relationship**: Enhancement Frameworks serve the Primary Framework — they don't form standalone chapters but deepen analysis at specific steps
+4. **Integrated synthesis**: Frameworks don't contradict each other; analysis comprehensively integrates and applies all selected frameworks
+5. **User can override**: Stage 2 checkpoint presents the recommended combination to the user, who can add or remove frameworks
 
 ---
 
-## 匹配流程
+## Matching Process
 
 ```
-用户议题 → 识别研究场景（可匹配 1-2 个场景）
-         → 加载本文件（Stage 2 Step 1）
-         → 按场景匹配主框架 + 增强框架
-         → 向用户展示框架组合
-         → 用户确认（Stage 2 Step 2）
-         → 深度加载选中的框架文件（获取维度结构）
-         → MECE 拆解时参考框架维度（Stage 2 Step 3）
-            确保关键维度不被遗漏，N/A 维度显式标注
-         → 为每个子问题分配分析透镜（Q→框架维度）
+User topic → Identify research scenario (can match 1-2 scenarios)
+           → Load this file (Stage 2 Step 1)
+           → Match Primary + Enhancement Frameworks by scenario
+           → Present framework combination to user
+           → User confirms (Stage 2 Step 2)
+           → Deep-load selected framework files (obtain dimension structures)
+           → Reference framework dimensions during MECE decomposition (Stage 2 Step 3)
+              Ensure critical dimensions are not missed; N/A dimensions explicitly marked
+           → Assign analytical lenses to each sub-question (Q→Framework dimension)
 ```
 
-### N/A 维度判断标准
+### N/A Dimension Judgment Criteria
 
-标 ➖ N/A 需同时满足两个条件：
-1. **弱相关**：该维度与研究核心问题无直接因果或约束关系
-2. **低影响**：即使该维度发生重大变化，也不会改变核心结论
+Marking ➖ N/A requires BOTH conditions to be met:
+1. **Weak relevance**: The dimension has no direct causal or constraining relationship with the core research question
+2. **Low impact**: Even if that dimension changes significantly, it would not alter the core conclusions
 
-> 只要有一个条件不满足，保持 ⏳ 并在 Layer 3 定向补搜。宁可多搜不可漏标。
+> If either condition is not met, keep ⏳ and conduct targeted supplementary research in Layer 3. Better to over-search than to miss-mark.
 
-### 多场景匹配规则（重要）
+### Multi-Scenario Matching Rules (Important)
 
-一个议题可能同时匹配 2 个场景——**一个是目的，一个是方法**。此时：
+A topic may simultaneously match 2 scenarios — **one is the purpose, the other is the method**. In this case:
 
-**优先级**：目的场景（5-9）> 方法场景（1-4）
+**Priority**: Purpose scenario (5-9) > Method scenario (1-4)
 
-| 场景类型 | 场景编号 | 含义 |
-|---------|---------|------|
-| **方法场景** | 1-4（行业研究、竞争分析、产品分析、商业模式分析） | 「用什么手段分析」 |
-| **目的场景** | 5-9（机会挖掘、市场进入、投资决策、战略规划、尽调） | 「分析服务于什么决策」 |
+| Scenario Type | Scenario Numbers | Meaning |
+|--------------|-----------------|---------|
+| **Method scenarios** | 1-4 (Industry Research, Competitive Analysis, Product Analysis, Business Model Analysis) | "What analytical approach to use" |
+| **Purpose scenarios** | 5-9 (Opportunity Discovery, Market Entry, Investment Decision, Strategic Planning, Due Diligence) | "What decision the analysis serves" |
 
-**匹配规则**：
-1. **单场景匹配**（常见）：议题只涉及一个场景 → 直接使用该场景的框架组合
-2. **双场景匹配**（目的 ≠ 方法）：主框架取**目的场景**的框架，方法场景的主框架降级为增强框架
-3. 场景 10（专项议题）为兜底场景，不参与双场景匹配
+**Matching Rules**:
+1. **Single scenario match** (common): Topic involves only one scenario → Use that scenario's framework combination directly
+2. **Dual scenario match** (purpose ≠ method): Primary Framework comes from the **purpose scenario**; the method scenario's Primary Framework is demoted to Enhancement Framework
+3. Scenario 10 (Special Topics) is a catch-all scenario and does not participate in dual-scenario matching
 
-**示例**：
+**Examples**:
 
-| 用户议题 | 方法场景 | 目的场景 | 主框架 | 增强框架 |
-|---------|---------|---------|--------|---------|
-| 「分析二手回收行业的竞争格局」 | 竞争分析(2) | — | Five Forces | 竞争定位图、SWOT |
-| 「为芝麻信用制定竞争策略」 | 竞争分析(2) | 战略规划(8) | **3A八步法**(来自场景8) | Five Forces(从场景2降级)、SWOT、Playing to Win |
-| 「评估是否投资某 SaaS 公司」 | 商业模式分析(4) | 投资决策(7) | **3A八步法**(来自场景7) | BMC(从场景4降级)、Unit Economics、Five Forces |
-
----
-
-## 十大研究场景的框架组合
+| User Topic | Method Scenario | Purpose Scenario | Primary Framework | Enhancement Frameworks |
+|-----------|----------------|-----------------|-------------------|----------------------|
+| "Analyze competitive landscape of the second-hand recycling industry" | Competitive Analysis (2) | — | Five Forces | Competitive Positioning Map, SWOT |
+| "Develop competitive strategy for Zhima Credit" | Competitive Analysis (2) | Strategic Planning (8) | **3A 8-Steps** (from Scenario 8) | Five Forces (demoted from Scenario 2), SWOT, Playing to Win |
+| "Evaluate whether to invest in a SaaS company" | Business Model Analysis (4) | Investment Decision (7) | **3A 8-Steps** (from Scenario 7) | BMC (demoted from Scenario 4), Unit Economics, Five Forces |
 
 ---
 
-### 【认知基础】— 理解行业、竞争、产品、模式
-
-#### 场景 1：行业研究（Industry Research）
-
-> 关键词：行业全景、市场规模、增长驱动力、产业链、关键玩家
-
-| 层级 | 框架 | 插入点 | 用途 |
-|------|------|--------|------|
-| 🏗️ 主框架 | [3A战略八步法](3a_8steps_strategy.md) | — | 八步全景分析 + 3A战略合成，提供完整行业研究骨架 |
-| 🔧 增强 | [PESTEL](pestel.md) | → 步骤1-2（行业定义 + 发展阶段） | 补充宏观环境六维度扫描，深化外部因素分析 |
-| 🔧 增强 | [Five Forces](porters_five_forces.md) | → 步骤3（竞争格局） | 补充竞争结构深度分析，量化五力强度 |
-| 🔧 增强 | [产业生命周期](industry_lifecycle.md) | → 步骤2（发展阶段） | 补充生命周期阶段判断的量化标准和演化曲线 |
-| 🔧 增强 | [TAM/SAM/SOM](tam_sam_som.md) | → 步骤1（行业定义） | 补充市场规模三层量化测算 |
-
-📎 可选补充：
-- [SCP](scp.md) — 强监管行业，补充步骤3的结构→行为→绩效因果链
-- [Value Chain](value_chain.md) — 需要深入产业链各环节价值分布时，补充步骤4
+## Ten Research Scenarios — Framework Combinations
 
 ---
 
-#### 场景 2：竞争分析（Competitive Analysis）
+### [Cognitive Foundation] — Understanding Industry, Competition, Product, Model
 
-> 关键词：竞争格局、对手策略、差异化定位、竞争应对
+#### Scenario 1: Industry Research
 
-| 层级 | 框架 | 插入点 | 用途 |
-|------|------|--------|------|
-| 🏗️ 主框架 | [Five Forces](porters_five_forces.md) | — | 五力模型为骨架，系统分析竞争结构和强度 |
-| 🔧 增强 | [竞争定位图](competitive_positioning.md) | → 现有竞争分析 | 可视化各玩家在关键维度上的相对位置 |
-| 🔧 增强 | [SWOT](swot.md) | → 战略合成 | 综合内外部因素，形成竞争应对战略判断 |
+> Keywords: industry panorama, market size, growth drivers, industry chain, key players
 
-📎 可选补充：
-- [BCG 矩阵](bcg_matrix.md) — 分析竞对业务组合和投资重点
-- [颠覆理论](disruption_theory.md) — 评估新进入者的颠覆潜力
-- [SCP](scp.md) — 分析竞争行为背后的结构性原因
+| Tier | Framework | Insertion Point | Purpose |
+|------|-----------|----------------|---------|
+| 🏗️ Primary | [3A 8-Steps Strategy](3a_8steps_strategy.md) | — | Eight-step panoramic analysis + 3A Strategic Synthesis, providing complete industry research backbone |
+| 🔧 Enhancement | [PESTEL](pestel.md) | → Steps 1-2 (Industry Definition + Development Stage) | Supplement macro-environment six-dimension scan, deepen external factor analysis |
+| 🔧 Enhancement | [Five Forces](porters_five_forces.md) | → Step 3 (Competitive Landscape) | Supplement competitive structure deep analysis, quantify five forces intensity |
+| 🔧 Enhancement | [Industry Lifecycle](industry_lifecycle.md) | → Step 2 (Development Stage) | Supplement lifecycle stage determination with quantitative criteria and evolution curves |
+| 🔧 Enhancement | [TAM/SAM/SOM](tam_sam_som.md) | → Step 1 (Industry Definition) | Supplement three-layer market size quantification |
 
----
-
-#### 场景 3：产品分析（Product Analysis）
-
-> 关键词：产品功能、用户体验、产品对比、产品迭代、产品定位
-
-| 层级 | 框架 | 插入点 | 用途 |
-|------|------|--------|------|
-| 🏗️ 主框架 | [JTBD](jtbd.md) | — | 从用户任务视角构建分析骨架，理解产品为用户解决什么任务 |
-| 🔧 增强 | [竞争定位图](competitive_positioning.md) | → 竞争解决方案分析 | 可视化产品在市场中的位置和差异化空间 |
-| 🔧 增强 | [蓝海战略](blue_ocean_strategy.md) | → 价值创新机会 | 用战略画布发现差异化价值创新空间 |
-
-📎 可选补充：
-- [BMC](business_model_canvas.md) — 分析产品背后的商业模式
-- [飞轮](flywheel.md) — 分析产品的增长机制
-- [颠覆理论](disruption_theory.md) — 评估产品的颠覆潜力
+📎 Optional add-ons:
+- [SCP](scp.md) — For heavily regulated industries, supplement Step 3 with structure→conduct→performance causal chain
+- [Value Chain](value_chain.md) — When deep-diving into value distribution across industry chain segments, supplement Step 4
 
 ---
 
-#### 场景 4：商业模式分析（Business Model Analysis）
+#### Scenario 2: Competitive Analysis
 
-> 关键词：业务模式拆解、盈利逻辑、单位经济模型
+> Keywords: competitive landscape, competitor strategies, differentiated positioning, competitive response
 
-| 层级 | 框架 | 插入点 | 用途 |
-|------|------|--------|------|
-| 🏗️ 主框架 | [BMC](business_model_canvas.md) | — | 九要素全景拆解商业模式，提供分析骨架 |
-| 🔧 增强 | [Unit Economics](unit_economics.md) | → 收入流 + 成本结构 | 量化单位经济模型，验证盈利可持续性 |
-| 🔧 增强 | [飞轮](flywheel.md) | → 关键活动 + 客户关系 | 识别自增强增长回路 |
+| Tier | Framework | Insertion Point | Purpose |
+|------|-----------|----------------|---------|
+| 🏗️ Primary | [Five Forces](porters_five_forces.md) | — | Five Forces model as backbone, systematically analyzing competitive structure and intensity |
+| 🔧 Enhancement | [Competitive Positioning Map](competitive_positioning.md) | → Existing competition analysis | Visualize each player's relative position on key dimensions |
+| 🔧 Enhancement | [SWOT](swot.md) | → Strategic Synthesis | Integrate internal and external factors to form competitive response strategy |
 
-📎 可选补充：
-- [平台画布](platform_canvas.md) — 双边/多边平台模式时替代 BMC 作为主框架
-- [BCG 矩阵](bcg_matrix.md) — 多产品线的投资组合分析
-- [Value Chain](value_chain.md) — 分析价值链环节的利润分布
-
----
-
-### 【发现机会】— 寻找价值洼地
-
-#### 场景 5：商业机会挖掘（Business Opportunity Discovery）
-
-> 关键词：价值洼地、未满足需求、新兴趋势、切入点
-
-| 层级 | 框架 | 插入点 | 用途 |
-|------|------|--------|------|
-| 🏗️ 主框架 | [3A战略八步法](3a_8steps_strategy.md) | — | 八步扫描行业全景 + 3A收敛机会判断 |
-| 🔧 增强 | [JTBD](jtbd.md) | → 步骤8（用户研究） | 从用户任务视角深挖未满足需求 |
-| 🔧 增强 | [蓝海战略](blue_ocean_strategy.md) | → 步骤3（竞争格局） | 用战略画布发现竞争空白和价值创新空间 |
-| 🔧 增强 | [三层面增长](three_horizons.md) | → 3A战略合成 | 将机会分为近/中/远期三层面，形成投资组合 |
-
-📎 可选补充：
-- [颠覆理论](disruption_theory.md) — 评估低端/新市场颠覆机会
-- [竞争定位图](competitive_positioning.md) — 可视化竞争空白地带
-- [产业生命周期](industry_lifecycle.md) — 判断进入时机
+📎 Optional add-ons:
+- [BCG Matrix](bcg_matrix.md) — Analyze competitors' business portfolios and investment priorities
+- [Disruption Theory](disruption_theory.md) — Assess new entrants' disruption potential
+- [SCP](scp.md) — Analyze structural causes behind competitive behavior
 
 ---
 
-### 【战略决策】— 做出关键选择
+#### Scenario 3: Product Analysis
 
-#### 场景 6：市场进入策略（Market Entry Strategy）
+> Keywords: product features, user experience, product comparison, product iteration, product positioning
 
-> 关键词：新市场、新业务、可行性评估、进入路径
+| Tier | Framework | Insertion Point | Purpose |
+|------|-----------|----------------|---------|
+| 🏗️ Primary | [JTBD](jtbd.md) | — | Build analysis backbone from user task perspective, understanding what jobs the product solves for users |
+| 🔧 Enhancement | [Competitive Positioning Map](competitive_positioning.md) | → Competitive solution analysis | Visualize product's market position and differentiation space |
+| 🔧 Enhancement | [Blue Ocean Strategy](blue_ocean_strategy.md) | → Value innovation opportunities | Use strategy canvas to discover differentiated value innovation space |
 
-| 层级 | 框架 | 插入点 | 用途 |
-|------|------|--------|------|
-| 🏗️ 主框架 | [3A战略八步法](3a_8steps_strategy.md) | — | 系统理解行业 + 形成"进入/不进入"的3A战略判断 |
-| 🔧 增强 | [PESTEL](pestel.md) | → 步骤1-2（行业定义 + 发展阶段） | 评估目标市场的宏观环境风险与机会 |
-| 🔧 增强 | [Playing to Win](playing_to_win.md) | → 3A战略合成 | 明确 Where to Play / How to Win 的战略选择 |
-| 🔧 增强 | [SWOT](swot.md) | → 3A战略合成 | 综合评估进入可行性，形成战略判断 |
-
-📎 可选补充：
-- [TAM/SAM/SOM](tam_sam_som.md) — 量化目标市场规模
-- [三层面增长](three_horizons.md) — 判断进入时机和投资节奏
-- [产业生命周期](industry_lifecycle.md) — 目标市场成熟度判断
+📎 Optional add-ons:
+- [BMC](business_model_canvas.md) — Analyze the business model behind the product
+- [Flywheel](flywheel.md) — Analyze the product's growth mechanism
+- [Disruption Theory](disruption_theory.md) — Assess the product's disruption potential
 
 ---
 
-#### 场景 7：投资决策支持（Investment Decision Support）
+#### Scenario 4: Business Model Analysis
 
-> 关键词：投资尽调、投资价值评估、估值分析、投资建议
+> Keywords: business model decomposition, profitability logic, unit economics model
 
-| 层级 | 框架 | 插入点 | 用途 |
-|------|------|--------|------|
-| 🏗️ 主框架 | [3A战略八步法](3a_8steps_strategy.md) | — | 系统分析目标公司所在行业 + 3A判断投资吸引力 |
-| 🔧 增强 | [Five Forces](porters_five_forces.md) | → 步骤3（竞争格局） | 评估目标公司所在行业的竞争强度和利润池 |
-| 🔧 增强 | [BMC](business_model_canvas.md) | → 步骤5-6（盈利模式 + 渠道） | 拆解目标公司的商业模式 |
-| 🔧 增强 | [Unit Economics](unit_economics.md) | → 步骤5（盈利模式） | 验证商业模式的单位经济可持续性 |
-| 🔧 增强 | [SWOT](swot.md) | → 3A战略合成 | 综合评估投资风险与机会 |
+| Tier | Framework | Insertion Point | Purpose |
+|------|-----------|----------------|---------|
+| 🏗️ Primary | [BMC](business_model_canvas.md) | — | Nine-element panoramic decomposition of business model, providing analysis backbone |
+| 🔧 Enhancement | [Unit Economics](unit_economics.md) | → Revenue Streams + Cost Structure | Quantify unit economics model, validate profitability sustainability |
+| 🔧 Enhancement | [Flywheel](flywheel.md) | → Key Activities + Customer Relationships | Identify self-reinforcing growth loops |
 
-📎 可选补充：
-- [TAM/SAM/SOM](tam_sam_som.md) — 量化市场空间
-- [BCG 矩阵](bcg_matrix.md) — 多业务线公司的投资组合分析
-- [产业生命周期](industry_lifecycle.md) — 判断行业阶段和增长潜力
+📎 Optional add-ons:
+- [Platform Canvas](platform_canvas.md) — For two-sided/multi-sided platform models, replaces BMC as Primary Framework
+- [BCG Matrix](bcg_matrix.md) — Multi-product-line investment portfolio analysis
+- [Value Chain](value_chain.md) — Analyze profit distribution across value chain segments
 
 ---
 
-### 【规划执行】— 落地实施
+### [Opportunity Discovery] — Finding Value Gaps
 
-#### 场景 8：战略规划（Strategic Planning）
+#### Scenario 5: Business Opportunity Discovery
 
-> 关键词：年度规划、三年规划、战略目标、战略路径
+> Keywords: value gaps, unmet needs, emerging trends, entry points
 
-| 层级 | 框架 | 插入点 | 用途 |
-|------|------|--------|------|
-| 🏗️ 主框架 | [3A战略八步法](3a_8steps_strategy.md) | — | 八步分析为战略提供事实基础 + 3A形成战略判断 |
-| 🔧 增强 | [Playing to Win](playing_to_win.md) | → 3A战略合成 | 五层级联明确战略选择：在哪竞争 + 如何取胜 |
-| 🔧 增强 | [三层面增长](three_horizons.md) | → 3A战略合成 | 规划近/中/远期增长组合和投资节奏 |
-| 🔧 增强 | [SWOT](swot.md) | → 3A战略合成 | 综合内外部因素，校验战略可行性 |
+| Tier | Framework | Insertion Point | Purpose |
+|------|-----------|----------------|---------|
+| 🏗️ Primary | [3A 8-Steps Strategy](3a_8steps_strategy.md) | — | Eight-step industry panorama scan + 3A convergence for opportunity assessment |
+| 🔧 Enhancement | [JTBD](jtbd.md) | → Step 8 (User Research) | Deep-dive into unmet needs from user task perspective |
+| 🔧 Enhancement | [Blue Ocean Strategy](blue_ocean_strategy.md) | → Step 3 (Competitive Landscape) | Use strategy canvas to discover competitive whitespace and value innovation opportunities |
+| 🔧 Enhancement | [Three Horizons](three_horizons.md) | → 3A Strategic Synthesis | Categorize opportunities into near/mid/long-term horizons, forming an investment portfolio |
 
-📎 可选补充：
-- [飞轮](flywheel.md) — 设计战略增长飞轮
-- [蓝海战略](blue_ocean_strategy.md) — 寻找差异化战略方向
-- [BCG 矩阵](bcg_matrix.md) — 多业务线投资组合优化
-
----
-
-#### 场景 9：尽职调查（Due Diligence）
-
-> 关键词：DD、风险排查、合规审查、背景调查
-
-| 层级 | 框架 | 插入点 | 用途 |
-|------|------|--------|------|
-| 🏗️ 主框架 | [3A战略八步法](3a_8steps_strategy.md) | — | 八步全景排查 + 3A评估标的整体可行性 |
-| 🔧 增强 | [PESTEL](pestel.md) | → 步骤1-2（行业定义 + 发展阶段） | 扫描宏观环境风险（政策、法规、合规） |
-| 🔧 增强 | [Five Forces](porters_five_forces.md) | → 步骤3（竞争格局） | 评估行业竞争风险和利润池稳定性 |
-| 🔧 增强 | [BMC](business_model_canvas.md) | → 步骤5-6（盈利模式 + 渠道） | 识别商业模式漏洞和依赖风险 |
-| 🔧 增强 | [SWOT](swot.md) | → 3A战略合成 | 汇总全部风险与机会，形成DD结论 |
-
-📎 可选补充：
-- [Unit Economics](unit_economics.md) — 验证财务可持续性
-- [Value Chain](value_chain.md) — 分析供应链风险
-- [SCP](scp.md) — 分析监管风险
+📎 Optional add-ons:
+- [Disruption Theory](disruption_theory.md) — Assess low-end/new-market disruption opportunities
+- [Competitive Positioning Map](competitive_positioning.md) — Visualize competitive whitespace
+- [Industry Lifecycle](industry_lifecycle.md) — Determine entry timing
 
 ---
 
-### 【专项咨询】— 问题解答
+### [Strategic Decisions] — Making Critical Choices
 
-#### 场景 10：专项议题（Special Topics）
+#### Scenario 6: Market Entry Strategy
 
-> **关键词**：
-> - 政策解读："XX政策现在怎么样"、"XX政策对我们有什么影响"
-> - 趋势判断："XX会不会颠覆行业"、"XX趋势会怎么发展"
-> - 事件影响："XX事件对行业有什么影响"
-> - 决策咨询（无明确行动意图）："XX方向值不值得关注"
-> - 概念澄清："XX到底是什么"、"XX和YY有什么区别"
+> Keywords: new market, new business, feasibility assessment, entry path
 
-> **边界排除**：
-> - ❌ 有明确"进入"意图 → 场景 6（市场进入策略）
-> - ❌ 有明确"投资"意图 → 场景 7（投资决策支持）
-> - ❌ 针对竞争对手 → 场景 2（竞争分析）
-> - ❌ 针对具体产品 → 场景 3（产品分析）
-> - ❌ 内部战略制定 → 场景 8（战略规划）
+| Tier | Framework | Insertion Point | Purpose |
+|------|-----------|----------------|---------|
+| 🏗️ Primary | [3A 8-Steps Strategy](3a_8steps_strategy.md) | — | Systematically understand the industry + form "enter/don't enter" 3A strategic judgment |
+| 🔧 Enhancement | [PESTEL](pestel.md) | → Steps 1-2 (Industry Definition + Development Stage) | Assess target market's macro-environment risks and opportunities |
+| 🔧 Enhancement | [Playing to Win](playing_to_win.md) | → 3A Strategic Synthesis | Clarify Where to Play / How to Win strategic choices |
+| 🔧 Enhancement | [SWOT](swot.md) | → 3A Strategic Synthesis | Comprehensively assess entry feasibility, form strategic judgment |
 
-| 层级 | 框架 | 插入点 | 用途 |
-|------|------|--------|------|
-| 🏗️ 主框架 | [Playing to Win](playing_to_win.md) | — | 结构化分析问题（What-if → Where to Play → How to Win） |
-| 🔧 增强 | [SWOT](swot.md) | → 战略合成 | 综合分析形成判断 |
-
-📎 动态增强：根据议题性质从其他场景的框架中选取
-- 政策解读 → 叠加 [PESTEL](pestel.md)
-- 趋势判断 → 叠加 [产业生命周期](industry_lifecycle.md)
-- 事件影响 → 叠加 [Five Forces](porters_five_forces.md)
-- 需要行业全景 → 升级为 3A战略八步法 作为主框架
+📎 Optional add-ons:
+- [TAM/SAM/SOM](tam_sam_som.md) — Quantify target market size
+- [Three Horizons](three_horizons.md) — Determine entry timing and investment pacing
+- [Industry Lifecycle](industry_lifecycle.md) — Target market maturity assessment
 
 ---
 
-## 增长方向快速分类器（Ansoff Matrix）
+#### Scenario 7: Investment Decision Support
 
-在 Stage 2 问题定义阶段，快速判断增长方向类型，辅助框架选择：
+> Keywords: investment due diligence, investment value assessment, valuation analysis, investment recommendations
+
+| Tier | Framework | Insertion Point | Purpose |
+|------|-----------|----------------|---------|
+| 🏗️ Primary | [3A 8-Steps Strategy](3a_8steps_strategy.md) | — | Systematically analyze target company's industry + 3A assessment of investment attractiveness |
+| 🔧 Enhancement | [Five Forces](porters_five_forces.md) | → Step 3 (Competitive Landscape) | Assess competitive intensity and profit pool of target company's industry |
+| 🔧 Enhancement | [BMC](business_model_canvas.md) | → Steps 5-6 (Profitability Model + Channels) | Decompose target company's business model |
+| 🔧 Enhancement | [Unit Economics](unit_economics.md) | → Step 5 (Profitability Model) | Validate business model's unit economics sustainability |
+| 🔧 Enhancement | [SWOT](swot.md) | → 3A Strategic Synthesis | Comprehensively assess investment risks and opportunities |
+
+📎 Optional add-ons:
+- [TAM/SAM/SOM](tam_sam_som.md) — Quantify market opportunity
+- [BCG Matrix](bcg_matrix.md) — Multi-business-line company portfolio analysis
+- [Industry Lifecycle](industry_lifecycle.md) — Determine industry stage and growth potential
+
+---
+
+### [Planning & Execution] — Implementation
+
+#### Scenario 8: Strategic Planning
+
+> Keywords: annual plan, three-year plan, strategic goals, strategic roadmap
+
+| Tier | Framework | Insertion Point | Purpose |
+|------|-----------|----------------|---------|
+| 🏗️ Primary | [3A 8-Steps Strategy](3a_8steps_strategy.md) | — | Eight-step analysis provides factual foundation for strategy + 3A forms strategic judgment |
+| 🔧 Enhancement | [Playing to Win](playing_to_win.md) | → 3A Strategic Synthesis | Five-layer cascade clarifying strategic choices: Where to Play + How to Win |
+| 🔧 Enhancement | [Three Horizons](three_horizons.md) | → 3A Strategic Synthesis | Plan near/mid/long-term growth portfolio and investment pacing |
+| 🔧 Enhancement | [SWOT](swot.md) | → 3A Strategic Synthesis | Integrate internal and external factors, validate strategic feasibility |
+
+📎 Optional add-ons:
+- [Flywheel](flywheel.md) — Design strategic growth flywheel
+- [Blue Ocean Strategy](blue_ocean_strategy.md) — Discover differentiated strategic direction
+- [BCG Matrix](bcg_matrix.md) — Multi-business-line investment portfolio optimization
+
+---
+
+#### Scenario 9: Due Diligence
+
+> Keywords: DD, risk audit, compliance review, background investigation
+
+| Tier | Framework | Insertion Point | Purpose |
+|------|-----------|----------------|---------|
+| 🏗️ Primary | [3A 8-Steps Strategy](3a_8steps_strategy.md) | — | Eight-step panoramic audit + 3A assessment of target's overall feasibility |
+| 🔧 Enhancement | [PESTEL](pestel.md) | → Steps 1-2 (Industry Definition + Development Stage) | Scan macro-environment risks (policy, regulation, compliance) |
+| 🔧 Enhancement | [Five Forces](porters_five_forces.md) | → Step 3 (Competitive Landscape) | Assess industry competitive risk and profit pool stability |
+| 🔧 Enhancement | [BMC](business_model_canvas.md) | → Steps 5-6 (Profitability Model + Channels) | Identify business model vulnerabilities and dependency risks |
+| 🔧 Enhancement | [SWOT](swot.md) | → 3A Strategic Synthesis | Consolidate all risks and opportunities, form DD conclusion |
+
+📎 Optional add-ons:
+- [Unit Economics](unit_economics.md) — Validate financial sustainability
+- [Value Chain](value_chain.md) — Analyze supply chain risks
+- [SCP](scp.md) — Analyze regulatory risks
+
+---
+
+### [Specialized Advisory] — Issue Resolution
+
+#### Scenario 10: Special Topics
+
+> **Keywords**:
+> - Policy interpretation: "What's the current status of XX policy", "How does XX policy affect us"
+> - Trend assessment: "Will XX disrupt the industry", "How will XX trend develop"
+> - Event impact: "What impact does XX event have on the industry"
+> - Decision advisory (no clear action intent): "Is XX direction worth watching"
+> - Concept clarification: "What exactly is XX", "What's the difference between XX and YY"
+
+> **Boundary exclusions**:
+> - ❌ Clear "entry" intent → Scenario 6 (Market Entry Strategy)
+> - ❌ Clear "investment" intent → Scenario 7 (Investment Decision Support)
+> - ❌ Targeting competitors → Scenario 2 (Competitive Analysis)
+> - ❌ Targeting specific products → Scenario 3 (Product Analysis)
+> - ❌ Internal strategy formulation → Scenario 8 (Strategic Planning)
+
+| Tier | Framework | Insertion Point | Purpose |
+|------|-----------|----------------|---------|
+| 🏗️ Primary | [Playing to Win](playing_to_win.md) | — | Structured analysis (What-if → Where to Play → How to Win) |
+| 🔧 Enhancement | [SWOT](swot.md) | → Strategic Synthesis | Integrated analysis to form judgment |
+
+📎 Dynamic enhancement: Select from other scenarios' frameworks based on topic nature
+- Policy interpretation → Layer on [PESTEL](pestel.md)
+- Trend assessment → Layer on [Industry Lifecycle](industry_lifecycle.md)
+- Event impact → Layer on [Five Forces](porters_five_forces.md)
+- Needs industry panorama → Upgrade to 3A 8-Steps Strategy as Primary Framework
+
+---
+
+## Growth Direction Quick Classifier (Ansoff Matrix)
+
+During Stage 2 problem definition, quickly classify growth direction type to assist framework selection:
 
 ```
-                   现有产品          新产品
+                   Existing Products    New Products
               ┌──────────────┬──────────────┐
-   现有市场    │  市场渗透      │  产品开发      │
-              │  → 场景 2/4   │  → 场景 3/4   │
+ Existing     │  Market        │  Product       │
+ Markets      │  Penetration   │  Development   │
+              │  → Scenario 2/4│  → Scenario 3/4│
               ├──────────────┼──────────────┤
-   新市场      │  市场开发      │  多元化        │
-              │  → 场景 6     │  → 场景 1+6   │
+ New          │  Market        │  Diversi-      │
+ Markets      │  Development   │  fication      │
+              │  → Scenario 6  │  → Scenario 1+6│
               └──────────────┴──────────────┘
 ```
 
-| 增长类型 | 推荐叠加框架 |
-|---------|------------|
-| 市场渗透 | 竞争定位图 + 飞轮 |
-| 产品开发 | JTBD + BMC |
-| 市场开发 | PESTEL + TAM/SAM/SOM + Playing to Win |
-| 多元化 | 全景行业研究 + Playing to Win + 三层面增长 |
+| Growth Type | Recommended Add-on Frameworks |
+|-------------|------------------------------|
+| Market Penetration | Competitive Positioning Map + Flywheel |
+| Product Development | JTBD + BMC |
+| Market Development | PESTEL + TAM/SAM/SOM + Playing to Win |
+| Diversification | Full Industry Research + Playing to Win + Three Horizons |
 
-> **场景编号对照**：1 行业研究、2 竞争分析、3 产品分析、4 商业模式分析、5 商业机会挖掘、6 市场进入策略、7 投资决策支持、8 战略规划、9 尽职调查、10 专项议题
-
----
-
-## 3A战略八步法 — 增强框架插入点速查
-
-> 当 3A战略八步法 作为主框架时（场景 1、5、6、7、8、9），增强框架的嵌入位置：
-
-| 八步步骤 | 分析内容 | 可嵌入的增强框架 |
-|---------|---------|----------------|
-| 步骤1：行业定义与分类 | 界定边界、细分赛道 | TAM/SAM/SOM（市场规模量化）、PESTEL（宏观环境） |
-| 步骤2：发展阶段与趋势 | 生命周期判断 | 产业生命周期（阶段量化）、PESTEL（趋势驱动力） |
-| 步骤3：竞争格局 | 集中度、五力 | Five Forces（竞争深度）、蓝海战略（竞争空白）、竞争定位图（可视化） |
-| 步骤4：价值链 | 产业链、价值分布 | Value Chain（环节深度）|
-| 步骤5：盈利模式 | 毛利率、成本结构 | BMC（模式拆解）、Unit Economics（单位经济量化） |
-| 步骤6：渠道 | 线上线下、直销经销 | BMC（渠道要素）|
-| 步骤7：商户档案 | B端客户画像 | —（主框架自身覆盖）|
-| 步骤8：用户研究 | 用户画像、痛点 | JTBD（用户任务深挖）|
-| 3A战略合成 | 想做/能做/可做 | Playing to Win（战略选择）、SWOT（综合评估）、三层面增长（时间规划） |
-
-**使用说明**：
-- 分析到主框架的某个步骤时，自动嵌入对应增强框架的分析维度
-- 增强框架不独立成章，而是深化主框架该步骤的输出
-- 例如：分析步骤3（竞争格局）时，在3A八步法的竞争格局分析中，嵌入Five Forces的五力量化评估
+> **Scenario number reference**: 1 Industry Research, 2 Competitive Analysis, 3 Product Analysis, 4 Business Model Analysis, 5 Business Opportunity Discovery, 6 Market Entry Strategy, 7 Investment Decision Support, 8 Strategic Planning, 9 Due Diligence, 10 Special Topics
 
 ---
 
-## 框架速查表
+## 3A 8-Steps Strategy — Enhancement Framework Insertion Point Quick Reference
 
-### 原创框架
+> When 3A 8-Steps Strategy is the Primary Framework (Scenarios 1, 5, 6, 7, 8, 9), Enhancement Framework embedding positions:
 
-| 框架 | 文件 | 核心价值 | 作为主框架的场景 |
-|------|------|---------|----------------|
-| **3A战略八步法** | [3a_8steps_strategy.md](3a_8steps_strategy.md) | 融合 3A 战略视角与八步分析流程的完整方法论 | 场景 1、5、6、7、8、9 |
+| Eight Steps | Analysis Content | Embeddable Enhancement Frameworks |
+|-------------|-----------------|----------------------------------|
+| Step 1: Industry Definition & Classification | Define boundaries, segment tracks | TAM/SAM/SOM (market size quantification), PESTEL (macro environment) |
+| Step 2: Development Stage & Trends | Lifecycle stage determination | Industry Lifecycle (stage quantification), PESTEL (trend drivers) |
+| Step 3: Competitive Landscape | Concentration, five forces | Five Forces (competitive depth), Blue Ocean Strategy (competitive whitespace), Competitive Positioning Map (visualization) |
+| Step 4: Value Chain | Industry chain, value distribution | Value Chain (segment deep-dive) |
+| Step 5: Profitability Model | Gross margin, cost structure | BMC (model decomposition), Unit Economics (unit economics quantification) |
+| Step 6: Channels | Online/offline, direct/distribution | BMC (channel element) |
+| Step 7: Merchant Profile | B-side customer profiles | — (covered by Primary Framework itself) |
+| Step 8: User Research | User profiles, pain points | JTBD (user task deep-dive) |
+| 3A Strategic Synthesis | Aspiration/Ability/Accessibility | Playing to Win (strategic choices), SWOT (comprehensive assessment), Three Horizons (time-horizon planning) |
 
-> **注**：原 `3a_strategy.md`（3A 战略匹配框架）和 `industry_8steps.md`（行业研究八步法）已整合为本框架，不再单独使用。
-
-### 经典框架
-
-| 框架 | 文件 | 核心价值 | 典型角色 |
-|------|------|---------|---------|
-| Porter's Five Forces | [porters_five_forces.md](porters_five_forces.md) | 行业竞争强度和利润池分析 | 场景2主框架 / 多场景增强 |
-| Value Chain | [value_chain.md](value_chain.md) | 产业链价值分布和战略控制点 | 可选增强 |
-| BMC | [business_model_canvas.md](business_model_canvas.md) | 九要素商业模式全景拆解 | 场景4主框架 / 多场景增强 |
-| TAM/SAM/SOM | [tam_sam_som.md](tam_sam_som.md) | 市场规模三层量化测算 | 增强（步骤1） |
-| Blue Ocean Strategy | [blue_ocean_strategy.md](blue_ocean_strategy.md) | 价值创新和差异化竞争空间 | 增强 |
-| Unit Economics | [unit_economics.md](unit_economics.md) | 单位经济模型和盈利可持续性 | 增强（步骤5） |
-| PESTEL | [pestel.md](pestel.md) | 宏观环境六维度扫描 | 增强（步骤1-2） |
-| SWOT | [swot.md](swot.md) | 内外部因素战略合成 | 增强（战略合成） |
-| SCP | [scp.md](scp.md) | 产业结构→行为→绩效因果链 | 可选增强 |
-| 产业生命周期 | [industry_lifecycle.md](industry_lifecycle.md) | 行业演化阶段判断 | 增强（步骤2） |
-| 竞争定位图 | [competitive_positioning.md](competitive_positioning.md) | 二维空间竞争位置可视化 | 增强 |
-| BCG 矩阵 | [bcg_matrix.md](bcg_matrix.md) | 业务组合投资优先级 | 可选增强 |
-
-### 现代框架
-
-| 框架 | 文件 | 核心价值 | 典型角色 |
-|------|------|---------|---------|
-| JTBD | [jtbd.md](jtbd.md) | 需求侧"用户任务"洞察 | 场景3主框架 / 增强（步骤8） |
-| 飞轮 | [flywheel.md](flywheel.md) | 自增强增长回路设计 | 增强 |
-| 平台画布 | [platform_canvas.md](platform_canvas.md) | 平台/生态商业模式分析 | 场景4可选主框架（替代BMC） |
-| 颠覆理论 | [disruption_theory.md](disruption_theory.md) | 颠覆式创新威胁和机会评估 | 可选增强 |
-| 三层面增长 | [three_horizons.md](three_horizons.md) | 多时间维度增长投资组合 | 增强（战略合成） |
-| Playing to Win | [playing_to_win.md](playing_to_win.md) | 五层战略选择级联 | 场景10主框架 / 增强（战略合成） |
+**Usage Instructions**:
+- When analysis reaches a specific step of the Primary Framework, automatically embed the corresponding Enhancement Framework's analytical dimensions
+- Enhancement Frameworks don't form standalone chapters but deepen the Primary Framework's output at that step
+- Example: When analyzing Step 3 (Competitive Landscape), embed Five Forces' five-force quantitative assessment within the 3A 8-Steps' competitive landscape analysis
 
 ---
 
-## 与其他模块的接口
+## Framework Quick Reference Table
 
-### 输入
-| 上游 | 输入内容 | 使用方式 |
-|------|---------|---------|
-| Stage 1 user_brief | 研究类型、议题关键词 | 匹配研究场景 |
-| 用户偏好 | 用户指定或排除的框架 | 覆盖默认选择 |
+### Original Framework
 
-### 输出
-| 下游 | 输出内容 | 使用方式 |
-|------|---------|---------|
-| Stage 2 research_definition | 选中框架 + 维度覆盖检查 + 子问题透镜分配 + N/A 维度标注 | 写入研究定义书 |
-| Stage 3 research_plan | 假设的分析透镜标注（Q→H→Lens 映射） | 写入研究计划 |
-| Stage 4 evidence_base | 框架证据地图初始化（从 H→Lens 映射自动生成） | Layer 1 Step 1.0 |
-| Stage 5 insights | 框架分析结论 + 跨框架交叉发现 | 洞察生成的结构化输入 |
-| `methodology/_index.md` | 框架组合确定后 | 自动匹配 Tier 1/Tier 2 方法论 |
+| Framework | File | Core Value | Scenarios as Primary Framework |
+|-----------|------|-----------|-------------------------------|
+| **3A 8-Steps Strategy** | [3a_8steps_strategy.md](3a_8steps_strategy.md) | Complete methodology integrating 3A strategic perspective with eight-step analysis process | Scenarios 1, 5, 6, 7, 8, 9 |
+
+> **Note**: The former `3a_strategy.md` (3A Strategic Matching Framework) and `industry_8steps.md` (Industry Research Eight Steps) have been consolidated into this framework and are no longer used separately.
+
+### Classic Frameworks
+
+| Framework | File | Core Value | Typical Role |
+|-----------|------|-----------|-------------|
+| Porter's Five Forces | [porters_five_forces.md](porters_five_forces.md) | Industry competitive intensity and profit pool analysis | Scenario 2 Primary / Multi-scenario Enhancement |
+| Value Chain | [value_chain.md](value_chain.md) | Industry chain value distribution and strategic control points | Optional Enhancement |
+| BMC | [business_model_canvas.md](business_model_canvas.md) | Nine-element business model panoramic decomposition | Scenario 4 Primary / Multi-scenario Enhancement |
+| TAM/SAM/SOM | [tam_sam_som.md](tam_sam_som.md) | Three-layer market size quantification | Enhancement (Step 1) |
+| Blue Ocean Strategy | [blue_ocean_strategy.md](blue_ocean_strategy.md) | Value innovation and differentiated competition space | Enhancement |
+| Unit Economics | [unit_economics.md](unit_economics.md) | Unit economics model and profitability sustainability | Enhancement (Step 5) |
+| PESTEL | [pestel.md](pestel.md) | Macro-environment six-dimension scan | Enhancement (Steps 1-2) |
+| SWOT | [swot.md](swot.md) | Internal/external factor strategic synthesis | Enhancement (Strategic Synthesis) |
+| SCP | [scp.md](scp.md) | Industry structure→conduct→performance causal chain | Optional Enhancement |
+| Industry Lifecycle | [industry_lifecycle.md](industry_lifecycle.md) | Industry evolution stage determination | Enhancement (Step 2) |
+| Competitive Positioning Map | [competitive_positioning.md](competitive_positioning.md) | Two-dimensional competitive position visualization | Enhancement |
+| BCG Matrix | [bcg_matrix.md](bcg_matrix.md) | Business portfolio investment prioritization | Optional Enhancement |
+
+### Modern Frameworks
+
+| Framework | File | Core Value | Typical Role |
+|-----------|------|-----------|-------------|
+| JTBD | [jtbd.md](jtbd.md) | Demand-side "user task" insight | Scenario 3 Primary / Enhancement (Step 8) |
+| Flywheel | [flywheel.md](flywheel.md) | Self-reinforcing growth loop design | Enhancement |
+| Platform Canvas | [platform_canvas.md](platform_canvas.md) | Platform/ecosystem business model analysis | Scenario 4 Optional Primary (replaces BMC) |
+| Disruption Theory | [disruption_theory.md](disruption_theory.md) | Disruptive innovation threat and opportunity assessment | Optional Enhancement |
+| Three Horizons | [three_horizons.md](three_horizons.md) | Multi-time-horizon growth investment portfolio | Enhancement (Strategic Synthesis) |
+| Playing to Win | [playing_to_win.md](playing_to_win.md) | Five-layer strategic choice cascade | Scenario 10 Primary / Enhancement (Strategic Synthesis) |
+
+---
+
+## Interfaces with Other Modules
+
+### Input
+| Upstream | Input Content | Usage |
+|----------|--------------|-------|
+| Stage 1 user_brief | Research type, topic keywords | Match research scenario |
+| User preferences | Frameworks user specifies or excludes | Override default selection |
+
+### Output
+| Downstream | Output Content | Usage |
+|------------|---------------|-------|
+| Stage 2 research_definition | Selected frameworks + dimension coverage check + sub-question lens assignments + N/A dimension annotations | Written to research definition document |
+| Stage 3 research_plan | Hypothesis analytical lens annotations (Q→H→Lens mapping) | Written to research plan |
+| Stage 4 evidence_base | Framework evidence map initialization (auto-generated from H→Lens mapping) | Layer 1 Step 1.0 |
+| Stage 5 insights | Framework analysis conclusions + cross-framework discoveries | Structured input for insight generation |
+| `methodology/_index.md` | After framework combination is determined | Auto-match Tier 1/Tier 2 methodology |

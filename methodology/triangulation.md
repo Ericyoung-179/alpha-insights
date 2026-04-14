@@ -1,256 +1,256 @@
-# 三角验证法
+# Triangulation
 
-> 核心价值：确保数据可靠性
-
----
-
-## 定义
-
-三角验证法是用**多个独立来源、多个方法、多个角度**验证同一结论的方法。
-
-三个维度：
-1. **来源三角**：不同数据源（官方数据、第三方报告、专家访谈、用户调研）
-2. **方法三角**：不同研究方法（定量分析、定性访谈、案例研究）
-3. **视角三角**：不同立场（企业视角、用户视角、竞对视角）
+> Core value: Ensure data reliability
 
 ---
 
-## 使用时机
+## Definition
 
-**典型应用场景**：
-- 关键数据验证
-- 多方信息对比
-- 降低偏差风险
-- 提升结论可信度
+Triangulation is a method that uses **multiple independent sources, multiple methods, and multiple perspectives** to verify the same conclusion.
 
-**使用原则**：
-- 多源数据交叉验证
-- 多方法相互补充
-- 多人独立分析
-
-**验证维度**：
-- 数据源三角（不同来源）
-- 方法三角（不同方法）
-- 研究者三角（不同分析者）
-- 理论三角（不同理论视角）
-
----## 为什么重要
-
-单一来源的问题：
-- 可能错误
-- 可能过时
-- 可能有偏见
-- 可能不完整
-
-三角验证通过交叉验证，提高结论的可靠性。
+Three dimensions:
+1. **Source triangulation**: Different data sources (official data, third-party reports, expert interviews, user surveys)
+2. **Method triangulation**: Different research methods (quantitative analysis, qualitative interviews, case studies)
+3. **Perspective triangulation**: Different viewpoints (enterprise perspective, user perspective, competitor perspective)
 
 ---
 
-## 核心原则
+## When to Use
 
-**三角验证是必备步骤，不是可选项。**
+**Typical application scenarios**:
+- Key data verification
+- Multi-source information comparison
+- Reducing bias risk
+- Improving conclusion credibility
 
-每份报告都必须：
-1. 对核心数据/结论进行三角验证
-2. 输出"数据验证清单"
+**Usage principles**:
+- Multi-source data cross-validation
+- Multiple methods complement each other
+- Multiple independent analyses
+
+**Verification dimensions**:
+- Data source triangulation (different sources)
+- Method triangulation (different methods)
+- Researcher triangulation (different analysts)
+- Theory triangulation (different theoretical perspectives)
+
+---## Why It Matters
+
+Problems with a single source:
+- May be incorrect
+- May be outdated
+- May be biased
+- May be incomplete
+
+Triangulation improves the reliability of conclusions through cross-validation.
 
 ---
 
-## 验证程度分级
+## Core Principles
 
-| 级别 | 验证程度 | 判断标准 | 标注方式 |
-|------|---------|---------|---------|
-| **A 级** | 完整三角验证 | 3 个独立来源交叉验证 | ✅ 高置信度 |
-| **B 级** | 双源验证 | 2 个独立来源相互印证 | ⚠️ 中等置信度 |
-| **C 级** | 单一来源（可信） | 只有 1 个来源，但来源可信 | ⚠️ 低置信度 |
-| **D 级** | 单一来源（存疑） | 只有 1 个来源，来源可信度存疑 | ❌ 仅供参考 |
+**Triangulation is a mandatory step, not optional.**
+
+Every report must:
+1. Perform triangulation on core data/conclusions
+2. Output a "Data Validation Checklist"
 
 ---
 
-## 操作步骤
+## Verification Level Classification
 
-### Step 1：识别需要验证的数据
+| Level | Verification Degree | Criteria | Notation |
+|-------|-------------------|----------|----------|
+| **Level A** | Full triangulation | 3 independent sources cross-validated | ✅ High Confidence Level |
+| **Level B** | Dual-source verification | 2 independent sources corroborate each other | ⚠️ Medium Confidence Level |
+| **Level C** | Single source (credible) | Only 1 source, but source is credible | ⚠️ Low Confidence Level |
+| **Level D** | Single source (questionable) | Only 1 source, source credibility questionable | ❌ Reference only |
 
-**必须验证的数据类型**：
-- 市场规模、增长率
-- 竞对数据（用户数、营收、份额）
-- 用户数据（规模、画像、行为）
-- 行业关键指标
+---
 
-**可以不验证的数据类型**：
-- 背景信息、常识性描述
-- 非核心的辅助数据
+## Operating Steps
 
-### Step 2：寻找多个来源
+### Step 1: Identify Data Requiring Verification
 
-**来源优先级**：
+**Must verify**:
+- Market size, growth rates
+- Competitor data (users, revenue, market share)
+- User data (scale, profile, behavior)
+- Key industry metrics
 
-| 来源类型 | 可信度 | 例子 |
-|---------|--------|------|
-| 官方数据 | 高 | 企业财报、政府统计、上市公司公告 |
-| 权威第三方 | 中高 | 艾瑞、易观、麦肯锡报告 |
-| 媒体报道 | 中 | 主流财经媒体、行业媒体 |
-| 企业自述 | 中低 | 官网宣传、公关稿、创始人采访 |
-| 匿名/模糊来源 | 低 | "据业内人士透露"、"据公开数据" |
+**May skip verification**:
+- Background information, common knowledge descriptions
+- Non-core supplementary data
 
-### Step 3：交叉验证
+### Step 2: Find Multiple Sources
 
-对比不同来源的数据：
-- 是否一致？
-- 如果不一致，差异多大？
-- 差异的原因是什么？
+**Source priority**:
 
-### Step 4：处理不一致
+| Source Type | Credibility | Examples |
+|------------|-------------|---------|
+| Official data | High | Corporate filings, government statistics, public company announcements |
+| Authoritative third-party | Medium-high | iResearch, Analysys, McKinsey reports |
+| Media reports | Medium | Major financial media, industry media |
+| Corporate self-reported | Medium-low | Official website, PR releases, founder interviews |
+| Anonymous/vague sources | Low | "According to industry insiders," "per public data" |
 
-当来源不一致时：
+### Step 3: Cross-validate
 
-1. **评估来源可信度**
-   - 官方数据 > 第三方 > 媒体 > 企业自述
+Compare data from different sources:
+- Are they consistent?
+- If not, how large is the discrepancy?
+- What's the reason for the discrepancy?
 
-2. **检查口径差异**
-   - 定义是否相同？（如"市场规模"的定义）
-   - 时间是否相同？
-   - 范围是否相同？（如"国内"vs"全球"）
+### Step 4: Handle Inconsistencies
 
-3. **选择或估算**
-   - 如果可信度差异大，选择更可信的来源
-   - 如果可信度相近，取区间或中位数
-   - 必须说明选择理由
+When sources are inconsistent:
 
-### Step 5：尝试间接验证
+1. **Assess source credibility**
+   - Official data > Third-party > Media > Corporate self-reported
 
-当找不到直接的第二来源时，尝试间接验证：
+2. **Check for scope differences**
+   - Are definitions the same? (e.g., "market size" definition)
+   - Are time periods the same?
+   - Are geographic scopes the same? (e.g., "domestic" vs "global")
 
-**逻辑校验**：
-- 数据之间是否逻辑自洽？
-- 如果市场规模 100 亿，头部企业营收 80 亿合理吗？
+3. **Select or estimate**
+   - If credibility differs significantly, choose the more credible source
+   - If credibility is similar, take a range or median
+   - Must explain the selection rationale
 
-**相关数据推算**：
-- 从相关数据推算目标数据
-- 如：从用户数 × ARPU 推算营收
+### Step 5: Attempt Indirect Verification
 
-**案例对比**：
-- 与类似行业/企业对比，看是否合理
+When a direct second source cannot be found, attempt indirect verification:
 
-### Step 6：标注验证程度
+**Logic checks**:
+- Is the data internally consistent?
+- If market size is 10 billion, is the top company having 8 billion in revenue reasonable?
 
-每个核心数据后标注验证程度：
+**Extrapolation from related data**:
+- Calculate the target data from related data
+- E.g., estimate revenue from user count x ARPU
+
+**Benchmark comparison**:
+- Compare with similar industries/companies for reasonableness
+
+### Step 6: Label Verification Level
+
+Label each core data point with its verification level:
 
 ```
-市场规模：100 亿元 [来源: 艾瑞报告 | 验证: B级]
-竞对用户数：500 万 [来源: 企业官网 | 验证: C级]
-```
-
----
-
-## 单一来源的处理
-
-当**穷尽验证方式后仍只有单一来源**时：
-
-1. **评估来源可信度**
-2. **尝试间接验证**
-3. **明确标注**
-
-示例：
-```
-数据：XX 行业市场规模约 50 亿元
-来源：艾瑞咨询《2024 年 XX 行业报告》（单一来源）
-验证程度：C 级（单一权威来源，未找到交叉验证）
-间接校验：头部企业 A 营收 20 亿，占市场份额约 40%，逻辑上吻合
-风险提示：建议后续研究补充其他来源验证
+Market size: 10 billion [Source: iResearch Report | Verification: Level B]
+Competitor user count: 5 million [Source: Company website | Verification: Level C]
 ```
 
 ---
 
-## 输出格式
+## Handling Single Sources
 
-### 数据标注格式
+When **all verification methods are exhausted and only a single source remains**:
 
-在报告中，每个核心数据后标注：
+1. **Assess source credibility**
+2. **Attempt indirect verification**
+3. **Clearly label**
+
+Example:
+```
+Data: Industry XX market size approximately 5 billion
+Source: iResearch "2024 XX Industry Report" (single source)
+Verification level: Level C (single authoritative source, no cross-validation found)
+Indirect check: Top company A has revenue of 2 billion, accounting for ~40% market share — logically consistent
+Risk note: Recommend supplementing with other sources in future research
+```
+
+---
+
+## Output Format
+
+### Data Labeling Format
+
+In the report, after each core data point, label:
 
 ```
-[数据] [来源: XX | 验证: A/B/C/D级]
+[Data] [Source: XX | Verification: Level A/B/C/D]
 ```
 
-### 数据验证清单（报告必备）
+### Data Validation Checklist (Mandatory for Reports)
 
-每份报告末尾必须附：
+Every report must include at the end:
 
 ```markdown
-## 数据验证清单
+## Data Validation Checklist
 
-### A 级数据（高置信度）
-| 数据 | 来源1 | 来源2 | 来源3 |
-|------|-------|-------|-------|
-| 市场规模 100 亿 | 艾瑞报告 | 易观数据 | 头部企业财报反推 |
+### Level A Data (High Confidence)
+| Data | Source 1 | Source 2 | Source 3 |
+|------|----------|----------|----------|
+| Market size 10 billion | iResearch Report | Analysys Data | Top company filing extrapolation |
 
-### B 级数据（中等置信度）
-| 数据 | 来源1 | 来源2 | 说明 |
-|------|-------|-------|------|
-| 用户规模 500 万 | 企业官网 | 媒体报道 | 两个来源吻合 |
+### Level B Data (Medium Confidence)
+| Data | Source 1 | Source 2 | Notes |
+|------|----------|----------|-------|
+| User base 5 million | Company website | Media report | Two sources corroborate |
 
-### C 级数据（低置信度）
-| 数据 | 来源 | 间接校验 | 风险提示 |
-|------|------|---------|---------|
-| 细分市场规模 10 亿 | 单一报告 | 逻辑自洽 | 建议补充验证 |
+### Level C Data (Low Confidence)
+| Data | Source | Indirect Check | Risk Note |
+|------|--------|---------------|-----------|
+| Sub-market size 1 billion | Single report | Logically consistent | Recommend supplementing verification |
 
-### D 级数据（仅供参考）
-| 数据 | 来源 | 问题 | 建议 |
-|------|------|------|------|
-| XX 数据 | 匿名来源 | 无法验证 | 不作为关键结论支撑 |
+### Level D Data (Reference Only)
+| Data | Source | Issue | Recommendation |
+|------|--------|-------|----------------|
+| XX data | Anonymous source | Cannot verify | Not used as key conclusion support |
 
-### 验证覆盖率
-- 核心数据总数：X 条
-- A 级：X 条（X%）
-- B 级：X 条（X%）
-- C 级：X 条（X%）
-- D 级：X 条（X%）
+### Verification Coverage
+- Total core data points: X
+- Level A: X (X%)
+- Level B: X (X%)
+- Level C: X (X%)
+- Level D: X (X%)
 ```
 
 ---
 
-## 常见错误
+## Common Mistakes
 
-### 错误 1：只用单一来源
+### Mistake 1: Using Only a Single Source
 
-❌ "市场规模 100 亿"（只有一个来源）
-✅ 标注来源和验证程度，尝试找其他来源
+❌ "Market size is 10 billion" (only one source)
+✅ Label the source and verification level, try to find other sources
 
-### 错误 2：忽略来源可信度
+### Mistake 2: Ignoring Source Credibility
 
-❌ 把企业自述数据当事实
-✅ 评估来源可信度，交叉验证
+❌ Treating corporate self-reported data as fact
+✅ Assess source credibility, cross-validate
 
-### 错误 3：不处理矛盾
+### Mistake 3: Not Handling Contradictions
 
-❌ 来源矛盾时假装没看见
-✅ 说明差异，解释选择理由
+❌ Pretending not to see when sources contradict
+✅ Explain the discrepancy, justify the selection
 
-### 错误 4：不做验证清单
+### Mistake 4: Not Creating a Validation Checklist
 
-❌ 报告没有数据验证清单
-✅ 每份报告必须有验证清单
-
----
-
-## 在本 Skill 中的应用
-
-### Stage 4 研究执行
-
-1. 收集数据时，主动寻找多个来源
-2. 对核心数据进行三角验证
-3. 记录到 `evidence_base.md`
-
-### Stage 6 报告生成
-
-1. 每个核心数据标注验证程度
-2. 报告末尾附数据验证清单
-3. D 级数据不作为关键结论支撑
+❌ Report without a Data Validation Checklist
+✅ Every report must have a validation checklist
 
 ---
 
-## 与其他方法论的关系
+## Application in This Skill
 
-- **假设驱动法**：三角验证确保假设验证的可靠性
-- **ACH 竞争假设分析**：三角验证提供可靠的证据
-- **Anti-patterns**：三角验证避免"单一信源依赖"反模式
+### Stage 4 Research Execution
+
+1. When collecting data, actively seek multiple sources
+2. Perform triangulation on core data
+3. Record in `evidence_base.md`
+
+### Stage 6 Report Generation
+
+1. Label each core data point with verification level
+2. Append Data Validation Checklist at the end of the report
+3. Level D data must not support key conclusions
+
+---
+
+## Relationship with Other Methodologies
+
+- **Hypothesis-driven method**: Triangulation ensures the reliability of hypothesis validation
+- **ACH (Analysis of Competing Hypotheses)**: Triangulation provides reliable evidence
+- **Anti-patterns**: Triangulation avoids the "single-source dependency" anti-pattern

@@ -1,617 +1,613 @@
-# 3A战略八步法（3A Strategy 8-Step Framework）
+# 3A Strategy 8-Step Framework
 
-> **核心价值**：一套融合战略视角（3A）与行业分析全流程（8 步）的研究框架，用于系统理解行业、识别机会、形成战略判断
+> **Core Value**: A research framework integrating strategic perspectives (3A) with a full industry analysis workflow (8 Steps), used to systematically understand industries, identify opportunities, and form strategic judgments
 >
-> **原创框架**：Eric Yang (Ant Group)
+> **Original Framework**: Eric Young
 >
-> **一句话**：从行业全景认知到战略决策收敛的完整方法论
+> **One-liner**: A complete methodology from industry landscape understanding to strategic decision convergence
 
 ---
 
-## 概述
+## Overview
 
-**3A战略八步法**是一套整合了战略视角与行业分析全流程的框架。它融合了：
-- **3A 战略维度**（想做 Aspiration / 能做 Ability / 可做 Accessibility）— 提供战略收敛力
-- **八步分析维度**（行业定义、发展阶段、竞争格局、价值链、盈利模式、渠道、商户档案、用户研究）— 提供全面分析视角
+The **3A Strategy 8-Step Framework** is an integrated framework combining strategic perspectives with a full industry analysis workflow. It fuses:
+- **3A Strategic Dimensions** (Aspiration / Ability / Accessibility) — providing strategic convergence
+- **8-Step Analysis Dimensions** (Industry Definition, Development Stage, Competitive Landscape, Value Chain, Profit Model, Channels, Merchant Profile, User Research) — providing comprehensive analytical coverage
 
-**核心设计理念**：
-- **三横八纵矩阵**：3A 为横（战略层），八步为纵（分析层）
-- **输入输出闭环**：八步是输入（收集行业信息），3A 是输出（收敛为战略判断）
-- **B端业务适配**：特别加入"商户档案"步骤，强化 B 端业务研究的切实感
+**Core Design Principles**:
+- **3-by-8 Matrix**: 3A as rows (strategic layer), 8 Steps as columns (analysis layer)
+- **Input-Output Closed Loop**: 8 Steps are input (collect industry information); 3A is output (converge into strategic judgments)
+- **B2B Adaptation**: Specifically includes a "Merchant Profile" step, strengthening the tangibility of B2B business research
 
 ---
 
-## 框架结构
+## Framework Structure
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    3A战略八步法框架                              │
+│                  3A Strategy 8-Step Framework                    │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│   战略层 (Why)              分析层 (What)        输出层 (How)   │
+│   Strategic Layer (Why)     Analysis Layer (What)   Output (How)│
 │   ┌─────┬─────┬─────┐                                          │
-│   │想做 │ 能做 │ 可做 │  ← 3A 战略维度                          │
+│   │Aspi-│Abil-│Acces│  ← 3A Strategic Dimensions                │
+│   │ration│ity │sibi-│                                           │
+│   │     │     │lity │                                           │
 │   └──┬──┴──┬──┴──┬──┘                                          │
 │      │      │      │                                           │
 │      ▼      ▼      ▼                                           │
 │   ┌──────────────────────────┐                                  │
-│   │ 1  2  3  4  5  6  7  8  │  ← 八步分析维度                   │
-│   │定义 阶段 竞争 链 盈利 渠道 商户 用户│                       │
+│   │ 1  2  3  4  5  6  7  8  │  ← 8-Step Analysis Dimensions    │
+│   │Def Stage Comp VC Prof Chan Merch User│                      │
 │   └──────────────────────────┘                                  │
 │                                                                 │
-│   输出：战略判断 + 机会清单 + 行动建议                           │
+│   Output: Strategic Judgment + Opportunity List + Action Plan   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 三横：3A 战略维度
+### Three Rows: 3A Strategic Dimensions
 
-| 维度 | 英文 | 核心问题 | 主要分析步骤 |
-|------|------|---------|-------------|
-| **想做** | Aspiration | 行业有没有吸引力？ | 1 行业定义、2 发展阶段、8 用户研究 |
-| **能做** | Ability | 我们有没有优势？ | 3 竞争格局、4 价值链、7 商户档案 |
-| **可做** | Accessibility | 商业上可不可行？ | 5 盈利模式、6 渠道 |
+| Dimension | English | Core Question | Primary Analysis Steps |
+|-----------|---------|--------------|----------------------|
+| **Aspiration** | Aspiration | Is the industry attractive? | 1 Industry Definition, 2 Development Stage, 8 User Research |
+| **Ability** | Ability | Do we have advantages? | 3 Competitive Landscape, 4 Value Chain, 7 Merchant Profile |
+| **Accessibility** | Accessibility | Is it commercially viable? | 5 Profit Model, 6 Channels |
 
-### 八纵：分析维度速览
+### Eight Columns: Analysis Dimensions Overview
 
-| 步骤 | 主题 | 核心分析内容 | 关键输出 |
-|------|------|-------------|---------|
-| **1** | 行业定义与分类 | 界定行业边界、细分赛道分类 | 行业定义、细分地图 |
-| **2** | 发展阶段与趋势 | 萌芽/发展/成熟/衰退期判断 | 生命周期位置、趋势判断 |
-| **3** | 竞争格局 | 集中度分析、波特五力、玩家清单 | 竞争强度、主要玩家 |
-| **4** | 价值链 | 产业链结构、各环节价值分布 | 价值链地图、核心环节 |
-| **5** | 盈利模式与盈利能力 | 毛利率/净利率、成本结构 | 盈利模式、利润池分布 |
-| **6** | 渠道 | 线下/线上、直销/经销、渠道层级 | 渠道结构、触达路径 |
-| **7** | 商户档案 | 商户现状、竞对、战略、痛点 | 商户画像、机会点 |
-| **8** | 用户研究 | 消费者行为链路、用户画像 | 用户需求、痛点地图 |
-
----
-
-## 使用步骤
-
-### Step 1：明确战略问题（5 分钟）
-
-回答以下问题：
-- **我们是谁？** — 公司/业务/角色
-- **为什么做这个研究？** — 决策用途（进入/不进入、投资/不投资、如何应对竞争等）
-- **哪个 A 最模糊？** — 想做不清楚？能做不确定？可做存疑？
-
-### Step 2：选择分析维度（10 分钟）
-
-根据战略问题，从八步中选择 5-7 个步骤（不必全部）：
-
-| 战略问题类型 | 推荐步骤组合 |
-|-------------|-------------|
-| **该不该进入 XX 市场？** | 1 定义、2 阶段、3 竞争、4 价值链、5 盈利、6 渠道、8 用户 |
-| **如何应对 XX 竞争？** | 3 竞争、4 价值链、5 盈利、7 商户、8 用户 |
-| **XX 行业有没有机会？** | 1 定义、2 阶段、3 竞争、5 盈利、6 渠道 |
-| **我们的优势在哪？** | 3 竞争、4 价值链、7 商户 |
-| **用户需求是什么？** | 1 定义、8 用户、2 阶段 |
-
-### Step 3：执行分析（2-4 小时）
-
-对每个选定步骤：
-1. 阅读本框架对应的详细分析指南
-2. 收集数据（参考 `resources/data_sources.md`）
-3. 填写分析模板
-4. 标注数据来源和置信度
-
-### Step 4：战略合成（30 分钟）
-
-回到 3A 维度，回答：
-- **想做**：基于步骤 1、2、8，行业吸引力如何？我们想不想做？
-- **能做**：基于步骤 3、4、7，我们有没有竞争优势？能不能做？
-- **可做**：基于步骤 5、6，商业模式成立吗？渠道可触达吗？
-
-### Step 5：形成判断（15 分钟）
-
-综合 3A 分析，形成战略判断：
-- **进入/不进入**
-- **投资/不投资**
-- **差异化策略/成本领先/聚焦**
-- **合作/自研/收购**
+| Step | Theme | Core Analysis Content | Key Output |
+|------|-------|----------------------|-----------|
+| **1** | Industry Definition & Classification | Define industry boundaries, segment track classification | Industry definition, segment map |
+| **2** | Development Stage & Trends | Nascent/growth/mature/decline stage assessment | Lifecycle position, trend judgment |
+| **3** | Competitive Landscape | Concentration analysis, Five Forces, player roster | Competitive intensity, major players |
+| **4** | Value Chain | Industry chain structure, value distribution by segment | Value chain map, core segments |
+| **5** | Profit Model & Profitability | Gross/net margin, cost structure | Profit model, profit pool distribution |
+| **6** | Channels | Offline/online, direct/dealer, channel tiers | Channel structure, reach pathways |
+| **7** | Merchant Profile | Merchant status, competitors, strategy, pain points | Merchant personas, opportunity points |
+| **8** | User Research | Consumer behavior journey, user personas | User needs, pain point map |
 
 ---
 
-## 八步详解
+## Usage Steps
+
+### Step 1: Clarify the Strategic Question (5 minutes)
+
+Answer these questions:
+- **Who are we?** — Company/business/role
+- **Why are we doing this research?** — Decision purpose (enter/don't enter, invest/don't invest, how to respond to competition, etc.)
+- **Which A is most unclear?** — Aspiration unclear? Ability uncertain? Accessibility questionable?
+
+### Step 2: Select Analysis Dimensions (10 minutes)
+
+Based on the strategic question, choose 5-7 steps from the eight (not all required):
+
+| Strategic Question Type | Recommended Step Combination |
+|------------------------|------------------------------|
+| **Should we enter market XX?** | 1 Definition, 2 Stage, 3 Competition, 4 Value Chain, 5 Profitability, 6 Channels, 8 Users |
+| **How to respond to XX competition?** | 3 Competition, 4 Value Chain, 5 Profitability, 7 Merchants, 8 Users |
+| **Are there opportunities in XX industry?** | 1 Definition, 2 Stage, 3 Competition, 5 Profitability, 6 Channels |
+| **Where are our advantages?** | 3 Competition, 4 Value Chain, 7 Merchants |
+| **What do users need?** | 1 Definition, 8 Users, 2 Stage |
+
+### Step 3: Execute Analysis (2-4 hours)
+
+For each selected step:
+1. Read the corresponding detailed analysis guide in this framework
+2. Collect data (reference `resources/data_sources.md`)
+3. Fill in the analysis template
+4. Note data sources and confidence levels
+
+### Step 4: Strategic Synthesis (30 minutes)
+
+Return to 3A dimensions and answer:
+- **Aspiration**: Based on Steps 1, 2, 8 — how attractive is the industry? Do we want to do this?
+- **Ability**: Based on Steps 3, 4, 7 — do we have competitive advantages? Can we do this?
+- **Accessibility**: Based on Steps 5, 6 — is the business model viable? Are channels reachable?
+
+### Step 5: Form Judgment (15 minutes)
+
+Synthesize the 3A analysis to form strategic judgment:
+- **Enter / Don't enter**
+- **Invest / Don't invest**
+- **Differentiation / Cost leadership / Focus strategy**
+- **Partner / Build in-house / Acquire**
 
 ---
 
-### 步骤 1：行业定义与分类
+## Eight Steps Explained
 
-**分析目的**：界定研究边界，避免范围模糊导致分析失效
+---
 
-**核心问题**：
-- 这个行业的定义是什么？边界在哪？
-- 有哪些细分赛道？分类标准是什么？
-- 哪些公司属于这个行业？哪些不属于？
+### Step 1: Industry Definition & Classification
 
-**关键指标/方法**：
-- 行业定义（文字描述）
-- 细分赛道分类树
-- 主要玩家归属映射
+**Analysis Purpose**: Define research boundaries to prevent scope ambiguity from invalidating analysis
 
-**数据来源**：
-- 行业报告（艾瑞、易观、IDC 等）
-- 上市公司招股书/年报
-- 行业协会/统计局分类
+**Core Questions**:
+- What is the industry definition? Where are the boundaries?
+- What are the sub-segments? What are the classification criteria?
+- Which companies belong to this industry? Which don't?
 
-**输出模板**：
+**Key Methods**:
+- Industry definition (text description)
+- Sub-segment classification tree
+- Major player attribution mapping
+
+**Data Sources**:
+- Industry reports (iResearch, Analysys, IDC, etc.)
+- Public company prospectuses/annual reports
+- Industry association/statistics bureau classifications
+
+**Output Template**:
 ```markdown
-#### 行业定义
-[用一句话定义行业]
+#### Industry Definition
+[Define the industry in one sentence]
 
-#### 细分赛道
-- 赛道 A：[定义 + 代表公司]
-- 赛道 B：[定义 + 代表公司]
-- 赛道 C：[定义 + 代表公司]
+#### Sub-segments
+- Track A: [Definition + representative companies]
+- Track B: [Definition + representative companies]
+- Track C: [Definition + representative companies]
 
-#### 边界说明
-- 包括：[...]
-- 不包括：[...]
+#### Boundary Notes
+- Includes: [...]
+- Excludes: [...]
 ```
 
-**与 3A 的关联**：主要服务于 **想做** — 明确"我们想进入的是哪个行业"
+**3A Link**: Primarily serves **Aspiration** — clarifying "which industry do we want to enter"
 
 ---
 
-### 步骤 2：发展阶段与趋势
+### Step 2: Development Stage & Trends
 
-**分析目的**：判断行业生命周期位置，识别发展趋势
+**Analysis Purpose**: Assess industry lifecycle position, identify development trends
 
-**核心问题**：
-- 行业处于萌芽期、发展期、成熟期还是衰退期？
-- 关键趋势是什么？（增长、整合、技术变革等）
-- 未来 3-5 年预判如何？
+**Core Questions**:
+- Is the industry in nascent, growth, mature, or decline stage?
+- What are the key trends? (Growth, consolidation, technology disruption, etc.)
+- What is the 3-5 year outlook?
 
-**关键指标/方法**：
+**Key Methods**:
 
-| 生命周期阶段 | 销售额 | 利润率 | 企业数量 | 渗透率 | 业务重点 |
-|-------------|--------|--------|---------|--------|---------|
-| **萌芽期** | 无或低 | 亏损（高投入） | 少→快速增长 | 低 | 产品打磨、用户教育 |
-| **发展期** | 快速增长 | 高利润 | 持续增加 | 快速提升 | 扩张、抢份额 |
-| **成熟期** | 缓慢增长 | 利润承压 | 开始减少 | 高渗透 | 效率、差异化 |
-| **衰退期** | 衰退 | 多数亏损 | 大量退出 | 下降 | 退出/转型 |
+| Lifecycle Stage | Sales | Profit Margin | Company Count | Penetration | Business Focus |
+|----------------|-------|--------------|---------------|-------------|---------------|
+| **Nascent** | None or low | Loss (high investment) | Few → rapidly growing | Low | Product refinement, market education |
+| **Growth** | Rapid growth | High profits | Continuously increasing | Rapidly rising | Expansion, market share grab |
+| **Mature** | Slow growth | Margin pressure | Beginning to decrease | High penetration | Efficiency, differentiation |
+| **Decline** | Declining | Most losses | Mass exits | Declining | Exit/transform |
 
-**数据来源**：
-- 行业规模历史数据（券商研报、行业报告）
-- 企业数量变化（天眼查、企查查）
-- 渗透率数据（vertical data providers）
+**Data Sources**:
+- Historical industry size data (securities research, industry reports)
+- Company count changes (Tianyancha, Qichacha)
+- Penetration rate data (vertical data providers)
 
-**输出模板**：
+**Output Template**:
 ```markdown
-#### 生命周期判断
-- 当前阶段：[萌芽/发展/成熟/衰退]
-- 判断依据：[销售额增速、利润率、企业数量、渗透率]
+#### Lifecycle Assessment
+- Current stage: [Nascent/Growth/Mature/Decline]
+- Basis: [Sales growth rate, profit margins, company count, penetration rate]
 
-#### 关键趋势
-- 趋势 1：[描述 + 数据支撑]
-- 趋势 2：[描述 + 数据支撑]
+#### Key Trends
+- Trend 1: [Description + data support]
+- Trend 2: [Description + data support]
 
-#### 3-5 年预判
-[基于趋势的预判]
+#### 3-5 Year Outlook
+[Forecast based on trends]
 ```
 
-**与 3A 的关联**：主要服务于 **想做** — 判断"行业有没有吸引力、时机对不对"
+**3A Link**: Primarily serves **Aspiration** — assessing "is the industry attractive, is the timing right"
 
 ---
 
-### 步骤 3：竞争格局
+### Step 3: Competitive Landscape
 
-**分析目的**：理解行业竞争强度和主要玩家
+**Analysis Purpose**: Understand industry competitive intensity and major players
 
-**核心问题**：
-- 行业是集中还是分散？CR5/CR10 是多少？
-- 主要玩家有哪些？各自份额？
-- 竞争激烈程度如何？（波特五力）
+**Core Questions**:
+- Is the industry concentrated or fragmented? What is CR5/CR10?
+- Who are the major players? What are their shares?
+- How intense is competition? (Five Forces)
 
-**关键指标/方法**：
-- **行业集中度**：CR5（前 5 名份额）、CR10
-- **竞争曲线**：CR5/CR10 历史变化趋势
-- **玩家清单**：按商业模式/资本阵营/本土外资分类
-- **波特五力**：供应商议价力、购买者议价力、新进入者威胁、替代品威胁、现有竞争
+**Key Methods**:
+- **Industry concentration**: CR5 (top 5 share), CR10
+- **Concentration curve**: CR5/CR10 historical trend
+- **Player roster**: Classified by business model/capital camp/domestic-foreign
+- **Five Forces**: Supplier power, buyer power, new entrant threat, substitute threat, existing competition
 
-**数据来源**：
-- 市场份额数据（券商研报、咨询公司报告）
-- 玩家信息（官网、天眼查、招股书）
-- 竞争行为（新闻、财报电话会）
+**Data Sources**:
+- Market share data (securities research, consulting reports)
+- Player information (websites, Tianyancha, prospectuses)
+- Competitive behavior (news, earnings calls)
 
-**输出模板**：
+**Output Template**:
 ```markdown
-#### 行业集中度
-- CR5：[X]%
-- CR10：[Y]%
-- 趋势：[上升/稳定/下降]
+#### Industry Concentration
+- CR5: [X]%
+- CR10: [Y]%
+- Trend: [Rising/Stable/Declining]
 
-#### 主要玩家清单
-| 玩家 | 份额 | 商业模式 | 资本背景 | 本土/外资 |
-|------|------|---------|---------|----------|
+#### Major Player Roster
+| Player | Share | Business Model | Capital Backing | Domestic/Foreign |
+|--------|-------|---------------|----------------|-----------------|
 | ... | ... | ... | ... | ... |
 
-#### 波特五力分析
-- 供应商议价力：[高/中/低] — [理由]
-- 购买者议价力：[高/中/低] — [理由]
-- 新进入者威胁：[高/中/低] — [理由]
-- 替代品威胁：[高/中/低] — [理由]
-- 现有竞争：[激烈/温和] — [理由]
+#### Five Forces Analysis
+- Supplier power: [High/Medium/Low] — [Rationale]
+- Buyer power: [High/Medium/Low] — [Rationale]
+- New entrant threat: [High/Medium/Low] — [Rationale]
+- Substitute threat: [High/Medium/Low] — [Rationale]
+- Existing competition: [Intense/Moderate] — [Rationale]
 ```
 
-**与 3A 的关联**：主要服务于 **能做** — 判断"我们的竞争位置如何"
+**3A Link**: Primarily serves **Ability** — assessing "what is our competitive position"
 
 ---
 
-### 步骤 4：价值链
+### Step 4: Value Chain
 
-**分析目的**：识别产业链各环节价值分布和核心企业
+**Analysis Purpose**: Identify value distribution and core companies across industry chain segments
 
-**核心问题**：
-- 产业链有哪些环节？
-- 各环节的规模、玩家、盈利能力？
-- 哪个环节最有价值？哪个是核心控制点？
+**Core Questions**:
+- What are the industry chain segments?
+- What is each segment's scale, players, and profitability?
+- Which segment is most valuable? Which is the strategic control point?
 
-**关键指标/方法**：
-- **价值链地图**：上游→中游→下游
-- **环节分析**：规模、玩家、趋势、盈利能力、核心企业
-- **资金链路**：钱从哪里流到哪里
+**Key Methods**:
+- **Value chain map**: Upstream → Midstream → Downstream
+- **Segment analysis**: Scale, players, trends, profitability, core companies
+- **Capital flow**: Where money flows from and to
 
-**数据来源**：
-- 产业链图谱（咨询公司报告、行业研究）
-- 各环节毛利率对比（上市公司财报）
-- 核心企业识别（市场份额、技术壁垒）
+**Data Sources**:
+- Industry chain maps (consulting reports, industry research)
+- Gross margin comparison by segment (public company filings)
+- Core company identification (market share, technology barriers)
 
-**输出模板**：
+**Output Template**:
 ```markdown
-#### 价值链地图
-上游 → [环节 A] → [环节 B] → 中游 → [环节 C] → 下游 → [环节 D] → 终端用户
+#### Value Chain Map
+Upstream → [Segment A] → [Segment B] → Midstream → [Segment C] → Downstream → [Segment D] → End User
 
-#### 环节分析
-| 环节 | 规模 | 主要玩家 | 毛利率 | 趋势 | 核心企业 |
-|------|------|---------|--------|------|---------|
+#### Segment Analysis
+| Segment | Scale | Major Players | Gross Margin | Trend | Core Company |
+|---------|-------|--------------|-------------|-------|-------------|
 | ... | ... | ... | ... | ... | ... |
 
-#### 核心环节识别
-- 最有价值环节：[环节名] — [理由]
-- 战略控制点：[环节名] — [理由]
+#### Core Segment Identification
+- Most valuable segment: [Segment name] — [Rationale]
+- Strategic control point: [Segment name] — [Rationale]
 ```
 
-**与 3A 的关联**：主要服务于 **能做** — 判断"我们在哪环节有价值"
+**3A Link**: Primarily serves **Ability** — assessing "where in the chain do we have value"
 
 ---
 
-### 步骤 5：盈利模式与盈利能力
+### Step 5: Profit Model & Profitability
 
-**分析目的**：理解行业如何赚钱、利润池分布
+**Analysis Purpose**: Understand how the industry makes money and profit pool distribution
 
-**核心问题**：
-- 行业的主要盈利模式有哪些？
-- 毛利率、净利率水平如何？
-- 不同规模玩家盈利能力差异？
-- 利润池分布在哪些环节/哪些玩家？
+**Core Questions**:
+- What are the main profit models?
+- What are gross and net margin levels?
+- How does profitability differ by player scale?
+- Where are profit pools distributed?
 
-**关键指标/方法**：
-- **毛利率**：反映商业模式
-- **净利率**：反映公司健康度
-- **成本结构**：固定成本 vs 变动成本
-- **盈利模式类型**：订阅制、交易抽佣、广告、硬件销售等
+**Key Methods**:
+- **Gross margin**: Reflects business model
+- **Net margin**: Reflects company health
+- **Cost structure**: Fixed vs variable costs
+- **Profit model types**: Subscription, transaction commission, advertising, hardware sales, etc.
 
-**数据来源**：
-- 上市公司财报（毛利率、净利率）
-- 招股书（成本结构披露）
-- 行业报告（利润池分析）
+**Data Sources**:
+- Public company filings (gross margin, net margin)
+- Prospectuses (cost structure disclosures)
+- Industry reports (profit pool analysis)
 
-**输出模板**：
+**Output Template**:
 ```markdown
-#### 盈利模式
-- 模式 A：[描述 + 代表公司]
-- 模式 B：[描述 + 代表公司]
+#### Profit Models
+- Model A: [Description + representative companies]
+- Model B: [Description + representative companies]
 
-#### 盈利能力
-| 玩家类型 | 毛利率 | 净利率 | 成本结构特点 |
-|---------|--------|--------|-------------|
-| 头部玩家 | ... | ... | ... |
-| 中型玩家 | ... | ... | ... |
-| 小型玩家 | ... | ... | ... |
+#### Profitability
+| Player Type | Gross Margin | Net Margin | Cost Structure Characteristics |
+|------------|-------------|-----------|------------------------------|
+| Top players | ... | ... | ... |
+| Mid-size | ... | ... | ... |
+| Small players | ... | ... | ... |
 
-#### 利润池分布
-- 利润最丰厚的环节：[环节名]
-- 利润最薄的环节：[环节名]
+#### Profit Pool Distribution
+- Most profitable segment: [Segment name]
+- Thinnest margin segment: [Segment name]
 ```
 
-**与 3A 的关联**：主要服务于 **可做** — 判断"商业上能不能赚钱"
+**3A Link**: Primarily serves **Accessibility** — assessing "can we make money commercially"
 
 ---
 
-### 步骤 6：渠道
+### Step 6: Channels
 
-**分析目的**：理解产品/服务如何触达用户
+**Analysis Purpose**: Understand how products/services reach users
 
-**核心问题**：
-- 渠道结构是怎样的？（线下 vs 线上、直销 vs 经销）
-- 渠道集中度如何？
-- 渠道趋势是什么？（线上化、扁平化等）
+**Core Questions**:
+- What is the channel structure? (Offline vs online, direct vs distribution)
+- What is channel concentration?
+- What are channel trends? (Digitization, flattening, etc.)
 
-**关键指标/方法**：
-- **渠道结构**：线下/线上占比
-- **渠道类型**：直销、经销、代理、平台
-- **渠道层级**：一级、二级、三级经销商
-- **渠道集中度**：头部渠道商份额
+**Key Methods**:
+- **Channel structure**: Offline/online split
+- **Channel types**: Direct, distribution, agency, platform
+- **Channel tiers**: Tier-1, tier-2, tier-3 distributors
+- **Channel concentration**: Top distributor share
 
-**数据来源**：
-- 公司财报（渠道披露）
-- 渠道调研（经销商访谈）
-- 电商平台数据（天猫、京东、拼多多）
+**Data Sources**:
+- Company filings (channel disclosures)
+- Channel research (distributor interviews)
+- E-commerce platform data (Tmall, JD.com, Pinduoduo)
 
-**输出模板**：
+**Output Template**:
 ```markdown
-#### 渠道结构
-- 线下：[X]% — [主要渠道类型]
-- 线上：[Y]% — [主要平台]
+#### Channel Structure
+- Offline: [X]% — [Main channel types]
+- Online: [Y]% — [Main platforms]
 
-#### 渠道类型
-- 直销：[占比 + 特点]
-- 经销：[占比 + 层级 + 地域划分]
+#### Channel Types
+- Direct: [Share + characteristics]
+- Distribution: [Share + tiers + geographic division]
 
-#### 渠道趋势
-- 趋势 1：[描述]
-- 趋势 2：[描述]
+#### Channel Trends
+- Trend 1: [Description]
+- Trend 2: [Description]
 ```
 
-**与 3A 的关联**：主要服务于 **可做** — 判断"能不能有效触达用户"
+**3A Link**: Primarily serves **Accessibility** — assessing "can we effectively reach users"
 
 ---
 
-### 步骤 7：商户档案（可选，B 端业务推荐）
+### Step 7: Merchant Profile (Optional, recommended for B2B)
 
-**分析目的**：深入理解典型商户/客户，识别具体机会点
+**Analysis Purpose**: Deeply understand typical merchants/clients, identify specific opportunity points
 
-**核心问题**：
-- 典型商户的现状如何？（组织架构、销售渠道、份额、盈利等）
-- 商户正在使用什么竞对产品？满意度如何？
-- 商户的战略/策略是什么？
-- 商户的痛点是什么？
+**Core Questions**:
+- What is the typical merchant's current situation? (Organization, sales channels, share, profitability, etc.)
+- What competitor products are merchants using? Satisfaction levels?
+- What is the merchant's strategy?
+- What are the merchant's pain points?
 
-**关键指标/方法**：
-- **商户现状**：组织架构、销售渠道、市场份额、盈利模式、客群结构、竞争优势、目标预算
-- **竞争分析**：已用竞对产品、满意度、我方竞争优势
-- **商户战略**：基于现状和竞对推导
-- **需求痛点**：基于战略推导
+**Key Methods**:
+- **Merchant status**: Organization structure, sales channels, market share, profit model, customer structure, competitive advantages, target budgets
+- **Competitive analysis**: Competitor products in use, satisfaction, our competitive advantages
+- **Merchant strategy**: Inferred from status and competition
+- **Need pain points**: Inferred from strategy
 
-**数据来源**：
-- 商户访谈
-- 商户财报/官网
-- 竞对案例研究
+**Data Sources**:
+- Merchant interviews
+- Merchant filings/websites
+- Competitor case studies
 
-**输出模板**：
+**Output Template**:
 ```markdown
-#### 商户现状
-- 组织架构：[描述]
-- 销售渠道：[描述]
-- 市场份额：[X]%
-- 盈利模式：[描述]
-- 客群结构：[描述]
-- 竞争优势：[描述]
-- 目标预算：[描述]
+#### Merchant Status
+- Organization: [Description]
+- Sales channels: [Description]
+- Market share: [X]%
+- Profit model: [Description]
+- Customer structure: [Description]
+- Competitive advantages: [Description]
+- Target budget: [Description]
 
-#### 竞争分析
-- 已用竞对产品：[产品名 + 满意度]
-- 我方竞争优势：[描述]
+#### Competitive Analysis
+- Competitor products in use: [Product name + satisfaction]
+- Our competitive advantages: [Description]
 
-#### 商户战略/策略
-[基于现状和竞对的战略判断]
+#### Merchant Strategy
+[Strategic judgment based on status and competition]
 
-#### 需求痛点
-- 痛点 1：[描述]
-- 痛点 2：[描述]
+#### Need Pain Points
+- Pain point 1: [Description]
+- Pain point 2: [Description]
 ```
 
-**与 3A 的关联**：主要服务于 **能做** — 判断"我们的能力是否匹配商户需求"
+**3A Link**: Primarily serves **Ability** — assessing "do our capabilities match merchant needs"
 
 ---
 
-### 步骤 8：用户研究
+### Step 8: User Research
 
-**分析目的**：理解终端用户需求、行为、痛点
+**Analysis Purpose**: Understand end-user needs, behaviors, and pain points
 
-**核心问题**：
-- 用户画像是什么？（年龄、性别、城市、收入等）
-- 用户行为链路是怎样的？（Customer Journey）
-- 用户痛点在哪里？
+**Core Questions**:
+- What is the user persona? (Age, gender, city, income, etc.)
+- What is the user behavior journey? (Customer Journey)
+- Where are user pain points?
 
-**关键指标/方法**：
-- **用户画像**：人口统计学 + 行为特征
-- **消费者行为链路**：就医前→就医时→就医后（以医疗为例）
-- **体验曲线**：各环节体验评分
-- **研究方法**：深度访谈、焦点小组、问卷调查、大数据分析
+**Key Methods**:
+- **User personas**: Demographics + behavioral characteristics
+- **Consumer behavior journey**: Pre-engagement → During engagement → Post-engagement (e.g., healthcare journey)
+- **Experience curve**: Experience scores per stage
+- **Research methods**: In-depth interviews, focus groups, surveys, big data analysis
 
-**数据来源**：
-- 用户调研（问卷、访谈）
-- 行为数据（APP 埋点、第三方数据）
-- 研究报告（消费者研究）
+**Data Sources**:
+- User research (surveys, interviews)
+- Behavioral data (app analytics, third-party data)
+- Research reports (consumer studies)
 
-**输出模板**：
+**Output Template**:
 ```markdown
-#### 用户画像
-- 年龄：[分布]
-- 性别：[比例]
-- 城市：[分布]
-- 收入：[分布]
+#### User Persona
+- Age: [Distribution]
+- Gender: [Ratio]
+- City: [Distribution]
+- Income: [Distribution]
 
-#### 消费者行为链路
-| 阶段 | 目标 | 行为 | 体验评分 |
-|------|------|------|---------|
-| 阶段 1 | ... | ... | ... |
-| 阶段 2 | ... | ... | ... |
+#### Consumer Behavior Journey
+| Stage | Objective | Behavior | Experience Score |
+|-------|----------|---------|-----------------|
+| Stage 1 | ... | ... | ... |
+| Stage 2 | ... | ... | ... |
 
-#### 核心痛点
-- 痛点 1：[描述 + 影响用户比例]
-- 痛点 2：[描述 + 影响用户比例]
+#### Core Pain Points
+- Pain point 1: [Description + affected user percentage]
+- Pain point 2: [Description + affected user percentage]
 ```
 
-**与 3A 的关联**：主要服务于 **想做** — 判断"用户真实需求是什么"
+**3A Link**: Primarily serves **Aspiration** — assessing "what are users' real needs"
 
 ---
 
-## 与其他框架的关系
+## Relationship with Other Frameworks
 
-### 与 PESTEL 的关系
-- PESTEL 可作为步骤 1（行业定义）和步骤 2（发展阶段）的补充工具
-- 用于扫描宏观环境，但本框架更聚焦行业本身
+### Relationship with PESTEL
+- PESTEL can supplement Step 1 (Industry Definition) and Step 2 (Development Stage)
+- Used for macro environment scanning, but this framework focuses more on the industry itself
 
-### 与波特五力的关系
-- 波特五力是步骤 3（竞争格局）的核心分析方法之一
-- 本框架将其整合进更大的分析框架
+### Relationship with Five Forces
+- Five Forces is one of the core analysis methods within Step 3 (Competitive Landscape)
+- This framework integrates it into a larger analytical framework
 
-### 与 SWOT 的关系
-- SWOT 可作为 Step 4（战略合成）的工具
-- 本框架的输出可直接输入 SWOT 进行战略合成
+### Relationship with SWOT
+- SWOT can serve as a tool for Step 4 (Strategic Synthesis)
+- This framework's output can directly feed into SWOT for strategic synthesis
 
-### 与原版 3A 框架的关系
-- 原版 3A 框架（`3a_strategy.md`）是本框架的"战略层精简版"
-- 本框架增加了八步分析维度，提供更完整的分析流程
+### Relationship with Original 3A Framework
+- The original 3A framework (`3a_strategy.md`) is the "strategic layer condensed version" of this framework
+- This framework adds the 8-step analysis dimensions for a more complete analytical workflow
 
 ---
 
-## 输出模板
+## Output Template
 
-### 行业研究报告结构
+### Industry Research Report Structure
 
 ```markdown
-# [行业名] 行业研究 — 3A战略八步法分析
+# [Industry Name] Industry Research — 3A Strategy 8-Step Analysis
 
 ## Executive Summary
-- 核心结论（1 页）
-- 战略建议（做/不做 + 理由）
+- Core conclusions (1 page)
+- Strategic recommendation (do/don't do + rationale)
 
-## 1. 行业定义与分类
-[步骤 1 输出]
+## 1. Industry Definition & Classification
+[Step 1 output]
 
-## 2. 发展阶段与趋势
-[步骤 2 输出]
+## 2. Development Stage & Trends
+[Step 2 output]
 
-## 3. 竞争格局
-[步骤 3 输出]
+## 3. Competitive Landscape
+[Step 3 output]
 
-## 4. 价值链
-[步骤 4 输出]
+## 4. Value Chain
+[Step 4 output]
 
-## 5. 盈利模式与盈利能力
-[步骤 5 输出]
+## 5. Profit Model & Profitability
+[Step 5 output]
 
-## 6. 渠道
-[步骤 6 输出]
+## 6. Channels
+[Step 6 output]
 
-## 7. 商户档案（如适用）
-[步骤 7 输出]
+## 7. Merchant Profile (if applicable)
+[Step 7 output]
 
-## 8. 用户研究
-[步骤 8 输出]
+## 8. User Research
+[Step 8 output]
 
-## 9. 3A 战略合成
-### 9.1 想做（Aspiration）
-[基于步骤 1、2、8 的综合判断]
+## 9. 3A Strategic Synthesis
+### 9.1 Aspiration
+[Synthesized judgment based on Steps 1, 2, 8]
 
-### 9.2 能做（Ability）
-[基于步骤 3、4、7 的综合判断]
+### 9.2 Ability
+[Synthesized judgment based on Steps 3, 4, 7]
 
-### 9.3 可做（Accessibility）
-[基于步骤 5、6 的综合判断]
+### 9.3 Accessibility
+[Synthesized judgment based on Steps 5, 6]
 
-## 10. 战略建议
-- 建议：[进入/不进入/观望]
-- 理由：[3A 综合分析]
-- 行动：[具体步骤]
+## 10. Strategic Recommendation
+- Recommendation: [Enter/Don't enter/Wait and watch]
+- Rationale: [3A synthesized analysis]
+- Actions: [Specific steps]
 ```
 
 ---
 
-## 案例：扫地机器人行业的 3A战略八步法分析（摘要）
+## Case Study: Robot Vacuum Industry 3A Strategy 8-Step Analysis (Summary)
 
-### 步骤 1：行业定义
-- **定义**：家用智能清洁电器，包括扫地机器人、洗地机、吸尘器等
-- **细分**：扫地机器人（导航式）、手持吸尘器、洗地机
+### Step 1: Industry Definition
+- **Definition**: Home intelligent cleaning appliances, including robot vacuums, floor washers, vacuum cleaners, etc.
+- **Sub-segments**: Robot vacuums (navigation-based), handheld vacuums, floor washers
 
-### 步骤 2：发展阶段
-- **判断**：发展期向成熟期过渡
-- **依据**：销售额增速放缓（从 100%+降至 20-30%）、价格战激烈、头部集中度提升
+### Step 2: Development Stage
+- **Assessment**: Transitioning from growth to maturity
+- **Basis**: Sales growth rate decelerating (from 100%+ to 20-30%), intense price wars, increasing top-player concentration
 
-### 步骤 3：竞争格局
-- **CR5**：约 75%（科沃斯、石头、小米、追觅、云鲸）
-- **趋势**：集中度持续上升，小品牌出清
+### Step 3: Competitive Landscape
+- **CR5**: Approximately 75% (Ecovacs, Roborock, Xiaomi, Dreame, Narwal)
+- **Trend**: Concentration continuing to rise, small brands being cleared out
 
-### 步骤 4：价值链
-- **上游**：芯片、传感器、电池（外资主导）
-- **中游**：整机制造（国产品牌主导）
-- **下游**：线上电商（天猫/京东/抖音）、线下 KA
+### Step 4: Value Chain
+- **Upstream**: Chips, sensors, batteries (foreign-dominated)
+- **Midstream**: Complete machine manufacturing (domestic brands dominate)
+- **Downstream**: Online e-commerce (Tmall/JD.com/Douyin), offline KA retailers
 
-### 步骤 5：盈利模式
-- **毛利率**：35-50%（石头科技最高）
-- **净利率**：10-20%
-- **模式**：硬件销售 + 耗材（尘袋、边刷等）
+### Step 5: Profit Model
+- **Gross margin**: 35-50% (Roborock highest)
+- **Net margin**: 10-20%
+- **Model**: Hardware sales + consumables (dust bags, side brushes, etc.)
 
-### 步骤 6：渠道
-- **线上**：约 70%（抖音增速最快）
-- **线下**：约 30%（苏宁、国美、专卖店）
+### Step 6: Channels
+- **Online**: ~70% (Douyin growing fastest)
+- **Offline**: ~30% (Suning, Gome, specialty stores)
 
-### 步骤 8：用户研究
-- **画像**：25-40 岁、一二线、中高收入、有孩家庭
-- **痛点**：避障能力、清洁死角、维护频率
+### Step 8: User Research
+- **Persona**: Age 25-40, tier-1/2 cities, mid-to-high income, families with children
+- **Pain points**: Obstacle avoidance, cleaning dead zones, maintenance frequency
 
-### 3A 战略合成
-- **想做**：行业仍有增长空间（渗透率<50%），但增速放缓
-- **能做**：技术壁垒不高，供应链成熟，新进入者难度大
-- **可做**：毛利率尚可，但营销费用高，净利率承压
+### 3A Strategic Synthesis
+- **Aspiration**: Industry still has growth headroom (penetration <50%), but growth is decelerating
+- **Ability**: Technology barriers not high, supply chain mature, but difficult for new entrants
+- **Accessibility**: Gross margins acceptable, but high marketing costs put pressure on net margins
 
-**结论**：不建议新进入，建议现有玩家聚焦差异化（如细分场景、高端化）
-
----
-
-## 常见错误
-
-| 错误 | 表现 | 正确做法 |
-|------|------|---------|
-| 八步平均用力 | 每个步骤都做同等深度分析，耗时且焦点模糊 | 根据战略问题选择 5-7 个步骤，关键步骤深入、辅助步骤简要 |
-| 3A 合成缺失 | 做完八步直接出结论，跳过 3A 战略合成 | 八步是输入，3A 合成是核心产出——"想做/能做/可做"必须明确回答 |
-| 步骤间孤立 | 各步骤独立分析，不做交叉验证 | 步骤间有因果关系：如步骤 3（竞争格局）应验证步骤 5（盈利模式）的利润空间判断 |
-| 商户档案滥用 | 所有项目都做步骤 7 | 步骤 7 仅 B 端业务需要，C 端项目跳过 |
-| 数据和观点混淆 | 步骤输出中事实和推测不区分 | 每个步骤的输出必须标注数据来源和置信度 |
+**Conclusion**: Not recommended for new entrants. Existing players should focus on differentiation (e.g., niche scenarios, premiumization)
 
 ---
 
-## 中国本土化考量
+## Common Mistakes
 
-| 维度 | 中国特色 | 案例 |
-|------|---------|------|
-| **想做（A）的政策权重** | 中国行业吸引力高度受政策影响——补贴、牌照、准入限制可在一夜之间改变判断 | "双减"一夜终结教培行业；新能源补贴催生万亿赛道 |
-| **能做（A）的生态因素** | 中国商业竞争已从"企业 vs 企业"升级为"生态 vs 生态" | 微信生态 vs 支付宝生态 vs 抖音生态的三方博弈 |
-| **可做（A）的渠道特殊性** | 中国渠道格局独特：内容电商、微信私域、社交裂变都是中国独有渠道形态 | 抖音兴趣电商 GMV 超 2 万亿；瑞幸私域日均触达百万用户 |
-| **数据可得性** | "上市公司数据好找，未上市公司靠猜"；行业数据来源分散，券商研报是最实用的聚合来源 | 华创/中信等券商研报覆盖 90%+ 上市公司；IT 桔子/企查查补充一级市场 |
-| **B 端商户的中国特色** | B 端决策链：关系驱动 > 产品驱动，区域分散度高，数字化程度两极分化 | 美团 to B 靠地推铁军；SaaS 企业在中国难以复制美国订阅模式 |
+| Mistake | Manifestation | Correct Approach |
+|---------|--------------|-----------------|
+| Equal effort on all 8 steps | Same depth analysis for every step — time-consuming with blurred focus | Choose 5-7 steps based on strategic question; go deep on key steps, keep supporting steps brief |
+| Missing 3A synthesis | Jump to conclusions after 8 steps, skipping 3A strategic synthesis | 8 Steps are input; 3A synthesis is the core output — Aspiration/Ability/Accessibility must be explicitly answered |
+| Isolated steps | Each step analyzed independently without cross-validation | Steps have causal relationships: e.g., Step 3 (Competitive Landscape) should validate Step 5 (Profit Model) profit margin assessments |
+| Merchant Profile overuse | Using Step 7 for every project | Step 7 is only needed for B2B businesses; skip for B2C projects |
+| Mixing data and opinion | Facts and speculation not distinguished in step outputs | Every step's output must note data sources and confidence levels |
 
 ---
 
-## 版本历史
+## China Market Specifics
 
-| 版本 | 日期 | 变更内容 |
-|------|------|---------|
-| V1 | 2026-03-20 | 初始版本 — 整合原版 3A 框架与行业研究八步法 |
-| V1.1 | 2026-03-26 | 新增常见错误 + 中国本土化考量 |
-## 外部研究补充：3A战略八步法整合框架说明
+| Dimension | China Characteristics | Case |
+|-----------|----------------------|------|
+| **Aspiration's policy weight** | China industry attractiveness is heavily policy-influenced — subsidies, licenses, access restrictions can change assessments overnight | "Double Reduction" ended the education industry overnight; NEV subsidies created a trillion-yuan track |
+| **Ability's ecosystem factor** | China business competition has escalated from "company vs company" to "ecosystem vs ecosystem" | WeChat ecosystem vs Alipay ecosystem vs Douyin ecosystem three-way contest |
+| **Accessibility's channel uniqueness** | China's channel landscape is unique: content e-commerce, WeChat private domain, social fission are China-specific channel forms | Douyin interest-based e-commerce GMV exceeded ¥2 trillion; Luckin's private domain reaches millions of users daily |
+| **Data availability** | "Public company data is easy to find, private company data requires guessing"; industry data sources are fragmented; securities research is the most practical aggregated source | Huachuang/CITIC research reports cover 90%+ of public companies; IT Juzi/Qichacha supplement primary market data |
+| **B2B merchant China specifics** | B2B decision chain: relationship-driven > product-driven; high regional fragmentation; digitization levels are polarized | Meituan B2B relies on ground sales army; SaaS companies in China struggle to replicate the US subscription model |
 
-### 框架整合逻辑
+---
 
-**3A 框架**（Aspiration/Ability/Accessibility）提供战略高度，**八步法**提供分析深度，两者整合形成完整的研究体系。
+## External Research Supplement: 3A Strategy 8-Step Integration Framework
 
-### 与经典框架的对应关系
+### Framework Integration Logic
 
-| 3A 维度 | 八步 | 经典框架对应 |
-|---------|------|-------------|
-| 想做 | 1,2,8 | PESTEL + 产业生命周期 + 用户研究 |
-| 能做 | 3,4,7 | Five Forces + 价值链 + 商户档案 |
-| 可做 | 5,6 | TAM/SAM/SOM + 渠道分析 |
+The **3A Framework** (Aspiration/Ability/Accessibility) provides strategic altitude, while the **8-Step Method** provides analytical depth. Together they form a complete research system.
 
-### 使用建议
+### Correspondence with Classic Frameworks
 
-- **首次使用**：按 8 步顺序完整分析
-- **熟练后**：根据研究场景灵活组合
-- **输出导向**：3A 用于战略判断，8 步用于分析论证
+| 3A Dimension | 8 Steps | Classic Framework Correspondence |
+|-------------|---------|--------------------------------|
+| Aspiration | 1, 2, 8 | PESTEL + Industry Lifecycle + User Research |
+| Ability | 3, 4, 7 | Five Forces + Value Chain + Merchant Profile |
+| Accessibility | 5, 6 | TAM/SAM/SOM + Channel Analysis |
+
+### Usage Recommendations
+
+- **First-time use**: Follow all 8 steps in sequence
+- **Once proficient**: Flexibly combine based on research scenario
+- **Output-oriented**: 3A for strategic judgment; 8 Steps for analytical evidence
 
 ---

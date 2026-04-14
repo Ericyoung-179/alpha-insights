@@ -1,229 +1,229 @@
-# 金字塔原理
+# Pyramid Principle
 
-> 核心价值：确保表达清晰、逻辑递进
-
----
-
-## 定义
-
-金字塔原理是一种**自上而下**的表达结构：
-
-1. **结论先行**：最重要的结论放在最前面
-2. **分层支撑**：上层结论由下层论据支撑
-3. **逻辑递进**：同层之间有逻辑关系
-
-```
-        ┌─────────────┐
-        │   核心结论   │  ← 最先说
-        └─────────────┘
-              │
-    ┌─────────┼─────────┐
-    ▼         ▼         ▼
-┌───────┐ ┌───────┐ ┌───────┐
-│论据1  │ │论据2  │ │论据3  │  ← 其次说
-└───────┘ └───────┘ └───────┘
-    │         │         │
-    ▼         ▼         ▼
-┌───────┐ ┌───────┐ ┌───────┐
-│细节1  │ │细节2  │ │细节3  │  ← 最后说
-└───────┘ └───────┘ └───────┘
-```
+> Core value: Ensure clear expression with logical progression
 
 ---
 
-## 使用时机
+## Definition
 
-**典型应用场景**：
-- 报告结构设计
-- PPT 叙事逻辑
-- 执行摘要撰写
-- 口头汇报准备
+The Pyramid Principle is a **top-down** expression structure:
 
-**使用原则**：
-- 结论先行：核心观点放在最前面
-- 以上统下：上层是下层的总结
-- 归类分组：同组思想属于同一范畴
-- 逻辑递进：按逻辑顺序排列
+1. **Conclusion-first**: The most important conclusion comes first
+2. **Layered support**: Upper-level conclusions are supported by lower-level arguments
+3. **Logical progression**: Items at the same level have a logical relationship
 
-**结构模板**：
-1. 核心结论（1 句话）
-2. 关键论据（3-5 点）
-3. 支撑数据（事实/数字/案例）
-
----## 为什么重要
-
-| 表达方式 | 读者体验 | 问题 |
-|---------|---------|------|
-| 先细节后结论 | 不知道你要说什么 | 信息过载，找不到重点 |
-| 先结论后论据 | 一眼看到核心观点 | 清晰高效，便于理解 |
-
-商业报告的读者通常是决策者，时间有限，需要快速抓住核心。
+```
+        +---------------+
+        | Core Conclusion|  <-- Say first
+        +---------------+
+              |
+    +---------+---------+
+    v         v         v
++-------+ +-------+ +-------+
+|Arg 1  | |Arg 2  | |Arg 3  |  <-- Say next
++-------+ +-------+ +-------+
+    |         |         |
+    v         v         v
++-------+ +-------+ +-------+
+|Detail1| |Detail2| |Detail3|  <-- Say last
++-------+ +-------+ +-------+
+```
 
 ---
 
-## 核心原则
+## When to Use
 
-### 原则 1：结论先行
+**Typical application scenarios**:
+- Report structure design
+- PPT narrative logic
+- Executive summary writing
+- Oral presentation preparation
 
-**任何表达都应该先说结论。**
+**Usage principles**:
+- Conclusion-first: Core viewpoint comes first
+- Top-down: Upper level summarizes the lower level
+- Grouped by category: Items in the same group belong to the same category
+- Logical progression: Arranged in logical order
 
-❌ "我们调研了市场，发现规模很大，竞对也在增长，用户需求也在上升，所以我们认为应该进入。"
+**Structure template**:
+1. Core conclusion (1 sentence)
+2. Key arguments (3-5 points)
+3. Supporting data (facts/numbers/cases)
 
-✅ "建议进入该市场。理由有三：市场规模大、竞争不激烈、用户需求旺盛。"
+---## Why It Matters
 
-### 原则 2：以上统下
+| Expression Style | Reader Experience | Problem |
+|-----------------|-------------------|---------|
+| Details first, conclusion last | Don't know what you're saying | Information overload, can't find the key point |
+| Conclusion first, arguments after | Core viewpoint visible at a glance | Clear and efficient, easy to understand |
 
-**上层是下层的总结，下层是上层的支撑。**
-
-每一层都应该能回答"为什么上层结论成立"。
-
-```
-结论：应该进入该市场
-│
-├── 论据1：市场规模大（100亿，年增30%）
-├── 论据2：竞争不激烈（CR3仅40%）
-└── 论据3：用户需求旺盛（调研显示80%用户有需求）
-```
-
-### 原则 3：归类分组
-
-**同层论据应该属于同一类别，且 MECE。**
-
-❌ 混乱的论据：
-```
-结论：应该进入
-├── 市场规模大
-├── 竞对A在补贴
-├── 用户年轻
-└── 我们有技术优势
-```
-（论据类别混乱：市场、竞对、用户、自己混在一起）
-
-✅ 归类的论据：
-```
-结论：应该进入
-│
-├── 市场机会
-│   ├── 规模大（100亿）
-│   └── 增长快（年增30%）
-│
-├── 竞争格局
-│   ├── 竞争不激烈（CR3仅40%）
-│   └── 竞对有短板（补贴不可持续）
-│
-└── 我们优势
-    ├── 技术领先
-    └── 用户重合度高
-```
-
-### 原则 4：逻辑递进
-
-**同层论据之间应该有逻辑顺序。**
-
-常用顺序：
-- 时间顺序：过去 → 现在 → 未来
-- 结构顺序：整体 → 部分
-- 重要性顺序：最重要 → 次重要 → 其他
-- 演绎顺序：大前提 → 小前提 → 结论
+Business report readers are typically decision-makers with limited time who need to grasp the core quickly.
 
 ---
 
-## 在报告中的应用
+## Core Principles
+
+### Principle 1: Conclusion-first
+
+**Every expression should lead with the conclusion.**
+
+❌ "We researched the market, found the scale is large, competitors are also growing, user demand is rising, so we think we should enter."
+
+✅ "Recommend entering this market. Three reasons: large market size, low competition intensity, strong user demand."
+
+### Principle 2: Top-down
+
+**The upper level summarizes the lower level; the lower level supports the upper level.**
+
+Each level should answer "why is the upper-level conclusion valid."
+
+```
+Conclusion: Should enter this market
+|
++-- Argument 1: Large market size (10 billion, 30% annual growth)
++-- Argument 2: Low competition intensity (CR3 only 40%)
++-- Argument 3: Strong user demand (survey shows 80% of users have demand)
+```
+
+### Principle 3: Grouped by Category
+
+**Arguments at the same level should belong to the same category and be MECE.**
+
+❌ Disorganized arguments:
+```
+Conclusion: Should enter
++-- Large market size
++-- Competitor A is subsidizing
++-- Users are young
++-- We have technical advantages
+```
+(Mixed argument categories: market, competitor, user, and ourselves mixed together)
+
+✅ Grouped arguments:
+```
+Conclusion: Should enter
+|
++-- Market opportunity
+|   +-- Large size (10 billion)
+|   +-- Fast growth (30% annually)
+|
++-- Competitive landscape
+|   +-- Low competition intensity (CR3 only 40%)
+|   +-- Competitors have weaknesses (subsidies unsustainable)
+|
++-- Our advantages
+    +-- Technical leadership
+    +-- High user overlap
+```
+
+### Principle 4: Logical Progression
+
+**Arguments at the same level should follow a logical order.**
+
+Common orderings:
+- Chronological: Past -> Present -> Future
+- Structural: Whole -> Parts
+- Importance: Most important -> Less important -> Other
+- Deductive: Major premise -> Minor premise -> Conclusion
+
+---
+
+## Application in Reports
 
 ### Executive Summary
 
-报告的第一页（Executive Summary）就是金字塔的顶端：
+The report's first page (Executive Summary) is the top of the pyramid:
 
 ```markdown
-## 核心结论
+## Core Conclusion
 
-建议进入 X 市场，预计 3 年内可实现 Y 收入。
+Recommend entering Market X, projected to achieve Y revenue within 3 years.
 
-## 关键发现
+## Key Findings
 
-1. **市场机会明确**：市场规模 100 亿，年增长 30%
-2. **竞争格局有利**：头部玩家尚未形成垄断，存在差异化空间
-3. **我们具备优势**：技术能力匹配，用户群体重合
+1. **Clear market opportunity**: Market size 10 billion, 30% annual growth
+2. **Favorable competitive landscape**: Top players haven't formed monopoly, differentiation space exists
+3. **We have advantages**: Technical capabilities match, user base overlaps
 
-## 建议行动
+## Recommended Actions
 
-- 短期：小规模试点验证
-- 中期：重点城市扩张
-- 长期：全国布局
+- Short-term: Small-scale pilot validation
+- Medium-term: Key city expansion
+- Long-term: Nationwide rollout
 ```
 
-### 章节结构
+### Chapter Structure
 
-每个章节也是一个小金字塔：
+Each chapter is also a small pyramid:
 
 ```markdown
-## 第 2 章：市场分析
+## Chapter 2: Market Analysis
 
-### 核心结论
-市场规模大、增长快，但存在细分机会。
+### Core Conclusion
+Market is large and fast-growing, but segmented opportunities exist.
 
-### 关键论据
-1. 整体规模 100 亿，年增长 30%
-2. 细分市场 A 增速更快（50%），竞争更少
-3. 用户需求正在从 X 向 Y 转变
+### Key Arguments
+1. Overall size 10 billion, 30% annual growth
+2. Sub-market A is growing faster (50%), with less competition
+3. User demand is shifting from X to Y
 
-### 详细分析
-[支撑上述论据的数据和案例]
+### Detailed Analysis
+[Data and cases supporting the above arguments]
 ```
 
-### 段落结构
+### Paragraph Structure
 
-每个段落也是一个小金字塔：
+Each paragraph is also a small pyramid:
 
-❌ "竞对A在2023年做了很多营销，投了抖音和小红书，还找了KOL，效果不错，用户涨了50%。"
+❌ "Competitor A did a lot of marketing in 2023, invested in Douyin and Xiaohongshu, also partnered with KOLs, the effect was good, users grew 50%."
 
-✅ "竞对 A 用户增长 50%，主要得益于激进的营销策略。具体动作包括：抖音投放、小红书运营、KOL 合作。"
-
----
-
-## 常见错误
-
-### 错误 1：没有结论
-
-❌ 只有数据和论据，没有明确结论
-
-✅ 每个章节、每个段落都有明确的结论句
-
-### 错误 2：结论在最后
-
-❌ "综上所述，我们认为..."
-
-✅ 结论放在开头，论据放在后面
-
-### 错误 3：层级混乱
-
-❌ 跳跃式表达，论据层级不一致
-
-✅ 同层论据属于同一抽象级别
-
-### 错误 4：缺少支撑
-
-❌ 有结论但没有论据
-
-✅ 每个结论都有 2-3 个论据支撑
+✅ "Competitor A's user base grew 50%, primarily driven by aggressive marketing strategy. Specific actions include: Douyin advertising, Xiaohongshu operations, and KOL partnerships."
 
 ---
 
-## 自检清单
+## Common Mistakes
 
-写完报告后，逐层检查：
+### Mistake 1: No Conclusion
 
-- [ ] 报告有明确的 Executive Summary 吗？
-- [ ] 每个章节有明确的核心结论吗？
-- [ ] 每个段落有明确的结论句吗？
-- [ ] 上层结论由下层论据支撑吗？
-- [ ] 同层论据 MECE 吗？
-- [ ] 同层论据有逻辑顺序吗？
+❌ Only data and arguments, no clear conclusion
+
+✅ Every chapter and paragraph has a clear conclusion statement
+
+### Mistake 2: Conclusion at the End
+
+❌ "In summary, we believe..."
+
+✅ Conclusion at the beginning, arguments follow
+
+### Mistake 3: Mixed Levels
+
+❌ Jumping expression, inconsistent argument levels
+
+✅ Arguments at the same level belong to the same level of abstraction
+
+### Mistake 4: Missing Support
+
+❌ Has conclusion but no arguments
+
+✅ Every conclusion is supported by 2-3 arguments
 
 ---
 
-## 与其他方法论的关系
+## Self-check List
 
-- **MECE 原则**：同层论据应 MECE
-- **Issue Tree**：Issue Tree 是金字塔结构的底层逻辑
-- **假设驱动法**：假设验证结果应按金字塔结构呈现
+After completing a report, check level by level:
+
+- [ ] Does the report have a clear Executive Summary?
+- [ ] Does each chapter have a clear core conclusion?
+- [ ] Does each paragraph have a clear conclusion statement?
+- [ ] Are upper-level conclusions supported by lower-level arguments?
+- [ ] Are arguments at the same level MECE?
+- [ ] Do arguments at the same level follow a logical order?
+
+---
+
+## Relationship with Other Methodologies
+
+- **MECE Principle**: Arguments at the same level should be MECE
+- **Issue Tree**: The Issue Tree is the underlying logic of pyramid structure
+- **Hypothesis-driven method**: Hypothesis validation results should be presented in pyramid structure

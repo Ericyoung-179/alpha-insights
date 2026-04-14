@@ -236,6 +236,6 @@ MIT License
 
 ---
 
-**Author**: Eric Yang + Claude
+**Author**: Eric Young
 **Original framework**: ★ 3A-8 Steps Strategy
 **Core philosophy**: Encode methodology into code

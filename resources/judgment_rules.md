@@ -1,741 +1,744 @@
-# 判断力规则（Judgment Rules）
+# Judgment Rules
 
-> **在质量体系中的角色**：Stage 5 执行流程——生成规则（Rules 1-7「规则执行者」）+ 对抗审查（Rule 8a「对抗挑战者」+ Rule 8b「盲区扫描者」）
-> **定位**：Stage 5 洞察生成的决策引擎
+> **Role in Quality System**: Stage 5 execution flow — generation rules (Rules 1-7 "Rules Executor") + adversarial review (Rule 8a "Adversarial Challenger" + Rule 8b "Blind Spot Scanner")
+> **Purpose**: Decision engine for Stage 5 insight generation
 >
-> **核心价值**：将资深分析师的"直觉判断"编码为可执行的规则
+> **Core Value**: Encoding seasoned analysts' "intuitive judgment" into executable rules
 >
-> **关联模块**：
-> - [`hypothesis_driven.md`](../methodology/hypothesis_driven.md) - 假设驱动法
-> - [`pre_mortem.md`](../methodology/pre_mortem.md) - Pre-mortem 事前验尸
-> - [`first_principles.md`](../methodology/first_principles.md) - 第一性原理
-> - [`triangulation.md`](../methodology/triangulation.md) - 三角验证法（验证程度标准）
+> **Related Modules**:
+> - [`hypothesis_driven.md`](../methodology/hypothesis_driven.md) - Hypothesis-driven method
+> - [`pre_mortem.md`](../methodology/pre_mortem.md) - Pre-mortem analysis
+> - [`first_principles.md`](../methodology/first_principles.md) - First Principles thinking
+> - [`triangulation.md`](../methodology/triangulation.md) - Triangulation (verification level standards)
 
 ---
 
-## ⛔ Stage 5 执行指令（必读，不可跳过）
+## ⛔ Stage 5 Execution Instructions (Mandatory, Cannot Be Skipped)
 
-> **Stage 5 是纯内省阶段，没有搜索/抓取等外部动作。**
-> **历史教训**：Stage 4 耗时长，AI 倾向于直接跳到「写报告」，导致 Stage 5 整体被跳过。
-> **因此本节用 Agent Subagent 将 Stage 5 变为「工具调用密集型」阶段，确保执行。**
+> **Stage 5 is a pure introspection phase — no external actions like search/fetch.**
+> **Historical lesson**: Stage 4 is time-consuming, and AI tends to jump directly to "write the report," causing Stage 5 to be entirely skipped.
+> **Therefore, this section uses Agent Subagents to make Stage 5 a "tool-call-intensive" phase, ensuring execution.**
 
-### 执行流程（严格按顺序）
+### Execution Flow (Strict Sequential Order)
 
 ```
-输入：Stage 4 的 evidence_base.md
+Input: Stage 4's evidence_base.md
 
-Step 1: 逐条执行规则 1-7（按档位选择规则子集）
-   ⛔ 每条规则执行完毕后，必须向用户播报一行进度摘要（见下方播报格式）
+Step 1: Execute Rules 1-7 sequentially (select rule subset based on Tier)
+   ⛔ After each rule completes, broadcast a one-line progress summary to the user (see format below)
    ↓
-Step 2: 用户确认洞察方向（规则 7 排序完成后、红蓝队审查前）
-   → 核心洞察 A 类（18-20 分）：使用 AskUserQuestion 逐一讨论
-   → 核心洞察 B 类（16-17 分）：使用 AskUserQuestion 批量确认
-   ⛔ 此步不可跳过。用户确认方向后再做红蓝队审查，避免审查了用户不认可的洞察
-   ⚠️ AskUserQuestion 不可用时：直接在对话中向用户展示洞察列表并请求确认，效果等同
-   ⚠️ 用户否决全部洞察时：与用户讨论分歧点 → 回退 Stage 4 补充数据 / 回退 Stage 2 重新定义问题
+Step 2: User confirms insight direction (after Rule 7 ranking, before Red/Blue Team review)
+   → A-class core insights (18-20 points): Use AskUserQuestion to discuss one by one
+   → B-class core insights (16-17 points): Use AskUserQuestion for batch confirmation
+   ⛔ This step cannot be skipped. Only start Red/Blue Team review after user confirms direction, to avoid reviewing insights the user doesn't endorse
+   ⚠️ When AskUserQuestion is unavailable: display the insight list directly in conversation and request confirmation — equivalent effect
+   ⚠️ When user rejects all insights: discuss points of disagreement → fall back to Stage 4 for additional data / fall back to Stage 2 to redefine the problem
    ↓
-Step 3: 启动 Red-Team Subagent（规则 8a）
-   → 使用 Agent 工具，prompt 见下方模板
-   → 接收挑战结果，评估并修正洞察
-   ⚠️ 红队修正在会话上下文中进行（不写文件），修正后的洞察直接传递给 Step 4 蓝队。蓝队基于红队修正后的版本进行盲区扫描。最终版本在 Step 5 一次性写入 insights.md。
-   ⚠️ Agent 工具不可用时：在主 Session 中顺序执行红队 prompt，逐角色输出挑战
+Step 3: Launch Red-Team Subagent (Rule 8a)
+   → Use Agent tool, prompt template below
+   → Receive challenge results, evaluate and correct insights
+   ⚠️ Red Team corrections happen in session context (no file writes). Corrected insights are passed directly to Step 4 Blue Team. Blue Team scans for blind spots based on the Red Team-corrected version. Final version is written to insights.md in one batch in Step 5.
+   ⚠️ When Agent tool is unavailable: execute Red Team prompt sequentially in the main session, output challenges role by role
    ↓
-Step 4: 启动 Blue-Team Subagent（规则 8b）
-   → 使用 Agent 工具，prompt 见下方模板
-   → 接收盲区扫描结果，决定是否补充研究
-   ⚠️ Agent 工具不可用时：在主 Session 中执行蓝队 prompt
+Step 4: Launch Blue-Team Subagent (Rule 8b)
+   → Use Agent tool, prompt template below
+   → Receive blind spot scan results, decide whether to supplement research
+   ⚠️ When Agent tool is unavailable: execute Blue Team prompt in the main session
    ↓
-Step 5: 输出 insights.md（必须包含完整结构，见下方模板）
-   → 红蓝队如有重大修正（致命挑战/高影响盲区），简要告知用户修改点
+Step 5: Output insights.md (must include complete structure, see template below)
+   → If Red/Blue Team had major corrections (fatal challenges/high-impact blind spots), briefly inform user of changes
    ↓
-Step 6: 转场输出
-   ━━━ Stage 5 完成 ━━━
-   📦 交付物：insights.md [已生成]
-   ☑️ 用户确认：洞察确认 [已完成 / 部分修改]
-   ➡️ 下一步：Stage 6 报告生成
+Step 6: Stage transition output
+   ━━━ Stage 5 Complete ━━━
+   📦 Deliverable: insights.md [Generated]
+   ☑️ User confirmation: Insight confirmation [Completed / Partially modified]
+   ➡️ Next: Stage 6 Report Generation
 ```
 
-### 规则执行播报格式（Step 1 强制）
+### Rule Execution Broadcast Format (Step 1 Mandatory)
 
-每条规则执行完后，输出一行进度摘要，让用户看到过程而非黑箱。格式：
-
-```
-🔧 规则 N/总数 — {规则名}：{一句话结果摘要}
-```
-
-示例（Tier 3，Step 1 执行规则 1-7，规则 8 在 Step 3-4 由 Subagent 执行）：
-```
-🔧 规则 1/7 — So What 链：对 6 条核心发现执行 ≥3 层推导 ✅
-🔧 规则 2/7 — 洞察过滤：14 条候选 → 4 维评分 → 保留 8 条（A 类: 3, B 类: 5）
-🔧 规则 3/7 — 关键变量：识别 3 个关键变量（监管政策、竞争格局、技术迭代）
-🔧 规则 4/7 — 反直觉测试：挑战 4 条行业共识，发现 1 条有证据支持的反直觉洞察
-🔧 规则 5/7 — 可执行性：5 条建议 SMART 测试，4 条通过，1 条需补充时限
-🔧 规则 6/7 — Pre-mortem：识别 Top 5 失败原因，3 条可应对，2 条标注为外部风险
-🔧 规则 7/7 — 优先级排序：P1 核心洞察 3 条 · P2 背景洞察 3 条 · P3 补充 2 条
-→ 进入 Step 2：请确认洞察方向，确认后启动红蓝队审查（规则 8a/8b）
-```
-
-⛔ 禁止将规则 1-7 合并为一步输出。每条规则独立播报，用户才能判断过程质量。
-
-### ⛔ 门控规则
-
-**Stage 6 的第一步必须是**：读取 `insights.md`。如果文件不存在，**必须返回 Stage 5 执行**。
-
-### Red-Team Subagent Prompt 模板
+After each rule execution, output a one-line progress summary so the user sees the process rather than a black box. Format:
 
 ```
-使用 Agent 工具启动 subagent，prompt 如下：
-
-你是一位资深的红队审查员，任务是挑战以下商业分析洞察的可靠性。
-你必须像一个真正想推翻这些结论的对手一样思考——不是找茬，而是真心认为分析可能是错的。
-
-## 背景
-[粘贴研究议题描述和上下文]
-
-## 待审查洞察
-[粘贴所有核心洞察，含评分和证据支撑]
-
-## 你的任务
-对每个核心洞察，分别扮演以下 4 个角色发起挑战。每个角色都有独特的审查偏好——你必须从该角色的价值观和经历出发，而非泛泛质疑。
-
-### 角色 1：竞争对手 CEO
-> 背景：你是行业第二名的 CEO，过去 5 年看过太多"护城河"被颠覆。你最痛恨的是对手把先发优势当成壁垒。
-> 审查偏好：商业模式可复制性、资源壁垒的真实强度、网络效应是否真实存在
-> 核心问题：如果我拿 3 倍资源来复制这个方案，6 个月内能做到吗？护城河是靠什么维持的——技术、数据、网络效应还是仅仅是时间差？
-
-### 角色 2：监管政策顾问
-> 背景：你在发改委和市场监管总局有 15 年政策研究经验，见证过多次行业整顿（教培双减、平台反垄断、数据安全法）。你的职业本能是"这个模式在监管收紧后还能活吗"。
-> 审查偏好：政策合规性、数据隐私风险、行业准入门槛变化、反垄断风险
-> 核心问题：如果明天出一个针对性政策，商业模式是否直接失效？最可能的监管方向是什么？
-
-### 角色 3：怀疑派投资人
-> 背景：你管理 50 亿基金，曾因相信创始人的乐观假设亏损 40%。现在你对任何"高增长预测"都本能警惕。你只相信可验证的数据，不相信叙事。
-> 审查偏好：假设敏感度、数据可靠性、估值合理性、退出机制
-> 核心问题：核心假设中哪个最脆弱？如果关键数据偏差 30%，结论是否翻转？增长预测的证据链条在哪里断裂？
-
-### 角色 4：执行层 COO
-> 背景：你带过 500 人团队，经历过 3 次"战略正确但执行翻车"的项目。你知道组织惯性、人才缺口和跨部门协调是多数好战略失败的真正原因。
-> 审查偏好：执行可行性、组织能力匹配度、资源充足性、时间线合理性
-> 核心问题：团队有能力执行吗？需要哪些现在不具备的关键能力？组织内部谁会抵制，为什么？
-
-## 输出格式
-对每个洞察：
-| 角色 | 最尖锐的挑战 | 挑战强度（致命/实质/可应对/弱） | 建议处理方式 |
-每个洞察至少 1 个实质挑战。如果 4 个角色都找不到实质挑战，说明洞察可能太保守。
+🔧 Rule N/Total — {Rule Name}: {One-sentence result summary}
 ```
 
-### Blue-Team Subagent Prompt 模板
-
+Example (Tier 3, Step 1 executes Rules 1-7; Rule 8 in Steps 3-4 via Subagent):
 ```
-使用 Agent 工具启动 subagent，prompt 如下：
-
-你是一位资深的蓝队审查员——一个见过太多"看起来完整但其实有盲区"的分析报告的质量总监。
-你的职业经历：在麦肯锡做了 8 年 engagement manager，后来做了 5 年甲方战略部负责人。你见过最好的分析报告，也见过最精致的垃圾——它们的区别不在于分析了什么，而在于遗漏了什么。
-你的审查心态：不是找错，而是找"没想到"。分析师最大的盲区不是错误，是视野的边界。
-
-## 背景
-[粘贴研究议题描述和上下文]
-
-## 当前洞察集合
-[粘贴所有洞察，含红队修正后的版本]
-
-## 你的任务
-按以下 5 个维度逐一扫描，检查分析遗漏。每个维度你都必须给出明确判断，不能含糊带过。
-
-1. **利益相关方覆盖**：是否遗漏了关键利益相关方的视角？
-   > 检查清单：客户/用户、供应商、渠道商、员工/工会、监管方、社区/公众、竞品生态伙伴——哪个没出现在分析中？
-
-2. **时间维度覆盖**：是否只看了当前切片，忽略了动态变化？
-   > 检查清单：路径依赖（历史决策对未来的约束）、变化速率（趋势在加速还是减速）、时间窗口（机会窗口多大）、季节性/周期性因素
-
-3. **数据盲区**：证据基础本身是否有系统性偏差？
-   > 检查清单：幸存者偏差（只看成功案例）、地域偏差（一线城市≠全国）、口径偏差（同一指标不同来源定义不同）、沉默数据（没数据≠不重要）
-
-4. **因果链完整性**：从证据到结论的推理链是否有跳跃？
-   > 检查清单：相关性被当成因果性、隐含假设未被显式化、中间变量被忽略、反向因果的可能性
-
-5. **第二层效应**：是否只分析了直接影响？
-   > 检查清单：竞争对手会如何反应、供应链上下游的连锁变化、用户行为的二阶适应、政策的溢出效应
-
-## 输出格式
-| # | 维度 | 是否存在遗漏 | 遗漏描述 | 影响程度（高/中/低） | 建议处理 |
-高影响盲区必须建议补充研究方向。如果某维度确实无遗漏，写"✅ 覆盖充分"并说明理由，不要写"暂无发现"这种敷衍语。
+🔧 Rule 1/7 — So What Chain: Applied ≥3-layer reasoning to 6 core findings ✅
+🔧 Rule 2/7 — Insight Filter: 14 candidates → 4-dimension scoring → 8 retained (A-class: 3, B-class: 5)
+🔧 Rule 3/7 — Key Variables: Identified 3 key variables (regulatory policy, competitive landscape, technology iteration)
+🔧 Rule 4/7 — Contrarian Test: Challenged 4 industry consensus views, found 1 evidence-backed contrarian insight
+🔧 Rule 5/7 — Actionability: 5 recommendations SMART-tested, 4 passed, 1 needs timeline added
+🔧 Rule 6/7 — Pre-mortem: Identified Top 5 failure causes, 3 addressable, 2 flagged as external risks
+🔧 Rule 7/7 — Priority Ranking: P1 core insights 3 · P2 background insights 3 · P3 supplementary 2
+→ Entering Step 2: Please confirm insight direction. After confirmation, Red/Blue Team review (Rules 8a/8b) will begin
 ```
 
-### insights.md 产出模板
+⛔ Do not merge Rules 1-7 into a single output. Each rule must be broadcast independently so the user can judge process quality.
+
+### ⛔ Gate Rule
+
+**The first step of Stage 6 must be**: Read `insights.md`. If the file doesn't exist, **must return to Stage 5 for execution**.
+
+### Red-Team Subagent Prompt Template
+
+```
+Launch a subagent using the Agent tool with the following prompt:
+
+You are a seasoned Red Team reviewer. Your mission is to challenge the reliability of the following business analysis insights.
+You must think like a genuine adversary trying to disprove these conclusions — not nitpicking, but genuinely believing the analysis may be wrong.
+
+## Context
+[Paste the research topic description and context]
+
+## Insights Under Review
+[Paste all core insights, including scores and evidence support]
+
+## Your Task
+For each core insight, assume the following 4 roles and challenge it. Each role has unique review preferences — you must challenge from that role's values and experience, not with generic questioning.
+
+### Role 1: Competitor CEO
+> Background: You are the CEO of the #2 player in the industry. Over the past 5 years, you've seen too many "moats" get disrupted. What you despise most is competitors treating first-mover advantage as a barrier.
+> Review bias: Business model replicability, true strength of resource barriers, whether network effects genuinely exist
+> Core question: If I threw 3x the resources to replicate this strategy, could I do it in 6 months? Is the moat maintained by technology, data, network effects, or merely a time gap?
+
+### Role 2: Regulatory Policy Advisor
+> Background: You have 15 years of policy research experience with the NDRC and market regulators. You've witnessed multiple industry overhauls (education "Double Reduction" policy, platform antitrust, Data Security Law). Your professional instinct asks: "Can this model survive regulatory tightening?"
+> Review bias: Policy compliance, data privacy risks, changes in industry entry barriers, antitrust risks
+> Core question: If a targeted policy drops tomorrow, does the business model immediately fail? What's the most likely regulatory direction?
+
+### Role 3: Skeptical Investor
+> Background: You manage a $700M fund and once lost 40% by trusting a founder's optimistic assumptions. Now you're instinctively wary of any "high growth projection." You only trust verifiable data, not narratives.
+> Review bias: Assumption sensitivity, data reliability, valuation reasonableness, exit mechanisms
+> Core question: Which core assumption is most fragile? If key data deviates by 30%, does the conclusion flip? Where does the evidence chain for growth projections break?
+
+### Role 4: Execution-Level COO
+> Background: You've led 500-person teams and experienced 3 cases of "strategically correct but execution failure." You know organizational inertia, talent gaps, and cross-departmental coordination are the real reasons most good strategies fail.
+> Review bias: Execution feasibility, organizational capability match, resource sufficiency, timeline reasonableness
+> Core question: Does the team have the capability to execute? What key capabilities are currently missing? Who internally will resist, and why?
+
+## Output Format
+For each insight:
+| Role | Sharpest Challenge | Challenge Intensity (Fatal/Substantive/Manageable/Weak) | Recommended Handling |
+Each insight needs at least 1 substantive challenge. If all 4 roles can't find a substantive challenge, the insight may be too conservative.
+```
+
+### Blue-Team Subagent Prompt Template
+
+```
+Launch a subagent using the Agent tool with the following prompt:
+
+You are a seasoned Blue Team reviewer — a quality director who has seen too many "appears complete but actually has blind spots" analysis reports.
+Your career: 8 years as an engagement manager at McKinsey, then 5 years as head of corporate strategy. You've seen the best analysis reports and the most polished garbage — the difference isn't what they analyzed, but what they missed.
+Your review mindset: Not looking for errors, but looking for "didn't think of that." An analyst's biggest blind spot isn't mistakes — it's the boundary of their vision.
+
+## Context
+[Paste the research topic description and context]
+
+## Current Insight Set
+[Paste all insights, including the Red Team-corrected version]
+
+## Your Task
+Scan across the following 5 dimensions, checking for analysis gaps. For each dimension, you must give a definitive judgment — no hedging.
+
+1. **Stakeholder Coverage**: Are key stakeholder perspectives missing?
+   > Checklist: Customers/users, suppliers, channel partners, employees/unions, regulators, community/public, competitor ecosystem partners — which didn't appear in the analysis?
+
+2. **Temporal Dimension Coverage**: Does the analysis only look at a current snapshot, ignoring dynamic changes?
+   > Checklist: Path dependency (how historical decisions constrain the future), rate of change (is the trend accelerating or decelerating), time windows (how big is the opportunity window), seasonality/cyclical factors
+
+3. **Data Blind Spots**: Does the evidence base have systematic biases?
+   > Checklist: Survivorship bias (only successful cases analyzed), geographic bias (Tier 1 cities ≠ national), metric bias (same indicator defined differently across sources), silent data (no data ≠ not important)
+
+4. **Causal Chain Completeness**: Are there logical leaps from evidence to conclusions?
+   > Checklist: Correlation treated as causation, implicit assumptions not made explicit, intermediate variables ignored, reverse causality possibility
+
+5. **Second-Order Effects**: Does the analysis only cover direct impacts?
+   > Checklist: How will competitors react, cascading changes in supply chain upstream/downstream, second-order user behavior adaptation, policy spillover effects
+
+## Output Format
+| # | Dimension | Gap Found? | Gap Description | Impact Level (High/Medium/Low) | Recommended Action |
+High-impact blind spots must include recommended research directions. If a dimension truly has no gaps, write "✅ Adequately covered" with explanation — do not write "no findings at this time" as a cop-out.
+```
+
+### insights.md Output Template
 
 ```markdown
-# 洞察汇总
+# Insight Summary
 
-> 研究议题：[议题]
-> 档位：Tier [X]
-> 生成时间：[日期]
+> Research topic: [Topic]
+> Tier: Tier [X]
+> Generated: [Date]
 
-## 核心洞察 A 类（18-20 分）
+## A-Class Core Insights (18-20 points)
 
-### 洞察 1：[标题]
-- **评分**：具体性 X + 独特性 X + 可执行性 X + 影响力 X = XX 分
-- **数据支撑**：[证据 ID，验证程度]
-- **So What 链**：现象 → 含义 → 战略 → 行动
-- **用户确认状态**：⏳ 待确认 / ✅ 已确认 / ✏️ 已修改
+### Insight 1: [Title]
+- **Score**: Specificity X + Uniqueness X + Actionability X + Impact X = XX points
+- **Data support**: [Evidence ID, verification level]
+- **So What Chain**: Phenomenon → Implication → Strategy → Action
+- **User confirmation status**: ⏳ Pending / ✅ Confirmed / ✏️ Modified
 
-## 核心洞察 B 类（16-17 分）
-[同上格式，但批量展示]
+## B-Class Core Insights (16-17 points)
+[Same format, but presented in batch]
 
-## 建议
-### 建议 1：[SMART 描述]
-- **风险提示**：[Pre-mortem 结果]
+## Recommendations
+### Recommendation 1: [SMART description]
+- **Risk alert**: [Pre-mortem result]
 
-## 红队审查记录
-[Red-Team Subagent 输出 + 处理结果]
+## Red Team Review Record
+[Red-Team Subagent output + handling results]
 
-## 蓝队审查记录
-[Blue-Team Subagent 输出 + 处理结果]
+## Blue Team Review Record
+[Blue-Team Subagent output + handling results]
 
-## 关键变量监测清单
-| 变量 | 当前状态 | 触发条件 | 应对预案 |
+## Key Variable Monitoring Checklist
+| Variable | Current Status | Trigger Condition | Contingency Plan |
 ```
 
 ---
 
-## 本模块要解决的问题
+## Problem This Module Solves
 
-Stage 4 研究执行后，AI 会收集大量证据和数据。但：
-- 哪些数据是**关键信号**，哪些是**噪音**？
-- 哪些洞察值得深入，哪些是**正确的废话**？
-- 哪些建议是**可执行的**，哪些是**泛泛而谈**？
+After Stage 4 research execution, the AI collects extensive evidence and data. But:
+- Which data are **key signals** and which are **noise**?
+- Which insights are worth pursuing and which are **correct platitudes**?
+- Which recommendations are **actionable** and which are **generic platitudes**?
 
-判断力规则 = **八条规则**，按顺序执行：
+Judgment Rules = **eight rules**, executed in sequence:
 
 ```
-证据库 → [规则 1] So What 链
-       → [规则 2] 洞察过滤
-       → [规则 3] 关键变量识别
-       → [规则 4] 反直觉测试
-       → [规则 5] 建议可执行性测试
-       → [规则 6] Pre-mortem 风险检查
-       → [规则 7] 优先级排序
-       → [规则 8] 双重审查（8a Red-Team + 8b Blue-Team）
-       → 输出 insights.md
+Evidence Base → [Rule 1] So What Chain
+             → [Rule 2] Insight Filter
+             → [Rule 3] Key Variable Identification
+             → [Rule 4] Contrarian Test
+             → [Rule 5] Actionability Test
+             → [Rule 6] Pre-mortem Risk Check
+             → [Rule 7] Priority Ranking
+             → [Rule 8] Dual Review (8a Red-Team + 8b Blue-Team)
+             → Output insights.md
 ```
 
 ---
 
-## 规则 1：So What 链
+## Rule 1: So What Chain
 
-### 目的
+### Purpose
 
-从数据表面挖掘到商业本质。防止停留在"描述现象"层面。
+Dig from surface data to business essence. Prevent stopping at "describing phenomena."
 
-### 操作
+### Operation
 
-对每个核心发现，连续追问 So What，**至少 3 层，直到落脚在具体行动**：
+For each core finding, ask So What repeatedly, **at least 3 layers, until landing on a specific action**:
 
 ```
-Layer 1（现象）: 市场规模 500 亿，增长 25%
-  → So What？
-Layer 2（含义）: 市场处于快速增长期，蛋糕在变大
-  → So What？
-Layer 3（战略）: 行业先发者的优势可能被新进入者稀释
-  → So What？
-Layer 4（行动）: 应从 C 端评分转向 B 端解决方案，构建新护城河
+Layer 1 (Phenomenon): Market size 50B, growing at 25%
+  → So What?
+Layer 2 (Implication): Market is in rapid growth phase, the pie is expanding
+  → So What?
+Layer 3 (Strategy): First-mover advantage may be diluted by new entrants
+  → So What?
+Layer 4 (Action): Should pivot from C-end scoring to B-end solutions, build new moats
 ```
 
-### 判断标准
+### Judgment Criteria
 
-| 特征 | 好的 So What 链 | 坏的 So What 链 |
-|------|---------------|---------------|
-| 深度 | ≥ 3 层 | 1-2 层就停 |
-| 落脚点 | 具体行动 | "加强竞争力"之类的废话 |
-| 逻辑 | 层层推进，有因果 | 跳跃，缺少中间推理 |
+| Characteristic | Good So What Chain | Bad So What Chain |
+|----------------|-------------------|-------------------|
+| Depth | ≥ 3 layers | Stops at 1-2 layers |
+| Landing point | Specific action | Platitudes like "strengthen competitiveness" |
+| Logic | Progressive, causal | Jumps, missing intermediate reasoning |
 
 ---
 
-## 规则 2：洞察过滤
+## Rule 2: Insight Filter
 
-### 目的
+### Purpose
 
-不是所有发现都值得写进报告。过滤掉低质量洞察。
+Not every finding deserves a place in the report. Filter out low-quality insights.
 
-### 四维评分
+### Four-Dimension Scoring
 
-对每个候选洞察打分（1-5 分）：
+Score each candidate insight (1-5 points):
 
-| 维度 | 定义 | 5 分 | 3 分 | 1 分 |
-|------|------|------|------|------|
-| **具体性** | 有无具体数据/案例支撑 | "B 端客户数落后竞对 6 倍" | 有行业数据但非直接对应 | "市场在变化" |
-| **独特性** | 是否反直觉/非公开/新发现 | 挖掘出隐藏的竞争态势 | 有新角度但数据公开可查 | 人人都知道的常识 |
-| **可执行性** | 能否转化为具体行动 | 指向明确的产品/组织决策 | 有方向但需进一步细化 | 无法落地 |
-| **影响力** | 是否影响关键决策 | 改变战略方向 | 影响中等规模决策 | 影响边缘决策 |
+| Dimension | Definition | 5 points | 3 points | 1 point |
+|-----------|-----------|----------|----------|---------|
+| **Specificity** | Has specific data/cases | "B-end customer count trails competitor by 6x" | Has industry data but not directly mapped | "The market is changing" |
+| **Uniqueness** | Contrarian/non-public/new finding | Uncovered hidden competitive dynamics | New angle but publicly available data | Common knowledge everyone knows |
+| **Actionability** | Can translate to specific action | Points to clear product/org decision | Has direction but needs refinement | Cannot be acted upon |
+| **Impact** | Influences key decisions | Changes strategic direction | Affects medium-scale decisions | Affects marginal decisions |
 
-### 过滤规则
+### Filter Rules
 
 ```
-总分 = 具体性 + 独特性 + 可执行性 + 影响力（满分 20）
+Total = Specificity + Uniqueness + Actionability + Impact (max 20)
 
-18-20 分 → 核心洞察 A 类（逐一讨论，重点篇幅）
-16-17 分 → 核心洞察 B 类（批量确认，适度篇幅）
-11-15 分 → 支持性洞察（可选择包含）
- 6-10 分 → 过滤掉
+18-20 → A-class core insight (discuss one by one, major coverage)
+16-17 → B-class core insight (batch confirmation, moderate coverage)
+11-15 → Supporting insight (optional inclusion)
+ 6-10 → Filter out
 ```
 
-### 分层确认机制
+### Tiered Confirmation Mechanism
 
-| 洞察层级 | 评分范围 | 交互方式 | 报告篇幅 |
-|---------|---------|---------|---------|
-| **核心洞察 A 类** | 18-20 分 | 使用 AskUserQuestion 逐一讨论 | 重点展开 |
-| **核心洞察 B 类** | 16-17 分 | 批量确认，一次通过 | 适度篇幅 |
-| 支持性洞察 | 11-15 分 | 不单独确认 | 简要提及或省略 |
+| Insight Tier | Score Range | Interaction Method | Report Coverage |
+|-------------|-------------|-------------------|-----------------|
+| **A-class core insight** | 18-20 | Use AskUserQuestion to discuss one by one | Major expansion |
+| **B-class core insight** | 16-17 | Batch confirmation, single pass | Moderate coverage |
+| Supporting insight | 11-15 | No separate confirmation | Brief mention or omit |
 
-### 示例对比
+### Comparison Examples
 
-**洞察 A**："中国 SaaS 市场正在快速增长"
-→ 具体性 2 + 独特性 1 + 可执行性 2 + 影响力 3 = **8 分，过滤掉**
+**Insight A**: "China's SaaS market is growing rapidly"
+→ Specificity 2 + Uniqueness 1 + Actionability 2 + Impact 3 = **8 points, filter out**
 
-**洞察 B**："头部厂商 C 端领先，但 B 端客户数仅为竞对的 1/6，且差距在扩大"
-→ 具体性 5 + 独特性 4 + 可执行性 5 + 影响力 5 = **19 分，核心洞察**
+**Insight B**: "Leading vendor dominates C-end, but B-end customer count is only 1/6 of competitor's, and the gap is widening"
+→ Specificity 5 + Uniqueness 4 + Actionability 5 + Impact 5 = **19 points, core insight**
 
 ---
 
-## 规则 3：关键变量识别（80/20 法则）
+## Rule 3: Key Variable Identification (80/20 Rule)
 
-### 目的
+### Purpose
 
-在影响结论的众多变量中，找出决定 80% 结论的 20% 关键变量。聚焦精力，避免面面俱到。
+Among the many variables affecting conclusions, find the 20% key variables that determine 80% of outcomes. Focus energy, avoid spreading too thin.
 
-### 操作
+### Operation
 
-**Step 1**：列出影响决策的所有变量
+**Step 1**: List all variables affecting the decision
 
-**Step 2**：按两个维度评估
+**Step 2**: Evaluate on two dimensions
 
-| 变量 | 影响力（1-5） | 不确定性（1-5） | 分类 |
-|------|-------------|---------------|------|
-| 监管政策 | 5 | 4 | **关键变量** |
-| 竞争格局 | 5 | 3 | **关键变量** |
-| 市场规模 | 4 | 1 | 背景变量（已确定） |
-| 用户认知 | 2 | 2 | 非关键变量 |
+| Variable | Impact (1-5) | Uncertainty (1-5) | Classification |
+|----------|-------------|-------------------|----------------|
+| Regulatory policy | 5 | 4 | **Key variable** |
+| Competitive landscape | 5 | 3 | **Key variable** |
+| Market size | 4 | 1 | Background variable (confirmed) |
+| User awareness | 2 | 2 | Non-key variable |
 
-**Step 3**：聚焦规则
+**Step 3**: Focus rule
 
 ```
-关键变量 = 影响力 ≥ 4 且 不确定性 ≥ 2
+Key variable = Impact ≥ 4 AND Uncertainty ≥ 2
 ```
 
-- **关键变量**（高影响 + 高不确定）：报告核心讨论对象，需要深入研究
-- **背景变量**（高影响 + 低不确定）：作为背景交代，不需深入
-- **非关键变量**（低影响）：简要提及或省略
+- **Key variables** (high impact + high uncertainty): Core discussion focus of the report, requires deep research
+- **Background variables** (high impact + low uncertainty): Stated as context, no deep dive needed
+- **Non-key variables** (low impact): Briefly mentioned or omitted
 
 ---
 
-## 规则 4：反直觉测试
+## Rule 4: Contrarian Test
 
-### 目的
+### Purpose
 
-真正有价值的洞察往往与共识不同。主动挑战共识，寻找被忽视的机会和风险。
+Truly valuable insights often differ from consensus. Proactively challenge consensus to find overlooked opportunities and risks.
 
-### 操作
+### Operation
 
-**Step 1：列出行业共识**（"大家都这么认为"的观点）
+**Step 1: List industry consensus** ("everyone thinks this" viewpoints)
 
-**Step 2：逐个挑战**
+**Step 2: Challenge each one**
 
-| 共识 | 反直觉视角 | 是否有证据支持 |
-|------|-----------|--------------|
-| "市场空间巨大" | 可及市场可能很小（数据孤岛、监管限制） | 待验证 |
-| "监管趋严是利空" | 长期利好合规龙头（出清小玩家） | 有部分证据 |
-| "先发优势牢不可破" | 技术迭代可能让后来者弯道超车 | 待验证 |
+| Consensus | Contrarian Perspective | Evidence Support? |
+|-----------|----------------------|-------------------|
+| "Massive market opportunity" | Addressable market may be small (data silos, regulatory restrictions) | To be verified |
+| "Tighter regulation is negative" | Long-term positive for compliant leaders (clears small players) | Partial evidence |
+| "First-mover advantage is unbreakable" | Technology iteration may let latecomers leapfrog | To be verified |
 
-**Step 3：验证**
+**Step 3: Verify**
 
-对每个有证据支持的反直觉视角：
-- 逻辑是否自洽？
-- 如果成立，商业含义是什么？
-- 是否值得作为核心洞察？
+For each evidence-backed contrarian perspective:
+- Is the logic self-consistent?
+- If true, what are the business implications?
+- Is it worth being a core insight?
 
-### 反直觉洞察的四种类型
+### Four Types of Contrarian Insights
 
-| 类型 | 描述 | 示例 |
-|------|------|------|
-| **共识错误** | 大家都错了 | "你以为市场很大，其实可及市场很小" |
-| **因果颠倒** | 因果搞反了 | "不是补贴导致增长，是增长吸引补贴" |
-| **第二层效应** | 忽视间接影响 | "打击黑产短期阵痛，长期利好合规平台" |
-| **隐性趋势** | 趋势不明显但重要 | "年轻人开始主动查询征信，新行为趋势" |
+| Type | Description | Example |
+|------|------------|---------|
+| **Consensus error** | Everyone is wrong | "You think the market is huge, but the addressable market is actually small" |
+| **Reversed causation** | Cause and effect are reversed | "It's not subsidies driving growth, it's growth attracting subsidies" |
+| **Second-order effect** | Ignoring indirect impacts | "Cracking down on fraud causes short-term pain but long-term benefits for compliant platforms" |
+| **Hidden trend** | Inconspicuous but important trend | "Young people are proactively checking credit scores — a new behavioral trend" |
 
-### 判断标准
+### Judgment Criteria
 
-**值得作为核心洞察的反直觉发现**：有证据支持 + 逻辑自洽 + 商业含义重大
-**应该放弃的反直觉发现**：无证据 + 仅凭推测 + 影响小
+**Worth being a core insight**: Evidence-backed + logically consistent + significant business implications
+**Should be dropped**: No evidence + speculation only + minor impact
 
 ---
 
-## 规则 5：建议可执行性测试
+## Rule 5: Actionability Test
 
-### 目的
+### Purpose
 
-确保输出的建议是可执行的，而不是"正确的废话"。
+Ensure output recommendations are actionable, not "correct platitudes."
 
-### SMART 测试
+### SMART Test
 
-每个建议必须回答 5 个问题：
+Each recommendation must answer 5 questions:
 
-| 维度 | 问题 | 不合格示例 | 合格示例 |
-|------|------|-----------|---------|
-| **S**pecific | 具体做什么？ | "加强 B 端拓展" | "组建 10 人 B 端销售团队" |
-| **M**easurable | 如何衡量成功？ | "提升市场份额" | "签约 20 家银行客户" |
-| **A**chievable | 是否可实现？ | "成为全球第一" | "国内 B 端份额提升至 30%" |
-| **R**elevant | 与核心问题相关？ | 偏离主题的建议 | 直接回应核心假设 |
-| **T**ime-bound | 何时完成？ | "尽快" | "Q2 前完成" |
+| Dimension | Question | Failing Example | Passing Example |
+|-----------|----------|-----------------|-----------------|
+| **S**pecific | What exactly to do? | "Strengthen B-end expansion" | "Build a 10-person B-end sales team" |
+| **M**easurable | How to measure success? | "Increase market share" | "Sign 20 bank clients" |
+| **A**chievable | Is it achievable? | "Become global #1" | "Increase domestic B-end share to 30%" |
+| **R**elevant | Related to core question? | Off-topic recommendation | Directly addresses core hypothesis |
+| **T**ime-bound | When to complete? | "ASAP" | "Before Q2" |
 
-### 快速判断
+### Quick Assessment
 
 ```
-通过 5 项 → 可执行建议，写入报告
-通过 3-4 项 → 需要补充细化
-通过 ≤ 2 项 → 重写或删除
+Pass 5 items → Actionable recommendation, include in report
+Pass 3-4 items → Needs supplementary detail
+Pass ≤ 2 items → Rewrite or delete
 ```
 
-### 对比示例
+### Comparison Examples
 
-❌ **不可执行**："加强 B 端业务拓展，提升市场份额"
+❌ **Not actionable**: "Strengthen B-end business expansion to increase market share"
 → S ❌ M ❌ A ? R ✅ T ❌
 
-✅ **可执行**："Q2 前组建 10 人 B 端销售团队，聚焦银行和消金公司，目标签约 20 家客户，贡献收入 500 万"
+✅ **Actionable**: "Before Q2, build a 10-person B-end sales team focused on banks and consumer finance companies, targeting 20 signed clients and 5M revenue contribution"
 → S ✅ M ✅ A ✅ R ✅ T ✅
 
 ---
 
-## 规则 6：Pre-mortem 风险检查
+## Rule 6: Pre-mortem Risk Check
 
-### 目的
+### Purpose
 
-在输出建议前，预判"如果建议执行失败，最可能的原因是什么"。
+Before outputting recommendations, predict "if the recommendation fails after execution, what's the most likely cause."
 
-### 操作
+### Operation
 
-参考 [`pre_mortem.md`](../methodology/pre_mortem.md) 的完整方法论，此处为简化版：
+Reference [`pre_mortem.md`](../methodology/pre_mortem.md) for the complete methodology. Here is the simplified version:
 
-**Step 1**：假设建议执行 1 年后失败
+**Step 1**: Assume the recommendation fails 1 year after execution
 
-**Step 2**：列出 Top 5 失败原因
+**Step 2**: List Top 5 failure causes
 
-**Step 3**：评估并标注
+**Step 3**: Evaluate and label
 
-| 失败原因 | 可能性（1-5） | 影响（1-5） | 是否可应对 | 应对措施 |
-|---------|-------------|-----------|-----------|---------|
-| B 端市场比预期小 | 3 | 5 | 是 | 先小规模试点验证 |
-| 竞对护城河太深 | 4 | 4 | 是 | 差异化定位 |
-| 团队缺乏能力 | 5 | 5 | 是 | 招聘 + 培训 |
-| 监管政策变化 | 2 | 5 | 否 | 无法控制，标注风险 |
+| Failure Cause | Probability (1-5) | Impact (1-5) | Addressable? | Mitigation |
+|--------------|-------------------|-------------|-------------|------------|
+| B-end market smaller than expected | 3 | 5 | Yes | Small-scale pilot validation first |
+| Competitor moats too deep | 4 | 4 | Yes | Differentiated positioning |
+| Team lacks capability | 5 | 5 | Yes | Hiring + training |
+| Regulatory policy change | 2 | 5 | No | Uncontrollable, flag as risk |
 
-**Step 4**：将高可能性 + 可应对的风险写入建议的"风险应对"部分
+**Step 4**: Write high-probability + addressable risks into the recommendation's "Risk Mitigation" section
 
-### 输出格式
+### Output Format
 
-每个核心建议后附：
+After each core recommendation:
 
 ```markdown
-**风险提示**：
-1. [风险 1]：[应对措施]
-2. [风险 2]：[应对措施]
-3. [不可控风险]：标注为外部风险，无法完全应对
+**Risk Alert**:
+1. [Risk 1]: [Mitigation]
+2. [Risk 2]: [Mitigation]
+3. [Uncontrollable risk]: Flagged as external risk, cannot be fully mitigated
 ```
 
 ---
 
-## 规则 7：优先级排序
+## Rule 7: Priority Ranking
 
-### 目的
+### Purpose
 
-多个洞察时，按优先级排序，确保报告聚焦。
+When there are multiple insights, rank by priority to ensure report focus.
 
-### 排序矩阵
+### Ranking Matrix
 
 ```
-              影响力 高
+              Impact High
                  │
      ┌───────────┼───────────┐
-     │  P1 核心洞察  │  P2 背景洞察  │
-     │ (高影响+高独特) │ (高影响+低独特) │
-独特性 ├───────────┼───────────┤
-     │  P3 补充洞察  │  P4 过滤掉   │
-     │ (低影响+高独特) │ (低影响+低独特) │
+     │  P1 Core Insight │ P2 Background  │
+     │ (High Impact+    │  Insight       │
+     │  High Uniqueness)│ (High Impact+  │
+Uniqueness ├──────────┼──────────┤
+     │  P3 Supplementary│  P4 Filter Out │
+     │  Insight         │                │
+     │ (Low Impact+     │ (Low Impact+   │
+     │  High Uniqueness)│  Low Uniqueness│
      └───────────┼───────────┘
                  │
-              影响力 低
+              Impact Low
 ```
 
-### 报告分配规则
+### Report Allocation Rules
 
-| 优先级 | 报告占比 | 处理方式 |
-|--------|---------|---------|
-| P1 核心洞察 | 60-70% | 深入展开，花最多篇幅 |
-| P2 背景洞察 | 20-25% | 简要背景，支撑核心洞察 |
-| P3 补充洞察 | 5-10% | 简短提及，或放附录 |
-| P4 | 0% | 不写入报告 |
+| Priority | Report Share | Handling |
+|----------|------------|---------|
+| P1 Core Insight | 60-70% | Deep expansion, maximum coverage |
+| P2 Background Insight | 20-25% | Brief background, supports core insights |
+| P3 Supplementary Insight | 5-10% | Brief mention, or place in appendix |
+| P4 | 0% | Do not include in report |
 
 ---
 
-## 规则 8：双重审查（Red-Team + Blue-Team）
+## Rule 8: Dual Review (Red-Team + Blue-Team)
 
-### 目的
+### Purpose
 
-规则 1-7 完成后，洞察和建议已经成型。但"成型"不等于"可靠"。双重审查是最后的质量关卡：
+After Rules 1-7, insights and recommendations are formed. But "formed" doesn't mean "reliable." Dual review is the final quality gate:
 
-- **Red-Team（8a）**：挑战"说了什么"——结论是否站得住？
-- **Blue-Team（8b）**：检查"没说什么"——分析是否有遗漏？
+- **Red-Team (8a)**: Challenge "what was said" — do the conclusions hold up?
+- **Blue-Team (8b)**: Check "what wasn't said" — are there analysis gaps?
 
-两者必须**顺序执行**：先红队攻击，修正后再蓝队扫描。
+Both must be **executed sequentially**: Red Team attacks first, corrections made, then Blue Team scans.
 
-### 分工总览
+### Division of Labor
 
-| 维度 | Red-Team（8a） | Blue-Team（8b） |
-|------|---------------|----------------|
-| 核心问题 | 结论对不对？ | 视野全不全？ |
-| 挑战对象 | 已有洞察和建议 | 未覆盖的分析空白 |
-| 视角来源 | 4 个对抗角色 | 5 个盲区维度 |
-| 输出 | 削弱/修正/推翻洞察 | 补充遗漏洞察或标注已知盲区 |
+| Dimension | Red-Team (8a) | Blue-Team (8b) |
+|-----------|--------------|----------------|
+| Core question | Are conclusions correct? | Is the vision complete? |
+| Challenge target | Existing insights and recommendations | Uncovered analysis gaps |
+| Perspective source | 4 adversarial roles | 5 blind spot dimensions |
+| Output | Weaken/correct/overturn insights | Supplement missing insights or flag known blind spots |
 
 ---
 
-### 8a: Red-Team 红队挑战
+### 8a: Red-Team Adversarial Challenge
 
-#### 核心逻辑
+#### Core Logic
 
-对每个**核心洞察（Tier 1）和关键建议**，依次扮演 4 个对抗角色，每个角色提出最尖锐的 1-2 个挑战。
+For each **core insight (Tier 1) and key recommendation**, assume 4 adversarial roles in sequence, each raising 1-2 sharpest challenges.
 
-#### 四个对抗角色
+#### Four Adversarial Roles
 
-| 角色 | 立场 | 核心挑战问题 | 攻击目标 |
-|------|------|------------|---------|
-| **竞争对手** | "你的机会就是我的威胁" | 如果我是竞对 CEO，看到这份建议会做什么反击？你的护城河真的存在吗？ | 竞争优势的可持续性 |
-| **监管者** | "合规是底线" | 这个方案是否有政策风险？如果监管收紧，商业模式是否成立？ | 合规性和政策依赖 |
-| **怀疑派投资人** | "数据说服我" | 核心假设哪个最脆弱？如果关键数据偏差 30%，结论是否翻转？ | 数据可靠性和假设敏感性 |
-| **执行层管理者** | "好主意但做不到" | 团队有能力执行吗？资源够吗？组织会抵制吗？ | 可执行性和组织现实 |
+| Role | Stance | Core Challenge Question | Attack Target |
+|------|--------|----------------------|---------------|
+| **Competitor** | "Your opportunity is my threat" | If I were the competitor CEO, what would I do in response? Does your moat truly exist? | Sustainability of competitive advantage |
+| **Regulator** | "Compliance is the baseline" | Does this plan carry policy risk? If regulation tightens, does the business model hold? | Compliance and policy dependence |
+| **Skeptical Investor** | "Data convinces me" | Which core assumption is most fragile? If key data deviates 30%, does the conclusion flip? | Data reliability and assumption sensitivity |
+| **Execution-Level Manager** | "Good idea but can't be done" | Does the team have the ability to execute? Are resources sufficient? Will the organization resist? | Executability and organizational reality |
 
-#### 执行步骤
+#### Execution Steps
 
-**Step 1**：选取攻击目标
-- 所有 A 类核心洞察（18-20 分）
-- 所有 P0 级建议
-- 报告核心结论
+**Step 1**: Select attack targets
+- All A-class core insights (18-20 points)
+- All P0-level recommendations
+- Report core conclusions
 
-**Step 2**：逐角色挑战
+**Step 2**: Challenge role by role
 
-对每个攻击目标，4 个角色各提出 1-2 个最尖锐的挑战：
+For each attack target, 4 roles each raise 1-2 sharpest challenges:
 
 ```
-🔴 红队挑战 — 洞察 X：[洞察标题]
+🔴 Red Team Challenge — Insight X: [Insight Title]
 
-竞争对手视角：[挑战内容]
-监管者视角：[挑战内容]
-怀疑派投资人视角：[挑战内容]
-执行层管理者视角：[挑战内容]
+Competitor perspective: [Challenge content]
+Regulator perspective: [Challenge content]
+Skeptical Investor perspective: [Challenge content]
+Execution-Level Manager perspective: [Challenge content]
 ```
 
-**Step 3**：逐一评估和处理
+**Step 3**: Evaluate and handle each challenge
 
-对每个挑战，判断：
+For each challenge, determine:
 
-| 挑战强度 | 判断标准 | 处理方式 |
-|---------|---------|---------|
-| **致命挑战** | 有证据支持，能推翻核心逻辑 | 修正或推翻洞察，回到规则 1 重新分析。**告知用户**：说明致命挑战内容 + 修正方案，用户可选择接受修正或保留原洞察（需显式确认并标注"用户覆盖红队致命挑战"） |
-| **实质挑战** | 有合理性，削弱但不推翻结论 | 修正洞察表述，降低置信度，增加限定条件 |
-| **可应对挑战** | 有道理，但有明确应对方案 | 在建议中增加应对措施 |
-| **弱挑战** | 理论上成立但概率极低 | 标注为"尾部风险"，不修改结论 |
+| Challenge Intensity | Judgment Criteria | Handling |
+|-------------------|-------------------|---------|
+| **Fatal** | Evidence-backed, can overturn core logic | Correct or overturn insight, return to Rule 1 for re-analysis. **Inform user**: explain the fatal challenge + correction plan; user may accept correction or retain original insight (requires explicit confirmation flagged as "user overrode Red Team fatal challenge") |
+| **Substantive** | Reasonable, weakens but doesn't overturn the conclusion | Correct insight wording, lower confidence level, add qualifying conditions |
+| **Manageable** | Valid point, but clear mitigation exists | Add mitigation measures to recommendations |
+| **Weak** | Theoretically possible but extremely low probability | Flag as "tail risk," no conclusion modification |
 
-**Step 4**：记录红队审查结果
+**Step 4**: Record Red Team review results
 
-**关键原则**：
-- 红队不是走过场。如果 4 个角色都找不到实质挑战，说明洞察可能太保守（缺乏锐度），而不是"完美"
-- 每个核心洞察**至少要有 1 个实质（Substantive）或更高级别的挑战**被记录和回应
-- **未达标处理**：若某条核心洞察无实质挑战 → 向用户报告 → 回退该洞察到规则 1 重新深挖 So What 链，增加锐度后再回红队
-- 这是**硬性要求**，不是建议。无实质挑战的洞察不得写入最终 insights.md
+**Key principle**:
+- Red Team is not a formality. If all 4 roles can't find a substantive challenge, the insight may be too conservative (lacking sharpness), not "perfect"
+- Each core insight **must have at least 1 substantive or higher-level challenge** recorded and responded to
+- **Non-compliance handling**: If a core insight has no substantive challenge → report to user → fall back to Rule 1 to dig deeper into the So What chain, increase sharpness, then re-submit to Red Team
+- This is a **hard requirement**, not a suggestion. Insights without substantive challenges may not be written to the final insights.md
 
-#### 输出格式
+#### Output Format
 
 ```markdown
-## 红队审查（Red-Team）
+## Red Team Review
 
-### 洞察 1：[标题]
+### Insight 1: [Title]
 
-| 角色 | 挑战 | 强度 | 处理 |
-|------|------|------|------|
-| 竞争对手 | [挑战内容] | 实质 | 修正表述：... |
-| 怀疑派投资人 | [挑战内容] | 可应对 | 增加应对措施：... |
+| Role | Challenge | Intensity | Handling |
+|------|-----------|-----------|---------|
+| Competitor | [Challenge content] | Substantive | Corrected wording: ... |
+| Skeptical Investor | [Challenge content] | Manageable | Added mitigation: ... |
 
-### 修正记录
+### Correction Record
 
-- 洞察 1：原"..."→ 修正为"..."，原因：红队挑战 XX
-- 建议 2：增加风险应对条款，原因：红队挑战 XX
+- Insight 1: Original "..." → Corrected to "...", Reason: Red Team challenge XX
+- Recommendation 2: Added risk mitigation clause, Reason: Red Team challenge XX
 ```
 
 ---
 
-### 8b: Blue-Team 盲区审查
+### 8b: Blue-Team Blind Spot Review
 
-#### 核心逻辑
+#### Core Logic
 
-红队攻击的是已有结论，蓝队扫描的是**分析空白**——那些"不在视野中"的东西。
+Red Team attacks existing conclusions; Blue Team scans for **analysis gaps** — things "not in the field of vision."
 
-#### 五个盲区检测维度
+#### Five Blind Spot Detection Dimensions
 
-按以下 5 个维度逐一扫描，每个维度用一句话回答"是否存在遗漏"：
+Scan across the following 5 dimensions, answering "are there gaps" for each:
 
-**维度 1：利益相关方覆盖**
+**Dimension 1: Stakeholder Coverage**
 
-检测问题：分析是否覆盖了所有关键利益相关方的视角？
+Detection question: Does the analysis cover all key stakeholder perspectives?
 
-| 利益相关方 | 典型遗漏 |
-|-----------|---------|
-| 终端用户/消费者 | 只看供给侧，忽略需求侧真实痛点 |
-| 竞争对手（非头部） | 只分析 Top 3，忽略腰尾部创新者 |
-| 上下游供应商 | 忽略供应链话语权变化 |
-| 监管方/政策制定者 | 忽略政策风向对商业模式的根本约束 |
-| 员工/组织内部 | 忽略执行层面的组织能力和意愿 |
-| 投资方/股东 | 忽略资本市场预期对战略自由度的约束 |
+| Stakeholder | Typical Omission |
+|------------|-----------------|
+| End users/consumers | Only looked at supply side, ignored real demand-side pain points |
+| Competitors (non-leaders) | Only analyzed Top 3, ignored mid-tail innovators |
+| Upstream/downstream suppliers | Ignored supply chain bargaining power shifts |
+| Regulators/policymakers | Ignored how policy direction fundamentally constrains business models |
+| Employees/internal organization | Ignored organizational capability and willingness at execution level |
+| Investors/shareholders | Ignored how capital market expectations constrain strategic freedom |
 
-**维度 2：时间维度覆盖**
+**Dimension 2: Temporal Dimension Coverage**
 
-检测问题：分析是否只看了当前切片，忽略了时间动态？
+Detection question: Does the analysis only look at a current snapshot, ignoring temporal dynamics?
 
-| 时间盲区 | 典型遗漏 |
-|---------|---------|
-| 历史路径依赖 | 忽略"为什么现状是这样"的路径分析 |
-| 变化速率 | 只看绝对值，忽略变化加速/减速趋势 |
-| 时间窗口 | 没有评估机会/威胁的时间紧迫性 |
-| 竞争反应延迟 | 假设竞对不会反应，忽略博弈动态 |
+| Time Blind Spot | Typical Omission |
+|----------------|-----------------|
+| Historical path dependency | Ignored "why things are the way they are" path analysis |
+| Rate of change | Only looked at absolute values, ignored acceleration/deceleration trends |
+| Time windows | Didn't assess urgency of opportunity/threat timing |
+| Competitive reaction delay | Assumed competitors won't react, ignored game-theoretic dynamics |
 
-**维度 3：数据盲区**
+**Dimension 3: Data Blind Spots**
 
-检测问题：结论的数据基础是否存在系统性缺口？
+Detection question: Does the evidence base have systematic gaps?
 
-| 数据盲区 | 检测方式 |
-|---------|---------|
-| 幸存者偏差 | 是否只分析了成功案例？失败案例的数据在哪？ |
-| 地域偏差 | 数据来源是否集中在某一地区？ |
-| 时间偏差 | 数据时间跨度是否足够？是否恰好是周期性高/低点？ |
-| 口径偏差 | 不同来源的"市场规模"定义是否一致？ |
-| 沉默数据 | 哪些本应存在但搜索不到的数据？缺失本身说明什么？ |
+| Data Blind Spot | Detection Method |
+|----------------|-----------------|
+| Survivorship bias | Were only successful cases analyzed? Where's the failure case data? |
+| Geographic bias | Are data sources concentrated in one region? |
+| Temporal bias | Is the data time span sufficient? Could it be at a cyclical high/low point? |
+| Metric bias | Do different sources define "market size" the same way? |
+| Silent data | What data should exist but couldn't be found? What does the absence itself indicate? |
 
-**维度 4：因果链完整性**
+**Dimension 4: Causal Chain Completeness**
 
-检测问题：从证据到结论的推理链条是否有跳跃？
+Detection question: Are there logical leaps in the reasoning chain from evidence to conclusions?
 
 ```
-检查方法：对每个核心洞察，从结论反向追溯到数据——
+Check method: For each core insight, trace backward from conclusion to data —
 
-数据 A → [推理 1] → 中间结论 → [推理 2] → 核心洞察 → [推理 3] → 建议
+Data A → [Reasoning 1] → Intermediate conclusion → [Reasoning 2] → Core insight → [Reasoning 3] → Recommendation
 
-逐个检查每个 [推理] 节点：
-- 这步推理是否显式写出？还是默认"读者自然能想到"？
-- 是否存在隐含假设？如果假设不成立，结论还能成立吗？
-- 是否有替代解释？
+Check each [Reasoning] node:
+- Is this reasoning step explicitly stated? Or assumed "the reader will naturally figure it out"?
+- Are there implicit assumptions? If assumptions don't hold, does the conclusion still stand?
+- Are there alternative explanations?
 ```
 
-**维度 5：第二层效应**
+**Dimension 5: Second-Order Effects**
 
-检测问题：是否只分析了直接影响，忽略了连锁反应？
+Detection question: Does the analysis only cover direct impacts, ignoring chain reactions?
 
-| 效应层级 | 说明 | 示例 |
-|---------|------|------|
-| 第一层（已分析） | 直接影响 | "监管趋严 → 合规成本上升" |
-| 第二层（常遗漏） | 间接影响 | "→ 小玩家出清 → 行业集中度提升 → 龙头定价权增强" |
-| 第三层（高价值） | 系统性影响 | "→ 龙头利润率改善 → 吸引更多资本 → 加速行业整合" |
+| Effect Layer | Description | Example |
+|-------------|------------|---------|
+| First-order (analyzed) | Direct impact | "Tighter regulation → compliance costs rise" |
+| Second-order (often missed) | Indirect impact | "→ Small players exit → industry concentration increases → leader pricing power strengthens" |
+| Third-order (high value) | Systemic impact | "→ Leader profit margins improve → attract more capital → accelerate industry consolidation" |
 
-#### 执行步骤
+#### Execution Steps
 
-**Step 1**：按 5 个维度逐一扫描当前洞察集合
+**Step 1**: Scan the current insight set across all 5 dimensions
 
-**Step 2**：对每个维度，回答：
-- 是否存在遗漏？（是/否）
-- 如果是，遗漏了什么？
-- 遗漏的影响有多大？（高/中/低）
+**Step 2**: For each dimension, answer:
+- Are there gaps? (Yes/No)
+- If yes, what was missed?
+- How significant is the impact? (High/Medium/Low)
 
-**Step 3**：根据影响程度处理
+**Step 3**: Handle based on impact level
 
-| 影响程度 | 处理方式 |
-|---------|---------|
-| **高** | 补充研究 → 生成新洞察 → 重新进入规则 1-7 流程 |
-| **中** | 在报告"研究局限"章节标注，并说明可能的影响方向 |
-| **低** | 记录但不展开，作为后续研究方向 |
+| Impact Level | Handling |
+|-------------|---------|
+| **High** | Supplement research → generate new insights → re-enter Rules 1-7 flow |
+| **Medium** | Flag in the report's "Research Limitations" section, noting possible impact direction |
+| **Low** | Record but don't expand, note as future research direction |
 
-**Step 4**：将盲区审查结果追加到 `insights.md` 的专属章节
+**Step 4**: Append blind spot review results to the dedicated section in `insights.md`
 
-#### 输出格式
+#### Output Format
 
 ```markdown
-## 盲区审查（Blue-Team）
+## Blind Spot Review (Blue-Team)
 
-### 已识别盲区
+### Identified Blind Spots
 
-| # | 维度 | 盲区描述 | 影响 | 处理 |
-|---|------|---------|------|------|
-| 1 | 利益相关方 | 未覆盖 XX 视角 | 高 | 已补充研究 |
-| 2 | 数据 | XX 数据存在幸存者偏差 | 中 | 标注为研究局限 |
+| # | Dimension | Blind Spot Description | Impact | Handling |
+|---|-----------|----------------------|--------|---------|
+| 1 | Stakeholder | XX perspective not covered | High | Supplementary research completed |
+| 2 | Data | XX data has survivorship bias | Medium | Flagged as research limitation |
 
-### 补充洞察（因盲区审查新增）
+### Supplementary Insights (Added Due to Blind Spot Review)
 
-（如有高影响盲区，补充的洞察写在这里，格式同核心洞察）
+(If high-impact blind spots exist, supplementary insights go here, same format as core insights)
 
-### 已知局限
+### Known Limitations
 
-（中/低影响盲区的说明，供读者参考）
+(Medium/low impact blind spot explanations for reader reference)
 ```
 
 ---
 
-### 双重审查判断标准
+### Dual Review Judgment Criteria
 
-| 特征 | 好的双重审查 | 差的双重审查 |
-|------|------------|------------|
-| **红队锐度** | 每个核心洞察至少 1 个实质挑战 | "没有发现问题"一笔带过 |
-| **红队诚实** | 致命挑战导致修正结论 | 明知有问题但护短 |
-| **蓝队覆盖** | 5 个维度全部扫描 | 跳过某些维度 |
-| **蓝队深度** | 找到具体遗漏并评估影响 | "没有明显遗漏"敷衍 |
-| **闭环** | 高影响发现都有补救动作 | 只列问题不处理 |
-| **透明** | 坦诚标注研究局限和修正记录 | 回避局限性 |
-
----
-
-## 完整执行流程
-
-> 与本文件顶部「⛔ Stage 5 执行指令」Step 1-6 完全一致，此处不再重复。
-
-## insights.md 输出格式
-
-> 权威模板见上方「insights.md 产出模板」章节（规则 2 评分 → 规则 7 排序 → 规则 8 双重审查 → 最终产出），此处不再重复。
+| Characteristic | Good Dual Review | Poor Dual Review |
+|----------------|-----------------|-----------------|
+| **Red Team sharpness** | Each core insight has at least 1 substantive challenge | "No issues found" in one sentence |
+| **Red Team honesty** | Fatal challenges lead to corrected conclusions | Knows there's a problem but covers for it |
+| **Blue Team coverage** | All 5 dimensions scanned | Some dimensions skipped |
+| **Blue Team depth** | Found specific gaps with impact assessment | "No obvious gaps" as a brush-off |
+| **Closed loop** | All high-impact findings have remedial actions | Lists problems without handling them |
+| **Transparency** | Candidly flags research limitations and correction records | Avoids acknowledging limitations |
 
 ---
 
-## 常见错误
+## Complete Execution Flow
 
-| 错误 | 表现 | 规避方式 |
-|------|------|---------|
-| So What 太浅 | 停在"市场在增长，要抓住机会" | 强制追问 ≥ 3 层 |
-| 正确的废话 | "需要加强竞争力" | SMART 测试，5 项全通过 |
-| 忽略反直觉 | 只输出符合共识的洞察 | 强制执行反直觉测试 |
-| 不做 Pre-mortem | 只说好处不谈风险 | 每个核心建议必须附风险 |
-| 面面俱到 | 10 个洞察平均分配篇幅 | 用优先级矩阵聚焦 P1 |
-| 无数据支撑 | 洞察基于推测 | 四维评分中"具体性"≤ 2 分则过滤 |
-| 红队走过场 | 4 个角色都"没发现问题" | 每个核心洞察至少 1 个实质挑战，否则洞察可能缺乏锐度 |
-| 蓝队敷衍 | 5 维度扫描"无遗漏"一笔带过 | 每个维度必须给出具体判断，高影响盲区必须补救 |
+> Identical to the "⛔ Stage 5 Execution Instructions" Steps 1-6 at the top of this file. Not repeated here.
+
+## insights.md Output Format
+
+> The authoritative template is in the "insights.md Output Template" section above (Rule 2 scoring → Rule 7 ranking → Rule 8 dual review → final output). Not repeated here.
 
 ---
 
-## 与其他模块的接口
+## Common Mistakes
 
-### 输入
+| Mistake | Symptom | Prevention |
+|---------|---------|-----------|
+| So What too shallow | Stops at "market is growing, seize the opportunity" | Force ≥ 3 layers of questioning |
+| Correct platitudes | "Need to strengthen competitiveness" | SMART test, all 5 items must pass |
+| Ignoring contrarian perspectives | Only outputs consensus-aligned insights | Force contrarian test execution |
+| Skipping Pre-mortem | Only talks about benefits, not risks | Every core recommendation must include risks |
+| Spreading too thin | 10 insights with equal coverage | Use priority matrix to focus on P1 |
+| No data support | Insights based on speculation | Filter out if "Specificity" ≤ 2 in four-dimension scoring |
+| Red Team going through motions | All 4 roles "found no issues" | Every core insight needs at least 1 substantive challenge; otherwise insight may lack sharpness |
+| Blue Team perfunctory | All 5 dimensions "no gaps" in one sentence | Every dimension must have a specific judgment; high-impact blind spots must have remediation |
 
-| 上游 | 输入内容 | 对应规则 |
-|------|---------|---------|
-| Stage 4 证据库 | 证据清单 + 验证程度 + 框架证据地图 + 框架分析结论（含跨框架交叉发现） | 规则 1-4 的分析基础 + 跨维度模式识别（SKILL.md 前置步骤） |
-| `hypothesis_driven.md` | 假设验证状态 | 规则 1 的起点 |
-| `triangulation.md` | 验证程度标准（A/B/C/D） | 评估证据可靠性 |
+---
 
-### 输出
+## Module Interfaces
 
-| 下游 | 输出内容 | 使用方式 |
-|------|---------|---------|
-| Stage 6 报告生成 | insights.md（洞察 + 建议） | 报告核心内容 |
-| `pyramid_principle.md` | 排好序的洞察结构 | 金字塔结构组织报告 |
+### Input
+
+| Upstream | Input Content | Corresponding Rule |
+|----------|-------------|-------------------|
+| Stage 4 Evidence Base | Evidence list + verification levels + Framework-Evidence Map + framework analysis conclusions (including cross-framework findings) | Analytical basis for Rules 1-4 + cross-dimension pattern recognition (SKILL.md prerequisite step) |
+| `hypothesis_driven.md` | Hypothesis verification status | Starting point for Rule 1 |
+| `triangulation.md` | Verification level standards (A/B/C/D) | Evidence reliability assessment |
+
+### Output
+
+| Downstream | Output Content | Usage |
+|-----------|---------------|-------|
+| Stage 6 Report Generation | insights.md (insights + recommendations) | Report core content |
+| `pyramid_principle.md` | Ranked insight structure | Pyramid Principle-organized report |

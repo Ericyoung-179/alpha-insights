@@ -1,301 +1,305 @@
-# PESTEL 分析
+# PESTEL Analysis
 
-> **核心价值**：扫描宏观环境，识别影响行业的外部力量和趋势变化
+> **Core Value**: Scan the macro environment to identify external forces and trend changes affecting the industry
 >
-> **创始人**：Francis Aguilar (1967, PEST) → 扩展为 PESTEL
+> **Creator**: Francis Aguilar (1967, PEST) → extended to PESTEL
 >
-> **一句话**：在分析行业之前，先看清行业所处的大环境
+> **One-liner**: Before analyzing the industry itself, first understand the macro environment it operates in
 
 ---
 
-## 概述
+## Overview
 
-PESTEL 分析是宏观环境扫描的标准工具，从政治、经济、社会、技术、环境、法律六个维度系统识别影响行业的外部力量。
+PESTEL Analysis is the standard tool for macro environment scanning, systematically identifying external forces affecting the industry across six dimensions: Political, Economic, Social, Technological, Environmental, and Legal.
 
-**核心设计理念**：
-- **外部视角优先**：在深入分析行业之前，先理解行业所处的宏观环境
-- **系统性扫描**：避免遗漏关键的外部驱动因素
-- **机会与威胁识别**：宏观变化既是机会也是威胁，关键在于提前识别
+**Core Design Principles**:
+- **External Perspective First**: Before diving into industry analysis, first understand the macro environment the industry operates in
+- **Systematic Scanning**: Avoid overlooking critical external driving factors
+- **Opportunity and Threat Identification**: Macro changes present both opportunities and threats — the key is early identification
 
-**最佳使用时机**：
-- 行业研究的早期阶段（通常在 Porter's Five Forces 之前）
-- 市场进入策略的环境评估
-- 战略规划的外部环境假设建立
-- 识别宏观趋势对业务的潜在影响
+**Best Use Cases**:
+- Early stages of industry research (typically before Porter's Five Forces)
+- Environmental assessment for market entry strategies
+- Establishing external environment assumptions for strategic planning
+- Identifying potential impacts of macro trends on business
 
-**输出价值**：
-- 6-10 个关键宏观因素的系统性分析
-- 每个因素的影响力评级（高/中/低）和确定性评级（高/中/低）
-- 直接输入 SWOT 分析的机会（O）和威胁（T）象限
+**Output Value**:
+- Systematic analysis of 6-10 key macro factors
+- Impact rating (High/Medium/Low) and certainty rating (High/Medium/Low) for each factor
+- Direct input into the Opportunities (O) and Threats (T) quadrants of SWOT analysis
 
 ---
 
-## 框架总览
+## Framework Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      PESTEL 六维度                           │
+│                    PESTEL Six Dimensions                      │
 │                                                             │
-│   P olitical（政治）    E conomic（经济）   S ocial（社会）    │
-│   T echnological（技术） E nvironmental（环境） L egal（法律）  │
+│   P olitical          E conomic          S ocial             │
+│   T echnological      E nvironmental     L egal              │
 │                                                             │
-│              ↓ 每个维度 ↓                                    │
-│      当前状态 → 变化趋势 → 对行业的影响 → 机会/威胁           │
+│              ↓ Per Dimension ↓                               │
+│      Current State → Change Trends → Industry Impact → O/T  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 六维度详解
+## Six Dimensions Explained
 
-### P — Political（政治因素）
+### P — Political Factors
 
-| 分析要素 | 示例问题 |
-|---------|---------|
-| 政府政策导向 | 政府对该行业的态度是鼓励、中性还是限制？ |
-| 产业政策 | 有无扶持政策、补贴、税收优惠？ |
-| 政治稳定性 | 政策是否频繁变动？监管方向是否明确？ |
-| 国际关系 | 中美关系、贸易摩擦对行业的影响？ |
-| 政府采购/国产替代 | 是否存在国产化要求或政府采购倾斜？ |
+| Analysis Element | Example Questions |
+|-----------------|-------------------|
+| Government policy direction | Is the government's stance toward this industry supportive, neutral, or restrictive? |
+| Industrial policy | Are there support policies, subsidies, or tax incentives? |
+| Political stability | Are policies frequently changing? Is the regulatory direction clear? |
+| International relations | How do US-China relations, trade frictions impact the industry? |
+| Government procurement / domestic substitution | Are there localization requirements or government procurement preferences? |
 
-**中国特色关注点**：五年规划方向、部委政策文件、地方政府招商导向
+**China-Specific Focus**: Five-Year Plan directions, ministry policy documents, local government investment promotion priorities
 
-### E — Economic（经济因素）
+### E — Economic Factors
 
-| 分析要素 | 示例问题 |
-|---------|---------|
-| GDP 增长率 | 宏观经济处于扩张还是收缩期？ |
-| 消费信心/支出 | 居民消费意愿和能力如何变化？ |
-| 利率/融资环境 | 融资成本对行业扩张的影响？ |
-| 汇率 | 是否影响进出口/海外业务？ |
-| 通胀/成本 | 上游成本压力如何传导？ |
-| 就业市场 | 人力成本趋势？人才供给？ |
+| Analysis Element | Example Questions |
+|-----------------|-------------------|
+| GDP growth rate | Is the macro economy in an expansion or contraction phase? |
+| Consumer confidence/spending | How are residents' consumption willingness and ability changing? |
+| Interest rates/financing environment | How do financing costs affect industry expansion? |
+| Exchange rates | Do they impact imports/exports/overseas business? |
+| Inflation/costs | How do upstream cost pressures transmit? |
+| Employment market | Labor cost trends? Talent supply? |
 
-**中国特色关注点**：社零增速、PMI、房地产周期对消费的挤出效应
+**China-Specific Focus**: Retail sales growth, PMI, crowding-out effect of real estate cycles on consumption
 
-### S — Social（社会因素）
+### S — Social Factors
 
-| 分析要素 | 示例问题 |
-|---------|---------|
-| 人口结构 | 老龄化、少子化对需求的影响？ |
-| 消费偏好变化 | 消费升级/降级？国潮？健康意识？ |
-| 生活方式 | 远程办公、单身经济、宅经济等趋势？ |
-| 教育水平 | 对产品认知和接受度的影响？ |
-| 文化价值观 | 隐私意识、环保意识、信任度？ |
-| 城镇化 | 下沉市场机会？城乡差异？ |
+| Analysis Element | Example Questions |
+|-----------------|-------------------|
+| Demographics | Impact of aging population, declining birth rates on demand? |
+| Consumer preference shifts | Consumption upgrade/downgrade? National brands trend? Health consciousness? |
+| Lifestyle changes | Remote work, single economy, stay-at-home economy trends? |
+| Education levels | Impact on product awareness and acceptance? |
+| Cultural values | Privacy awareness, environmental consciousness, trust levels? |
+| Urbanization | Lower-tier market opportunities? Urban-rural disparities? |
 
-**中国特色关注点**：Z 世代消费观、下沉市场、银发经济
+**China-Specific Focus**: Gen Z consumer attitudes, lower-tier markets, silver economy
 
-### T — Technological（技术因素）
+### T — Technological Factors
 
-| 分析要素 | 示例问题 |
-|---------|---------|
-| 核心技术成熟度 | 关键技术是否已过拐点？ |
-| 技术迭代速度 | 当前技术壁垒是否会被快速颠覆？ |
-| 基础设施 | 5G、云计算、AI 等基础设施的渗透率？ |
-| 技术标准 | 是否有标准之争？标准统一带来的机会？ |
-| 专利/知识产权 | 技术壁垒的高低？ |
-| 数据/AI 影响 | AI 对行业效率和商业模式的重塑？ |
+| Analysis Element | Example Questions |
+|-----------------|-------------------|
+| Core technology maturity | Has the key technology passed its inflection point? |
+| Technology iteration speed | Could current technology barriers be rapidly disrupted? |
+| Infrastructure | Penetration rates of 5G, cloud computing, AI infrastructure? |
+| Technology standards | Are there standards wars? Opportunities from standard unification? |
+| Patents/IP | How high are the technology barriers? |
+| Data/AI impact | How is AI reshaping industry efficiency and business models? |
 
-**中国特色关注点**：AI 大模型应用、自主可控、数据要素市场化
+**China-Specific Focus**: AI large model applications, technology self-reliance, data factor marketization
 
-### E — Environmental（环境因素）
+### E — Environmental Factors
 
-| 分析要素 | 示例问题 |
-|---------|---------|
-| 碳中和/双碳 | 碳排放约束对行业的影响？ |
-| 环保法规 | 环保合规成本？ |
-| 资源约束 | 关键原材料的可持续性？ |
-| ESG 要求 | 投资者/客户的 ESG 要求？ |
+| Analysis Element | Example Questions |
+|-----------------|-------------------|
+| Carbon neutrality / dual carbon | Impact of carbon emission constraints on the industry? |
+| Environmental regulations | Environmental compliance costs? |
+| Resource constraints | Sustainability of key raw materials? |
+| ESG requirements | ESG requirements from investors/customers? |
 
-**适用性说明**：对纯数字经济/互联网行业，E 维度通常影响较小，可简要分析或标注"影响有限"。
+**Applicability Note**: For pure digital economy/internet industries, the E dimension typically has limited impact — it can be briefly analyzed or noted as "limited impact."
 
-### L — Legal（法律因素）
+### L — Legal Factors
 
-| 分析要素 | 示例问题 |
-|---------|---------|
-| 行业准入 | 牌照/资质要求？准入门槛变化？ |
-| 数据合规 | 个人信息保护法、数据安全法的影响？ |
-| 反垄断 | 反垄断执法趋势对行业格局的影响？ |
-| 消费者保护 | 消费者权益保护法规的影响？ |
-| 知识产权 | IP 保护力度？侵权风险？ |
-| 劳动法规 | 灵活用工、社保合规等影响？ |
+| Analysis Element | Example Questions |
+|-----------------|-------------------|
+| Industry access | License/qualification requirements? Changes in entry barriers? |
+| Data compliance | Impact of Personal Information Protection Law, Data Security Law? |
+| Antitrust | Impact of antitrust enforcement trends on industry landscape? |
+| Consumer protection | Impact of consumer rights protection regulations? |
+| Intellectual property | IP protection strength? Infringement risks? |
+| Labor regulations | Impact of gig economy, social insurance compliance? |
 
-**中国特色关注点**：数据三法（网络安全法、数据安全法、个保法）、反垄断指南
-
----
-
-## 执行步骤
-
-### Step 1：维度扫描
-
-对六个维度逐一搜索和分析，每个维度回答：
-1. **当前状态**：该因素目前是什么情况？
-2. **变化趋势**：未来 1-3 年预计如何变化？
-3. **影响程度**：对研究议题的行业影响有多大？（高/中/低）
-4. **机会 or 威胁**：是带来机会还是威胁？
-
-### Step 2：优先级筛选
-
-并非六个维度都同等重要。用影响力矩阵筛选关键维度：
-
-```
-           影响力 高
-              │
-     关键关注   │  持续监控
-    (深入分析)  │  (定期追踪)
-   ────────────┼────────────
-     低优先级   │  忽略
-    (简要提及)  │  (不写入报告)
-              │
-           影响力 低
-    确定性 低 ←──────→ 确定性 高
-```
-
-### Step 3：输出 PESTEL 摘要
+**China-Specific Focus**: Three data laws (Cybersecurity Law, Data Security Law, Personal Information Protection Law), antitrust guidelines
 
 ---
 
-## 输出格式
+## Execution Steps
+
+### Step 1: Dimension Scanning
+
+Systematically search and analyze each of the six dimensions, answering for each:
+1. **Current State**: What is the current situation for this factor?
+2. **Change Trends**: How is it expected to change over the next 1-3 years?
+3. **Impact Level**: How significant is the impact on the industry under study? (High/Medium/Low)
+4. **Opportunity or Threat**: Does it present an opportunity or a threat?
+
+### Step 2: Priority Screening
+
+Not all six dimensions are equally important. Use an impact matrix to filter key dimensions:
+
+```
+           Impact High
+              │
+     Key Focus     │  Scenario Planning
+    (Deep Analysis)│  (Prepare Multiple Plans)
+   ────────────────┼────────────────
+     Risk Monitor  │  Ignore
+    (Brief Mention)│  (Omit from Report)
+              │
+           Impact Low
+    Certainty Low ←──────→ Certainty High
+```
+
+### Step 3: Output PESTEL Summary
+
+---
+
+## Output Format
 
 ```markdown
-## PESTEL 分析：[行业名称]
+## PESTEL Analysis: [Industry Name]
 
-### 关键发现摘要
-[1-2 句话总结最重要的宏观发现]
+### Key Findings Summary
+[1-2 sentences summarizing the most important macro findings]
 
-### 六维度分析
+### Six-Dimension Analysis
 
-| 维度 | 关键因素 | 当前状态 | 变化趋势 | 影响程度 | 机会/威胁 |
-|------|---------|---------|---------|---------|----------|
-| P 政治 | [因素] | [状态] | [趋势] | 高/中/低 | 机会/威胁 |
-| E 经济 | [因素] | [状态] | [趋势] | 高/中/低 | 机会/威胁 |
-| S 社会 | [因素] | [状态] | [趋势] | 高/中/低 | 机会/威胁 |
-| T 技术 | [因素] | [状态] | [趋势] | 高/中/低 | 机会/威胁 |
-| E 环境 | [因素] | [状态] | [趋势] | 高/中/低 | 机会/威胁 |
-| L 法律 | [因素] | [状态] | [趋势] | 高/中/低 | 机会/威胁 |
+| Dimension | Key Factor | Current State | Change Trend | Impact Level | Opportunity/Threat |
+|-----------|-----------|---------------|-------------|-------------|-------------------|
+| P Political | [factor] | [state] | [trend] | High/Med/Low | Opportunity/Threat |
+| E Economic | [factor] | [state] | [trend] | High/Med/Low | Opportunity/Threat |
+| S Social | [factor] | [state] | [trend] | High/Med/Low | Opportunity/Threat |
+| T Technological | [factor] | [state] | [trend] | High/Med/Low | Opportunity/Threat |
+| E Environmental | [factor] | [state] | [trend] | High/Med/Low | Opportunity/Threat |
+| L Legal | [factor] | [state] | [trend] | High/Med/Low | Opportunity/Threat |
 
-### 对行业的核心影响
-1. [最重要的宏观影响 1]
-2. [最重要的宏观影响 2]
-3. [最重要的宏观影响 3]
+### Core Industry Impacts
+1. [Most important macro impact 1]
+2. [Most important macro impact 2]
+3. [Most important macro impact 3]
 
-### 需要持续监测的变量
-- [变量 1]：[触发条件和应对方向]
-- [变量 2]：[触发条件和应对方向]
+### Variables Requiring Continuous Monitoring
+- [Variable 1]: [trigger conditions and response direction]
+- [Variable 2]: [trigger conditions and response direction]
 ```
 
 ---
 
-## 实战案例
+## Case Studies
 
-### 案例 1：中国 AI 大模型行业 PESTEL（2024）
+### Case 1: China AI Large Model Industry PESTEL (2024)
 
-| 维度 | 关键因素 | 当前状态 | 变化趋势 | 影响程度 | 机会/威胁 |
-|------|---------|---------|---------|---------|----------|
-| **P 政治** | 国家 AI 战略 | 《新一代人工智能发展规划》+ 各地大模型扶持政策（北京/上海/深圳发放算力券） | 持续加码，2025 年 AI+ 写入政府工作报告 | **高** | 机会 |
-| **P 政治** | 中美科技博弈 | 美国限制高端 GPU 出口（A100/H100），算力受限 | 限制持续收紧，倒逼国产替代 | **高** | 威胁 + 机会（国产芯片） |
-| **E 经济** | VC/PE 投融资 | 2024 年 AI 领域融资额 >200 亿元，但集中在头部 5-6 家 | 资本向头部集中，长尾公司融资困难 | **高** | 威胁（中小企业） |
-| **S 社会** | 公众接受度 | ChatGPT 引爆公众认知，但对 AI 替代就业的焦虑也在上升 | 应用层认知提升，但信任建设需时间 | **中** | 机会（C 端市场教育成本降低） |
-| **T 技术** | 模型能力迭代 | GPT-4o/Claude 3.5 级别能力，中国厂商落后半代到一代 | 追赶速度快，差距在缩小 | **高** | 机会（差距可追） |
-| **T 技术** | 算力成本 | H100 单卡 >20 万元，训练一次大模型成本数千万 | 推理成本快速下降（每 18 月降 50%+），训练成本仍高 | **高** | 机会（应用层门槛降低） |
-| **E 环境** | 数据中心能耗 | 训练大模型碳排放等同于数百辆汽车一年排放 | ESG 压力增大，绿色算力成为卖点 | **低** | 威胁（合规成本） |
-| **L 法律** | AI 监管 | 《生成式 AI 服务管理暂行办法》已实施，需备案 | 监管框架逐步完善，合规门槛提升 | **高** | 威胁（合规成本）+ 机会（劣质玩家出清） |
+| Dimension | Key Factor | Current State | Change Trend | Impact Level | Opportunity/Threat |
+|-----------|-----------|---------------|-------------|-------------|-------------------|
+| **P Political** | National AI strategy | "New Generation AI Development Plan" + local AI support policies (Beijing/Shanghai/Shenzhen issuing compute vouchers) | Continued acceleration, "AI+" written into 2025 Government Work Report | **High** | Opportunity |
+| **P Political** | US-China tech rivalry | US restricts high-end GPU exports (A100/H100), compute capacity constrained | Restrictions continue tightening, driving domestic substitution | **High** | Threat + Opportunity (domestic chips) |
+| **E Economic** | VC/PE investment | 2024 AI sector funding >20B RMB, but concentrated in top 5-6 firms | Capital concentrating at the top, long-tail companies struggling to raise funds | **High** | Threat (for SMEs) |
+| **S Social** | Public acceptance | ChatGPT ignited public awareness, but anxiety about AI replacing jobs is rising | Application-layer awareness improving, but trust-building takes time | **Medium** | Opportunity (lower C-end market education costs) |
+| **T Technological** | Model capability iteration | GPT-4o/Claude 3.5 level capabilities, Chinese firms lagging by half to one generation | Catching up quickly, gap narrowing | **High** | Opportunity (gap is closable) |
+| **T Technological** | Compute costs | H100 single card >200K RMB, training a large model costs tens of millions | Inference costs dropping rapidly (>50% every 18 months), training costs still high | **High** | Opportunity (application-layer barriers lowering) |
+| **E Environmental** | Data center energy consumption | Training large models produces carbon emissions equivalent to hundreds of cars per year | ESG pressure increasing, green compute becoming a selling point | **Low** | Threat (compliance costs) |
+| **L Legal** | AI regulation | "Interim Measures for Generative AI Services" already implemented, registration required | Regulatory framework progressively maturing, compliance threshold rising | **High** | Threat (compliance costs) + Opportunity (weeding out low-quality players) |
 
-**核心影响**：
-1. **政策+算力双重约束塑造竞争格局**：GPU 限制+备案制度 → 只有资源充足的大厂和头部创业公司能存活
-2. **推理成本快速下降是最大机会**：应用层创业窗口在 2025-2026 年打开
-3. **监管是双刃剑**：短期增加合规成本，长期利好合规企业
+**Core Impacts**:
+1. **Policy + compute dual constraints shaping competitive landscape**: GPU restrictions + registration system → only resource-rich big tech and top startups can survive
+2. **Rapidly declining inference costs are the biggest opportunity**: Application-layer startup window opening in 2025-2026
+3. **Regulation is a double-edged sword**: Short-term increases compliance costs, long-term benefits compliant enterprises
 
-### 案例 2：东南亚电商市场 PESTEL（2024，出海视角）
+### Case 2: Southeast Asia E-commerce Market PESTEL (2024, Going-Global Perspective)
 
-| 维度 | 关键因素 | 影响程度 | 机会/威胁 |
-|------|---------|---------|----------|
-| **P** | 印尼禁止社交电商直接交易（TikTok Shop 被迫与 Tokopedia 合并） | **高** | 威胁——监管不确定性高 |
-| **E** | 东南亚电商渗透率仅 ~11%（vs 中国 ~30%），GMV 增速 15%+ | **高** | 机会——增量市场 |
-| **S** | 年轻人口占比高（中位年龄 29 岁），移动互联网原生用户 | **高** | 机会——消费增长潜力 |
-| **T** | 支付基础设施不完善，COD（货到付款）占比 40-60% | **中** | 威胁——履约和支付摩擦大 |
-| **E** | 岛屿地形（印尼 17,000+ 岛），物流成本高 | **中** | 威胁——最后一公里成本 |
-| **L** | 各国数据本地化要求不同（越南 vs 新加坡 vs 印尼） | **中** | 威胁——合规复杂度高 |
+| Dimension | Key Factor | Impact Level | Opportunity/Threat |
+|-----------|-----------|-------------|-------------------|
+| **P** | Indonesia bans social commerce direct transactions (TikTok Shop forced to merge with Tokopedia) | **High** | Threat — high regulatory uncertainty |
+| **E** | Southeast Asia e-commerce penetration only ~11% (vs China ~30%), GMV growth 15%+ | **High** | Opportunity — incremental market |
+| **S** | High youth population share (median age 29), mobile internet-native users | **High** | Opportunity — consumption growth potential |
+| **T** | Incomplete payment infrastructure, COD (cash on delivery) accounts for 40-60% | **Medium** | Threat — high fulfillment and payment friction |
+| **E** | Island topography (Indonesia 17,000+ islands), high logistics costs | **Medium** | Threat — last-mile costs |
+| **L** | Different data localization requirements across countries (Vietnam vs Singapore vs Indonesia) | **Medium** | Threat — high compliance complexity |
 
-**So What**：中国企业出海东南亚需"入乡随俗"——不能简单复制中国模式，必须适配当地支付（COD）、物流（分布式仓储）和监管（本地合作伙伴）。
+**So What**: Chinese companies going to Southeast Asia must "adapt to local customs" — they cannot simply replicate the China model but must adapt to local payment (COD), logistics (distributed warehousing), and regulation (local partners).
 
 ---
 
-## 最佳实践
+## Best Practices
 
-### 影响力 - 确定性矩阵
+### Impact-Certainty Matrix
 
-不是所有宏观因素都同等重要。建议使用影响力 - 确定性矩阵进行优先级排序：
+Not all macro factors are equally important. Use an impact-certainty matrix for priority ranking:
 
 ```
-              确定性高
+              Certainty High
                   │
     ┌─────────────┼─────────────┐
-    │  战略重点    │  情景规划    │
-    │  (深入分析)  │  (多方案准备)│
+    │  Strategic   │  Scenario    │
+    │  Focus       │  Planning    │
+    │ (Deep        │ (Prepare     │
+    │  Analysis)   │  Alt. Plans) │
     ├─────────────┼─────────────┤
-    │  风险监测    │  暂不关注    │
-    │  (持续追踪)  │  (低优先级)  │
+    │  Risk        │  Ignore      │
+    │  Monitoring  │ (Low         │
+    │ (Track       │  Priority)   │
+    │  Regularly)  │              │
     └─────────────┴─────────────┘
-              确定性低
+              Certainty Low
 ```
 
-**使用方法**：
-- **战略重点**（高影响力 + 高确定性）：投入最多分析资源，形成核心战略假设
-- **情景规划**（高影响力 + 低确定性）：设计多种情景预案，持续监测触发信号
-- **风险监测**（低影响力 + 高确定性）：定期追踪，设置预警指标
-- **暂不关注**（低影响力 + 低确定性）：不写入报告，避免信息过载
+**Usage**:
+- **Strategic Focus** (High impact + High certainty): Invest the most analytical resources, form core strategic assumptions
+- **Scenario Planning** (High impact + Low certainty): Design multiple scenario plans, continuously monitor trigger signals
+- **Risk Monitoring** (Low impact + High certainty): Track regularly, set early warning indicators
+- **Ignore** (Low impact + Low certainty): Do not include in the report to avoid information overload
 
-### 数据来源建议
+### Data Source Recommendations
 
-| 维度 | 推荐数据来源 |
-|------|------------|
-| P 政治 | 政府官网（国务院、发改委、工信部等）、五年规划、部委政策文件、智库报告 |
-| E 经济 | 国家统计局、央行、世界银行、IMF、券商宏观研报 |
-| S 社会 | 人口普查、社科院报告、QuestMobile、尼尔森、凯度消费者指数 |
-| T 技术 | 科技部、专利数据库、Gartner 技术曲线、Gartner/IDC 技术报告 |
-| E 环境 | 生态环境部、碳中和政策文件、ESG 报告、绿色金融政策 |
-| L 法律 | 人大网（法律法规）、最高法司法解释、市场监管总局文件 |
+| Dimension | Recommended Data Sources |
+|-----------|------------------------|
+| P Political | Government websites (State Council, NDRC, MIIT, etc.), Five-Year Plans, ministry policy documents, think tank reports |
+| E Economic | National Bureau of Statistics, central bank, World Bank, IMF, brokerage macro research reports |
+| S Social | Population census, CASS reports, QuestMobile, Nielsen, Kantar Consumer Index |
+| T Technological | Ministry of Science and Technology, patent databases, Gartner Hype Cycle, Gartner/IDC technology reports |
+| E Environmental | Ministry of Ecology and Environment, carbon neutrality policy documents, ESG reports, green finance policies |
+| L Legal | NPC website (laws and regulations), Supreme Court judicial interpretations, SAMR documents |
 
-### 3. 常见分析深度陷阱
+### Common Analysis Depth Pitfalls
 
-| 陷阱 | 表现 | 修正方法 |
-|------|------|---------|
-| 泛泛而谈 | "经济持续增长" | 量化："GDP 增速预计 5-5.5%，社零增速 6-7%" |
-| 脱离行业 | 只谈宏观趋势，不关联行业 | 每个因素必须回答"对该行业意味着什么" |
-| 静态分析 | 只描述现状 | 必须包含"变化趋势"和"未来 1-3 年预判" |
-| 维度孤立 | 六个维度各自为战 | 识别维度间的联动关系（如：政策→技术→法律） |
+| Pitfall | Manifestation | Correction |
+|---------|--------------|-----------|
+| Too generic | "The economy continues to grow" | Quantify: "GDP growth expected at 5-5.5%, retail sales growth 6-7%" |
+| Disconnected from industry | Only discussing macro trends without relating to the industry | Each factor must answer "what does this mean for this industry" |
+| Static analysis | Only describing the current state | Must include "change trends" and "1-3 year outlook" |
+| Isolated dimensions | Six dimensions analyzed in isolation | Identify inter-dimension linkages (e.g., Policy → Technology → Legal) |
 
-### 4. 中国特色要素
+### China-Specific Elements
 
-| 维度 | 中国特色 | 案例 |
-|------|---------|------|
-| P | 五年规划、部委机构改革、地方政府产业政策、国企角色 | "十四五"规划驱动数字经济；国家数据局成立重塑数据产业 |
-| E | 社零增速、房地产周期、地方债、双循环战略 | 房地产下行周期影响家居/建材全链条；消费降级催生折扣零售 |
-| S | Z 世代消费观、下沉市场、银发经济、单身经济、国潮 | 花西子/完美日记的国潮崛起；一人食/迷你家电的单身经济 |
-| T | 自主可控、AI 大模型应用、数据要素市场化、新基建 | 华为鸿蒙替代 Android；百度文心/阿里通义的大模型竞赛 |
-| E(环境) | 双碳目标、ESG 披露要求、绿色金融 | 碳交易市场启动；新能源车渗透率突破 50% |
-| L | 数据三法（网络安全法/数据安全法/个保法）、反垄断指南、平台经济监管 | 滴滴数据安全审查；阿里反垄断罚款 182 亿元 |
-
----
-
-## 常见错误
-
-| 错误 | 表现 | 正确做法 |
-|------|------|---------|
-| 面面俱到 | 六个维度平均用力，每个写一大段 | 筛选关键维度深入，非关键简要带过 |
-| 脱离行业 | 泛泛而谈宏观趋势，不关联到具体行业 | 每个因素必须回答"对该行业意味着什么" |
-| 只列现状 | 只描述当前状况，不判断趋势 | 必须有"变化趋势"和"未来影响" |
-| 忽略中国特色 | 套用西方模板，不考虑中国市场特殊性 | 关注中国政策、监管、文化的独特影响 |
+| Dimension | China Characteristics | Case |
+|-----------|----------------------|------|
+| P | Five-Year Plans, ministry restructuring, local government industrial policies, SOE roles | "14th Five-Year Plan" driving the digital economy; National Data Bureau establishment reshaping the data industry |
+| E | Retail sales growth, real estate cycle, local government debt, dual circulation strategy | Real estate downturn impacting the entire home furnishing/building materials chain; consumption downgrade driving discount retail |
+| S | Gen Z consumer attitudes, lower-tier markets, silver economy, single economy, national brands trend | Florasis/Perfect Diary's national brands rise; single-serve food/mini appliances in the single economy |
+| T | Technology self-reliance, AI large model applications, data factor marketization, new infrastructure | Huawei HarmonyOS replacing Android; Baidu ERNIE/Alibaba Tongyi large model competition |
+| E (Environmental) | Dual carbon goals, ESG disclosure requirements, green finance | Carbon trading market launch; NEV penetration rate exceeding 50% |
+| L | Three data laws (Cybersecurity Law/Data Security Law/Personal Information Protection Law), antitrust guidelines, platform economy regulation | Didi data security review; Alibaba antitrust fine of 18.2B RMB |
 
 ---
 
-## 与其他框架的配合
+## Common Mistakes
 
-| 配合框架 | 关系 |
-|---------|------|
-| Porter's Five Forces | PESTEL 提供宏观背景 → Five Forces 分析行业内部竞争 |
-| 产业生命周期 | PESTEL 中的技术/社会因素帮助判断行业阶段 |
-| SWOT | PESTEL 的发现直接输入 SWOT 的 O（机会）和 T（威胁） |
-| SCP | PESTEL 解释产业结构变化的外部驱动力 |
+| Mistake | Manifestation | Correct Approach |
+|---------|--------------|-----------------|
+| Covering everything equally | Giving equal weight to all six dimensions, writing a long paragraph for each | Screen for key dimensions to analyze deeply, briefly cover non-critical ones |
+| Disconnected from industry | Generically discussing macro trends without connecting to the specific industry | Each factor must answer "what does this mean for this industry" |
+| Only listing current state | Only describing the current situation without judging trends | Must include "change trends" and "future impact" |
+| Ignoring China specifics | Applying Western templates without considering China market uniqueness | Focus on the unique impact of Chinese policies, regulation, and culture |
+
+---
+
+## Integration with Other Frameworks
+
+| Partner Framework | Relationship |
+|-------------------|-------------|
+| Porter's Five Forces | PESTEL provides macro context → Five Forces analyzes industry-internal competition |
+| Industry Lifecycle | Technology/social factors in PESTEL help determine industry stage |
+| SWOT | PESTEL findings directly input into SWOT's O (Opportunities) and T (Threats) |
+| SCP | PESTEL explains the external drivers of industrial structure changes |

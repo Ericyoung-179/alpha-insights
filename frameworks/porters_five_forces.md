@@ -1,559 +1,570 @@
-# Porter's Five Forces | 波特五力模型
+# Porter's Five Forces
 
-**创始人/来源**: Michael Porter, 1979
-**核心价值**: 分析行业竞争结构和盈利潜力，识别竞争力的五个来源
-**一句话**: 行业 profitability 不取决于产品，而取决于五种竞争力量的博弈
-
----
-
-## 概述
-
-波特五力模型由哈佛商学院教授 Michael Porter 于 1979 年提出，是战略管理领域最经典的行业竞争结构分析工具。该框架认为，行业的盈利能力（profitability）不取决于产品本身，而取决于五种竞争力量的博弈。
-
-**核心设计理念**：
-- **结构决定行为**：行业竞争结构决定了企业的战略行为和盈利空间
-- **五力博弈**：行业吸引力由五种力量的综合强度决定
-- **动态视角**：五力强度随时间变化，需要持续监测
-
-**最佳使用时机**：
-- 行业研究的核心阶段（通常在 PESTEL 之后）
-- 评估行业吸引力和进入可行性
-- 竞争强度分析和竞争策略制定
-- 市场进入前的行业筛选
-
-**输出价值**：
-- 五力强度的系统性评估（强/中/弱）
-- 行业吸引力的综合判断
-- 针对每种力量的竞争策略建议
-- 直接输入 SWOT 分析的威胁（T）象限
-
-**与 SCP 框架的关系**：
-- **SCP**：更宏观、学术化，适合强监管行业的结构性分析
-- **五力**：更微观、实用化，适合竞争性行业的策略分析
-- 在本 Skill 中，五力通常作为 SCP 框架中"结构（Structure）"维度的细化分析工具
+**Creator/Source**: Michael Porter, 1979
+**Core Value**: Analyze industry competitive structure and profit potential, identifying the five sources of competitive pressure
+**One-liner**: Industry profitability is not determined by the product itself, but by the interplay of five competitive forces
 
 ---
 
-## 一、框架概述
+## Overview
 
-### 1.1 五力模型结构
+Porter's Five Forces model was proposed by Harvard Business School professor Michael Porter in 1979 and is the most classic industry competitive structure analysis tool in strategic management. The framework holds that an industry's profitability is not determined by the product itself, but by the interplay of five competitive forces.
+
+**Core Design Principles**:
+- **Structure Determines Behavior**: Industry competitive structure determines firms' strategic behavior and profit margins
+- **Five-Force Interplay**: Industry attractiveness is determined by the combined intensity of five forces
+- **Dynamic Perspective**: Force intensities change over time and require continuous monitoring
+
+**Best Use Cases**:
+- Core stage of industry research (typically after PESTEL)
+- Assessing industry attractiveness and entry feasibility
+- Competitive intensity analysis and competitive strategy formulation
+- Industry screening before market entry
+
+**Output Value**:
+- Systematic assessment of five force intensities (Strong/Medium/Weak)
+- Comprehensive judgment of industry attractiveness
+- Competitive strategy recommendations for each force
+- Direct input into SWOT analysis Threats (T) quadrant
+
+**Relationship with SCP Framework**:
+- **SCP**: More macro and academic, suitable for structural analysis in heavily regulated industries
+- **Five Forces**: More micro and practical, suitable for strategy analysis in competitive industries
+- In this Skill, Five Forces typically serves as a detailed analysis tool within the "Structure (S)" dimension of the SCP framework
+
+---
+
+## I. Framework Overview
+
+### 1.1 Five Forces Model Structure
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                  波特五力模型                                │
+│                  Porter's Five Forces                        │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│                    新进入者威胁                              │
+│                Threat of New Entrants                        │
 │                         ↑                                   │
 │                         │                                   │
-│    供应商议价力 ────────┼──────── 买方议价力                 │
+│  Supplier         ──────┼────────  Buyer                    │
+│  Bargaining Power       │         Bargaining Power          │
 │         →               │               ←                   │
 │                         │                                   │
-│                    行业竞争                                 │
-│              (现有竞争者之间的竞争)                          │
+│               Industry Rivalry                              │
+│        (Rivalry Among Existing Competitors)                  │
 │                         │                                   │
 │                         ↓                                   │
-│                    替代品威胁                              │
+│              Threat of Substitutes                          │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 1.2 五力 vs SCP 框架
+### 1.2 Five Forces vs. SCP Framework
 
-| 维度 | SCP 框架 | 波特五力 |
-|------|---------|---------|
-| 定位 | 更宏观、学术化 | 更微观、实用化 |
-| 焦点 | 结构→行为→绩效因果链 | 竞争力直接分析 |
-| 应用 | 产业经济学研究 | 企业战略分析 |
-| 关系 | 五力可视为 SCP 中"结构"的细化 | SCP 可作为五力的理论补充 |
+| Dimension | SCP Framework | Porter's Five Forces |
+|-----------|-------------|---------------------|
+| Positioning | More macro, academic | More micro, practical |
+| Focus | Structure → Conduct → Performance causal chain | Direct analysis of competitive forces |
+| Application | Industrial economics research | Business strategy analysis |
+| Relationship | Five Forces can be seen as a refinement of "Structure" in SCP | SCP can serve as theoretical supplement to Five Forces |
 
-**本 Skill 中的定位**:
-- **SCP**: 用于行业研究的主框架（因果分析）
-- **五力**: 用于竞争强度分析（微观竞争结构）
+**Positioning in This Skill**:
+- **SCP**: Used as the primary framework for industry research (causal analysis)
+- **Five Forces**: Used for competitive intensity analysis (micro competitive structure)
 
-### 1.3 五力与行业盈利能力
+### 1.3 Five Forces and Industry Profitability
 
 ```
-五力强度 ──→ 行业盈利潜力
+Five Forces Intensity ──→ Industry Profit Potential
 
-强竞争力 → 利润被挤压 → 行业吸引力低
-弱竞争力 → 利润空间大 → 行业吸引力高
+Strong forces → Profits squeezed → Low industry attractiveness
+Weak forces → Large profit margins → High industry attractiveness
 
-理想状态: 五力都弱 (如：高端白酒)
-最差状态: 五力都强 (如：航空业)
+Ideal state: All five forces weak (e.g., premium baijiu)
+Worst state: All five forces strong (e.g., airlines)
 ```
 
 ---
 
-## 二、五力详细解析
+## II. Five Forces Detailed Analysis
 
-### 2.1 力一：新进入者威胁 (Threat of New Entrants)
+### 2.1 Force 1: Threat of New Entrants
 
-**定义**: 新竞争者进入行业的可能性及其对现有玩家的影响。
+**Definition**: The likelihood of new competitors entering the industry and their impact on existing players.
 
-**决定因素**:
+**Determining Factors**:
 ```
 ┌─────────────────────────────────────────────┐
-│          进入壁垒 (Barriers to Entry)        │
+│          Barriers to Entry                   │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  1. 规模经济                                │
-│     • 现有玩家的规模优势                    │
-│     • 新进入者能否快速达到临界规模          │
+│  1. Economies of Scale                      │
+│     • Incumbent scale advantages            │
+│     • Can new entrants quickly reach         │
+│       critical mass                          │
 │                                             │
-│  2. 资本需求                                │
-│     • 进入所需的固定投资                    │
-│     • 研发、营销等沉没成本                  │
+│  2. Capital Requirements                    │
+│     • Fixed investment needed for entry      │
+│     • R&D, marketing sunk costs             │
 │                                             │
-│  3. 转换成本                                │
-│     • 用户更换供应商的成本                  │
-│     • 学习成本、合同成本、集成成本          │
+│  3. Switching Costs                         │
+│     • Cost for users to change suppliers     │
+│     • Learning, contract, integration costs  │
 │                                             │
-│  4. 分销渠道                                │
-│     • 现有渠道是否被垄断                    │
-│     • 新进入者建立渠道的难度                │
+│  4. Distribution Channels                   │
+│     • Are existing channels monopolized      │
+│     • Difficulty for new entrants to build   │
+│       channels                               │
 │                                             │
-│  5. 政策壁垒                                │
-│     • 牌照、资质、监管要求                  │
-│     • 行业标准、认证                        │
+│  5. Policy Barriers                         │
+│     • Licenses, qualifications, regulatory   │
+│       requirements                           │
+│     • Industry standards, certifications     │
 │                                             │
-│  6. 品牌/差异化                             │
-│     • 现有品牌的忠诚度                      │
-│     • 产品差异化的程度                      │
+│  6. Brand/Differentiation                   │
+│     • Existing brand loyalty                 │
+│     • Degree of product differentiation      │
 │                                             │
-│  7. 成本优势 (独立于规模)                    │
-│     • 专利技术                              │
-│     • 学习曲线效应                          │
-│     • 资源优势                              │
+│  7. Cost Advantages (Independent of Scale)  │
+│     • Proprietary technology                 │
+│     • Learning curve effects                 │
+│     • Resource advantages                    │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
 
-**威胁程度评估**:
-| 壁垒强度 | 进入威胁 | 行业影响 |
-|---------|---------|---------|
-| 高壁垒 | 低威胁 | 现有玩家受保护 |
-| 中壁垒 | 中威胁 | 潜在进入者观望 |
-| 低壁垒 | 高威胁 | 利润被快速摊薄 |
+**Threat Level Assessment**:
+| Barrier Strength | Entry Threat | Industry Impact |
+|-----------------|-------------|-----------------|
+| High barriers | Low threat | Existing players protected |
+| Medium barriers | Medium threat | Potential entrants observing |
+| Low barriers | High threat | Profits rapidly diluted |
 
-**典型案例**:
-| 行业 | 进入壁垒 | 主要壁垒来源 | 案例 |
-|------|---------|-------------|------|
-| 高端白酒 | 高 | 品牌、工艺、时间 | 茅台护城河 |
-| 芯片制造 | 高 | 资本、技术、人才 | 中芯国际 |
-| 餐饮 | 低 | 几乎无壁垒 | 竞争极度分散 |
-| 网约车 | 中→高 | 规模、资本、政策 | 滴滴胜出 |
+**Typical Cases**:
+| Industry | Entry Barriers | Main Barrier Sources | Case |
+|----------|---------------|---------------------|------|
+| Premium baijiu | High | Brand, craftsmanship, time | Moutai moat |
+| Chip manufacturing | High | Capital, technology, talent | SMIC |
+| Restaurants | Low | Almost no barriers | Extremely fragmented competition |
+| Ride-hailing | Medium → High | Scale, capital, policy | Didi's victory |
 
-### 2.2 力二：供应商议价力 (Bargaining Power of Suppliers)
+### 2.2 Force 2: Bargaining Power of Suppliers
 
-**定义**: 供应商提高价格或降低质量的能力。
+**Definition**: Suppliers' ability to raise prices or lower quality.
 
-**供应商议价力强的条件**:
+**Signals of Strong Supplier Bargaining Power**:
 ```
 ┌─────────────────────────────────────────────┐
-│          供应商议价力强的信号                │
+│  Signals of Strong Supplier Bargaining Power │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  ✓ 供应商集中度高 (少数几家垄断)             │
-│  ✓ 供应品差异化大/转换成本高                │
-│  ✓ 供应商可向前整合 (自己做下游)             │
-│  ✓ 下游行业不是供应商的重要客户              │
-│  ✓ 供应品对下游质量影响大                   │
-│  ✓ 供应品稀缺/不可替代                      │
+│  ✓ High supplier concentration (few dominate)│
+│  ✓ Highly differentiated/high switching costs│
+│  ✓ Suppliers can forward integrate           │
+│  ✓ Downstream industry not an important      │
+│    customer for suppliers                    │
+│  ✓ Supplies significantly affect downstream  │
+│    quality                                   │
+│  ✓ Supplies are scarce/irreplaceable         │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
 
-**典型案例**:
-| 行业 | 供应商 | 议价力 | 原因 |
-|------|--------|--------|------|
-| 手机 | 台积电 | 强 | 先进制程垄断 |
-| 电脑 | Intel/AMD | 强 | CPU 双寡头 |
-| 餐饮 | 食材供应商 | 弱 | 供应商分散 |
-| 航空 | 波音/空客 | 强 | 双寡头、转换成本高 |
+**Typical Cases**:
+| Industry | Supplier | Bargaining Power | Reason |
+|----------|---------|-----------------|--------|
+| Smartphones | TSMC | Strong | Advanced process monopoly |
+| Computers | Intel/AMD | Strong | CPU duopoly |
+| Restaurants | Food suppliers | Weak | Suppliers are fragmented |
+| Airlines | Boeing/Airbus | Strong | Duopoly, high switching costs |
 
-### 2.3 力三：买方议价力 (Bargaining Power of Buyers)
+### 2.3 Force 3: Bargaining Power of Buyers
 
-**定义**: 客户压低价格、要求更高质量或更多服务的能力。
+**Definition**: Customers' ability to push prices down, demand higher quality, or more services.
 
-**买方议价力强的条件**:
+**Signals of Strong Buyer Bargaining Power**:
 ```
 ┌─────────────────────────────────────────────┐
-│          买方议价力强的信号                  │
+│  Signals of Strong Buyer Bargaining Power    │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  ✓ 买方集中度高 (少数大客户)                 │
-│  ✓ 采购量大 (占供应商收入比高)               │
-│  ✓ 产品标准化/差异化小                      │
-│  ✓ 转换成本低                               │
-│  ✓ 买方可向后整合 (自己生产)                 │
-│  ✓ 产品对买方质量影响小                     │
-│  ✓ 买方信息透明 (了解成本结构)               │
+│  ✓ High buyer concentration (few large       │
+│    customers)                                │
+│  ✓ Large purchase volumes (high % of         │
+│    supplier revenue)                         │
+│  ✓ Standardized products / low               │
+│    differentiation                           │
+│  ✓ Low switching costs                       │
+│  ✓ Buyers can backward integrate             │
+│  ✓ Products have low impact on buyer quality │
+│  ✓ Buyer information transparency (know      │
+│    cost structures)                          │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
 
-**典型案例**:
-| 行业 | 买方 | 议价力 | 原因 |
-|------|------|--------|------|
-| 汽车零部件 | 整车厂 | 强 | 采购量大、可整合 |
-| 云服务 | 大企业 | 中 | 有一定议价空间 |
-| 云服务 | 中小企业 | 弱 | 标准化、转换成本 |
-| 奢侈品 | 个人消费者 | 弱 | 品牌溢价、无替代 |
+**Typical Cases**:
+| Industry | Buyer | Bargaining Power | Reason |
+|----------|------|-----------------|--------|
+| Auto parts | OEMs | Strong | Large volumes, can integrate |
+| Cloud services | Enterprises | Medium | Some negotiation room |
+| Cloud services | SMEs | Weak | Standardized, switching costs |
+| Luxury goods | Individual consumers | Weak | Brand premium, no substitutes |
 
-### 2.4 力四：替代品威胁 (Threat of Substitutes)
+### 2.4 Force 4: Threat of Substitutes
 
-**定义**: 满足相同需求的其他产品或服务的威胁。
+**Definition**: The threat from other products or services that satisfy the same need.
 
-**关键点**:
-- 替代品不是同品类竞争，而是跨品类替代
-- 替代的核心是"满足相同需求"
+**Key Point**:
+- Substitutes are not same-category competition but cross-category replacement
+- The core of substitution is "satisfying the same need"
 
-**替代类型**:
-| 替代类型 | 说明 | 案例 |
-|---------|------|------|
-| 功能替代 | 不同产品实现相同功能 | 共享单车 vs 公交 |
-| 场景替代 | 不同场景满足相同需求 | 外卖 vs 方便面 |
-| 技术替代 | 新技术替代旧技术 | 数码 vs 胶卷 |
-| 时间替代 | 不同时间分配竞争 | 抖音 vs 长视频 |
+**Substitution Types**:
+| Substitution Type | Description | Case |
+|------------------|-------------|------|
+| Functional substitution | Different products achieving the same function | Bike-sharing vs. buses |
+| Scenario substitution | Different scenarios satisfying the same need | Food delivery vs. instant noodles |
+| Technological substitution | New technology replacing old technology | Digital vs. film |
+| Time substitution | Competition for different time allocation | Douyin vs. long-form video |
 
-**替代威胁评估**:
+**Substitute Threat Assessment**:
 ```
-替代威胁 = 替代性价比 × 转换意愿
+Substitute Threat = Substitute Value-for-Money × Switching Willingness
 
-替代性价比 = 替代品性能 / 替代品价格
-转换意愿 = 转换成本的反函数
+Substitute Value-for-Money = Substitute Performance / Substitute Price
+Switching Willingness = Inverse function of Switching Cost
 ```
 
-**典型案例**:
-| 原产品 | 替代品 | 威胁程度 | 说明 |
-|--------|--------|---------|------|
-| 胶卷 | 数码 | 高 (已替代) | 技术颠覆 |
-| 出租车 | 网约车 | 高 (已替代) | 模式创新 |
-| 方便面 | 外卖 | 高 | 场景替代 |
-| 报纸 | 新闻客户端 | 高 (已替代) | 媒介变革 |
+**Typical Cases**:
+| Original Product | Substitute | Threat Level | Description |
+|-----------------|-----------|-------------|-------------|
+| Film | Digital | High (already replaced) | Technology disruption |
+| Taxis | Ride-hailing | High (already replaced) | Model innovation |
+| Instant noodles | Food delivery | High | Scenario substitution |
+| Newspapers | News apps | High (already replaced) | Media transformation |
 
-### 2.5 力五：现有竞争者之间的竞争 (Rivalry Among Existing Competitors)
+### 2.5 Force 5: Rivalry Among Existing Competitors
 
-**定义**: 行业内现有企业之间的竞争强度。
+**Definition**: The intensity of competition among existing firms in the industry.
 
-**竞争激烈的信号**:
+**Signals of Intense Rivalry**:
 ```
 ┌─────────────────────────────────────────────┐
-│          竞争激烈的信号                      │
+│          Signals of Intense Rivalry          │
 ├─────────────────────────────────────────────┤
 │                                             │
-│  ✓ 竞争者数量多且势均力敌                    │
-│  ✓ 行业增长缓慢 (存量竞争)                   │
-│  ✓ 固定成本高 (有降价动机)                   │
-│  ✓ 产品差异化小 (价格战)                     │
-│  ✓ 产能过剩                                  │
-│  ✓ 退出壁垒高 (难以离开)                     │
-│  ✓ 竞争者背景多元 (战略差异大)               │
+│  ✓ Many competitors of similar size          │
+│  ✓ Slow industry growth (zero-sum game)      │
+│  ✓ High fixed costs (incentive to cut prices)│
+│  ✓ Low product differentiation (price wars)  │
+│  ✓ Excess capacity                           │
+│  ✓ High exit barriers (hard to leave)        │
+│  ✓ Diverse competitor backgrounds (divergent │
+│    strategies)                               │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
 
-**竞争手段**:
-| 竞争手段 | 说明 | 典型案例 |
-|---------|------|---------|
-| 价格战 | 降价抢份额 | 拼多多 vs 淘宝 |
-| 广告战 | 营销投入竞争 | 可口可乐 vs 百事 |
-| 产品战 | 新品迭代 | 手机行业 |
-| 渠道战 | 渠道争夺 | 家电行业 |
-| 人才战 | 核心人才争夺 | 互联网行业 |
+**Competitive Tactics**:
+| Tactic | Description | Typical Case |
+|--------|-------------|-------------|
+| Price war | Price cuts to grab share | Pinduoduo vs. Taobao |
+| Advertising war | Marketing spend competition | Coca-Cola vs. Pepsi |
+| Product war | New product iteration | Smartphone industry |
+| Channel war | Channel competition | Home appliance industry |
+| Talent war | Key talent competition | Internet industry |
 
 ---
 
-## 三、五力分析执行步骤
+## III. Five Forces Analysis Execution Steps
 
-### Step 1: 定义行业边界
+### Step 1: Define Industry Boundaries
 
-**目标**: 明确分析的行业范围。
+**Goal**: Clarify the scope of the industry being analyzed.
 
-**定义维度**:
+**Definition Dimensions**:
 ```
-1. 产品边界
-   • 核心产品/服务是什么
-   • 产品品类范围
+1. Product Boundaries
+   • Core product/service
+   • Product category scope
 
-2. 地理边界
-   • 全国市场 vs 区域市场
-   • 国内市场 vs 全球市场
+2. Geographic Boundaries
+   • National vs. regional market
+   • Domestic vs. global market
 
-3. 客户边界
-   • ToB vs ToC
-   • 高端 vs 中端 vs 低端
-```
-
-### Step 2: 分析每种力量
-
-**目标**: 对五力逐一进行强度评估。
-
-**评估模板**:
-```
-力量名称: [如：供应商议价力]
-
-1. 力量强度: [强/中/弱]
-2. 关键驱动因素:
-   • 因素 1: [描述]
-   • 因素 2: [描述]
-3. 证据支持:
-   • 数据/案例
-4. 趋势判断:
-   • 未来 1-3 年变化方向
+3. Customer Boundaries
+   • B2B vs. B2C
+   • Premium vs. mid-range vs. budget
 ```
 
-### Step 3: 绘制五力图
+### Step 2: Analyze Each Force
 
-**目标**: 可视化五力强度。
+**Goal**: Assess the intensity of each of the five forces.
+
+**Assessment Template**:
+```
+Force Name: [e.g., Supplier Bargaining Power]
+
+1. Force Intensity: [Strong/Medium/Weak]
+2. Key Driving Factors:
+   • Factor 1: [description]
+   • Factor 2: [description]
+3. Evidence Support:
+   • Data/cases
+4. Trend Assessment:
+   • Direction of change over the next 1-3 years
+```
+
+### Step 3: Draw the Five Forces Diagram
+
+**Goal**: Visualize force intensities.
 
 ```
-示例: 高端白酒行业
+Example: Premium Baijiu Industry
 
-                    新进入者
-                    威胁：低
+                    New Entrants
+                    Threat: Low
                        ↑
                        │
-    供应商 ────────────┼─────────── 买方
-    议价力：中         │        议价力：弱
+    Suppliers ─────────┼────────── Buyers
+    Power: Medium      │      Power: Weak
           →            │            ←
                        │
-                  行业竞争
-                  强度：中
+                 Industry Rivalry
+                 Intensity: Medium
                        │
                        ↓
-                   替代品
-                   威胁：中
+                  Substitutes
+                  Threat: Medium
 ```
 
-### Step 4: 评估行业吸引力
+### Step 4: Assess Industry Attractiveness
 
-**目标**: 综合判断行业盈利潜力。
+**Goal**: Holistic judgment of industry profit potential.
 
-**评估矩阵**:
+**Assessment Matrix**:
 ```
-五力强度分布 ──→ 行业吸引力
+Five Forces Intensity Distribution ──→ Industry Attractiveness
 
-5 力都弱 → 极高吸引力 (如：茅台)
-4 力弱 1 力中 → 高吸引力
-3 力弱 2 力中 → 中吸引力
-2 力弱 3 力中 → 低吸引力
-1 力弱 4 力强 → 极低吸引力 (如：航空)
+All 5 forces weak → Very high attractiveness (e.g., Moutai)
+4 weak + 1 medium → High attractiveness
+3 weak + 2 medium → Medium attractiveness
+2 weak + 3 medium → Low attractiveness
+1 weak + 4 strong → Very low attractiveness (e.g., airlines)
 ```
 
-### Step 5: 制定竞争战略
+### Step 5: Formulate Competitive Strategy
 
-**目标**: 根据五力分析制定应对策略。
+**Goal**: Develop response strategies based on Five Forces analysis.
 
-**战略选择**:
-| 力量 | 战略目标 | 具体策略 |
-|------|---------|---------|
-| 新进入者 | 提高壁垒 | 规模、品牌、专利、政策 |
-| 供应商 | 降低依赖 | 多元化、后向整合、联合采购 |
-| 买方 | 提升粘性 | 差异化、转换成本、服务增值 |
-| 替代品 | 强化独特性 | 技术领先、品牌忠诚、生态锁定 |
-| 现有竞争 | 差异化 | 定位差异、能力差异、模式差异 |
+**Strategic Choices**:
+| Force | Strategic Goal | Specific Strategies |
+|-------|---------------|---------------------|
+| New entrants | Raise barriers | Scale, brand, patents, policy |
+| Suppliers | Reduce dependence | Diversify, backward integrate, joint procurement |
+| Buyers | Increase stickiness | Differentiate, raise switching costs, value-added services |
+| Substitutes | Strengthen uniqueness | Technology leadership, brand loyalty, ecosystem lock-in |
+| Existing rivalry | Differentiate | Positioning, capability, model differentiation |
 
 ---
 
-## 四、输出格式
+## IV. Output Format
 
-### 4.1 五力分析报告
+### 4.1 Five Forces Analysis Report
 
 ```markdown
-## Porter's Five Forces - [行业名称]
+## Porter's Five Forces - [Industry Name]
 
-### 行业定义
-- **产品边界**: [...]
-- **地理边界**: [...]
-- **客户边界**: [...]
+### Industry Definition
+- **Product boundaries**: [...]
+- **Geographic boundaries**: [...]
+- **Customer boundaries**: [...]
 
-### 五力分析
-| 力量 | 强度 | 关键驱动因素 | 趋势 |
-|------|------|-------------|------|
-| 新进入者威胁 | 强/中/弱 | ... | 增强/减弱 |
-| 供应商议价力 | 强/中/弱 | ... | 增强/减弱 |
-| 买方议价力 | 强/中/弱 | ... | 增强/减弱 |
-| 替代品威胁 | 强/中/弱 | ... | 增强/减弱 |
-| 现有竞争 | 强/中/弱 | ... | 增强/减弱 |
+### Five Forces Analysis
+| Force | Intensity | Key Drivers | Trend |
+|-------|----------|------------|-------|
+| Threat of new entrants | Strong/Med/Weak | ... | Strengthening/Weakening |
+| Supplier bargaining power | Strong/Med/Weak | ... | Strengthening/Weakening |
+| Buyer bargaining power | Strong/Med/Weak | ... | Strengthening/Weakening |
+| Threat of substitutes | Strong/Med/Weak | ... | Strengthening/Weakening |
+| Existing rivalry | Strong/Med/Weak | ... | Strengthening/Weakening |
 
-### 行业吸引力
-- **综合评估**: [极高/高/中/低/极低]
-- **主要依据**: [...]
-- **盈利前景**: [...]
+### Industry Attractiveness
+- **Overall assessment**: [Very High/High/Medium/Low/Very Low]
+- **Key basis**: [...]
+- **Profitability outlook**: [...]
 
-### 战略建议
-| 力量 | 建议策略 | 优先级 |
-|------|---------|--------|
-| 新进入者 | ... | P0/P1/P2 |
-| 供应商 | ... | P0/P1/P2 |
-| 买方 | ... | P0/P1/P2 |
-| 替代品 | ... | P0/P1/P2 |
-| 现有竞争 | ... | P0/P1/P2 |
+### Strategic Recommendations
+| Force | Recommended Strategy | Priority |
+|-------|---------------------|----------|
+| New entrants | ... | P0/P1/P2 |
+| Suppliers | ... | P0/P1/P2 |
+| Buyers | ... | P0/P1/P2 |
+| Substitutes | ... | P0/P1/P2 |
+| Existing rivalry | ... | P0/P1/P2 |
 ```
 
 ---
 
-## 外部研究补充：五力分析最佳实践
+## Research Supplements: Five Forces Analysis Best Practices
 
-根据 MBA 智库百科、帆软、Foundor.ai 等权威来源的研究，五力分析的成功关键在于以下几点：
+Based on research from authoritative sources, the keys to successful Five Forces analysis include:
 
-### 1. 五力分析的局限性
+### 1. Limitations of Five Forces
 
-| 局限性 | 说明 | 应对方法 |
-|--------|------|---------|
-| 静态视角 | 传统五力是静态快照 | 增加时间维度，分析五力变化趋势 |
-| 忽视互补品 | 未考虑互补品的影响 | 增加"第六力"分析（互补品力量）|
-| 忽视生态 | 未考虑平台生态 | 结合平台画布分析生态位 |
-| 定义模糊 | 行业边界定义影响结果 | 从需求角度定义，避免过窄 |
-| 创新盲区 | 难以解释颠覆式创新 | 结合颠覆理论补充分析 |
+| Limitation | Description | Mitigation |
+|-----------|-------------|-----------|
+| Static perspective | Traditional Five Forces is a static snapshot | Add time dimension, analyze force change trends |
+| Ignores complements | Does not consider the impact of complements | Add "sixth force" analysis (complement power) |
+| Ignores ecosystems | Does not consider platform ecosystems | Combine with Platform Canvas for ecosystem analysis |
+| Ambiguous definitions | Industry boundary definition affects results | Define from demand perspective, avoid overly narrow scope |
+| Innovation blind spot | Difficult to explain disruptive innovation | Supplement with Disruption Theory analysis |
 
-### 2. 数据来源建议
+### 2. Data Source Recommendations
 
-| 力量 | 推荐数据来源 |
-|------|------------|
-| 新进入者威胁 | 天眼查/企查查（新注册企业数量）、VC/PE 投资数据、政策准入文件 |
-| 供应商议价力 | 上市公司财报（供应商集中度）、行业协会报告、供应链调研 |
-| 买方议价力 | 客户集中度数据、渠道调研、价格敏感度测试 |
-| 替代品威胁 | 跨品类销售数据、用户替代行为调研、技术替代趋势报告 |
-| 现有竞争 | 市场份额数据（券商研报）、竞争行为追踪（价格/营销/产品）|
+| Force | Recommended Data Sources |
+|-------|------------------------|
+| Threat of new entrants | Business registration databases (new company registrations), VC/PE investment data, policy access documents |
+| Supplier bargaining power | Public company financials (supplier concentration), industry association reports, supply chain surveys |
+| Buyer bargaining power | Customer concentration data, channel surveys, price sensitivity testing |
+| Threat of substitutes | Cross-category sales data, user substitution behavior surveys, technology substitution trend reports |
+| Existing rivalry | Market share data (brokerage research), competitive behavior tracking (price/marketing/product) |
 
-### 3. 进入壁垒量化方法
+### 3. Entry Barrier Quantification Methods
 
-传统五力分析容易定性描述，建议引入量化指标：
+Traditional Five Forces analysis tends toward qualitative description. Quantitative indicators are recommended:
 
-| 壁垒类型 | 量化指标 |
-|----------|---------|
-| 规模经济 | CR5/CR10 集中度、头部企业营收规模 |
-| 资本需求 | 头部企业固定资产/研发投入/营销费用 |
-| 转换成本 | 用户留存率、合同期限、集成深度 |
-| 分销渠道 | 渠道覆盖率、独家协议比例 |
-| 政策壁垒 | 牌照数量、资质获取周期、合规成本 |
-| 品牌壁垒 | 品牌认知度调研、NPS 净推荐值 |
+| Barrier Type | Quantitative Indicator |
+|-------------|----------------------|
+| Economies of scale | CR5/CR10 concentration, leading firms' revenue scale |
+| Capital requirements | Leading firms' fixed assets / R&D spend / marketing costs |
+| Switching costs | User retention rate, contract terms, integration depth |
+| Distribution channels | Channel coverage rate, exclusive agreement ratio |
+| Policy barriers | Number of licenses, qualification acquisition cycle, compliance costs |
+| Brand barriers | Brand awareness surveys, NPS (Net Promoter Score) |
 
-### 4. 中国互联网行业五力特点
+### 4. China Internet Industry Five Forces Characteristics
 
-中国互联网行业的五力分析需要特别关注：
+Five Forces analysis for China's internet industry requires special attention to:
 
-| 特点 | 说明 | 分析要点 |
-|------|------|---------|
-| 资本驱动 | VC/PE 加速行业整合 | 关注融资轮次、投资方背景 |
-| 赢家通吃 | 网络效应显著 | 分析用户规模、数据壁垒 |
-| 生态竞争 | 大生态主导（腾讯/阿里/字节） | 考虑生态位和站队逻辑 |
-| 政策敏感 | 监管政策快速变化 | 关注反垄断、数据安全等政策 |
-| 速度优先 | 快速迭代、烧钱换增长 | 关注增长速度而非短期盈利 |
+| Characteristic | Description | Analysis Focus |
+|---------------|-------------|---------------|
+| Capital-driven | VC/PE accelerates industry consolidation | Focus on funding rounds, investor backgrounds |
+| Winner-take-all | Significant network effects | Analyze user scale, data moats |
+| Ecosystem competition | Dominated by major ecosystems (Tencent/Alibaba/ByteDance) | Consider ecosystem positioning and alignment logic |
+| Policy sensitivity | Regulatory policies change rapidly | Monitor antitrust, data security policies |
+| Speed-first | Rapid iteration, burning cash for growth | Focus on growth velocity rather than short-term profitability |
 
-### 5. 五力强度评估矩阵
+### 5. Five Forces Intensity Scoring Matrix
 
-建议使用 1-5 分制量化五力强度：
+A 1-5 point scale is recommended for quantifying force intensity:
 
 ```
-评分标准：
-1 分 = 力量极弱（行业盈利空间极大）
-2 分 = 力量较弱（行业盈利空间较大）
-3 分 = 力量中等（行业盈利空间一般）
-4 分 = 力量较强（行业盈利空间较小）
-5 分 = 力量极强（行业盈利空间极小）
+Scoring Standards:
+1 point = Extremely weak force (very large industry profit margins)
+2 points = Relatively weak force (large industry profit margins)
+3 points = Moderate force (average industry profit margins)
+4 points = Relatively strong force (small industry profit margins)
+5 points = Extremely strong force (minimal industry profit margins)
 
-综合评估：
-- 总分 5-10 分：极高吸引力行业
-- 总分 11-15 分：高吸引力行业
-- 总分 16-20 分：中等吸引力行业
-- 总分 21-25 分：低吸引力行业
+Composite Assessment:
+- Total 5-10 points: Very high attractiveness industry
+- Total 11-15 points: High attractiveness industry
+- Total 16-20 points: Medium attractiveness industry
+- Total 21-25 points: Low attractiveness industry
 ```
 
 ---
 
-## 实战案例：中国咖啡行业五力分析（2024）
+## Case Study: China Coffee Industry Five Forces Analysis (2024)
 
-**行业定义**：中国现制咖啡市场（不含即饮/速溶），地理范围全国，2024 年市场规模 ~1800 亿元。
+**Industry Definition**: China's freshly brewed coffee market (excluding RTD/instant), national geographic scope, 2024 market size ~180B RMB.
 
-### 五力逐一分析
+### Force-by-Force Analysis
 
-| 力量 | 强度 | 评分 | 关键判断依据 |
-|------|------|------|-------------|
-| 现有竞争者竞争 | **极强** | 5/5 | 瑞幸 ~18000 店 vs 星巴克 ~7000 店，9.9 元价格战常态化，CR2 ~55% 但竞争白热化 |
-| 新进入者威胁 | **中** | 3/5 | 资本门槛低（单店 30-50 万），但品牌壁垒+规模效应形成阻碍；库迪 7000+ 店快速扩张但单店盈利困难 |
-| 替代品威胁 | **中** | 3/5 | 新茶饮（喜茶、奈雪）分流年轻用户，便利店咖啡（全家、7-11）切低价段，即饮咖啡（三顿半、隅田川）占据家庭场景 |
-| 供应商议价力 | **低** | 1/5 | 咖啡豆为全球大宗商品，供应充足且价格透明；牛奶供应商分散；设备供应商竞争激烈 |
-| 买方议价力 | **高** | 4/5 | 用户价格敏感度极高（9.9 vs 30+ 元分化明显），切换成本接近零（手机上多个 App 比价），多平台优惠券进一步压低实际支付价 |
+| Force | Intensity | Score | Key Basis |
+|-------|----------|-------|-----------|
+| Existing rivalry | **Extremely strong** | 5/5 | Luckin ~18,000 stores vs. Starbucks ~7,000 stores; 9.9 RMB price wars normalized; CR2 ~55% but competition white-hot |
+| Threat of new entrants | **Medium** | 3/5 | Low capital threshold (single store 300-500K RMB), but brand barriers + scale effects create obstacles; Cotti 7,000+ stores rapidly expanding but struggling with per-store profitability |
+| Threat of substitutes | **Medium** | 3/5 | New tea drinks (Heytea, Nayuki) diverting young users; convenience store coffee (FamilyMart, 7-Eleven) capturing low-price segment; RTD coffee (Saturnbird, Sumida River) occupying home scenarios |
+| Supplier bargaining power | **Low** | 1/5 | Coffee beans are a global commodity, supply adequate with transparent pricing; milk suppliers fragmented; equipment suppliers in fierce competition |
+| Buyer bargaining power | **High** | 4/5 | Extremely high user price sensitivity (clear 9.9 vs. 30+ RMB split); switching costs near zero (multiple apps on phone for price comparison); multi-platform coupons further suppress actual prices |
 
-### 五力图
+### Five Forces Diagram
 
 ```
-                    新进入者
-                    威胁：中 (3/5)
+                    New Entrants
+                    Threat: Medium (3/5)
                        ↑
                        │
-    供应商 ────────────┼─────────── 买方
-    议价力：低 (1/5)   │      议价力：高 (4/5)
+    Suppliers ─────────┼────────── Buyers
+    Power: Low (1/5)   │     Power: High (4/5)
           →            │            ←
                        │
-                  行业竞争
-                  强度：极强 (5/5)
+                 Industry Rivalry
+               Intensity: Very Strong (5/5)
                        │
                        ↓
-                   替代品
-                   威胁：中 (3/5)
+                  Substitutes
+                  Threat: Medium (3/5)
 
-综合评分：16/25 → 行业吸引力中等偏低
+Composite Score: 16/25 → Medium-low industry attractiveness
 ```
 
-### S→C→P 因果链
+### S→C→P Causal Chain
 
-1. **极强竞争+低供应商议价** → 成本端压力小但收入端价格战激烈 → 瑞幸通过极致供应链效率（单杯原料成本 ~4 元）在 9.9 元价位仍保持毛利率 ~60%
-2. **高买方议价+低切换成本** → 品牌被迫持续补贴留存用户 → 瑞幸 2024 年营销费用率 ~8%，星巴克中国同店销售 YoY -8%（用户流失至低价竞品）
-3. **中等进入壁垒** → 库迪等新玩家快速开店但盈利困难 → 行业呈现"规模易上、利润难赚"格局，预计 2025 年将出现一波门店关停潮
+1. **Very strong rivalry + low supplier power** → Low cost-side pressure but intense revenue-side price wars → Luckin maintains ~60% gross margin at the 9.9 RMB price point through extreme supply chain efficiency (per-cup ingredient cost ~4 RMB)
+2. **High buyer power + low switching costs** → Brands forced to continuously subsidize to retain users → Luckin 2024 marketing expense ratio ~8%; Starbucks China same-store sales YoY -8% (users defecting to low-price competitors)
+3. **Medium entry barriers** → New players like Cotti rapidly opening stores but struggling to profit → Industry exhibits "easy to scale, hard to profit" pattern; a wave of store closures expected in 2025
 
 ### So What
 
-五力综合判断：行业利润池被严重压缩，**只有两种策略能持续盈利**：
-- **成本领先**（瑞幸路径）：极致供应链+万店规模效应，在 9.9 元仍有利润空间
-- **品牌溢价**（星巴克路径）：第三空间体验+品牌忠诚度支撑 30+ 元客单价，但中国区增长已见顶
+Composite Five Forces judgment: Industry profit pool severely compressed. **Only two strategies can sustain profitability**:
+- **Cost leadership** (Luckin path): Extreme supply chain + 10,000-store scale effects, maintaining profit margins even at 9.9 RMB
+- **Brand premium** (Starbucks path): Third-place experience + brand loyalty supporting 30+ RMB average ticket price, but growth in China has peaked
 
-夹在中间的品牌（Manner、库迪、Tims 等）面临"上不去、下不来"的结构性困境——这是五力模型中典型的"利润池被两极挤压"格局。
-
----
-
-## 五、常见错误
-
-| 错误类型 | 表现 | 修正方法 |
-|---------|------|---------|
-| 行业定义过窄 | 忽略潜在竞争 | 从需求角度定义行业 |
-| 忽视替代品 | 只看同类产品 | 从"满足什么需求"角度思考 |
-| 静态分析 | 只看当前状态 | 分析力量变化趋势 |
-| 五力等权 | 平均用力 | 识别关键力量 |
-| 忽视互补品 | 只看竞争不看互补 | 考虑生态协同 |
-| 混淆买方与用户 | ToB 场景中 | 区分决策者与使用者 |
+Brands caught in the middle (Manner, Cotti, Tims, etc.) face a structural dilemma of "can't go up, can't come down" — this is a classic "profit pool squeezed by both extremes" pattern in the Five Forces model.
 
 ---
 
-## 六、与其他框架的集成
+## V. Common Mistakes
 
-| 上游框架 | 输入内容 | 本框架输出 | 下游框架 |
-|---------|---------|-----------|---------|
-| PESTEL | 宏观环境 | 行业竞争结构 | SCP |
-| 行业研究 | 行业数据 | 竞争强度评估 | 三层分析 |
-| 竞争分析 | 竞争对手 | 竞争策略建议 | SWOT |
-| SCP | 行业结构 | 竞争行为分析 | 三层分析 |
-
-**典型组合**:
-- **行业研究**: PESTEL → 五力 → SCP → 三层分析
-- **竞争分析**: 五力 → 竞争策略 → 行动规划
-- **市场进入**: 五力 (行业吸引力) → SCP → Playing to Win
+| Mistake Type | Manifestation | Correction |
+|-------------|--------------|-----------|
+| Industry defined too narrowly | Overlooking potential competition | Define industry from demand perspective |
+| Ignoring substitutes | Only looking at same-category products | Think from "what need does it satisfy" |
+| Static analysis | Only looking at current state | Analyze force change trends |
+| Equal weighting | Treating all forces equally | Identify the key forces |
+| Ignoring complements | Only looking at competition, not complements | Consider ecosystem synergies |
+| Confusing buyer with user | In B2B scenarios | Distinguish decision-maker from end-user |
 
 ---
 
-## 七、中国本土化考量
+## VI. Integration with Other Frameworks
 
-| 维度 | 中国特色 | 案例 |
-|------|---------|------|
-| 政策影响大 | 产业政策快速变化，重点关注政策壁垒 | "双减"政策一夜重塑教培行业五力格局 |
-| 资本驱动 | 资本加速竞争，融资能力成为关键竞争变量 | 社区团购烧钱大战（美团/拼多多/滴滴） |
-| 速度优先 | 赢家通吃逻辑，规模效应比差异化更关键 | 抖音 3 年内从 0 到短视频第一 |
-| 生态竞争 | 大生态主导，需考虑生态位而非单一企业 | 微信生态 vs 支付宝生态的支付五力对比 |
-| 政策壁垒 | 牌照、资质、行业准入构成独特进入壁垒 | 第三方支付牌照、ICP 许可证、医疗器械注册 |
-| 地方政府 | 地方保护和产业政策影响区域竞争格局 | 各地新能源汽车地方补贴差异化 |
-| 资本力量 | VC/PE 加速行业整合，改变竞争节奏 | 滴滴快的合并、美团大众点评合并 |
-| 互联网平台 | 平台生态重构竞争格局，跨界替代更常见 | 抖音电商对传统电商的替代威胁 |
+| Upstream Framework | Input Content | This Framework's Output | Downstream Framework |
+|-------------------|--------------|------------------------|---------------------|
+| PESTEL | Macro environment | Industry competitive structure | SCP |
+| Industry research | Industry data | Competitive intensity assessment | Three-Layer Analysis |
+| Competitive analysis | Competitors | Competitive strategy recommendations | SWOT |
+| SCP | Industry structure | Competitive behavior analysis | Three-Layer Analysis |
+
+**Typical Combinations**:
+- **Industry research**: PESTEL → Five Forces → SCP → Three-Layer Analysis
+- **Competitive analysis**: Five Forces → Competitive Strategy → Action Planning
+- **Market entry**: Five Forces (industry attractiveness) → SCP → Playing to Win
+
+---
+
+## VII. China Market Specifics
+
+| Dimension | China Characteristics | Case |
+|-----------|----------------------|------|
+| Major policy impact | Industrial policy changes rapidly; focus on policy barriers | "Double Reduction" policy reshaped the education industry's Five Forces overnight |
+| Capital-driven | Capital accelerates competition; fundraising capability becomes a key competitive variable | Community group buying cash-burning wars (Meituan/Pinduoduo/Didi) |
+| Speed-first | Winner-take-all logic; scale effects more critical than differentiation | Douyin went from 0 to #1 in short video within 3 years |
+| Ecosystem competition | Dominated by major ecosystems; consider ecosystem positioning rather than individual firms | WeChat ecosystem vs. Alipay ecosystem payment Five Forces comparison |
+| Policy barriers | Licenses, qualifications, and industry access constitute unique entry barriers | Third-party payment licenses, ICP permits, medical device registrations |
+| Local government | Local protectionism and industrial policies affect regional competitive landscapes | Varying NEV local subsidies across regions |
+| Capital power | VC/PE accelerates industry consolidation, changing competitive tempo | Didi-Kuaidi merger; Meituan-Dianping merger |
+| Internet platforms | Platform ecosystems reshape competitive landscapes; cross-industry substitution more common | Douyin e-commerce's substitution threat to traditional e-commerce |

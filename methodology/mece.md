@@ -1,250 +1,250 @@
-# MECE 原则
+# MECE Principle
 
-> 来源：McKinsey & Company
-> 核心价值：确保分析完整、不重叠
+> Source: McKinsey & Company
+> Core value: Ensure analysis is complete and non-overlapping
 
 ---
 
-## 定义
+## Definition
 
 **MECE** = **M**utually **E**xclusive, **C**ollectively **E**xhaustive
 
-- **相互独立**：各部分之间不重叠，没有交集
-- **完全穷尽**：所有部分加起来覆盖整体，没有遗漏
+- **Mutually Exclusive**: No overlap between parts, no intersection
+- **Collectively Exhaustive**: All parts together cover the whole, no gaps
 
 ---
 
-## 使用时机
+## When to Use
 
-**典型应用场景**：
-- 问题拆解和议题树构建
-- 市场/用户/产品细分
-- 数据分类和整理
-- 报告结构设计
+**Typical application scenarios**:
+- Problem decomposition and Issue Tree construction
+- Market/user/product segmentation
+- Data classification and organization
+- Report structure design
 
-**使用原则**：
-- 在分析早期使用，确保问题定义清晰
-- 分类维度要单一，避免多维度混用
-- 根据分析目的选择合适的拆分方式
+**Usage principles**:
+- Use early in analysis to ensure clear problem definition
+- Use a single classification dimension, avoid mixing multiple dimensions
+- Choose the appropriate decomposition method based on the analysis purpose
 
-**常见拆分模式**：
-- 二分法（内部/外部、线上/线下）
-- 三分法（过去/现在/未来、上/中/下）
-- 过程法（流程步骤拆解）
-- 要素法（关键要素拆解）
+**Common decomposition patterns**:
+- Dichotomy (internal/external, online/offline)
+- Trichotomy (past/present/future, upstream/midstream/downstream)
+- Process method (process step decomposition)
+- Element method (key element decomposition)
 
----## 为什么重要
+---## Why It Matters
 
-没有 MECE 的分析会出现两类问题：
+Analysis without MECE produces two types of problems:
 
-| 问题 | 表现 | 后果 |
-|------|------|------|
-| 不独立 | 分类重叠 | 重复计算、逻辑混乱 |
-| 不穷尽 | 有遗漏 | 错过关键因素、分析不完整 |
-
----
-
-## 操作步骤
-
-### Step 1：明确要分类的对象
-
-用一句话定义要拆解的整体。
-
-例子：
-- "竞对的竞争策略" — 太模糊
-- "竞对在获客环节的策略" — 明确
-
-### Step 2：选择分类维度
-
-选择一个**单一维度**进行切分，避免多维度混用。
-
-常用分类维度：
-- 时间：过去/现在/未来，或 Q1/Q2/Q3/Q4
-- 空间：国内/海外，或一线城市/二线城市/下沉市场
-- 主体：企业/用户/竞对/监管
-- 层级：战略层/战术层/执行层
-- 属性：高/中/低，大/中/小，核心/非核心
-
-### Step 3：检验独立性
-
-问：**这些分类之间有重叠吗？**
-
-检验方法：
-- 每个元素只能属于一个分类
-- 如果一个元素可以同时属于两个分类，说明分类维度有问题
-
-❌ 错误示例：
-```
-用户分类：
-- 年轻用户
-- 高消费用户
-- 一线城市用户
-
-问题：一个用户可以同时是"年轻"、"高消费"、"一线城市"，分类重叠
-```
-
-✅ 正确示例：
-```
-用户分类（按年龄）：
-- 18-25岁
-- 26-35岁
-- 36-45岁
-- 46岁以上
-
-每个用户只属于一个年龄段，不重叠
-```
-
-### Step 4：检验穷尽性
-
-问：**这些分类加起来覆盖全部了吗？**
-
-检验方法：
-- 是否有元素不属于任何分类？
-- 是否有"其他"分类来兜底？
-
-❌ 错误示例：
-```
-用户分类（按年龄）：
-- 18-25岁
-- 26-35岁
-- 36-45岁
-
-问题：46岁以上的用户去哪了？不穷尽
-```
-
-✅ 正确示例：
-```
-用户分类（按年龄）：
-- 18-25岁
-- 26-35岁
-- 36-45岁
-- 46岁以上
-
-覆盖所有年龄段，穷尽
-```
-
-### Step 5：迭代优化
-
-如果发现不独立或不穷尽：
-1. 调整分类维度
-2. 增加或合并分类
-3. 重新检验
+| Problem | Manifestation | Consequence |
+|---------|---------------|-------------|
+| Not exclusive | Overlapping categories | Double counting, logical confusion |
+| Not exhaustive | Gaps exist | Missing key factors, incomplete analysis |
 
 ---
 
-## 常见 MECE 框架
+## Operating Steps
 
-### 2x2 矩阵
+### Step 1: Define the Object to Classify
 
-两个维度交叉，形成四个象限：
+Define what you're decomposing in one sentence.
+
+Examples:
+- "Competitor's competitive strategies" — Too vague
+- "Competitor's strategies in customer acquisition" — Clear
+
+### Step 2: Choose the Classification Dimension
+
+Choose a **single dimension** for segmentation, avoid mixing multiple dimensions.
+
+Common classification dimensions:
+- Time: past/present/future, or Q1/Q2/Q3/Q4
+- Geography: domestic/international, or Tier 1/Tier 2/lower-tier cities
+- Entity: enterprise/user/competitor/regulator
+- Level: strategic/tactical/operational
+- Attribute: high/medium/low, large/medium/small, core/non-core
+
+### Step 3: Verify Exclusivity
+
+Ask: **Is there overlap between these categories?**
+
+Verification method:
+- Each element should belong to only one category
+- If an element can belong to two categories simultaneously, the classification dimension has a problem
+
+❌ Incorrect example:
+```
+User classification:
+- Young users
+- High-spending users
+- Tier 1 city users
+
+Problem: A user can simultaneously be "young," "high-spending," and "Tier 1 city" — overlapping categories
+```
+
+✅ Correct example:
+```
+User classification (by age):
+- 18-25 years old
+- 26-35 years old
+- 36-45 years old
+- 46 and above
+
+Each user belongs to only one age group, no overlap
+```
+
+### Step 4: Verify Exhaustiveness
+
+Ask: **Do these categories together cover everything?**
+
+Verification method:
+- Are there elements that don't belong to any category?
+- Is there an "other" category as a catch-all?
+
+❌ Incorrect example:
+```
+User classification (by age):
+- 18-25 years old
+- 26-35 years old
+- 36-45 years old
+
+Problem: Where do users 46 and above go? Not exhaustive
+```
+
+✅ Correct example:
+```
+User classification (by age):
+- 18-25 years old
+- 26-35 years old
+- 36-45 years old
+- 46 and above
+
+All age groups covered, exhaustive
+```
+
+### Step 5: Iterate and Optimize
+
+If you find non-exclusivity or non-exhaustiveness:
+1. Adjust the classification dimension
+2. Add or merge categories
+3. Re-verify
+
+---
+
+## Common MECE Frameworks
+
+### 2x2 Matrix
+
+Two dimensions cross to form four quadrants:
 
 ```
-           高增长
-              │
-    明星业务  │  问题业务
-              │
-──────────────┼──────────────
-              │
-    现金牛业务│  瘦狗业务
-              │
-           低增长
-    低份额          高份额
+           High growth
+              |
+    Star      |  Question Mark
+              |
+--------------+--------------
+              |
+    Cash Cow  |  Dog
+              |
+           Low growth
+    Low share         High share
 ```
 
-### 树状结构
+### Tree Structure
 
-逐层拆解，每层 MECE：
-
-```
-收入
-├── 用户数
-│   ├── 新用户
-│   └── 老用户
-└── 单用户价值
-    ├── 客单价
-    └── 购买频次
-```
-
-### 流程结构
-
-按时间顺序，每个环节 MECE：
+Level-by-level decomposition, each level MECE:
 
 ```
-用户旅程
-├── 认知
-├── 考虑
-├── 购买
-├── 使用
-└── 推荐
+Revenue
++-- User count
+|   +-- New users
+|   +-- Existing users
++-- Per-user value
+    +-- Average order value
+    +-- Purchase frequency
+```
+
+### Process Structure
+
+In chronological order, each step MECE:
+
+```
+User journey
++-- Awareness
++-- Consideration
++-- Purchase
++-- Usage
++-- Referral
 ```
 
 ---
 
-## 输出格式
+## Output Format
 
 ```markdown
-## MECE 拆解
+## MECE Decomposition
 
-### 拆解对象
-[要拆解的整体]
+### Object
+[The whole to be decomposed]
 
-### 分类维度
-[选择的单一维度] — 理由：[为什么选这个维度]
+### Classification Dimension
+[Chosen single dimension] — Rationale: [Why this dimension]
 
-### 拆解结果
-1. [分类 1]
-2. [分类 2]
-3. [分类 3]
+### Decomposition Result
+1. [Category 1]
+2. [Category 2]
+3. [Category 3]
 ...
 
-### MECE 检验
-- 独立性：[是否有重叠？如有，说明处理方式]
-- 穷尽性：[是否有遗漏？如有"其他"类，说明内容]
+### MECE Verification
+- Exclusivity: [Any overlap? If so, how it's handled]
+- Exhaustiveness: [Any gaps? If there's an "other" category, describe its content]
 ```
 
 ---
 
-## 在本 Skill 中的应用
+## Application in This Skill
 
-### Stage 2 问题定义
+### Stage 2 Issue Intake
 
-使用 MECE 拆解研究问题：
+Using MECE to decompose the research question:
 
-1. 将核心问题拆解为子问题
-2. 确保子问题之间不重叠
-3. 确保子问题覆盖核心问题的所有方面
-4. 用 Issue Tree 可视化呈现
+1. Decompose the core question into sub-questions
+2. Ensure sub-questions don't overlap
+3. Ensure sub-questions cover all aspects of the core question
+4. Visualize with an Issue Tree
 
-### 检验标准
+### Verification Standards
 
-每次拆解后自问：
-- [ ] 每个子问题是否只属于一个分类？
-- [ ] 所有子问题加起来是否覆盖了核心问题？
-- [ ] 是否有遗漏的重要维度？
-
----
-
-## 常见错误
-
-### 错误 1：多维度混用
-
-❌ "用户分为：年轻用户、高消费用户、一线城市用户"
-✅ "用户按年龄分为：18-25岁、26-35岁、36-45岁、46岁以上"
-
-### 错误 2：遗漏"其他"分类
-
-❌ "竞对策略分为：价格战、产品创新、营销推广"
-✅ "竞对策略分为：价格战、产品创新、营销推广、渠道拓展、其他"
-
-### 错误 3：层级混乱
-
-❌ "收入来源：B端客户、C端客户、大客户"
-✅ "收入来源：B端客户、C端客户；B端客户再分为：大客户、中小企业"
+After each decomposition, ask yourself:
+- [ ] Does each sub-question belong to only one category?
+- [ ] Do all sub-questions together cover the core question?
+- [ ] Are there any important dimensions missing?
 
 ---
 
-## 与其他方法论的关系
+## Common Mistakes
 
-- **Issue Tree**：MECE 的可视化工具
-- **假设驱动法**：假设清单应 MECE
-- **金字塔原理**：报告结构应 MECE
+### Mistake 1: Mixing Multiple Dimensions
+
+❌ "Users are divided into: young users, high-spending users, Tier 1 city users"
+✅ "Users by age are divided into: 18-25, 26-35, 36-45, 46 and above"
+
+### Mistake 2: Missing the "Other" Category
+
+❌ "Competitor strategies are: price wars, product innovation, marketing campaigns"
+✅ "Competitor strategies are: price wars, product innovation, marketing campaigns, channel expansion, other"
+
+### Mistake 3: Mixed Levels
+
+❌ "Revenue sources: B2B clients, B2C clients, enterprise clients"
+✅ "Revenue sources: B2B clients, B2C clients; B2B clients further divided into: enterprise clients, SMBs"
+
+---
+
+## Relationship with Other Methodologies
+
+- **Issue Tree**: MECE's visualization tool
+- **Hypothesis-driven method**: The Hypothesis List should be MECE
+- **Pyramid Principle**: Report structure should be MECE

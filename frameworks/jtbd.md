@@ -1,394 +1,402 @@
-# Jobs-to-be-Done (JTBD) | 需求侧洞察框架
+# Jobs-to-be-Done (JTBD) | Demand-Side Insight Framework
 
-> **核心价值**：从"用户雇佣产品完成什么任务"的角度理解需求，发现未满足的机会
+> **Core Value**: Understand demand from the perspective of "what job does the user hire the product to do," uncovering unmet opportunities
 >
-> **创始人**：Clayton Christensen (Harvard, 2003) + Anthony Ulwick (ODI, 2005) + Bob Moesta (Switch Interview)
+> **Creator**: Clayton Christensen (Harvard, 2003) + Anthony Ulwick (ODI, 2005) + Bob Moesta (Switch Interview)
 >
-> **一句话**：用户不是买产品，而是雇佣产品来完成生活中的某个任务
+> **One-liner**: Users don't buy products — they hire products to get a job done in their lives
 
 ---
 
-## 概述
+## Overview
 
-JTBD 从"用户想完成什么任务"而非"用户是谁"的角度理解需求，是需求洞察和产品创新中最具穿透力的分析视角之一。
+JTBD understands demand from the perspective of "what job does the user want to get done" rather than "who is the user." It is one of the most penetrating analytical lenses in demand insight and product innovation.
 
-**核心设计理念**：
-- **任务视角**：用户不是买产品，而是"雇佣"产品来完成某个任务（Job）。理解任务比理解用户画像更有价值
-- **需求稳定性**：任务本身长期稳定（如"早晨通勤时获取能量和消磨时间"），但完成任务的方案会随技术更迭而变化
-- **非人口统计**：基于"用户想完成什么"而非"用户是谁"来细分市场，同一任务可能横跨不同用户群
+**Core Design Principles**:
+- **Job Perspective**: Users don't buy products — they "hire" products to get a job done. Understanding the job is more valuable than understanding user demographics
+- **Demand Stability**: The job itself is stable over time (e.g., "getting energy and killing time during the morning commute"), but the solutions for the job change with technology
+- **Non-Demographic**: Segment markets based on "what users want to accomplish" rather than "who users are" — the same job may span different user groups
 
-**最佳使用时机**：
-- 新产品定义和需求洞察（Stage 2-3）
-- 发现未被满足的用户需求和市场机会
-- 理解用户为什么购买/不购买的深层原因
-- 产品差异化定位和价值主张设计
-- 评估现有产品的竞争优势和薄弱点
+**Best Use Cases**:
+- New product definition and demand insight (Stage 2-3)
+- Discovering unmet user needs and market opportunities
+- Understanding the deep reasons why users buy/don't buy
+- Product differentiation positioning and value proposition design
+- Assessing existing products' competitive advantages and weak points
 
-**输出价值**：
-- 结构化的任务陈述（Job Statement）和任务层次
-- 量化的期望结果清单（Outcome Statements）及机会评分
-- 用户转换行为分析（Forces of Progress）
-- 未满足需求的机会地图（Opportunity Landscape）
+**Output Value**:
+- Structured Job Statements and job hierarchy
+- Quantified Outcome Statements list with opportunity scores
+- User switching behavior analysis (Forces of Progress)
+- Opportunity Landscape of unmet needs
 
 ---
 
-## 框架总览
+## Framework Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                   JTBD 三大理论流派                               │
+│                   JTBD Three Schools of Thought                  │
 │                                                                 │
 │  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────┐  │
-│  │ Christensen 学派  │  │ Ulwick ODI 学派   │  │ Moesta 学派  │  │
-│  │ 定性洞察          │  │ 定量方法论        │  │ 行为分析     │  │
-│  │ "奶昔为什么被雇佣" │  │ "机会评分算法"    │  │ "转换四力"   │  │
+│  │ Christensen       │  │ Ulwick ODI        │  │ Moesta       │  │
+│  │ School            │  │ School            │  │ School       │  │
+│  │ Qualitative       │  │ Quantitative      │  │ Behavioral   │  │
+│  │ insight           │  │ methodology       │  │ analysis     │  │
+│  │ "Why was the      │  │ "Opportunity      │  │ "Forces of   │  │
+│  │  milkshake hired?"│  │  scoring algorithm"│  │  Progress"   │  │
 │  └──────────────────┘  └──────────────────┘  └──────────────┘  │
 │           │                     │                    │           │
 │           ▼                     ▼                    ▼           │
 │  ┌──────────────────────────────────────────────────────────┐   │
-│  │                    JTBD 完整分析流程                       │   │
+│  │              Complete JTBD Analysis Process                │   │
 │  │                                                          │   │
-│  │  识别任务 → 拆解任务步骤 → 定义期望结果 → 量化机会 →       │   │
-│  │  → 分析转换行为 → 识别创新方向                             │   │
+│  │  Identify Job → Map Job Steps → Define Outcomes →        │   │
+│  │  → Score Opportunities → Analyze Switching Behavior →    │   │
+│  │  → Identify Innovation Directions                        │   │
 │  └──────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 核心概念详解
+## Core Concepts Explained
 
-### 1. 任务陈述（Job Statement）
+### 1. Job Statement
 
-**标准公式**：
-
-```
-当 [情境/触发场景] 时，我想 [完成的任务/动机]，以便 [期望结果/目标]
-```
-
-**好的任务陈述必须满足**：
-- **与方案无关**：不包含任何产品或技术名称
-- **稳定性**：即使技术变革，任务本身不变
-- **可观察**：能在用户生活/工作中直接观察到
-
-| 质量 | 示例 |
-|------|------|
-| ❌ 差 | "用户想用微信支付" |
-| ❌ 差 | "用户想下载一个记账 App" |
-| ✅ 好 | "当收到工资时，我想清楚掌握每月收支，以便确保存够房贷和生活费" |
-| ✅ 好 | "当早晨通勤时，我想获取能量并消磨无聊时间，以便精力充沛地开始工作" |
-
-### 2. 任务层次（Job Hierarchy）
-
-| 层次 | 定义 | 案例（早餐奶昔） | 分析重点 |
-|------|------|----------------|---------|
-| **功能性任务** | 核心想要完成的实际事情 | 获取早餐能量 + 消磨通勤时间 | 产品功能设计 |
-| **相关任务** | 伴随主任务的周边需求 | 单手操作（开车中）、不弄脏衣服 | 体验优化 |
-| **情感性任务** | 想要达到的情感/社交状态 | 感觉自己做了健康选择、不因吃快餐而内疚 | 品牌定位 |
-| **消费链任务** | 购买→使用→维护→处置全链路 | 快速购买（不想排队）、容易清理杯子 | 服务设计 |
-
-### 3. 期望结果（Outcome Statements）— Ulwick ODI 方法论
-
-**期望结果是 JTBD 定量化的核心**。每个结果陈述遵循严格的四要素结构：
+**Standard Formula**:
 
 ```
-[方向] + [度量指标] + [控制对象] + [情境限定]
+When [situation/trigger], I want to [job/motivation], so that [desired outcome/goal]
 ```
 
-| 要素 | 说明 | 示例 |
-|------|------|------|
-| **方向** | 最小化/最大化/增加/减少 | 最小化 |
-| **度量指标** | 可衡量的维度（时间/可能性/数量） | 花费的时间 |
-| **控制对象** | 被衡量的对象 | 找到合适的理财产品 |
-| **情境限定** | 限定条件（可选） | 在不了解金融专业知识的情况下 |
+**A good Job Statement must satisfy**:
+- **Solution-agnostic**: Does not include any product or technology names
+- **Stable**: Even if technology changes, the job itself doesn't change
+- **Observable**: Can be directly observed in users' lives/work
 
-**完整示例**：
-- "最小化 / 确认转账对象身份正确 / 所需的时间"
-- "最小化 / 转错账 / 的可能性"
-- "最大化 / 了解每笔支出去向 / 的清晰度"
+| Quality | Example |
+|---------|---------|
+| ❌ Bad | "Users want to use WeChat Pay" |
+| ❌ Bad | "Users want to download a budgeting app" |
+| ✅ Good | "When I receive my salary, I want to clearly understand my monthly income and expenses, so that I can ensure I save enough for mortgage and living costs" |
+| ✅ Good | "When commuting alone in the morning, I want to get energy and kill boredom, so that I start work feeling energized" |
 
-**典型任务的期望结果数量**：一个核心任务通常有 50-150 条期望结果。
+### 2. Job Hierarchy
 
-### 4. 任务地图（Jobs Map）— 8 个通用步骤
+| Level | Definition | Case (Breakfast Milkshake) | Analysis Focus |
+|-------|-----------|---------------------------|----------------|
+| **Functional job** | The core practical thing to be done | Get breakfast energy + kill commute time | Product feature design |
+| **Related jobs** | Peripheral needs accompanying the main job | One-hand operation (while driving), don't stain clothes | Experience optimization |
+| **Emotional jobs** | Desired emotional/social state | Feel like I made a healthy choice, no guilt from eating fast food | Brand positioning |
+| **Consumption chain jobs** | Full lifecycle: purchase → use → maintain → dispose | Quick purchase (don't want to queue), easy cup cleanup | Service design |
 
-Ulwick 提出任何任务都可以拆解为 8 个通用执行步骤（Universal Job Map）。每个步骤下都可以挖掘期望结果：
+### 3. Outcome Statements — Ulwick ODI Methodology
 
-| 步骤 | 英文 | 含义 | 示例（管理个人财务） |
-|------|------|------|-------------------|
-| 1 | **Define** | 明确要完成什么 | 确定本月预算目标 |
-| 2 | **Locate** | 找到需要的输入/资源 | 找到所有收入和支出来源 |
-| 3 | **Prepare** | 准备执行环境 | 整理账单、设置记账分类 |
-| 4 | **Confirm** | 确认准备就绪 | 核实所有收支已录入 |
-| 5 | **Execute** | 执行核心任务 | 分配预算、做出消费决策 |
-| 6 | **Monitor** | 监控执行情况 | 追踪实际支出 vs 预算 |
-| 7 | **Modify** | 调整和修正 | 发现超支后调整后续预算 |
-| 8 | **Conclude** | 完成和收尾 | 月末总结、评估储蓄达成率 |
-
-**使用方法**：
-1. 对核心任务，逐步骤识别用户的期望结果
-2. 在每个步骤下列举 5-20 条期望结果
-3. 重点关注步骤 1-2（Define/Locate）和 6-7（Monitor/Modify），这些步骤通常最容易被产品忽视
-
-### 5. 机会评分算法（Opportunity Algorithm）
-
-Ulwick 的定量核心：对每条期望结果，通过问卷调查获取两个评分（1-10 分）：
-
-- **重要性（Importance）**：这个结果对你完成任务有多重要？
-- **满意度（Satisfaction）**：现有方案在这个结果上表现如何？
+**Outcome Statements are the quantitative core of JTBD**. Each outcome statement follows a strict four-element structure:
 
 ```
-机会评分 = 重要性 + MAX(重要性 - 满意度, 0)
+[Direction] + [Metric] + [Object of Control] + [Context Qualifier]
 ```
 
-| 评分范围 | 含义 | 策略建议 |
-|---------|------|---------|
-| **>12** | 🔴 严重未满足 — 高价值创新机会 | 优先解决，可能支撑全新产品 |
-| **10-12** | 🟡 未满足 — 有吸引力的改进机会 | 重点优化，差异化竞争的关键 |
-| **6-10** | ⚪ 适度满足 — 当前方案基本满足 | 维持或微调 |
-| **<6** | 🟢 过度满足 — 性能过剩 | 有简化/降价空间（颠覆式创新入口） |
+| Element | Description | Example |
+|---------|-----------|---------|
+| **Direction** | Minimize/Maximize/Increase/Decrease | Minimize |
+| **Metric** | Measurable dimension (time/likelihood/quantity) | the time spent |
+| **Object of Control** | What is being measured | finding a suitable financial product |
+| **Context Qualifier** | Qualifying condition (optional) | without understanding financial expertise |
 
-**核心洞察**：高重要性 + 低满意度 = 最佳创新机会。低重要性 + 高满意度 = 性能过剩区域（可被低端颠覆）。
+**Complete Examples**:
+- "Minimize / the time needed to / confirm the transfer recipient's identity is correct"
+- "Minimize / the likelihood of / transferring to the wrong account"
+- "Maximize / the clarity of / understanding where each expense goes"
 
-### 6. 转换四力模型（Forces of Progress）— Bob Moesta
+**Typical count**: A core job usually has 50-150 outcome statements.
 
-分析用户从旧方案切换到新方案时的四种力量：
+### 4. Jobs Map — 8 Universal Steps
+
+Ulwick proposed that any job can be decomposed into 8 universal execution steps (Universal Job Map). Outcome statements can be mined at each step:
+
+| Step | Name | Meaning | Example (Managing Personal Finances) |
+|------|------|---------|--------------------------------------|
+| 1 | **Define** | Clarify what needs to be done | Set this month's budget target |
+| 2 | **Locate** | Find needed inputs/resources | Find all income and expense sources |
+| 3 | **Prepare** | Set up the execution environment | Organize bills, set up accounting categories |
+| 4 | **Confirm** | Verify readiness | Verify all income/expenses are recorded |
+| 5 | **Execute** | Perform the core task | Allocate budget, make spending decisions |
+| 6 | **Monitor** | Track execution | Track actual spending vs. budget |
+| 7 | **Modify** | Adjust and correct | Adjust subsequent budget after overspending |
+| 8 | **Conclude** | Complete and wrap up | Month-end summary, evaluate savings goal achievement |
+
+**Usage**:
+1. For the core job, identify user outcome statements step by step
+2. List 5-20 outcome statements under each step
+3. Pay special attention to steps 1-2 (Define/Locate) and 6-7 (Monitor/Modify) — these steps are typically most overlooked by products
+
+### 5. Opportunity Scoring Algorithm
+
+Ulwick's quantitative core: For each outcome statement, obtain two scores (1-10) through surveys:
+
+- **Importance**: How important is this outcome for completing the job?
+- **Satisfaction**: How well does the current solution perform on this outcome?
 
 ```
-                    推向新方案
+Opportunity Score = Importance + MAX(Importance - Satisfaction, 0)
+```
+
+| Score Range | Meaning | Strategy Recommendation |
+|------------|---------|------------------------|
+| **>12** | 🔴 Severely underserved — high-value innovation opportunity | Prioritize solving; could support an entirely new product |
+| **10-12** | 🟡 Underserved — attractive improvement opportunity | Focus on optimization; key to competitive differentiation |
+| **6-10** | ⚪ Adequately served — current solutions basically sufficient | Maintain or fine-tune |
+| **<6** | 🟢 Overserved — performance surplus | Room for simplification/price reduction (disruptive innovation entry point) |
+
+**Core Insight**: High importance + Low satisfaction = Best innovation opportunity. Low importance + High satisfaction = Performance surplus zone (vulnerable to low-end disruption).
+
+### 6. Forces of Progress Model — Bob Moesta
+
+Analyzes four forces acting on users when switching from an old solution to a new one:
+
+```
+                    Push Toward New Solution
                         ↑
     ┌─────────────────────────────────────┐
-    │  推力 (Push)          拉力 (Pull)    │
-    │  对现状的不满          新方案的吸引力  │
-    │  "现在的方案太慢了"    "新方案更快"   │
+    │  Push                  Pull          │
+    │  Dissatisfaction       Attraction of │
+    │  with current          new solution  │
+    │  "Current solution     "New solution │
+    │   is too slow"          is faster"   │
     └─────────────────────────────────────┘
     ┌─────────────────────────────────────┐
-    │  焦虑 (Anxiety)       惯性 (Habit)   │
-    │  对新方案的不确定      对现状的依赖    │
-    │  "新方案靠谱吗？"     "用惯了旧的"    │
+    │  Anxiety               Habit         │
+    │  Uncertainty about     Dependence on │
+    │  new solution          current state │
+    │  "Is the new solution  "Used to the  │
+    │   reliable?"            old one"     │
     └─────────────────────────────────────┘
                         ↓
-                    留在旧方案
+                    Stay with Old Solution
 ```
 
-**转换公式**：推力 + 拉力 > 焦虑 + 惯性 → 用户转换
+**Switching Formula**: Push + Pull > Anxiety + Habit → User switches
 
-**分析方法**：通过 Switch Interview（转换访谈），追溯用户最近一次"雇佣/解雇"产品的完整过程：
-1. **首次想法**：什么时候第一次想要改变？（推力）
-2. **被动观察**：之后是否注意到了替代方案？（拉力的被动发现）
-3. **主动搜索**：什么触发了主动搜索？（推力的强化）
-4. **决策时刻**：最终为什么选了这个？（拉力的决定性因素）
-5. **购买后**：用了之后满意吗？有没有后悔？（焦虑的验证）
+**Analysis Method**: Through Switch Interviews, trace the complete process of a user's most recent "hiring/firing" of a product:
+1. **First thought**: When did you first think about changing? (Push)
+2. **Passive observation**: Did you then notice alternatives? (Passive discovery of Pull)
+3. **Active search**: What triggered an active search? (Reinforcement of Push)
+4. **Decision moment**: Why did you ultimately choose this one? (Decisive factor of Pull)
+5. **Post-purchase**: Are you satisfied after using it? Any regrets? (Verification of Anxiety)
 
 ---
 
-## 执行步骤
+## Execution Steps
 
-### Step 1：识别核心任务（Define the Job）
+### Step 1: Identify the Core Job (Define the Job)
 
-**输入**：用户访谈、客服记录、行为数据、竞品分析
+**Input**: User interviews, customer service records, behavioral data, competitive analysis
 
-**动作**：
-1. 通过用户研究识别 1-3 个核心任务
-2. 用标准公式撰写任务陈述
-3. 区分功能性任务、情感性任务、相关任务
-4. 验证任务是否满足"与方案无关"和"长期稳定"两个标准
+**Actions**:
+1. Identify 1-3 core jobs through user research
+2. Write job statements using the standard formula
+3. Distinguish functional jobs, emotional jobs, and related jobs
+4. Verify whether jobs meet the "solution-agnostic" and "long-term stable" criteria
 
-**数据来源建议**：
+**Data Source Recommendations**:
 
-| 数据类型 | 来源 | 适用阶段 |
-|---------|------|---------|
-| 任务识别 | 用户深度访谈（Switch Interview）、日记研究、情境观察 | 定性探索 |
-| 痛点验证 | 客服记录（Track G）、App 评论、小红书舆情（Track E） | 大规模验证 |
-| 行为数据 | ODPS 用户行为数据（Track F）、点击流分析 | 行为验证 |
-| 竞品对比 | 竞品评论分析、用户转换访谈 | 差异化洞察 |
+| Data Type | Source | Applicable Stage |
+|-----------|--------|-----------------|
+| Job identification | User depth interviews (Switch Interview), diary studies, contextual observation | Qualitative exploration |
+| Pain point validation | Customer service records, App reviews, Xiaohongshu sentiment | Large-scale validation |
+| Behavioral data | User behavior data, clickstream analysis | Behavioral validation |
+| Competitive comparison | Competitor review analysis, user switching interviews | Differentiation insights |
 
-### Step 2：拆解任务地图（Map the Job Steps）
+### Step 2: Map the Job Steps
 
-**动作**：
-1. 用 8 步通用任务地图拆解核心任务
-2. 在每个步骤下，列举用户的期望结果（Outcome Statements）
-3. 标记当前方案在每个步骤的表现和痛点
+**Actions**:
+1. Decompose the core job using the 8-step Universal Job Map
+2. Under each step, list user outcome statements
+3. Mark current solution performance and pain points at each step
 
-**输出模板**：
+**Output Template**:
 
 ```markdown
-### 任务地图：[核心任务名称]
+### Job Map: [Core Job Name]
 
-| 步骤 | 用户行为 | 期望结果（TOP3） | 当前痛点 |
-|------|---------|-----------------|---------|
-| Define | [行为] | 1. [结果] 2. [结果] 3. [结果] | [痛点] |
-| Locate | [行为] | 1. [结果] 2. [结果] 3. [结果] | [痛点] |
+| Step | User Behavior | Outcome Statements (TOP 3) | Current Pain Points |
+|------|-------------|---------------------------|-------------------|
+| Define | [behavior] | 1. [outcome] 2. [outcome] 3. [outcome] | [pain point] |
+| Locate | [behavior] | 1. [outcome] 2. [outcome] 3. [outcome] | [pain point] |
 | ... | ... | ... | ... |
 ```
 
-### Step 3：量化机会评分（Score Opportunities）
+### Step 3: Score Opportunities
 
-**动作**：
-1. 对关键期望结果（通常 30-50 条），评估重要性和满意度
-2. 计算机会评分
-3. 绘制机会地图
+**Actions**:
+1. For key outcome statements (typically 30-50), assess importance and satisfaction
+2. Calculate opportunity scores
+3. Draw the opportunity map
 
-**数据收集方式**（按可行性排序）：
-- **问卷调查**（理想方式）：对目标用户发放量化问卷
-- **专家评估**（可行替代）：基于用户研究数据，分析师判断评分
-- **间接推断**（最低要求）：基于客服投诉频率、竞品评论、搜索热度推断
+**Data Collection Methods** (by feasibility):
+- **Surveys** (ideal): Distribute quantitative surveys to target users
+- **Expert assessment** (viable alternative): Analyst judgment based on user research data
+- **Indirect inference** (minimum requirement): Infer from customer complaint frequency, competitor reviews, search trends
 
-**机会地图可视化**：
+**Opportunity Map Visualization**:
 
 ```
-重要性 10 ┌────────────────────────────┐
-          │  过度满足     │   🔴 最佳   │
-          │  (简化机会)   │   创新机会   │
-          │              │             │
-     5    ├──────────────┼─────────────┤
-          │  不重要       │   低优先级   │
-          │  (忽略)      │   改进      │
-          │              │             │
-     0    └────────────────────────────┘
-          10  满意度      5            0
+Importance 10 ┌────────────────────────────┐
+              │  Overserved    │  🔴 Best    │
+              │  (Simplify     │  Innovation  │
+              │   opportunity) │  Opportunity │
+         5    ├──────────────┼─────────────┤
+              │  Not important │  Low         │
+              │  (Ignore)      │  Priority    │
+              │                │  Improvement │
+         0    └────────────────────────────┘
+              10  Satisfaction  5            0
 ```
 
-### Step 4：分析转换行为（Forces Analysis）
+### Step 4: Analyze Switching Behavior (Forces Analysis)
 
-**动作**：
-1. 识别推力：用户对现有方案的具体不满
-2. 识别拉力：新方案/理想方案的吸引要素
-3. 评估焦虑：用户对新方案的顾虑
-4. 评估惯性：让用户留在旧方案的因素
-5. 设计策略：增强推力+拉力，降低焦虑+惯性
+**Actions**:
+1. Identify Push: Users' specific dissatisfaction with the current solution
+2. Identify Pull: Attractive elements of the new/ideal solution
+3. Assess Anxiety: Users' concerns about the new solution
+4. Assess Habit: Factors keeping users with the old solution
+5. Design strategy: Strengthen Push + Pull, reduce Anxiety + Habit
 
-### Step 5：输出创新方向和建议
+### Step 5: Output Innovation Directions and Recommendations
 
-**动作**：
-1. 综合机会评分和转换四力分析
-2. 识别 TOP 3-5 未满足需求（机会评分 >10）
-3. 为每个未满足需求提出可执行的解决方向
-4. 评估每个方向的可行性和市场潜力
+**Actions**:
+1. Synthesize opportunity scores and Forces of Progress analysis
+2. Identify TOP 3-5 unmet needs (opportunity score >10)
+3. Propose actionable solution directions for each unmet need
+4. Assess feasibility and market potential for each direction
 
 ---
 
-## 输出格式
+## Output Format
 
 ```markdown
-## JTBD 分析：[产品/行业名称]
+## JTBD Analysis: [Product/Industry Name]
 
-### 核心任务定义
-| 任务类型 | 任务陈述 | 情境 |
-|---------|---------|------|
-| 功能性任务 | 当 [情境] 时，我想 [动机]，以便 [结果] | [使用场景] |
-| 情感性任务 | [陈述] | [场景] |
-| 相关任务 | [陈述] | [场景] |
+### Core Job Definition
+| Job Type | Job Statement | Context |
+|----------|-------------|---------|
+| Functional job | When [context], I want to [motivation], so that [outcome] | [usage scenario] |
+| Emotional job | [statement] | [scenario] |
+| Related job | [statement] | [scenario] |
 
-### 任务地图
-| 步骤 | 用户行为 | 关键期望结果 | 当前满足度 |
-|------|---------|-------------|----------|
-| Define | [行为] | [结果] | 高/中/低 |
-| Locate | [行为] | [结果] | 高/中/低 |
-| Prepare | [行为] | [结果] | 高/中/低 |
-| Confirm | [行为] | [结果] | 高/中/低 |
-| Execute | [行为] | [结果] | 高/中/低 |
-| Monitor | [行为] | [结果] | 高/中/低 |
-| Modify | [行为] | [结果] | 高/中/低 |
-| Conclude | [行为] | [结果] | 高/中/低 |
+### Job Map
+| Step | User Behavior | Key Outcome Statements | Current Satisfaction |
+|------|-------------|----------------------|---------------------|
+| Define | [behavior] | [outcome] | High/Medium/Low |
+| Locate | [behavior] | [outcome] | High/Medium/Low |
+| Prepare | [behavior] | [outcome] | High/Medium/Low |
+| Confirm | [behavior] | [outcome] | High/Medium/Low |
+| Execute | [behavior] | [outcome] | High/Medium/Low |
+| Monitor | [behavior] | [outcome] | High/Medium/Low |
+| Modify | [behavior] | [outcome] | High/Medium/Low |
+| Conclude | [behavior] | [outcome] | High/Medium/Low |
 
-### 机会评分 TOP 10
-| 排名 | 期望结果 | 重要性 | 满意度 | 机会评分 | 机会等级 |
-|------|---------|--------|--------|---------|---------|
-| 1 | [结果] | [X] | [X] | [X] | 🔴 严重未满足 |
-| 2 | [结果] | [X] | [X] | [X] | 🟡 未满足 |
+### Opportunity Score TOP 10
+| Rank | Outcome Statement | Importance | Satisfaction | Opp. Score | Opp. Level |
+|------|------------------|-----------|-------------|-----------|-----------|
+| 1 | [outcome] | [X] | [X] | [X] | 🔴 Severely underserved |
+| 2 | [outcome] | [X] | [X] | [X] | 🟡 Underserved |
 | ... | ... | ... | ... | ... | ... |
 
-### 转换四力分析
-| 力量 | 具体表现 | 强度 |
-|------|---------|------|
-| 推力 | [对现状的不满] | 强/中/弱 |
-| 拉力 | [新方案吸引力] | 强/中/弱 |
-| 焦虑 | [对新方案顾虑] | 强/中/弱 |
-| 惯性 | [对现状依赖] | 强/中/弱 |
+### Forces of Progress Analysis
+| Force | Specific Manifestation | Strength |
+|-------|----------------------|----------|
+| Push | [dissatisfaction with current state] | Strong/Medium/Weak |
+| Pull | [new solution attractiveness] | Strong/Medium/Weak |
+| Anxiety | [concerns about new solution] | Strong/Medium/Weak |
+| Habit | [dependence on current state] | Strong/Medium/Weak |
 
-### 创新方向建议
-| 优先级 | 未满足需求 | 解决方向 | 可行性 | 预期影响 |
-|--------|----------|---------|--------|---------|
-| P0 | [需求] | [方向] | 高/中/低 | 高/中/低 |
-| P1 | [需求] | [方向] | 高/中/低 | 高/中/低 |
+### Innovation Direction Recommendations
+| Priority | Unmet Need | Solution Direction | Feasibility | Expected Impact |
+|----------|-----------|-------------------|------------|----------------|
+| P0 | [need] | [direction] | High/Med/Low | High/Med/Low |
+| P1 | [need] | [direction] | High/Med/Low | High/Med/Low |
 ```
 
 ---
 
-## 经典案例
+## Classic Cases
 
-### 案例 1：Christensen 的早餐奶昔
+### Case 1: Christensen's Breakfast Milkshake
 
-**背景**：麦当劳发现 40% 的奶昔在早上 9 点前被购买
+**Background**: McDonald's discovered 40% of milkshakes were purchased before 9 AM
 
-**传统分析**（按用户画像）：改善口味、增加品种 → 效果不明显
+**Traditional analysis** (by user demographics): Improve flavors, add varieties → minimal effect
 
-**JTBD 分析**：
-- **核心任务**：当早晨独自开车通勤时，我想有东西打发无聊并获取能量，以便撑到午饭
-- **"雇佣"奶昔的原因**：稠度高（可以喝20分钟）、单手可操作、不弄脏衣服、有饱腹感
-- **"竞争对手"不是其他品牌奶昔**：而是香蕉、甜甜圈、百吉饼（同一个任务的不同方案）
+**JTBD Analysis**:
+- **Core job**: When commuting alone in the morning, I want something to kill boredom and get energy, so that I last until lunch
+- **Why the milkshake is "hired"**: Thick consistency (can drink for 20 minutes), one-hand operable, doesn't stain clothes, filling
+- **"Competitors" are not other milkshake brands**: They are bananas, donuts, bagels (different solutions for the same job)
 
-**启示**：竞争不在品类内，而在同一任务的所有方案之间。
+**Takeaway**: Competition is not within the category but among all solutions for the same job.
 
-### 案例 2：支付宝 — 从支付工具到生活服务平台
+### Case 2: Alipay — From Payment Tool to Life Services Platform
 
-**核心任务演化**：
-- 初期任务：当网上购物时，我想安全便捷地完成付款，以便不用担心被骗
-- 中期任务：当需要管理个人财务时，我想一个地方搞定所有金融需求
-- 当前任务：当日常生活中遇到各种事务时，我想快速找到并完成办理
+**Core job evolution**:
+- Initial job: When shopping online, I want to complete payment safely and conveniently, so I don't worry about being scammed
+- Mid-stage job: When I need to manage personal finances, I want one place to handle all financial needs
+- Current job: When encountering various tasks in daily life, I want to quickly find and complete them
 
-**期望结果分析**：
-- "最小化 / 确认收款方可信 / 的担忧" → 担保交易
-- "最小化 / 管理多张银行卡 / 的复杂度" → 快捷支付
-- "最小化 / 去不同平台办理不同业务 / 的时间" → 生活号/小程序
+**Outcome Statement analysis**:
+- "Minimize / worry about / whether the payee is trustworthy" → Escrow transactions
+- "Minimize / the complexity of / managing multiple bank cards" → Quick payment
+- "Minimize / the time spent / going to different platforms for different services" → Mini programs
 
-### 案例 3：拼多多 — 任务视角的颠覆式创新
+### Case 3: Pinduoduo — Disruptive Innovation Through the Job Lens
 
-**传统电商的核心任务**：找到想要的商品 → 比价 → 下单
+**Traditional e-commerce core job**: Find the desired product → compare prices → place order
 
-**拼多多发现的不同任务**：
-- 当闲着无聊时，我想逛逛看看有什么便宜好货，以便发现意外的实惠
-- 当想省钱买日用品时，我想用更少的钱买到够用的东西，以便节省家庭开支
+**The different job Pinduoduo discovered**:
+- When bored with nothing to do, I want to browse and see what deals are available, so I discover unexpected bargains
+- When wanting to save money on daily necessities, I want to spend less for adequate items, so I save on household expenses
 
-**机会评分洞察**：
-- "最小化 / 同品质商品 / 的价格" → 重要性 9/满意度 4 → 机会评分 14 🔴
-- "最大化 / 购物时 / 的娱乐感" → 重要性 7/满意度 3 → 机会评分 11 🟡
-
----
-
-## 常见错误
-
-| 错误 | 表现 | 正确做法 |
-|------|------|---------|
-| 任务包含方案 | "用户想用 App 记账" | 去掉方案："用户想掌握收支情况" |
-| 任务太宽泛 | "用户想过更好的生活" | 聚焦到可观察的情境和行为 |
-| 只做定性不做定量 | 列了任务但没有机会评分 | 必须量化重要性和满意度 |
-| 忽略情感性任务 | 只分析功能需求 | 情感任务常是差异化关键 |
-| 把用户需求等同于功能需求 | "用户想要更多筛选条件" | 回到任务层面："用户想快速找到符合条件的选项" |
-| 在品类内找竞争对手 | 奶昔的竞品是其他品牌奶昔 | 同一任务的所有替代方案都是竞争对手 |
-| 忽略消费链任务 | 只分析使用环节 | 购买、学习、维护、处置环节同样有未满足需求 |
+**Opportunity Score insights**:
+- "Minimize / the price of / same-quality products" → Importance 9 / Satisfaction 4 → Opportunity score 14 🔴
+- "Maximize / the entertainment value of / shopping" → Importance 7 / Satisfaction 3 → Opportunity score 11 🟡
 
 ---
 
-## 与其他框架的配合
+## Common Mistakes
 
-| 配合框架 | 关系 | 协同方式 |
-|---------|------|---------|
-| 竞争定位图 | JTBD 定义评价维度 → 竞争定位图可视化展示 | 用 JTBD 的期望结果作为定位图的坐标轴 |
-| 蓝海战略 | JTBD 机会评分 → 蓝海的"消除-减少-增加-创造" | 过度满足的结果"消除/减少"，未满足的结果"增加/创造" |
-| BMC 商业模式画布 | JTBD 输出任务和需求 → BMC 的价值主张和客户细分 | JTBD 的任务直接填入 BMC 的客户任务模块 |
-| 颠覆式创新 | JTBD 的"过度满足区"= 颠覆式创新的入口 | 机会评分 <6 的区域即为低端颠覆机会 |
-| Five Forces | JTBD 定义替代品范围（跨品类竞争） | Five Forces 的替代品分析用 JTBD 重新定义 |
-| 飞轮模型 | JTBD 驱动飞轮的初始价值主张 | 飞轮的第一个推力来自解决用户核心任务 |
+| Mistake | Manifestation | Correct Approach |
+|---------|--------------|-----------------|
+| Job includes solution | "Users want to use an App for bookkeeping" | Remove solution: "Users want to track their income and expenses" |
+| Job too broad | "Users want to live a better life" | Focus on observable context and behavior |
+| Only qualitative, no quantitative | Listed jobs but no opportunity scores | Must quantify importance and satisfaction |
+| Ignoring emotional jobs | Only analyzing functional needs | Emotional jobs are often the key to differentiation |
+| Equating user needs with feature requests | "Users want more filter options" | Return to the job level: "Users want to quickly find options that meet their criteria" |
+| Looking for competitors within the category | Milkshake's competitor is other milkshake brands | All alternative solutions for the same job are competitors |
+| Ignoring consumption chain jobs | Only analyzing the usage stage | Purchase, learning, maintenance, and disposal stages also have unmet needs |
 
 ---
 
-## 中国市场特色要素
+## Integration with Other Frameworks
 
-| 维度 | 中国特色 | 案例 |
-|------|---------|------|
-| **任务识别** | 关注下沉市场独特任务（如"省钱+社交"组合任务）、银发群体数字化任务、Z世代情感化任务 | 拼多多解决"省钱+社交炫耀"组合任务；糖豆广场舞解决银发群体社交任务 |
-| **数据来源** | 小红书、ODPS 用户行为数据、客服数据可大规模验证任务和痛点 | 小红书笔记挖掘真实用户痛点；App 埋点数据验证功能使用率 |
-| **竞品定义** | "超级 App"现象导致竞争边界模糊，同一任务可能被不同平台"抢着完成" | "转账"任务：微信 vs 支付宝 vs 银行 App 跨品类竞争 |
-| **情感任务** | 面子消费、社交货币、国潮认同等中国特色情感任务需特别关注 | 茅台冰淇淋的"社交货币"任务；花西子的"国潮认同"任务 |
-| **文化差异** | "关系"导向的消费决策（亲友推荐权重高）、群体从众心理影响转换四力 | 微信裂变营销利用关系链；小红书种草的从众心理 |
+| Partner Framework | Relationship | Synergy |
+|-------------------|-------------|---------|
+| Competitive Positioning Map | JTBD defines evaluation dimensions → positioning map visualizes them | Use JTBD outcome statements as positioning map axes |
+| Blue Ocean Strategy | JTBD opportunity scores → Blue Ocean's "Eliminate-Reduce-Raise-Create" | "Eliminate/Reduce" overserved outcomes; "Raise/Create" underserved outcomes |
+| BMC Business Model Canvas | JTBD outputs jobs and needs → BMC's value proposition and customer segments | JTBD jobs directly fill BMC's customer jobs module |
+| Disruption Theory | JTBD's "overserved zone" = disruptive innovation entry point | Opportunity scores <6 are low-end disruption opportunities |
+| Five Forces | JTBD defines substitutes scope (cross-category competition) | Five Forces substitute analysis redefined using JTBD |
+| Flywheel | JTBD drives the flywheel's initial value proposition | The flywheel's first push comes from solving the user's core job |
+
+---
+
+## China Market Specifics
+
+| Dimension | China Characteristics | Case |
+|-----------|----------------------|------|
+| **Job identification** | Pay attention to unique lower-tier market jobs (e.g., "save money + social" combo jobs), silver generation digitization jobs, Gen Z emotional jobs | Pinduoduo solves the "save money + social bragging" combo job; Tangdou Square Dancing solves the silver generation's social job |
+| **Data sources** | Xiaohongshu, user behavior data, customer service data can validate jobs and pain points at scale | Xiaohongshu posts mine real user pain points; app analytics data verifies feature usage rates |
+| **Competitor definition** | The "super app" phenomenon blurs competitive boundaries — the same job may be "competed for" by different platforms | The "transfer money" job: WeChat vs Alipay vs bank apps — cross-category competition |
+| **Emotional jobs** | Face-saving consumption, social currency, national brand identity and other China-specific emotional jobs need special attention | Moutai ice cream's "social currency" job; Florasis's "national brand identity" job |
+| **Cultural differences** | Relationship-oriented purchase decisions (high weight on friends/family recommendations), herd mentality influencing the Forces of Progress | WeChat viral marketing leveraging social networks; Xiaohongshu seeding and the herd mentality |
