@@ -5,17 +5,27 @@ import os
 import re
 
 
-def get_tier(workspace):
-    """从 _state.json 读取研究档位（Tier 1/2/3），默认 Tier 3"""
+def load_state(workspace):
+    """加载 _state.json，不存在或解析失败则返回 None"""
     path = os.path.join(workspace, "_state.json")
     if not os.path.isfile(path):
-        return 3
+        return None
     try:
         with open(path, "r", encoding="utf-8", errors="replace") as f:
-            state = json.load(f)
-        return int(state.get("tier", 3))
+            return json.load(f)
     except (json.JSONDecodeError, ValueError, TypeError):
-        return 3
+        return None
+
+
+def get_tier(workspace):
+    """从 _state.json 读取研究档位（Tier 1/2/3），默认 Tier 3"""
+    state = load_state(workspace)
+    if state:
+        try:
+            return int(state.get("tier", 3))
+        except (ValueError, TypeError):
+            return 3
+    return 3
 
 
 def file_exists(workspace, filename):

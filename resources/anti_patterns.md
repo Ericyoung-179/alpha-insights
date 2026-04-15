@@ -25,11 +25,11 @@
 
 **Examples**:
 ```
-❌ "Open-source models are changing the industry landscape"
-✅ "In 2025, open-source models caught up with closed-source models on key benchmarks, with the gap narrowing from 17.5% to 0.3%"
+❌ "The new energy vehicle market is growing rapidly"
+✅ "China's NEV penetration exceeded 50% in 2025, but growth decelerated from 87% to 32%, entering a zero-sum competition phase"
 
-❌ "Companies need to choose the right strategy"
-✅ "Companies with ecosystem operation capabilities should accelerate open-sourcing; otherwise, proceed with caution"
+❌ "Companies need digital transformation"
+✅ "This retailer's online channel accounts for only 12% of revenue, well below the industry average of 35% — the gap must be closed within 18 months"
 ```
 
 **Detection method**:
@@ -47,8 +47,8 @@
 
 **Examples**:
 ```
-❌ "Qwen has 600 million downloads, 170K derivative models, Alibaba Cloud revenue grew 34%..."
-✅ "Qwen's 600 million downloads -> ecosystem effect has formed -> recommend following the open-source strategy"
+❌ "The coffee market is worth 320B RMB in 2024, Luckin Coffee has 18,000 stores, per capita consumption is 12 cups..."
+✅ "Luckin Coffee's 18,000 stores → density already exceeds convenience stores → the barrier to entry has shifted from 'opening stores' to 'operational efficiency'"
 ```
 
 **Detection method**:
@@ -66,8 +66,8 @@
 
 **Examples**:
 ```
-❌ Only emphasizing open-source success stories, ignoring Meta Llama team upheaval
-✅ Analyzing both open-source successes and obstacles, providing balanced judgment
+❌ Only highlighting that a brand's user base grew 200%, while ignoring that CAC doubled and M1 retention is only 15%
+✅ Analyzing both the growth curve and deteriorating unit economics to assess whether growth is sustainable
 ```
 
 **Detection method**:
@@ -85,8 +85,8 @@
 
 **Examples**:
 ```
-❌ "Companies should consider an open-source strategy" (unspecified which type of company)
-✅ "As a major tech company that has released large models, you should assess: 1) Ecosystem capability 2) Commercialization progress 3) Competitive position"
+❌ "The insurance industry should increase technology investment" (no distinction between large and mid-size insurers)
+✅ "As a mid-size insurer with 5B RMB in premiums, prioritize intelligent auto-claim assessment (highest ROI) rather than full-scale digitalization"
 ```
 
 **Detection method**:
@@ -104,8 +104,8 @@
 
 **Examples**:
 ```
-❌ "Open-sourcing leads to success" (ignoring the selection bias that successful companies are more likely to open-source)
-✅ "Open-sourcing is one strategy of successful companies; the causal relationship requires careful evaluation"
+❌ "Livestream e-commerce drove the brand's sales growth" (ignoring the role of promotional discounts)
+✅ "Livestreaming contributed 30% of sales growth, but 70% came from discounts below 50% off — channel effect and price effect must be distinguished"
 ```
 
 **Detection method**:
@@ -123,8 +123,8 @@
 
 **Examples**:
 ```
-❌ "Open-source models have caught up, so we should open-source"
-✅ "Open-source models have caught up, but consider: 1) Closed-source model counterattack 2) Technology iteration speed 3) Window of opportunity"
+❌ "The company holds 25% market share, ranking first in the industry"
+✅ "The company holds 25% market share, but it has declined steadily from 32% over the past three years, while the No.2 player rose from 15% to 22% — the gap is now only 3pp"
 ```
 
 **Detection method**:
@@ -142,8 +142,8 @@
 
 **Examples**:
 ```
-❌ "Open-sourcing will bring 37.5% revenue growth" (no basis)
-✅ "Open-sourcing may bring significant revenue growth, referencing Alibaba Cloud AI revenue +34%"
+❌ "This market will reach 584.73B RMB by 2027" (a precise figure with no basis)
+✅ "This market is projected at 400-600B RMB by 2027 (median of three analyst forecasts), with a growth rate range of 15-25%"
 ```
 
 **Detection method**:
@@ -161,8 +161,8 @@
 
 **Examples**:
 ```
-❌ "Strengthen ecosystem development"
-✅ "Invest 5 million by Q2 to build a 10-person community operations team, targeting 100K developers"
+❌ "Strengthen brand building"
+✅ "Invest 8M RMB by Q3 to sign 3 top-tier KOLs, targeting a 40% increase in brand search index"
 ```
 
 **Detection method**:
@@ -180,8 +180,8 @@
 
 **Examples**:
 ```
-❌ Forcing all six PESTEL dimensions, discussing each superficially
-✅ Using only the 2-3 dimensions most relevant to the problem, analyzing in depth
+❌ Analyzing a restaurant chain's expansion by forcing all six PESTEL dimensions, padding Political/Legal with filler
+✅ Focusing on Economic (consumer downtrading trend) and Social (rise of solo dining) for deep analysis
 ```
 
 **Detection method**:
@@ -199,8 +199,8 @@
 
 **Examples**:
 ```
-❌ "Should open-source the large model"
-✅ "Should open-source the large model, but need to overcome: 1) Technical team resistance 2) Commercialization uncertainty 3) Risk of competitor exploitation"
+❌ "Should expand into overseas markets"
+✅ "Should expand into Southeast Asia, but must overcome: 1) Building a local team (6-12 months) 2) Payment and logistics infrastructure gaps 3) Incumbent competitors' first-mover advantage"
 ```
 
 **Detection method**:

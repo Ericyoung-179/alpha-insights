@@ -1,6 +1,6 @@
 """Stage 2: Framing 验证器"""
 
-from .common import ValidationResult, file_exists, file_contains_keyword, count_pattern
+from .common import ValidationResult, file_exists, file_contains_keyword, count_pattern, load_state
 
 
 def validate(workspace):
@@ -39,11 +39,21 @@ def validate(workspace):
     if framework_count < 2:
         r.warn(f"框架/模型提及仅 {framework_count} 次，建议至少 2 个框架")
 
-    # WARN: IQR 复核标记
-    has_iqr = file_contains_keyword(workspace, f, "IQR") or file_contains_keyword(workspace, f, "独立质量复核")
-    if has_iqr:
-        r.pass_check("IQR 复核已执行")
+    # WARN: IQR 复核（从 _state.json 读取，不从 deliverable 文件搜索）
+    state = load_state(workspace)
+    if state and state.get("iqr_results"):
+        iqr_data = state["iqr_results"].get("2")
+        if iqr_data:
+            result = iqr_data.get("result", "unknown")
+            if result == "BLOCK":
+                r.fail("IQR 复核阻断（BLOCK）— 需修复后重新提交")
+            elif result in ("PASS", "REVISE"):
+                r.pass_check(f"IQR 复核已执行（{result}）")
+            else:
+                r.warn(f"IQR 复核结果异常: {result}")
+        else:
+            r.warn("未检测到 Stage 2 IQR 复核记录（建议执行独立质量复核）")
     else:
-        r.warn("未检测到 IQR 复核标记（建议执行独立质量复核）")
+        r.warn("未检测到 IQR 复核记录（建议执行独立质量复核）")
 
     return r

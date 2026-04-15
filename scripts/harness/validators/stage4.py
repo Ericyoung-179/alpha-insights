@@ -1,22 +1,10 @@
 """Stage 4: Research 验证器"""
 
-import json
-import os
-
 from .common import (
     ValidationResult, file_exists, file_line_count,
     file_contains_keyword, file_contains_pattern, count_pattern,
-    get_tier,
+    get_tier, load_state,
 )
-
-
-def _load_state(workspace):
-    """尝试加载 _state.json，不存在则返回 None"""
-    path = os.path.join(workspace, "_state.json")
-    if not os.path.isfile(path):
-        return None
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
 
 
 def validate(workspace):
@@ -73,7 +61,7 @@ def validate(workspace):
             r.warn(f"B 级以上证据占比 {ratio:.0%}（建议 ≥ 50%）")
 
     # 访谈催收检查点验证（依赖 _state.json）
-    state = _load_state(workspace)
+    state = load_state(workspace)
     if state and state.get("interview_activated"):
         if state.get("interview_checkpoint_done"):
             result = state.get("interview_checkpoint_result", "unknown")
@@ -94,14 +82,21 @@ def validate(workspace):
     else:
         r.warn("未检测到框架分析结论 — Stage 4 要求框架分析结论独立产出")
 
-    # WARN: IQR 复核标记
-    has_iqr = (
-        file_contains_keyword(workspace, f, "IQR")
-        or file_contains_keyword(workspace, f, "独立质量复核")
-    )
-    if has_iqr:
-        r.pass_check("IQR 复核已执行")
+    # WARN: IQR 复核（从 _state.json 读取，不从 deliverable 文件搜索）
+    state = load_state(workspace)
+    if state and state.get("iqr_results"):
+        iqr_data = state["iqr_results"].get("4")
+        if iqr_data:
+            result = iqr_data.get("result", "unknown")
+            if result == "BLOCK":
+                r.fail("IQR 复核阻断（BLOCK）— 需修复后重新提交")
+            elif result in ("PASS", "REVISE"):
+                r.pass_check(f"IQR 复核已执行（{result}）")
+            else:
+                r.warn(f"IQR 复核结果异常: {result}")
+        else:
+            r.warn("未检测到 Stage 4 IQR 复核记录（建议执行独立质量复核）")
     else:
-        r.warn("未检测到 IQR 复核标记（建议执行独立质量复核）")
+        r.warn("未检测到 IQR 复核记录（建议执行独立质量复核）")
 
     return r

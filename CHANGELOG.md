@@ -1,5 +1,20 @@
 # Changelog
 
+## V3.0.3 (2026-04-15)
+
+### Added
+- **Research Process Persistence**: evidence_base.md adds Research Execution Summary (cross-track contradictions/confirmations/gaps), Research Execution Plan (hypothesis-to-search mapping), Analysis Notes (4 mandatory fields), and Stage 5/6 Layered Re-read Protocol
+- **Build Change Detection**: build.sh adds content-checksum-based source file change detection, supplementing mtime-only checks
+
+### Fixed
+- **IQR Detection**: Stage 2/4/6 validators now read `_state.json` IQR records instead of searching keywords in deliverable files
+- **data_sources.md Loading**: Stage 3 layered loading (routing table + per-issue combinations only), Track-specific details loaded on-demand in Stage 4
+
+### Improved
+- **Anti-pattern Example Diversity**: All 10 anti-pattern examples upgraded from single "open source model" theme to diverse business scenarios (NEV, coffee, insurance, e-commerce, F&B, overseas expansion)
+
+---
+
 ## V3.0.2 (2026-04-14)
 
 ### Added
@@ -251,7 +266,7 @@ Shared module: `_workspace_finder.py` -- Intelligently locates workspace directo
 
 **Stage 7B Wrap-up**
 - Streamlined Wrap-up template: issue + Tier + report path + Key Findings + Star/Issue link
-- Knowledge base usage record auto-appended (`doc_id: 532511097`), silent execution without disturbing user
+
 
 ### Improved: Data Sources & Search
 

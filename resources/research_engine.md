@@ -130,6 +130,43 @@ After completing each Track (or when Layer 1 completes), **immediately append th
 > Generated: [date]
 > Last updated: [date]
 
+## Research Execution Summary
+
+> ⏳ This section is filled by Layer 3 Step 3.4 after all Tracks complete
+
+### Core Findings per Track (1-2 sentences each)
+- **Track A**: [Most important finding]
+- **Track B**: [Most important finding]
+- **Track D/E/F/G**: [Fill per actually activated tracks]
+
+### Cross-Track Key Signals
+- 🔴 [Contradiction]: [Track X vs Track Y data conflict — needs interpretation in Stage 5]
+- 🟢 [Corroboration]: [Findings confirmed across multiple Tracks]
+- ⚠️ [Gap]: [Key data from only a single source, annotate confidence level]
+
+### Hypothesis Validation Status Overview
+| Hypothesis | Status | Core Evidence Source |
+|-----------|--------|---------------------|
+| H1 | ✅ Validated / ❌ Falsified / ⏳ Partial | [Source Track] |
+
+## Research Execution Plan (Layer 1 Output)
+
+> ⏳ This section is filled immediately after Layer 1 completes
+
+### Hypothesis → Search Task Mapping
+| Hypothesis | Key Data Point | Search Task | Assigned Track | Keywords |
+|-----------|---------------|-------------|---------------|----------|
+| H1 | [Data point] | [Search question] | A+B | [Keywords] |
+
+### Track Activation Decisions
+| Track | Status | Rationale |
+|-------|--------|-----------|
+| A+B | ✅/⚠️ | [Rationale] |
+| D | ✅/⚠️ | [Rationale] |
+| E | ✅/⚠️ | [Rationale] |
+| F | ✅/⚠️ | [Rationale] |
+| G | ✅/⚠️ | [Rationale] |
+
 ## Hypothesis Validation Framework
 
 | Hypothesis | Sub-question | Analysis Lens | Validation Status | Supporting Evidence | Contradicting Evidence |
@@ -147,14 +184,26 @@ After completing each Track (or when Layer 1 completes), **immediately append th
 > Initialized in Step 1.0, updated per Track following universal rules, final review in Layer 3 Step 3.2.5
 
 ## Track A: Public Data Search
+
+### Search Strategy
+- Keywords: [Actual keyword list used]
+- Search rounds: [Initial keywords → Adjusted keywords (if any)]
+- Data source hits: [Which sources yielded valid data, which came up empty]
+
 ### Evidence Related to [Hypothesis/Sub-question]
 - **[E-001]** [Data point] | Source: [URL/document] | Confidence Level: A/B/C/D | 📊/💡/📰
 
+### Analysis Notes
+- **Expected vs Actual**: [What you expected to find based on hypothesis before searching, whether actual results aligned] (⛔ Required)
+- **Unexpected Signals**: [Unanticipated data points/trends/contradictions; write "No unexpected findings" if none] (⛔ Required)
+- **Evidence Gaps**: [Data you wanted but couldn't find, may need other Tracks to supplement] (⛔ Required)
+- **Cross-Track Correlation**: [Contradictions or corroborations with data from completed Tracks] (Fill when prior Tracks exist)
+
 ## Track B: Directed Sources
-[Same format as above]
+[Same structure as Track A: Search Strategy → Evidence List → Analysis Notes]
 
 ## Track D-G: Specialized Data Sources
-[Appended per activated Track]
+[Appended per activated Track, each containing Search Strategy → Evidence List → Analysis Notes]
 
 ## Framework Analysis Conclusions
 
@@ -540,20 +589,42 @@ Assign search tasks to corresponding tracks:
 1. **Search Task List** (distributed to Subagents)
 2. **Subagent Prompt** (including task description, output format, time constraints)
 
+### ⛔ Persist to Disk Immediately After Layer 1
+
+After Layer 1 completes, **immediately write the task decomposition to the "Research Execution Plan" section of `evidence_base.md`**:
+- Hypothesis → search task mapping table (hypothesis, data points, search tasks, assigned tracks, keywords)
+- Track activation decision table (track, status, rationale)
+
+**Why persist immediately**: Layer 1's task decomposition logic is the critical context for Stage 5 to understand "why this evidence was collected." If it only exists in context, it will be compressed and lost by the platform after 60-120 minutes. Once persisted to disk, Stage 5 can recover the complete hypothesis → evidence causal chain when re-reading.
+
 ---
 
 ## Layer 2: Parallel Execution (Subagent + Main Session, 30-60 minutes)
 
 ### ⛔ Universal Rule: Update Framework-Evidence Map After Each Track
 
-After each Track (A/B/D/E/F/G) completes, update the Framework-Evidence Map while writing to `evidence_base.md`:
+After each Track (A/B/D/E/F/G) completes, perform the following write operations:
 
+**A. Framework-Evidence Map Update**:
 1. **Allocate**: Assign this Track's evidence to the corresponding framework dimensions per H→Lens mapping; fill in evidence ID and key findings
 2. **Status Update**: ⏳→✅ (evidence supported)
 3. **Incidental Coverage**: If an evidence item incidentally relates to a framework dimension without a hypothesis, fill it into the map as well (expanding coverage)
 4. **Gap Observation**: Note which dimensions remain ⏳, leaving them for subsequent Tracks or Layer 3
 
-> Note: This is a lightweight operation (~2-3 minutes per Track). No need to write complete conclusions — just update the table.
+> Note: Map update is a lightweight operation (~2-3 minutes per Track). No need to write complete conclusions — just update the table.
+
+**B. ⛔ Analysis Notes Write** (mandatory, written in the same pass as evidence list):
+
+When each Track's evidence is written to `evidence_base.md`, **immediately following the evidence list**, write analysis notes with all four fields mandatory:
+
+| Field | Content | Why Mandatory |
+|-------|---------|--------------|
+| **Expected vs Actual** | What you expected to find based on hypothesis before searching, whether actual results aligned | Helps Stage 5 understand the significance of evidence |
+| **Unexpected Signals** | Unanticipated data points/trends/contradictions; write "No unexpected findings" if none | Surprises are often the most valuable insight sources |
+| **Evidence Gaps** | Data you wanted but couldn't find, may need other Tracks to supplement | Guides subsequent Tracks and Layer 3 supplementary search direction |
+| **Cross-Track Correlation** | Contradictions or corroborations with data from completed Tracks | Explicitly captures "process intuition" during sequential execution |
+
+⛔ **Writing must happen immediately, not retroactively**. When a Track completes, analytical reasoning in context is at its fullest. Delayed writing degrades note quality due to context compression.
 
 ---
 
@@ -1050,6 +1121,19 @@ After all Tracks complete, perform a final review of the Framework-Evidence Map:
 ### Step 3.3: Output Data Validation List
 
 > Use the "Output Format → Data Validation List" template from [`triangulation.md`](../methodology/triangulation.md).
+
+### Step 3.4: Generate Research Execution Summary
+
+⛔ **Final step of Layer 3**. Write into the "Research Execution Summary" section at the **top** of `evidence_base.md`:
+
+1. **Core findings per track**: Re-read each Track's analysis notes and distill the most important finding in 1-2 sentences
+2. **Cross-track key signals**:
+   - 🔴 Contradiction: Points where different Tracks' data conflict (this is a rich mine for Stage 5 insights)
+   - 🟢 Corroboration: Findings confirmed across multiple Tracks (high-confidence evidence)
+   - ⚠️ Gap: Key data from only a single source (must annotate confidence level)
+3. **Hypothesis validation status overview**: ✅/❌/⏳ status for each hypothesis and core evidence source
+
+**Why this step matters**: During sequential execution, the Main Session naturally accumulates a global understanding of the data across Track D→E→F→G — which contradictions, which corroborations, what was unexpected. But by Stage 5, these understandings have been compressed away by context. The Research Execution Summary **explicitly captures this process intuition**, allowing Stage 5 to recover the global picture in 30 seconds when re-reading.
 
 ---
 
