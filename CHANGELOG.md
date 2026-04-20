@@ -1,5 +1,20 @@
 # Changelog
 
+## V3.0.5 (2026-04-20)
+
+### Added
+- **Change Cascade Mechanism**: Global cascade rule (6 iteration types × cascade paths × incremental actions) — forces downstream deliverable updates when upstream changes
+- **Red/Blue Team Feedback Triage**: Fatal gaps auto-supplemented (no user confirmation) / non-fatal gaps user-decided / conclusion+scoring fixed on spot / Round 2 re-run
+- **Track E Search Standards**: ≥3 keyword groups × ≥10 pages = ≥300 raw posts, full-dataset quantitative + ≥15 selected qualitative
+- **Track E API Degradation Chain**: 5-step degradation (retry → wait → retry → search engine → inform user), prohibits giving up after single failure
+
+### Improved
+- Change cascade promoted from Stage 7A to global Core Behavioral Rule, applicable at all Stages
+- Classification anti-escape rules + S5 incremental evaluation 5-step flow + cascade escalation clause + cascade execution checklist
+- judgment_rules.md Red/Blue Team output format adds "Finding Type" column
+
+---
+
 ## V3.0.4 (2026-04-17)
 
 ### Added

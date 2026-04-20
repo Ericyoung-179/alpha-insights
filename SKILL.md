@@ -28,7 +28,7 @@ hooks:
 
 # Alpha Insights-BizAdvisor — Skill Main File
 
-> Version: V3.0.4 | Last Updated: 2026-04-17
+> Version: V3.0.5 | Last Updated: 2026-04-20
 > Positioning: Replaces a senior business analyst to deliver in-depth, decision-grade research reports
 > This file is a pure orchestration layer; detailed execution instructions reside in files loaded by each Stage
 > **Harness Engineering**: Enforces execution quality through script validation + state machine + incremental persistence
@@ -79,6 +79,51 @@ I am not an AI search engine. I discuss business problems with you and deliver b
 
 ### ⛔ Self-Containment Principle
 All Alpha Insights capabilities must be fulfilled by its own files and built-in scripts. **Invoking any external SKILL is prohibited** (e.g., weavefox-xhs-intel, data-analysis, mckinsey-consultant, etc.). Reason: Other users may not have these external skills installed; Alpha Insights must be independently functional.
+
+### ⛔ Change Cascade Rule
+
+The deliverable chain is directional: `research_definition.md`(S2) → `research_plan.md`(S3) → `evidence_base.md`(S4) → `insights.md`(S5) → `report.html`(S6). **At ANY Stage, when modifying a completed upstream deliverable, ALL downstream nodes must be incrementally updated. Skipping intermediate nodes is PROHIBITED.**
+
+**Execution flow**:
+1. Identify which iteration type the user's request belongs to → determine the starting Stage
+2. Go back to the starting Stage, update its deliverable **following that Stage's normal workflow**
+3. Cascade forward Stage by Stage: each downstream Stage does an incremental update
+4. After each step, inform the user what was updated
+
+> ⚠️ **State machine does not backtrack**: During cascade execution, `_state.json` remains at the current Stage — do NOT call `state_manager advance`. Only execute the corresponding Stage's logic (read/write deliverables), without triggering state transitions.
+
+| Iteration Type | Trigger | Start | Cascade Path | Incremental Action Per Step |
+|---------------|---------|:-----:|-------------|---------------------------|
+| **Expression adjustment** | Fix wording/layout/chart style | S6 | S6 only | Modify report text or styling. No data changes — cascade exempt |
+| **Data supplementation** | "Search more" / "Add XX evidence" | S4 | S4→S5→S6 | S4: Append new evidence to `evidence_base.md` + update analysis notes and research execution summary. S5: Assess whether new evidence changes/strengthens/overturns existing insights. S6: Regenerate report |
+| **Insight adjustment** | "This conclusion is wrong" / "Add a point" | S5 | S5→S6 | S5: Modify affected insight entries, check if `evidence_base.md` has sufficient support (if not, go back to S4 first). S6: Regenerate |
+| **Direction adjustment** | "Change research angle" / "Add a sub-question" | S2/S3 | S2→S3→S4→S5→S6 | S2: Update sub-questions/frameworks. S3: Adjust hypotheses and search plan. S4: Flag old evidence relevance changes + targeted supplemental search. S5: Re-evaluate all insights. S6: Regenerate |
+| **Depth expansion** | "This part is too shallow" | S4 | S4→S5→S6 | Same as data supplementation |
+| **Interview integration** | User provides interview notes | S4 | S4→S5→S6 | S4: Organize into Track C evidence format, write to `evidence_base.md`. S5: Incrementally update insights. S6: Regenerate |
+
+⛔ **Classification Rules** (prevent "expression adjustment" from becoming an escape hatch):
+- **Expression adjustment's sole criterion**: The data itself is correct — only the presentation changes (wording, layout, chart colors, paragraph order)
+- **If ANY of the following applies, it is NOT expression adjustment**: new search, new data, modifying factual content, adding/removing evidence, adjusting conclusions
+- When uncertain, **classify upward** (better to over-cascade than to skip)
+
+**S5 Incremental Evaluation Flow** (concrete steps when cascading to S5. ⛔ Do NOT re-run all 8 judgment rules — only re-score and revise insights affected by new evidence):
+1. Read newly added/changed evidence items
+2. Compare each against existing insights: does new evidence **support** (mark strengthened) / **contradict** (mark for revision) / **irrelevant** (skip)?
+3. Contradicted insights → revise conclusion + update score
+4. New evidence reveals findings not covered by existing insights → draft new insight candidate (with So What + score)
+5. Update `insights.md`, marking which items are newly added/modified in this round
+
+**Cascade Escalation Clause**: If during S4 cascade execution, new data completely falls outside the existing hypothesis framework (new competitors, new market trends, etc.), **do NOT force-fit it into existing hypotheses** — escalate to S3 (adjust hypotheses), or if necessary to S2 (adjust sub-questions). Restart cascade from the new starting point.
+
+**⛔ Cascade Execution Checklist** (must be output after every cascade — enables user audit):
+```
+━━━ Cascade Update Complete ━━━
+Type: {iteration type}
+📄 evidence_base.md — {specific update} [Updated]
+📄 insights.md — {specific update} [Updated]
+📄 report.html — Regenerated [Updated]
+```
+> Every cascaded deliverable must be listed. The user can verify chain completeness at a glance — a missing line means a step was skipped.
 
 ### Search Strategy
 - Prefer **structured search engines**, then web scraping tools, then direct URL extraction
@@ -561,6 +606,44 @@ See `research_engine.md` Track C for details.
 
 **☑️ User Confirmation (after Rule 7, before Red/Blue Team)**: A-class core insights (18-20 points) discussed one by one | B-class core insights (16-17 points) confirmed in batch. ⛔ User confirms insight direction before Red/Blue Team review begins, to avoid reviewing insights the user doesn't endorse.
 
+⛔ **Red/Blue Team Feedback Triage** (after Red/Blue Team execution, cannot be skipped):
+
+Red/Blue Team findings are not "filed and forgotten" — each must drive substantive corrections by type:
+
+| Finding Type | Handling |
+|-------------|---------|
+| **Conclusion issue** (misinterpretation / logic gap) | Rewrite affected insight on the spot |
+| **Scoring issue** (confidence level mismatch) | Downgrade/upgrade on the spot + corresponding rewrite |
+| **Fatal gap** (evidence/direction gap from a fatal challenge) | ⛔ **Supplement immediately, do NOT ask user** — fatal challenges can overturn core logic; proceeding without supplementation means a fundamentally flawed report |
+| **Non-fatal gap** (evidence/direction gap from substantive/addressable challenges) | → AskUserQuestion to let user decide whether to supplement |
+
+> "Fatal challenge" follows the definition in `judgment_rules.md` Rule 8a: "supported by evidence, capable of overturning core logic."
+
+**Execution flow**:
+1. Red/Blue Team Round 1 execution
+2. Triage each finding → conclusion/scoring corrected on the spot → fatal gaps supplemented immediately → non-fatal gaps presented to user
+3. Fatal gaps + user-selected non-fatal gaps → execute ALL supplementary searches in a single S4 round, write all to evidence_base.md, then cascade to S5→S6
+4. Red/Blue Team Round 2 (⛔ must re-run after supplementary search)
+5. Round 2 findings: conclusion/scoring corrected on the spot; evidence gaps recorded in `insights.md` limitations section (no further cascade triggered)
+
+**Triage checklist template** (must be output after each Red/Blue Team round):
+```
+━━━ Red/Blue Team Feedback Triage ━━━
+
+Handled (corrected on the spot):
+  ✅ {insight} — {correction}
+
+Fatal gaps (supplementing now, no confirmation needed):
+  🔴 {gap description} → Returned to S4 for supplementary search
+  🔴 {gap description} → Returned to S2 for adjustment
+
+Non-fatal gaps (your decision):
+  ❓ {gap description} → Return to S4 for supplementary search? Est. {time}
+  ❓ {gap description} → Return to S2 for adjustment?
+
+→ Which ❓ items to supplement? A. All / B. Selective / C. None — proceed with qualifiers in report
+```
+
 **Output**: `{ws}/insights.md` (⛔ Stage 6 gate file)
 
 ---
@@ -603,7 +686,9 @@ python3 scripts/harness/dashboard.py {ws}
 
 **Chapter Organization Principle**: Report core analysis chapters are organized by **insight themes**, not by sub-questions or framework dimensions. Most insight themes naturally correspond to one sub-question (1:1); some cross-question insights may form independent chapters. Chapter titles are judgments/findings (e.g., "The Market Is Undergoing Structural Consolidation"), not questions or framework names. Frameworks are explicitly listed in the "Research Background & Methods" section and used as analytical tools within core analysis chapters. Details in `report_standards.md`.
 
-**Execution**: Narrative arc design → Chapter-by-chapter generation (each chapter self-checks 7 items per `report_standards.md`) → Integration output → **⛔ Anti-pattern self-check** (verify against `anti_patterns.md` "Report Self-check List" item by item; failures must be corrected before continuing) → **🔍 IQR Review** (load `resources/quality_review.md` Stage 6 IQR template, launch independent Subagent to assess report quality, make recommended corrections before delivery) → Delivery package assembly
+**Execution**: Narrative arc design → Chapter-by-chapter generation (each chapter self-checks 7 items per `report_standards.md`) → Integration output → **⛔ Anti-pattern self-check** (verify against `anti_patterns.md` "Report Self-check List" item by item; failures must be corrected before continuing) → **🔍 IQR Review** (load `resources/quality_review.md` Stage 6 IQR template, launch independent Subagent to assess report quality) → Delivery package assembly
+
+> **Stage 6 IQR REVISE Handling**: When IQR returns REVISE, handle by finding type — report expression/structure issues are corrected in S6; if IQR identifies insufficient evidence or flawed insights, follow cascade rules and ask the user whether to return to S4/S5 for supplementation.
 
 🚨 **HTML Generation Method (Mandatory, Cannot Be Overridden)**:
 
@@ -736,14 +821,7 @@ Your domain knowledge is an input I cannot replace — each round of feedback tr
 > 🎯 Stage 7 / 7 — Iteration | 📋 Load: All intermediate deliverables | 🔧 Methodology: As needed
 > **No gate exit** (terminal state)
 
-**7A Iteration**: Expression adjustment (Stage 6) / Content supplementation (Stage 4-6) / Direction adjustment (Stage 2-6) / Depth requirements (Stage 4-5) / Interview integration (Stage 4-6)
-
-**Interview Integration** (Stage 3.5 activated + user selected B "continue for now" in Stage 4):
-When user returns in a new session with interview notes/raw records:
-1. Read interview file (user drags in or provides path), organize into standard Track C evidence format
-2. Append to `evidence_base.md` Track C section
-3. Re-run Stage 5 insights based on new evidence (incrementally update `insights.md`)
-4. Regenerate `report.html`
+**7A Iteration**: User change requests are executed per the "Change Cascade Rule" (see Core Behavioral Rules section). Quick reference: Expression→S6 only / Data supplementation→S4→S5→S6 / Insight adjustment→S5→S6 / Direction adjustment→S2→S3→S4→S5→S6 / Depth expansion→same as data / Interview integration→S4→S5→S6.
 
 **7B Wrap-up** (after user confirms final version, output per template below, language follows user):
 

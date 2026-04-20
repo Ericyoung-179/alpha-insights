@@ -562,10 +562,12 @@ For each challenge, determine:
 
 ### Insight 1: [Title]
 
-| Role | Challenge | Intensity | Handling |
-|------|-----------|-----------|---------|
-| Competitor | [Challenge content] | Substantive | Corrected wording: ... |
-| Skeptical Investor | [Challenge content] | Manageable | Added mitigation: ... |
+| Role | Challenge | Intensity | Finding Type | Handling |
+|------|-----------|-----------|-------------|---------|
+| Competitor | [Challenge content] | Substantive | Conclusion issue / Evidence gap / Direction gap / Scoring issue | Corrected wording / Needs supplementary search / ... |
+| Skeptical Investor | [Challenge content] | Manageable | [Type] | [Handling] |
+
+> **Finding Type Legend**: Conclusion issue (misinterpretation) → rewrite on the spot | Evidence gap (missing data) → submit to triage checklist for user decision | Direction gap (framework/sub-question bias) → submit to triage checklist for user decision | Scoring issue (confidence level mismatch) → adjust on the spot
 
 ### Correction Record
 
@@ -672,10 +674,10 @@ Detection question: Does the analysis only cover direct impacts, ignoring chain 
 
 ### Identified Blind Spots
 
-| # | Dimension | Blind Spot Description | Impact | Handling |
-|---|-----------|----------------------|--------|---------|
-| 1 | Stakeholder | XX perspective not covered | High | Supplementary research completed |
-| 2 | Data | XX data has survivorship bias | Medium | Flagged as research limitation |
+| # | Dimension | Blind Spot Description | Impact | Finding Type | Handling |
+|---|-----------|----------------------|--------|-------------|---------|
+| 1 | Stakeholder | XX perspective not covered | High | Evidence gap / Direction gap | Needs supplementary search → submit to triage checklist |
+| 2 | Data | XX data has survivorship bias | Medium | Conclusion issue | Corrected insight on the spot |
 
 ### Supplementary Insights (Added Due to Blind Spot Review)
 

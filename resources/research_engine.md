@@ -119,6 +119,8 @@ After completing each Track (or when Layer 1 completes), **immediately append th
 
 **Principle: Better to write to file multiple times than to keep data only in context.** The platform automatically compresses early conversation content; files are the only reliable persistence mechanism.
 
+⛔ **Evidence Chain Integrity**: All data cited in `report.html` must be traceable to `evidence_base.md`. Data expanded during Stage 7 iteration must also be written to `evidence_base.md` first before appearing in the report — no skipping. See SKILL.md "Core Behavioral Rules → Change Cascade Rule" for the full cascade mechanism.
+
 **Empty Result Handling**: When any Track returns 0 valid pieces of evidence → Expand keywords and retry once (synonyms/hypernyms/English equivalents) → If still empty, note in evidence_base.md as "Evidence gap: Track X found no data, reason: [keyword/data source limitation]" → Continue to next Track.
 
 **evidence_base.md Structure Template**:
@@ -837,25 +839,66 @@ English examples (Tier 2+ default bilingual search):
 | Blogger activity | fetch_user_notes.js | `--user-id "uid1,uid2" --count 5` |
 | Post details | get_note.js | `--url "share link"` |
 
-**Search Volume Standards**:
+**API Endpoints & Failure Handling**:
 
-> Search volume determines analysis credibility and must meet minimum requirements. Assume ~10 posts per page.
+Scripts have built-in multi-endpoint fallback (3-4 endpoints per script), automatically tried in priority order:
 
-| Research Phase | Search Requirement | Post Count | Notes |
-|---------------|-------------------|-----------|-------|
-| **Pre-scan** | 10-20 pages per keyword | 100-200 posts | Quick topic popularity assessment |
-| **Deep research** | 30-50 pages per keyword | 300-500 posts | Sufficient sample for quantitative analysis |
-| **Competitor analysis** | 15-30 pages per competitor brand | 150-300 posts | Understand competitor share of voice |
+| Script | Endpoints | Endpoints (by priority) |
+|--------|:---------:|------------------------|
+| search_notes.js | 4 | `web/search_notes_v3` → `web/search_notes` → `web_v2/fetch_search_notes` → `app/search_notes` |
+| fetch_user_notes.js | 3 | `web/get_user_notes_v2` → `app_v2/get_user_posted_notes` → `app/get_user_notes` |
+| get_note.js | 3+2 | Detail: `web/get_note_info_v7` → `app_v2/get_mixed_note_detail` → `app/get_note_info`; Resolve link: `web/get_note_id_and_xsec_token` → `app/extract_share_info` |
 
-**Quantitative-Qualitative Integration Requirement**:
+⛔ **Failure Handling Rules (Do NOT give up prematurely)**:
 
-> Social media analysis must output both quantitative metrics and qualitative insights — neither is optional.
+TikHub API experiences temporary outages (all endpoints return 400 simultaneously, but auto-recover within 5-15 minutes). **It is PROHIBITED to declare Track E unavailable after a single failure.** Follow this degradation chain step by step:
 
-| Analysis Type | Quantitative Metrics | Qualitative Insights |
-|--------------|---------------------|---------------------|
-| **Pain point analysis** | Top 5 pain points by percentage | Typical user quotes (3-5) |
-| **Competitor analysis** | Mention count, positive ratio | Real user reviews (2 positive + 2 negative) |
-| **Demand analysis** | "Seeking recommendations" post percentage | Typical help-seeking post content summary |
+```
+Step 1: Run scripts/xhs/ script
+        (script internally falls back through all endpoints)
+    ↓ All endpoints fail (400/timeout)
+Step 2: ⏳ Wait 3-5 minutes, retry the same script
+        (TikHub temporary outages typically recover in 5-15 min)
+    ↓ Still fails
+Step 3: ⏳ Wait another 5 minutes, retry a third time
+    ↓ Still fails
+Step 4: Degrade to search engine "site:xiaohongshu.com {keyword}"
+        Indirectly access XHS content (data quality downgraded, mark as C-level)
+    ↓ Search engine also yields no useful results
+Step 5: Only THEN inform user "XHS data temporarily unavailable"
+        + Suggest: retry later / manually search XHS and provide screenshots
+```
+
+> ⚠️ Endpoint availability changes with TikHub API and XHS anti-scraping policies. When all fail, troubleshoot: (1) API Key validity (2) TikHub service status (3) XHS anti-scraping policy changes.
+
+**Search Volume & Completion Standards**:
+
+> XHS data is rich — maximize information gathered within reasonable time investment. Search volume provides the statistical foundation for quantitative analysis.
+
+| Condition | Minimum Requirement | Notes |
+|-----------|-------------------|-------|
+| **Keyword groups** | ≥ 3 groups (core terms + competitor terms + scenario terms) | Cover different search angles |
+| **Search depth per group** | ≥ 10 pages (~100 posts/group) | Ensure sample size |
+| **Total raw search volume** | ≥ 300 posts | Statistical foundation for quantitative analysis |
+| **Quantitative analysis** | Computed from **full** raw dataset | NOT only from selected posts |
+| **Qualitative selection** | ≥ 15 high-value posts with user quotes written to evidence_base.md evidence pool (**NOT all going into the report** — report citations are selected by Stage 5/6 as needed) | Deep reviews / KOL opinions / high-engagement / typical user feedback |
+
+> When search volume falls short: expand keywords + try different sort orders (popular/latest/general). If still insufficient, record in analysis notes "Evidence Gaps": "Searched X posts, obtained only Y valuable content." Continue to subsequent Tracks.
+
+**Quantitative-Qualitative Analysis Model**:
+
+```
+Search 300+ raw posts
+    ├── Full dataset → Quantitative analysis (sentiment ratio, pain point TOP5, brand mention frequency, popularity index)
+    └── Selected → Qualitative evidence pool (≥15 high-value posts written to evidence_base.md; report cites 3-5 as needed)
+```
+
+| Analysis Type | Quantitative Metrics (full dataset) | Qualitative Evidence (selected) |
+|--------------|-------------------------------------|-------------------------------|
+| **Pain point analysis** | Pain point TOP5 by percentage + engagement-weighted | Typical user quotes (5-8) |
+| **Competitor analysis** | Brand mention frequency + positive/negative ratio | Real user reviews (3 positive + 3 negative) |
+| **Demand analysis** | "Seeking recommendations" post percentage + demand trends | Typical help-seeking post summaries (3-5) |
+| **Popularity analysis** | Keyword popularity index = post count × avg engagement / 1000 | Top viral content analysis (3 posts) |
 
 **Parameter Combination Suggestions**:
 
