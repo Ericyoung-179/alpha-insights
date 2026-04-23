@@ -257,6 +257,8 @@ After completing each Track (or when Layer 1 completes), **immediately append th
 > **Industry Participant Determination**: If the user indicates in Stage 1 `user_brief.md` that they are an existing enterprise/practitioner in the industry being researched (e.g., "we are a cat food company researching the cat food market"), they are considered an industry participant. In this case, D/F/G should be activated by default for exploration, as internal data may contain market insights (e.g., user profiles, competitor comparisons, sales trends).
 >
 > **Priority**: Industry participant determination > skip interaction rules. That is: when the user is an industry participant, F/G do not trigger "value judgment skip" and are activated directly (still subject to access constraints).
+>
+> **When uncertain**: If `user_brief.md` does not clearly indicate whether the user is an industry participant, ask the user during Stage 3 Track planning: "Are you a practitioner or company in this industry? If so, we can leverage your internal data to enhance the research."
 
 **Progress Broadcast**:
 ```

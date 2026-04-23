@@ -220,6 +220,127 @@ Not all six dimensions are equally important. Use an impact matrix to filter key
 
 **So What**: Chinese companies going to Southeast Asia must "adapt to local customs" — they cannot simply replicate the China model but must adapt to local payment (COD), logistics (distributed warehousing), and regulation (local partners).
 
+### Case 3: China New Energy Vehicle (NEV) Industry PESTEL (2025)
+
+> **Why This Case**: NEV is a quintessential intersection of Chinese industrial policy, technological breakthroughs, and international competition. All six PESTEL dimensions have strong driving forces, with significant inter-dimensional interaction effects.
+
+#### Background Snapshot
+
+- China NEV production and sales exceeded 16 million units in 2025, domestic passenger vehicle penetration nearing 60% (vs. only 5.4% in 2020)
+- China vehicle exports exceeded 7 million (global #1), with NEV exports surpassing 2.65 million (+54% YoY)
+- BYD 2025 sales: 4.6 million units (global NEV #1), revenue exceeding RMB 800 billion
+
+---
+
+#### Six-Dimension Deep Dive
+
+##### P — Political | Impact: **High** ↑
+
+| Key Factor | Current State | Change Trend | Impact Direction |
+|-----------|---------------|-------------|------------------|
+| **National industrial strategy** | "New Energy Vehicles" written into Government Work Report and 14th Five-Year Plan for consecutive years | Sustained top-level support | Opportunity |
+| **Fiscal policy** | 2024-2025 purchase tax exemption (cap RMB 30k/vehicle); trade-in subsidies up to RMB 20k | Subsidies tapering but not exiting; shifting from "purchase subsidy" to "usage incentives" | Neutral-to-positive |
+| **Dual-credit policy** | 2025 NEV credit ratio requirement 38%, forcing traditional automakers to accelerate transition | Ratio continues rising | Opportunity |
+| **International trade barriers** | US 100% tariffs; EU up to 35.3% anti-subsidy duties; Canada 100%; Turkey 40% | Chinese automakers accelerating overseas factory construction to bypass tariffs | Threat + Opportunity |
+| **US-China tech rivalry** | Chip export controls tightening, impacting high-end autonomous driving chip supply | Forcing domestic chip substitution acceleration | Threat + Opportunity |
+
+**P-Dimension Summary**: Domestic policy environment is the world's most favorable, but international political risks are rising — "domestic honey pot + overseas fortress."
+
+---
+
+##### E — Economic | Impact: **High** ↑
+
+| Key Factor | Current State | Change Trend | Impact Direction |
+|-----------|---------------|-------------|------------------|
+| **Industry scale** | NEV sales >16 million (+30% YoY), penetration nearing 60% | Growth rate will slow to 15-20%, but absolute volume keeps growing | Opportunity |
+| **Price wars** | 2023-2025 sustained price wars, ASP dropped to ~RMB 156k; BYD revenue RMB 804B but net profit -19% | Industry consolidation accelerating, tail-end players exiting | Threat |
+| **Lithium carbonate prices** | 2025 rose from RMB 58.5k to 100k/ton (+70%) | Raw material volatility increasing cost management difficulty | Threat |
+| **Export revenue** | NEV exports 2.65M (+54%), BYD overseas revenue RMB 310.7B (38.65% of total) | Overseas becoming second growth engine | Opportunity |
+
+**E-Dimension Summary**: Scale dividend still exists, but "rising revenue, falling profit" has become the main theme.
+
+---
+
+##### S — Social | Impact: **Medium** ↑
+
+| Key Factor | Current State | Change Trend | Impact Direction |
+|-----------|---------------|-------------|------------------|
+| **Gen Z as primary buyers** | Post-95s account for 30% of NEV purchases (+12pp YoY) | Young consumers naturally favor NEVs | Opportunity |
+| **Range anxiety easing** | Charging pile stock exceeded 20.09 million (+49.7% YoY) | Charging network rapidly improving | Opportunity |
+| **BEV owner remorse rate** | BEV owners >3 years show 32% regret (McKinsey 2025) | PHEV/EREV preference rising | Threat (BEV) / Opportunity (PHEV) |
+| **Lower-tier market penetration** | Tier 3-4 city penetration rose from ~15% in 2022 to ~40%+ in 2025 | Lower-tier becoming main incremental battlefield | Opportunity |
+
+**S-Dimension Summary**: Social acceptance has passed the inflection point — NEVs have shifted from "early adopter novelty" to "common sense."
+
+---
+
+##### T — Technological | Impact: **High** ↑
+
+| Key Factor | Current State | Change Trend | Impact Direction |
+|-----------|---------------|-------------|------------------|
+| **Battery technology** | LFP cost dropped to ~RMB 0.4/Wh; solid-state batteries in pre-R&D | Solid-state batteries expected to mass-produce by 2027-2028 | Opportunity |
+| **Autonomous driving** | L2+ ADAS adoption >50%; Beijing issued first L3 local regulation (Apr 2025) | L3/L4 gradual deployment | Opportunity |
+| **Charging infrastructure** | 800V high-voltage fast charging spreading from premium to RMB 150k segment | Charging speed approaching refueling experience | Opportunity |
+| **Domestic chip substitution** | Horizon Robotics, Black Sesame accelerating adoption, but high-end compute chips still constrained | Domestic substitution rate rising, but top-tier chips still 2-3 years behind | Opportunity + Threat |
+| **Battery overcapacity** | Capacity >2TWh vs. actual shipments ~1.2TWh, utilization <60% | Oversupply intensifying price wars | Threat (upstream) |
+
+**T-Dimension Summary**: Technology is the core moat — battery + ADAS + fast-charging "three axes," but chip "bottleneck" is the biggest variable.
+
+---
+
+##### E — Environmental | Impact: **Medium** ↑
+
+| Key Factor | Current State | Change Trend | Impact Direction |
+|-----------|---------------|-------------|------------------|
+| **Dual-carbon goals** | NEV penetration 60% already exceeded original 2030 target | Transport carbon reduction accelerating | Opportunity |
+| **Battery retirement wave** | 2024 retirements ~400k tons, recycling market >RMB 48B | 2030 retirements to exceed 250GWh, trillion-RMB track | Opportunity + Threat |
+| **Carbon footprint compliance** | EU requires battery carbon footprint disclosure from 2027 | Carbon footprint becoming export hard threshold | Threat |
+
+**E-Dimension Summary**: NEV itself is a "dual carbon" solution, but battery full-lifecycle environmental issues have shifted from implicit to explicit.
+
+---
+
+##### L — Legal | Impact: **High** ↑
+
+| Key Factor | Current State | Change Trend | Impact Direction |
+|-----------|---------------|-------------|------------------|
+| **Smart vehicle regulations** | Beijing issued first L3 local regulation (Apr 2025) | "15th Five-Year" will formulate national-level regulations | Opportunity |
+| **Data security** | Vehicle data cross-border security guidelines under consultation | Data localization requirements raising compliance costs | Threat |
+| **Recall regulation** | 2024 global smart vehicle recalls +67%; OTA regulation tightening | Quality and safety red line tightening | Threat + Opportunity |
+| **Overseas market access** | EU WVTA certification, non-unified standards across countries | Rising complexity of overseas regulatory compliance | Threat |
+
+**L-Dimension Summary**: Regulations shifting from "encouraging development" to "regulating development" — beneficial for leading enterprises, an elimination accelerator for tail-end players.
+
+---
+
+#### Cross-Dimension Interaction Analysis
+
+```
+P→E: Purchase tax exemption + trade-in subsidies → directly boost NEV sales → scale effects reduce costs
+P→T: US-China chip controls → force domestic ADAS chip substitution → birth of Horizon/Black Sesame
+P→L: EU anti-subsidy tariffs → Chinese automakers forced to build factories in Europe → must adapt to data localization regulations
+T→S: 20M+ charging piles → range anxiety eased → consumers shift from "wait-and-see" to "action"
+S→E: Gen Z preference for high-value smart cars → intensifies price wars → industry profit pressure
+E(Environment)→P: EU carbon footprint requirements → forces China to establish battery carbon footprint accounting system
+L→T: Autonomous driving regulations enacted → L3 legally road-worthy → technology investment returns become visible
+```
+
+#### So What — Strategic Implications
+
+**1. Domestic market**: 60% penetration means incremental market is narrowing. Future is stock replacement (ICE→NEV) + upgrade purchases. Lower-tier markets and PHEV/EREV are the last two incremental strongholds.
+
+**2. Overseas market**: US 100% + EU 35% + Canada 100% tariff combo blocks direct vehicle exports. Must adopt "local factory construction" route. Carbon footprint compliance will be a hard export threshold after 2027.
+
+**3. Technology investment focus**: Battery costs near floor price; next differentiation wave is solid-state batteries. Smart driving (L3/NOA) becoming key purchase decision factor — software gross margin >80% represents a new profit blue ocean.
+
+**4. Industry chain opportunities**: Power battery recycling (2030 market >RMB 1 trillion) + ultra-fast charging network construction + overseas localization services.
+
+#### Case Methodology Takeaways
+
+1. **Data anchoring**: Every dimension uses specific numbers (60% penetration, 100% tariffs, 400k ton retirements), not vague descriptions
+2. **Dimension linking**: P→E→T→L interaction chain analysis reveals causal chains like "EU tariffs → local factory construction → data compliance → tech adaptation"
+3. **So What orientation**: Six dimensions ultimately converge to 4 actionable strategic implications
+
 ---
 
 ## Best Practices

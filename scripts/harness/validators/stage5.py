@@ -24,14 +24,14 @@ def validate(workspace):
         r.fail("未检测到洞察评分")
 
     # 红队审查（所有档位必须执行）
-    has_red = file_contains_pattern(workspace, f, r"红队|red.?team|\b8a\b|Red Team")
+    has_red = file_contains_pattern(workspace, f, r"红队|red.?team|Red.?Team|红队审查")
     if has_red:
         r.pass_check("红队审查记录存在")
     else:
         r.fail("未检测到红队审查记录（所有档位必须执行）")
 
     # 蓝队审查（所有档位必须执行）
-    has_blue = file_contains_pattern(workspace, f, r"蓝队|blue.?team|\b8b\b|Blue Team")
+    has_blue = file_contains_pattern(workspace, f, r"蓝队|blue.?team|Blue.?Team|蓝队审查")
     if has_blue:
         r.pass_check("蓝队审查记录存在")
     else:

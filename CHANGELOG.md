@@ -1,5 +1,31 @@
 # Changelog
 
+## V4.0 (2026-04-23)
+
+> **Core Upgrade**: 4 Weak frameworks strengthened to Strong — all supplemented with deep cases + real financial data anchors + complete analysis workflow demonstrations + methodology takeaways (V3-09)
+
+### Added
+
+- **PESTEL NEV 2025 Deep Case** (+88 lines): 6-dimension detailed analysis (25+ data points), including cross-dimension interaction analysis and 4 actionable So What strategic implications
+- **SWOT Dual-Case Deep TOWS Analysis** (+151 lines): Luckin Coffee 2025 (31,048 stores / RMB 49.3B revenue / 4.1B cups) + BYD 2025 (RMB 804B revenue / 4.6M units), each with four-quadrant data anchoring, four TOWS cross-strategies with 2-3 specific actions each, real-world validation table, and methodology takeaways
+- **Industry Lifecycle Bike-Sharing Full Lifecycle Review** (+114 lines): 2015–2025 complete four-stage data panorama (firms / deployment / financing / daily orders), with transition signal review and 4 methodology takeaways
+- **Cross-Industry Lifecycle Speed Comparison Table**: Bike-sharing 5 years vs. community group buying 3 years vs. US e-commerce 20+ years
+- **Disruption Theory Pinduoduo Deep Case** (+107 lines): 2015–2025 low-end + new-market disruption dual paths, 5-dimension score retrospective (23/25 validation), 4-dimension incumbent failure analysis
+- **Disruption Boundaries Clarified**: Added 3 "often misjudged as disruption" classic cases (iPhone / Tesla / ByteDance) + 3 "where disruption doesn't apply" scenarios (heavy regulation / strong network effects / safety-critical) + "incumbent defense strategy matrix" with 4-tier responses
+- **i18n/en English Version Sync**: All 4 frameworks fully translated and aligned
+
+### Improved
+
+- **SWOT "Why SWOT Is Often Done Poorly"**: Added detailed comparison example (Luckin good vs. bad SWOT), 4 framework enforcement rules made explicit
+
+### Fixed
+
+- SWOT data consistency: Date unified to "end of 2025," Starbucks store count unified to "~7,600 (4.1x)"
+- Disruption Theory factual fix: "2021 surpassed Alibaba's 882M" → "approached Alibaba's 882M, officially surpassed in 2022"
+- TODO: V3-09 marked as completed
+
+---
+
 ## V3.6 (2026-04-21)
 
 ### Added

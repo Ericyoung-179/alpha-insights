@@ -71,6 +71,15 @@ def validate(workspace):
     else:
         r.warn("无 ECharts 图表")
 
+    # 章节数检查（chapter-section 中的 chapter-header 计数）
+    chapter_count = count_pattern(workspace, f, r"chapter-header")
+    if tier >= 3 and chapter_count < 4:
+        r.warn(f"章节仅 {chapter_count} 个（Tier 3 建议 4-5 个核心章节）")
+    elif tier >= 2 and chapter_count < 2:
+        r.warn(f"章节仅 {chapter_count} 个（Tier 2 建议 2-3 个核心章节）")
+    elif chapter_count > 0:
+        r.pass_check(f"章节数: {chapter_count}")
+
     # 反模式检测
     ap_warnings = check_anti_patterns(workspace, f)
     for w in ap_warnings:
